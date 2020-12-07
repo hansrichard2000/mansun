@@ -15,6 +15,11 @@ class CreatePeriodesTable extends Migration
     {
         Schema::create('periodes', function (Blueprint $table) {
             $table->id();
+            $table->string('tahun_periode', 20);
+            $table->text('gambar_periode')->nullable();
+            $table->string('nilai', 5);
+            $table->unsignedBigInteger('created_by');
+            $table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();
         });
     }
