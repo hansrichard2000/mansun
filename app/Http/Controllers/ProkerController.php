@@ -14,7 +14,7 @@ class ProkerController extends Controller
      */
     public function index()
     {
-        //
+        return view('proker.index');
     }
 
     /**

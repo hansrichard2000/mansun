@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\DivisiController;
 use App\Http\Controllers\PeriodeController;
+use App\Http\Controllers\ProkerController;
+use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,3 +22,9 @@ Route::get('/', function () {
 });
 
 Route::resource('periode', PeriodeController::class);
+
+Route::resource('proker', ProkerController::class);
+
+Route::resource('divisi', DivisiController::class);
+
+Route::resource('task', TaskController::class);
