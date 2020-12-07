@@ -1,0 +1,23 @@
+.sidebar .nav-item .nav-link.active {
+    color: rgba(0,0,0,1);
+}
+
+.sidebar .nav-item .nav-link.active i {
+    color: rgba(0,0,0,1);
+ }
+
+.sidebar-dark .nav-item .nav-link {
+    color: rgba(0,0,0,0.3);
+}
+
+.sidebar-dark .nav-item .nav-link i {
+    color: rgba(0,0,0,0.3);
+}
+
+.sidebar-dark .nav-item .nav-link:hover {
+    color: rgba(0,0,0,1);
+}
+
+.sidebar-dark .nav-item .nav-link:hover i{
+    color: rgba(0,0,0,1);
+}
