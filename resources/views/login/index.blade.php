@@ -9,7 +9,7 @@
         <div class="col-md-9 col-lg-12 col-xl-10">
             <div class="card shadow-lg o-hidden border-0 my-5">
                 <div class="card-body p-0">
-                    <div class="row">
+                    <div class="row" style="height: 515px">
                         <div class="col-lg-6 d-none d-lg-flex">
                             <div class="flex-grow-1 bg-login-image" style="background: url(&quot;assets/img/Frame%206.jpg&quot;) center / contain;width: 800px;"></div>
                         </div>
