@@ -28,3 +28,7 @@ Route::resource('proker', ProkerController::class);
 Route::resource('divisi', DivisiController::class);
 
 Route::resource('task', TaskController::class);
+
+Route::get('login', function (){
+   return view('login.index');
+});
