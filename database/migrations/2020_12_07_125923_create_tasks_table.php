@@ -19,9 +19,12 @@ class CreateTasksTable extends Migration
             $table->text('deskripsi')->nullable();
             $table->date('deadline');
             $table->text('link_hasil_kerja')->nullable();
-            $table->foreign('penanggung_jawab')->references('id')->on('users');
-            $table->foreign('statusTaskID')->references('id')->on('status_tasks');
-            $table->foreign('created_by')->references('id')->on('users');
+//            $table->unsignedBigInteger('penanggung_jawab');
+//            $table->foreign('penanggung_jawab')->references('id')->on('users');
+//            $table->unsignedBigInteger('status_task_id');
+//            $table->foreign('status_task_id')->references('id')->on('status_tasks');
+//            $table->unsignedBigInteger('created_by');
+//            $table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();
         });
     }
