@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Status_Proker extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'statusproker',
+    ];
 }

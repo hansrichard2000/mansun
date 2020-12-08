@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Status_Task extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'statustask',
+    ];
 }

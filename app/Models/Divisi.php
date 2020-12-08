@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Divisi extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nama_divisi',
+        'proker_id',
+        'created_by',
+    ];
 }
