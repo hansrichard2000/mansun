@@ -13,7 +13,7 @@ class CreateStatusProkersTable extends Migration
      */
     public function up()
     {
-        Schema::create('status_prokers', function (Blueprint $table) {
+        Schema::create('mansun_status_prokers', function (Blueprint $table) {
             $table->id();
             $table->string("statusproker", "25");
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateStatusProkersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('status_prokers');
+        Schema::dropIfExists('mansun_status_prokers');
     }
 }

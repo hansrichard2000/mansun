@@ -13,7 +13,7 @@ class CreatePeriodesTable extends Migration
      */
     public function up()
     {
-        Schema::create('periodes', function (Blueprint $table) {
+        Schema::create('mansun_periodes', function (Blueprint $table) {
             $table->id();
             $table->string('tahun_periode', 20);
             $table->text('gambar_periode')->nullable();
@@ -31,6 +31,6 @@ class CreatePeriodesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('periodes');
+        Schema::dropIfExists('mansun_periodes');
     }
 }

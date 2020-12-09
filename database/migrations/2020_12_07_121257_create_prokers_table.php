@@ -13,11 +13,11 @@ class CreateProkersTable extends Migration
      */
     public function up()
     {
-        Schema::create('prokers', function (Blueprint $table) {
+        Schema::create('mansun_prokers', function (Blueprint $table) {
             $table->id();
             $table->string('name', 50);
             $table->unsignedBigInteger('periode_id');
-            $table->foreign('periode_id')->references('id')->on('periodes');
+            $table->foreign('periode_id')->references('id')->on('mansun_periodes');
             $table->text('deskripsi_proker');
             $table->date('tanggal_mulai');
             $table->date('tanggal_akhir');
@@ -39,6 +39,6 @@ class CreateProkersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prokers');
+        Schema::dropIfExists('mansun_prokers');
     }
 }

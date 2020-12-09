@@ -13,11 +13,11 @@ class AddForeignToTasksTable extends Migration
      */
     public function up()
     {
-        Schema::table('tasks', function (Blueprint $table) {
+        Schema::table('mansun_tasks', function (Blueprint $table) {
             $table->unsignedBigInteger('penanggung_jawab');
             $table->foreign('penanggung_jawab')->references('id')->on('users');
             $table->unsignedBigInteger('status_task_id');
-            $table->foreign('status_task_id')->references('id')->on('status_tasks');
+            $table->foreign('status_task_id')->references('id')->on('mansun_status_tasks');
             $table->unsignedBigInteger('created_by');
             $table->foreign('created_by')->references('id')->on('users');
         });
@@ -30,7 +30,7 @@ class AddForeignToTasksTable extends Migration
      */
     public function down()
     {
-        Schema::table('tasks', function (Blueprint $table) {
+        Schema::table('mansun_tasks', function (Blueprint $table) {
             $table->dropColumn('penanggung_jawab');
             $table->dropColumn('status_task_id');
             $table->dropColumn('created_by');

@@ -13,7 +13,7 @@ class CreateStatusTasksTable extends Migration
      */
     public function up()
     {
-        Schema::create('status_tasks', function (Blueprint $table) {
+        Schema::create('mansun_status_tasks', function (Blueprint $table) {
             $table->id();
             $table->string("statustask", "20");
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateStatusTasksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('status_tasks');
+        Schema::dropIfExists('mansun_status_tasks');
     }
 }

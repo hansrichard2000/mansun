@@ -13,10 +13,10 @@ class AddStatusProkerToProkerTable extends Migration
      */
     public function up()
     {
-        Schema::table('prokers', function (Blueprint $table) {
+        Schema::table('mansun_prokers', function (Blueprint $table) {
             $table->unsignedBigInteger('status_proker_id')->index()->after('periode_id');
 
-            $table->foreign('status_proker_id')->references('id')->on('status_prokers');
+            $table->foreign('status_proker_id')->references('id')->on('mansun_status_prokers');
         });
     }
 
@@ -27,7 +27,7 @@ class AddStatusProkerToProkerTable extends Migration
      */
     public function down()
     {
-        Schema::table('prokers', function (Blueprint $table) {
+        Schema::table('mansun_prokers', function (Blueprint $table) {
             $table->dropColumn('status_proker_id');
         });
     }

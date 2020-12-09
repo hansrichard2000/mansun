@@ -13,7 +13,7 @@ class CreateTasksTable extends Migration
      */
     public function up()
     {
-        Schema::create('tasks', function (Blueprint $table) {
+        Schema::create('mansun_tasks', function (Blueprint $table) {
             $table->id();
             $table->string('judul', 50);
             $table->text('deskripsi')->nullable();
@@ -30,6 +30,6 @@ class CreateTasksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tasks');
+        Schema::dropIfExists('mansun_tasks');
     }
 }
