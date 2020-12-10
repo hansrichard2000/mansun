@@ -109,7 +109,7 @@
                     <br>
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
                         <h3 class="text-dark mb-0">Daftar Periode</h3>
-                        <a class="btn btn-primary btn-sm d-none d-sm-inline-block" role="button" href="#">&nbsp;Tambah Periode</a>
+                        <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="#">&nbsp;Tambah Periode</a>
                     </div>
                     <hr class="garisKuning">
                     <div class="row">

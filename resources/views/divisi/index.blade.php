@@ -28,7 +28,7 @@
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid">
                         <img class="logo mr-4" src="{{asset('image/logo.png')}}">
-                        <button class="btn btn-link d-md-none rounded-circle ml-3 mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button><strong>Beranda</strong>
+                        <button class="btn btn-link d-md-none rounded-circle ml-3 mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button><strong>Daftar Divisi & Penugasan</strong>
                         <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                             <div class="input-group">
                                 <div class="input-group-append"></div>
@@ -91,7 +91,52 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
-                    <h3 class="text-dark mb-1"></h3>
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <svg class="float-left" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="20" height="20" fill="#68CC2A"/>
+                                </svg>
+                                <p class="float-left">Approved &emsp;</p>
+                                <svg class="float-left" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="20" height="20" fill="#FF2828"/>
+                                </svg>
+                                <p class="float-left">Rejected &emsp;</p>
+                                <svg class="float-left" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="20" height="20" fill="#FFB800"/>
+                                </svg>
+                                <p class="float-left">Submitted &emsp;</p>
+                                <svg class="float-left" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="20" height="20" fill="#B5B5B5"/>
+                                </svg>
+                                <p class="float-left">Not Submitted &emsp;</p>
+                            </div>
+                        </div>
+                        <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block float-right mr-5" role="button" href="#">&nbsp;Tambah Divisi</a>
+                    </div>
+                    <hr class="garisKuning">
+                    <div class="row m-1">
+                        <div class="card">
+                            <div class="card-header">
+                                Nama Divisi
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-striped">
+                                    <thead class="bg-mansun-blue text-white">
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Nama Tugas</th>
+                                            <th scope="col">PIC</th>
+                                            <th scope="col">Deadline</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">Link</th>
+                                            <th scope="col">action</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <footer class="bg-white sticky-footer" style="opacity: 1;background: linear-gradient(#1789fc 100%, rgba(255,255,255,0) 100%);color: rgb(255,255,255);">
