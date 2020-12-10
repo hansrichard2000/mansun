@@ -7,8 +7,8 @@
         <link rel="stylesheet" href="{{asset('assets/fonts/fontawesome-all.min.css')}}">
         <link rel="stylesheet" href="{{asset('assets/fonts/font-awesome.min.css')}}">
         <link rel="stylesheet" href="{{asset('assets/fonts/fontawesome5-overrides.min.css')}}">
-
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        <link rel="stylesheet" href="{{asset('css/layout.css')}}">
     </head>
     <body id="page-top">
         @yield('content')

@@ -21,3 +21,15 @@
 .sidebar-dark .nav-item .nav-link:hover i{
     color: rgba(0,0,0,1);
 }
+
+.fontBeranda{
+    font-family: Broadway;
+}
+
+.top-menu{
+    height: 15%;
+}
+
+.garisKuning{
+    border-color: #FFC42D;
+}
