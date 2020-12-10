@@ -91,7 +91,7 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
-                    <h3 class="text-dark mb-1">Blank Page</h3>
+                    <h3 class="text-dark mb-1"></h3>
                 </div>
             </div>
             <footer class="bg-white sticky-footer" style="opacity: 1;background: linear-gradient(#1789fc 100%, rgba(255,255,255,0) 100%);color: rgb(255,255,255);">
