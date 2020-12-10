@@ -5,8 +5,6 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
-use phpDocumentor\Reflection\Types\Integer;
 
 class UserSeeder extends Seeder
 {
@@ -17,6 +15,8 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+
+        //Seeder Account Admin
         $user = new User();
         $user->name = 'Admin';
         $user->email = 'admin@test.com';
@@ -25,8 +25,10 @@ class UserSeeder extends Seeder
         $user->gender = '0';
         $user->password = Hash::make('12345678');
         $user->is_active = 1;
+        $user->is_admin = 1;
         $user->save();
 
+        //Seeder Account HOD
         $user = new User();
         $user->name = 'HOD';
         $user->email = 'hod@test.com';
@@ -35,8 +37,10 @@ class UserSeeder extends Seeder
         $user->gender = '0';
         $user->password = Hash::make('12345678');
         $user->is_active = 1;
+        $user->is_admin = 0;
         $user->save();
 
+        //Seeder Account Koor
         $user = new User();
         $user->name = 'Koor';
         $user->email = 'koor@test.com';
@@ -45,8 +49,10 @@ class UserSeeder extends Seeder
         $user->gender = '0';
         $user->password = Hash::make('12345678');
         $user->is_active = 1;
+        $user->is_admin = 0;
         $user->save();
 
+        //Seeder Account User
         $user = new User();
         $user->name = 'User';
         $user->email = 'user@test.com';
@@ -55,6 +61,7 @@ class UserSeeder extends Seeder
         $user->gender = '0';
         $user->password = Hash::make('12345678');
         $user->is_active = 1;
+        $user->is_admin = 0;
         $user->save();
     }
 }
