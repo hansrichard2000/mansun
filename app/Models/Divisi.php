@@ -9,6 +9,8 @@ class Divisi extends Model
 {
     use HasFactory;
 
+    protected $table = 'mansun_divisis';
+
     protected $fillable = [
         'nama_divisi',
         'proker_id',

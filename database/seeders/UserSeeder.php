@@ -24,8 +24,8 @@ class UserSeeder extends Seeder
         $user->telp = rand(000000000000,999999999999);
         $user->gender = '0';
         $user->password = Hash::make('12345678');
-        $user->is_active = 1;
-        $user->is_admin = 1;
+        $user->is_active = '1';
+        $user->is_admin = '1';
         $user->save();
 
         //Seeder Account HOD
@@ -36,8 +36,8 @@ class UserSeeder extends Seeder
         $user->telp = rand(000000000000,999999999999);
         $user->gender = '0';
         $user->password = Hash::make('12345678');
-        $user->is_active = 1;
-        $user->is_admin = 0;
+        $user->is_active = '1';
+//        $user->is_admin = 0;
         $user->save();
 
         //Seeder Account Koor
@@ -48,8 +48,8 @@ class UserSeeder extends Seeder
         $user->telp = rand(000000000000,999999999999);
         $user->gender = '0';
         $user->password = Hash::make('12345678');
-        $user->is_active = 1;
-        $user->is_admin = 0;
+        $user->is_active = '1';
+//        $user->is_admin = 0;
         $user->save();
 
         //Seeder Account User
@@ -60,8 +60,8 @@ class UserSeeder extends Seeder
         $user->telp = rand(000000000000,999999999999);
         $user->gender = '0';
         $user->password = Hash::make('12345678');
-        $user->is_active = 1;
-        $user->is_admin = 0;
+        $user->is_active = '1';
+//        $user->is_admin = 0;
         $user->save();
     }
 }

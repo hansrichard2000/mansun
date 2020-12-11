@@ -9,6 +9,8 @@ class Proker extends Model
 {
     use HasFactory;
 
+    protected $table = 'mansun_prokers';
+
     protected $fillable = [
         'name',
         'periode_id',
