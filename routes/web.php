@@ -29,7 +29,7 @@ Route::resource('divisi', DivisiController::class);
 
 Route::resource('task', TaskController::class);
 
-Route::get('login', function (){
+Route::get('viewlogin', function (){
    return view('login.index');
 });
 
