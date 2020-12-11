@@ -15,7 +15,7 @@ class CreateJakaTable extends Migration
     {
         Schema::create('jaka', function (Blueprint $table) {
             $table->id('jaka_id');
-            $table->string('jaka', 255);
+            $table->string('jaka', 50);
             $table->timestamps();
         });
     }

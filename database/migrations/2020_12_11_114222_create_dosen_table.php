@@ -15,11 +15,11 @@ class CreateDosenTable extends Migration
     {
         Schema::create('dosen', function (Blueprint $table) {
             $table->id('dosen_id');
-            $table->string('nip', 255);
-            $table->string('nidn', 255);
+            $table->string('nip', 50)->unique();
+            $table->string('nidn', 50)->unique();
             $table->string('nama', 255);
-            $table->string('email', 255);
-            $table->text('keterangan');
+            $table->string('email', 255)->unique();
+            $table->text('keterangan')->nullable();
             $table->text('passfoto');
             $table->timestamps();
         });
