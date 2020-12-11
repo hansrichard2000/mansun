@@ -37,6 +37,10 @@ Route::get('profil', function (){
     return view('profil.index');
 });
 
+Route::get('addproker', function (){
+    return view('proker.add');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
