@@ -7,11 +7,15 @@
         <link rel="stylesheet" href="{{asset('assets/fonts/fontawesome-all.min.css')}}">
         <link rel="stylesheet" href="{{asset('assets/fonts/font-awesome.min.css')}}">
         <link rel="stylesheet" href="{{asset('assets/fonts/fontawesome5-overrides.min.css')}}">
+        <link rel="stylesheet" href="{{asset('css/app.css')}}">
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
         <link rel="stylesheet" href="{{asset('css/layout.css')}}">
+
+
     </head>
     <body id="page-top">
         @yield('content')
+{{--        <script src="{{ asset('js/app.js')}}" ></script>--}}
         <script src="{{asset('assets/js/jquery.min.js')}}"></script>
         <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
         <script src="{{asset('assets/js/chart.min.js')}}"></script>

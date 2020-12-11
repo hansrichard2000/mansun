@@ -3,7 +3,7 @@
 use App\Http\Controllers\DivisiController;
 use App\Http\Controllers\PeriodeController;
 use App\Http\Controllers\ProkerController;
-use App\Http\Controllers\TaskController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,7 +27,7 @@ Route::resource('proker', ProkerController::class);
 
 Route::resource('divisi', DivisiController::class);
 
-Route::resource('task', TaskController::class);
+Route::resource('user', UserController::class);
 
 Route::get('viewlogin', function (){
    return view('login.index');

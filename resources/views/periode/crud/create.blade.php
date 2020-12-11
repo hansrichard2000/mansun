@@ -1,12 +1,12 @@
 @extends('layouts.html')
 
 @section('judul')
-    Admin Area
+    Tambah Periode
 @endsection
 
 @section('content')
     <div id="wrapper">
-        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: linear-gradient(rgba(255,196,45,0.62) 97%, rgba(255,255,255,0) 100%), url(&quot;assets/img/SLBaru.jpeg&quot;) top / auto no-repeat, #ffc42d;">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: linear-gradient(rgba(255,196,45,0.62) 97%, rgba(255,255,255,0) 100%), url(&quot;../assets/img/SLBaru.jpeg&quot;) top / auto no-repeat, #ffc42d;">
             <div class="container-fluid d-flex flex-column p-0">
                 <a class="navbar-brand d-flex justify-content-center align-items-center mt-3 m-0" href="#">
                     <div class="sidebar-brand-icon rotate-n-15"></div>
@@ -90,48 +90,32 @@
                         </ul>
                     </div>
                 </nav>
-                <div class="container-fluid">
-                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Terakhir Dilihat</h3>
-
-                    </div>
+                <div class="container">
+                    <h2 class="text-dark mb-0">Tambah Periode</h2>
                     <hr class="garisKuning">
-                    <div class="last-page row">
-                        <div class="card bg-dark w-50 h-50">
-                            <img src="{{asset('image/group92.jpg')}}" class="card-img" alt="...">
-                            <div class="card-img-overlay">
-                                <div class="bg-light content-inside">
-                                    <h5 class="card-title text-dark text-center">Card title</h5>
-                                </div>
-                            </div>
+                    <form action="{{route('periode.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <label for="tahun_periode">Tahun Periode :</label>
+                            <input type="text" class="form-control" id="tahun_periode" name="tahun_periode">
                         </div>
-                    </div>
-                    <br>
-                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Daftar Periode</h3>
-                        <form method="GET" action="{{route('periode.create')}}">
-                            <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="{{route('periode.create')}}">&nbsp;Tambah Periode</a>
-                        </form>
-                    </div>
-                    <hr class="garisKuning">
-                    <div class="row">
-{{--                        @foreach()--}}
-                            <div class="col">
-                                <a href="#">
-                                    <div class="card bg-dark daftar-periode">
-                                        <img src="{{asset('image/group92.jpg')}}" class="card-img" alt="...">
-                                        <div class="card-img-overlay">
-                                            <div class="bg-light content-inside">
-                                                <h5 class="card-title text-dark text-center">Card title</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-
-                            </div>
-{{--                        @endforeach--}}
-                    </div>
-
+                        <div class="form-group">
+                            <label for="gambar_periode">Gambar Periode :</label>
+                            <input type="file" class="form-control-file" id="gambar_periode" name="gambar_periode">
+                        </div>
+                        <div class="form-group">
+                            <label for="nilai">Nilai :</label>
+                            <select name="nilai" class="custom-select">
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
+                        <input class="btn bg-mansun-blue text-white" type="submit" id="submit" name="submit" value="Submit">
+                    </form>
                 </div>
             </div>
             <footer class="bg-white sticky-footer" style="opacity: 1;background: linear-gradient(#1789fc 100%, rgba(255,255,255,0) 100%);color: rgb(255,255,255);">

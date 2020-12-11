@@ -112,7 +112,10 @@
                                 <p class="float-left">Not Submitted &emsp;</p>
                             </div>
                         </div>
-                        <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block float-right mr-5" role="button" href="#">&nbsp;Tambah Divisi</a>
+                        <button type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
+                                data-toggle="modal"
+                                data-target="#create">Tambah Divisi</button>
+                        @include('divisi.crud.create')
                     </div>
                     <hr class="garisKuning">
                     <div class="row m-1">
