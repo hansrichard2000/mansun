@@ -1,4 +1,4 @@
-@extends('layouts.html')
+@extends('layouts.beranda')
 
 @section('judul')
     Daftar Tugas

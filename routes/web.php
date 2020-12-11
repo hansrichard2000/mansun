@@ -36,9 +36,9 @@ Route::get('viewlogin', function (){
    return view('login.index');
 });
 
-//Route::get('profil', function (){
-//    return view('profil.index');
-//});
+Route::get('profil', function (){
+    return view('profil.index');
+});
 
 Route::get('adduser', function (){
     return view('user.crud.create');

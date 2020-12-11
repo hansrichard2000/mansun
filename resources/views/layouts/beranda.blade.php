@@ -1,34 +1,27 @@
-@extends('layouts.beranda')
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>@yield('judul')</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+        <link rel="stylesheet" href="{{asset('assets/fonts/fontawesome-all.min.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/fonts/font-awesome.min.css')}}">
+        <link rel="stylesheet" href="{{asset('assets/fonts/fontawesome5-overrides.min.css')}}">
+        <link rel="stylesheet" href="{{asset('css/app.css')}}">
+        <link rel="stylesheet" href="{{asset('css/style.css')}}">
+        <link rel="stylesheet" href="{{asset('css/layout.css')}}">
 
-@section('judul')
-    Tambah Periode
-@endsection
-
-@section('content')
+    </head>
+    <body id="page-top">
     <div id="wrapper">
-        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: linear-gradient(rgba(255,196,45,0.62) 97%, rgba(255,255,255,0) 100%), url(&quot;../assets/img/SLBaru.jpeg&quot;) top / auto no-repeat, #ffc42d;">
-            <div class="container-fluid d-flex flex-column p-0">
-                <a class="navbar-brand d-flex justify-content-center align-items-center mt-3 m-0" href="#">
-                    <div class="sidebar-brand-icon rotate-n-15"></div>
-                    <div class="sidebar-brand-text mx-3"><span style="color: #000000;"><b>ManSUn&nbsp;</b></span></div>
-                </a>
-                <hr class="sidebar-divider my-0">
-                <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item"><a class="nav-link active" href="index.html"><i class="fas fa-home"></i><span>Beranda</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="jadwwal.html"><i class="far fa-calendar-alt"></i><span>Jadwal</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="profile.html"><i class="fas fa-user"></i><span>User Management</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="table.html"><i class="fas fa-table"></i><span>Table</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Login</span></a></li>
-                </ul>
-                <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
-            </div>
-        </nav>
+        @include('nav.nav_beranda')
         <div class="d-flex flex-column" id="content-wrapper">
             <div id="content">
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid">
                         <img class="logo mr-4" src="{{asset('image/logo.png')}}">
-                        <button class="btn btn-link d-md-none rounded-circle ml-3 mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button><strong>Beranda</strong>
+                        <button class="btn btn-link d-md-none rounded-circle ml-3 mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button><strong>@yield('judul-top')</strong>
                         <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                             <div class="input-group">
                                 <div class="input-group-append"></div>
@@ -90,26 +83,7 @@
                         </ul>
                     </div>
                 </nav>
-                <div class="container">
-                    <h2 class="text-dark mb-0">Tambah User</h2>
-                    <hr class="garisKuning">
-                    <form action="{{route('periode.store')}}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <div class="form-group">
-                            <label for="name">Nama User :</label>
-                            <input type="text" class="form-control" id="name" name="name">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email :</label>
-                            <input type="email" class="form-control" id="email" name="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="angkatan">Angkatan :</label>
-                            <input type="number" class="form-control" id="angkatan" name="angkatan">
-                        </div>
-                        <input class="btn bg-mansun-blue text-white" type="submit" id="submit" name="submit" value="Submit">
-                    </form>
-                </div>
+                @yield('content')
             </div>
             <footer class="bg-white sticky-footer" style="opacity: 1;background: linear-gradient(#1789fc 100%, rgba(255,255,255,0) 100%);color: rgb(255,255,255);">
                 <div class="container my-auto">
@@ -117,4 +91,12 @@
                 </div>
             </footer>
         </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
-@endsection
+{{--        <script src="{{ asset('js/app.js')}}" ></script>--}}
+        <script src="{{asset('assets/js/jquery.min.js')}}"></script>
+        <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('assets/js/chart.min.js')}}"></script>
+        <script src="{{asset('assets/js/bs-init.js')}}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+        <script src="{{asset('assets/js/theme.js')}}"></script>
+    </body>
+</html>
