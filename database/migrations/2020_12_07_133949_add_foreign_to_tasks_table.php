@@ -14,11 +14,11 @@ class AddForeignToTasksTable extends Migration
     public function up()
     {
         Schema::table('mansun_tasks', function (Blueprint $table) {
-            $table->unsignedBigInteger('penanggung_jawab');
+            $table->unsignedBigInteger('penanggung_jawab')->index()->after('link_hasil_kerja');
             $table->foreign('penanggung_jawab')->references('id')->on('users');
-            $table->unsignedBigInteger('status_task_id');
+            $table->unsignedBigInteger('status_task_id')->index()->after('penanggung_jawab');
             $table->foreign('status_task_id')->references('id')->on('mansun_status_tasks');
-            $table->unsignedBigInteger('created_by');
+            $table->unsignedBigInteger('created_by')->index()->after('status_task_id');
             $table->foreign('created_by')->references('id')->on('users');
         });
     }

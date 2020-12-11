@@ -1,12 +1,12 @@
 @extends('layouts.html')
 
 @section('judul')
-    Tambah Proker
+    Tambah Periode
 @endsection
 
 @section('content')
     <div id="wrapper">
-        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: linear-gradient(rgba(255,196,45,0.62) 97%, rgba(255,255,255,0) 100%), url(&quot;assets/img/SLBaru.jpeg&quot;) top / auto no-repeat, #ffc42d;">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: linear-gradient(rgba(255,196,45,0.62) 97%, rgba(255,255,255,0) 100%), url(&quot;../assets/img/SLBaru.jpeg&quot;) top / auto no-repeat, #ffc42d;">
             <div class="container-fluid d-flex flex-column p-0">
                 <a class="navbar-brand d-flex justify-content-center align-items-center mt-3 m-0" href="#">
                     <div class="sidebar-brand-icon rotate-n-15"></div>
@@ -28,7 +28,7 @@
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid">
                         <img class="logo mr-4" src="{{asset('image/logo.png')}}">
-                        <button class="btn btn-link d-md-none rounded-circle ml-3 mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button><strong>Tambah Program Kerja</strong>
+                        <button class="btn btn-link d-md-none rounded-circle ml-3 mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button><strong>Beranda</strong>
                         <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                             <div class="input-group">
                                 <div class="input-group-append"></div>
@@ -90,96 +90,25 @@
                         </ul>
                     </div>
                 </nav>
-                <div class="container-fluid">
-                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Tambah Program Kerja</h3>
-
-                    </div>
+                <div class="container">
+                    <h2 class="text-dark mb-0">Tambah User</h2>
                     <hr class="garisKuning">
-                    <div class="form-floating mb-3">
-                        <label for="floatingInput">Nama Program Kerja : </label>
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Input nama program kerja yang akan diisi...">
-                    </div>
-                    <div class="form-floating mb-3">
-                        <label for="floatingInput">Deskripsi : </label>
-                        <input type="text" class="form-control" id="floatingPassword" placeholder="Deskripsi program kerja...">
-                    </div>
-                    <div class="row g-2">
-                        <div class="col-md">
-                            <div class="form-floating mb-3">
-                                <label for="floatingInputGrid">Tanggal Mulai : </label>
-                                <input type="date" class="form-control" id="floatingInputGrid" placeholder="name@example.com" value="tanggalmulai">
-                            </div>
+                    <form action="{{route('periode.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <label for="name">Nama User :</label>
+                            <input type="text" class="form-control" id="name" name="name">
                         </div>
-                        <div class="col-md">
-                            <div class="form-floating mb-3">
-                                <label for="floatingInputGrid">Tanggal Berakhir : </label>
-                                <input type="date" class="form-control" id="floatingInputGrid" placeholder="name@example.com" value="tanggalakhir">
-                            </div>
+                        <div class="form-group">
+                            <label for="email">Email :</label>
+                            <input type="email" class="form-control" id="email" name="email">
                         </div>
-                    </div>
-                    <div class="row g-2">
-                        <div class="col-md">
-                            <div class="form-floating mb-3">
-                                <label for="floatingInput">Pemasukan : </label>
-                                <input type="number" class="form-control" id="floatingInputGrid" placeholder="Total pemasukan..." value="pemasukan">
-                            </div>
+                        <div class="form-group">
+                            <label for="angkatan">Angkatan :</label>
+                            <input type="number" class="form-control" id="angkatan" name="angkatan">
                         </div>
-                        <div class="col-md">
-                            <div class="form-floating mb-3">
-                                <label for="floatingInput">Pengeluaran : </label>
-                                <input type="number" class="form-control" id="floatingInputGrid" placeholder="Total pengeluaran..." value="pengeluaran">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <label for="floatingInput">Akun Instagram : </label>
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Input username account instagram proker kalian...">
-                    </div>
-                    <div class="form-floating mb-3">
-                        <label for="floatingInput">Link Proposal : </label>
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Input link proposal kalian...">
-                    </div>
-                    <div class="form-floating mb-3">
-                        <label for="floatingInput">Link Laporan Pertanggung Jawaban: </label>
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Input nama program kerja yang akan diisi...">
-                    </div>
-                    <div class="form-floating mb-3">
-                        <label for="floatingInput">Nama Program Kerja : </label>
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Input nama program kerja yang akan diisi...">
-                    </div>
-                    <div class="row g-2">
-                        <div class="col-md">
-                            <div class="form-floating mb-3">
-                                <label for="floatingSelectGrid">Status Acara</label>
-                                <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
-                                    <option selected>Status Acara</option>
-                                    <option value="1">Berlangsung</option>
-                                    <option value="2">Selesai</option>
-                                    <option value="3">Belum dimulai</option>
-                                </select>
-
-                            </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="form-floating mb-3">
-                                <label for="floatingSelectGrid">Ketua Acara</label>
-                                <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
-                                    <option selected>Ketua Acara</option>
-                                    <option value="1">0706011910069 - Budi</option>
-                                    <option value="2">0706011910046 - Doni</option>
-                                    <option value="3">0706011910064 - Dani</option>
-                                </select>
-
-                            </div>
-                        </div>
-                        <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                            <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="#">&nbsp;Tambah Periode</a>
-                        </div>
-
-                    </div>
-
-
+                        <input class="btn bg-mansun-blue text-white" type="submit" id="submit" name="submit" value="Submit">
+                    </form>
                 </div>
             </div>
             <footer class="bg-white sticky-footer" style="opacity: 1;background: linear-gradient(#1789fc 100%, rgba(255,255,255,0) 100%);color: rgb(255,255,255);">
