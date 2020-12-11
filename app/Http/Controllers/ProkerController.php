@@ -24,7 +24,7 @@ class ProkerController extends Controller
      */
     public function create()
     {
-        //
+        return view('proker.crud.create');
     }
 
     /**

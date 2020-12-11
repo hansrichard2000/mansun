@@ -6,7 +6,7 @@
 
 @section('content')
     <div id="wrapper">
-        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: linear-gradient(rgba(255,196,45,0.62) 97%, rgba(255,255,255,0) 100%), url(&quot;assets/img/SLBaru.jpeg&quot;) top / auto no-repeat, #ffc42d;">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: linear-gradient(rgba(255,196,45,0.62) 97%, rgba(255,255,255,0) 100%), url(&quot;../assets/img/SLBaru.jpeg&quot;) top / auto no-repeat, #ffc42d;">
             <div class="container-fluid d-flex flex-column p-0">
                 <a class="navbar-brand d-flex justify-content-center align-items-center mt-3 m-0" href="#">
                     <div class="sidebar-brand-icon rotate-n-15"></div>
@@ -97,62 +97,62 @@
                     </div>
                     <hr class="garisKuning">
                     <div class="form-floating mb-3">
-                        <label for="floatingInput">Nama Program Kerja : </label>
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Input nama program kerja yang akan diisi...">
+                        <label for="nama_proker">Nama Program Kerja : </label>
+                        <input type="text" class="form-control" id="nama_proker" name="nama_proker" placeholder="Input nama program kerja yang akan diisi...">
                     </div>
                     <div class="form-floating mb-3">
-                        <label for="floatingInput">Deskripsi : </label>
-                        <input type="text" class="form-control" id="floatingPassword" placeholder="Deskripsi program kerja...">
+                        <label for="deskripsi_proker">Deskripsi : </label>
+                        <textarea rows="4" class="form-control" id="description" name="description"></textarea>
                     </div>
                     <div class="row g-2">
                         <div class="col-md">
                             <div class="form-floating mb-3">
-                                <label for="floatingInputGrid">Tanggal Mulai : </label>
-                                <input type="date" class="form-control" id="floatingInputGrid" placeholder="name@example.com" value="tanggalmulai">
+                                <label for="tanggal_mulai">Tanggal Mulai : </label>
+                                <input type="date" class="form-control" id="tanggal_mulai" name="tanggal_mulai" placeholder="name@example.com" value="tanggalmulai">
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-3">
-                                <label for="floatingInputGrid">Tanggal Berakhir : </label>
-                                <input type="date" class="form-control" id="floatingInputGrid" placeholder="name@example.com" value="tanggalakhir">
+                                <label for="tanggal_akhir">Tanggal Berakhir : </label>
+                                <input type="date" class="form-control" id="tanggal_akhir" name="tanggal_akhir" placeholder="name@example.com" value="tanggalakhir">
                             </div>
                         </div>
                     </div>
                     <div class="row g-2">
                         <div class="col-md">
                             <div class="form-floating mb-3">
-                                <label for="floatingInput">Pemasukan : </label>
-                                <input type="number" class="form-control" id="floatingInputGrid" placeholder="Total pemasukan..." value="pemasukan">
+                                <label for="pemasukkan">Pemasukkan : </label>
+                                <input type="number" class="form-control" id="pemasukkan" name="pemasukkan" placeholder="Total pemasukkan..." value="pemasukan">
                             </div>
                         </div>
                         <div class="col-md">
                             <div class="form-floating mb-3">
-                                <label for="floatingInput">Pengeluaran : </label>
-                                <input type="number" class="form-control" id="floatingInputGrid" placeholder="Total pengeluaran..." value="pengeluaran">
+                                <label for="pengeluaran">Pengeluaran : </label>
+                                <input type="number" class="form-control" id="pengeluaran" name="pengeluaran" placeholder="Total pengeluaran..." value="pengeluaran">
                             </div>
                         </div>
                     </div>
                     <div class="form-floating mb-3">
-                        <label for="floatingInput">Akun Instagram : </label>
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Input username account instagram proker kalian...">
+                        <label for="medos">Akun Instagram : </label>
+                        <input type="text" class="form-control" id="medsos" name="medsos" placeholder="Input username account instagram proker kalian...">
                     </div>
                     <div class="form-floating mb-3">
-                        <label for="floatingInput">Link Proposal : </label>
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Input link proposal kalian...">
+                        <label for="proposal">Link Proposal : </label>
+                        <input type="text" class="form-control" id="proposal" name="proposal" placeholder="Input link proposal kalian...">
                     </div>
                     <div class="form-floating mb-3">
-                        <label for="floatingInput">Link Laporan Pertanggung Jawaban: </label>
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Input nama program kerja yang akan diisi...">
+                        <label for="lpj">Link Laporan Pertanggung Jawaban: </label>
+                        <input type="text" class="form-control" id="lpj" name="lpj" placeholder="Input nama program kerja yang akan diisi...">
                     </div>
                     <div class="form-floating mb-3">
-                        <label for="floatingInput">Nama Program Kerja : </label>
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Input nama program kerja yang akan diisi...">
+                        <label for="gambar_proker">Thumbnail : </label>
+                        <input type="file" class="form-control-file" id="gambar_proker" name="gambar_proker">
                     </div>
                     <div class="row g-2">
                         <div class="col-md">
                             <div class="form-floating mb-3">
-                                <label for="floatingSelectGrid">Status Acara</label>
-                                <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
+                                <label for="status_proker_id">Status Acara</label>
+                                <select class="form-select" id="status_proker_id" name="status_proker_id" aria-label="Floating label select example">
                                     <option selected>Status Acara</option>
                                     <option value="1">Berlangsung</option>
                                     <option value="2">Selesai</option>
@@ -161,20 +161,8 @@
 
                             </div>
                         </div>
-                        <div class="col-md">
-                            <div class="form-floating mb-3">
-                                <label for="floatingSelectGrid">Ketua Acara</label>
-                                <select class="form-select" id="floatingSelectGrid" aria-label="Floating label select example">
-                                    <option selected>Ketua Acara</option>
-                                    <option value="1">0706011910069 - Budi</option>
-                                    <option value="2">0706011910046 - Doni</option>
-                                    <option value="3">0706011910064 - Dani</option>
-                                </select>
-
-                            </div>
-                        </div>
                         <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                            <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="#">&nbsp;Tambah Periode</a>
+                            <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="#">&nbsp;Tambah Proker</a>
                         </div>
 
                     </div>

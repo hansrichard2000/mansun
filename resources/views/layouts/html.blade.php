@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>@yield('judul')</title>
@@ -10,7 +11,6 @@
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
         <link rel="stylesheet" href="{{asset('css/style.css')}}">
         <link rel="stylesheet" href="{{asset('css/layout.css')}}">
-
 
     </head>
     <body id="page-top">

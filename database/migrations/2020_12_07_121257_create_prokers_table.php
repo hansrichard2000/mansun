@@ -15,7 +15,7 @@ class CreateProkersTable extends Migration
     {
         Schema::create('mansun_prokers', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 50);
+            $table->string('nama_proker', 50);
             $table->unsignedBigInteger('periode_id');
             $table->foreign('periode_id')->references('id')->on('mansun_periodes');
             $table->text('deskripsi_proker');
@@ -26,6 +26,7 @@ class CreateProkersTable extends Migration
             $table->string('medsos');
             $table->text('proposal');
             $table->text('lpj');
+            $table->text('gambar_proker')->nullable();
             $table->unsignedBigInteger('created_by');
             $table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();

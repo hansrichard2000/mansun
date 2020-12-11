@@ -109,7 +109,9 @@
                                 <p class="float-left">Belum dimulai &emsp;</p>
                             </div>
                         </div>
-                        <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="#">&nbsp;Tambah Periode</a>
+                        <form method="GET" action="{{route('proker.create')}}">
+                            <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="{{route('proker.create')}}">&nbsp;Tambah Proker</a>
+                        </form>
                     </div>
                     <hr class="garisKuning">
                     <div class="row">

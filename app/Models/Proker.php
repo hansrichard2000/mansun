@@ -12,7 +12,7 @@ class Proker extends Model
     protected $table = 'mansun_prokers';
 
     protected $fillable = [
-        'name',
+        'nama_proker',
         'periode_id',
         'status_proker_id',
         'deskripsi_proker',
@@ -23,6 +23,7 @@ class Proker extends Model
         'medsos',
         'proposal',
         'lpj',
+        'gambar_proker',
         'created_by',
     ];
 }
