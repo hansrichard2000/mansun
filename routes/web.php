@@ -41,6 +41,10 @@ Route::get('addproker', function (){
     return view('proker.add');
 });
 
+Route::get('adduser', function (){
+    return view('user.crud.create');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
