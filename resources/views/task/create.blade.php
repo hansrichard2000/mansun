@@ -1,12 +1,12 @@
 @extends('layouts.html')
 
 @section('judul')
-    Daftar Divisi
+    Tambah Proker
 @endsection
 
 @section('content')
     <div id="wrapper">
-        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: linear-gradient(rgba(255,196,45,0.62) 97%, rgba(255,255,255,0) 100%), url(&quot;assets/img/SLBaru.jpeg&quot;) top / auto no-repeat, #ffc42d;">
+        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: linear-gradient(rgba(255,196,45,0.62) 97%, rgba(255,255,255,0) 100%), url(&quot;../assets/img/SLBaru.jpeg&quot;) top / auto no-repeat, #ffc42d;">
             <div class="container-fluid d-flex flex-column p-0">
                 <a class="navbar-brand d-flex justify-content-center align-items-center mt-3 m-0" href="#">
                     <div class="sidebar-brand-icon rotate-n-15"></div>
@@ -28,7 +28,7 @@
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid">
                         <img class="logo mr-4" src="{{asset('image/logo.png')}}">
-                        <button class="btn btn-link d-md-none rounded-circle ml-3 mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button><strong>Daftar Divisi & Penugasan</strong>
+                        <button class="btn btn-link d-md-none rounded-circle ml-3 mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button><strong>Tambah Program Kerja</strong>
                         <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                             <div class="input-group">
                                 <div class="input-group-append"></div>
@@ -92,71 +92,46 @@
                 </nav>
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <svg class="float-left" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="20" height="20" fill="#68CC2A"/>
-                                </svg>
-                                <p class="float-left">Approved &emsp;</p>
-                                <svg class="float-left" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="20" height="20" fill="#FF2828"/>
-                                </svg>
-                                <p class="float-left">Rejected &emsp;</p>
-                                <svg class="float-left" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="20" height="20" fill="#FFB800"/>
-                                </svg>
-                                <p class="float-left">Submitted &emsp;</p>
-                                <svg class="float-left" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="20" height="20" fill="#B5B5B5"/>
-                                </svg>
-                                <p class="float-left">Not Submitted &emsp;</p>
-                            </div>
-                        </div>
-                        <button type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
-                                data-toggle="modal"
-                                data-target="#create">Tambah Divisi</button>
-                        @include('divisi.crud.create')
+                        <h3 class="text-dark mb-0">Tambah Tugas</h3>
+
                     </div>
                     <hr class="garisKuning">
-                    <div class="row m-1">
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="row">
-                                    <div class="col">
-                                        Nama Divisi
-                                    </div>
-                                    <div class="col">
-                                        <form action="" method="GET">
-                                            @csrf
-                                            <input type="submit" class="btn bg-mansun-blue text-white" value="Lihat anggota">
-                                        </form>
-                                    </div>
-                                    <div class="col">
-                                        <form action="{{route('task.create')}}" method="GET">
-                                            @csrf
-                                            <input type="submit" class="btn bg-mansun-blue text-white" value="Tambah Tugas">
-                                        </form>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="card-body">
-                                <table class="table table-striped">
-                                    <thead class="bg-mansun-blue text-white">
-                                        <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">Nama Tugas</th>
-                                            <th scope="col">PIC</th>
-                                            <th scope="col">Deadline</th>
-                                            <th scope="col">Status</th>
-                                            <th scope="col">Link</th>
-                                            <th scope="col">action</th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>
+                    <form method="POST" action="">
+                        <div class="form-group">
+                            <label for="judul">Judul Tugas : </label>
+                            <input type="text" class="form-control" id="judul" name="judul" placeholder="Input nama program kerja yang akan diisi...">
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="deskripsi">Deskripsi : </label>
+                            <textarea rows="3" class="form-control" id="deskripsi" name="deskripsi"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="deadline">Tenggat Waktu : </label>
+                            <input type="date" class="form-control" id="deadline" name="deadline">
+                        </div>
+                        <div class="form-group">
+                            <label for="link_hasil_kerja">Link Hasil Kerja : </label>
+                            <input type="text" class="form-control" id="link_hasil_kerja" name="link_hasil_kerja" placeholder="Input link proposal kalian...">
+                        </div>
+                        <div class="row g-2">
+                            <div class="col-md">
+                                <div class="form-group">
+                                    <label for="status_task_id">Status Acara</label>
+                                    <select class="form-select" id="status_task_id" name="status_task_id" aria-label="Floating label select example">
+                                        <option value="1" selected>Not Submitted</option>
+                                        <option value="2">Submitted</option>
+                                        <option value="3">Approved</option>
+                                        <option value="4">Rejected</option>
+                                    </select>
+
+                                </div>
+                            </div>
+                            <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                                <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="#">&nbsp;Tambah Tugas</a>
+                            </div>
+
+                        </div>
+                    </form>
                 </div>
             </div>
             <footer class="bg-white sticky-footer" style="opacity: 1;background: linear-gradient(#1789fc 100%, rgba(255,255,255,0) 100%);color: rgb(255,255,255);">

@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Divisi;
 use Illuminate\Http\Request;
 
-class DivisiController extends Controller
+class TaskController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class DivisiController extends Controller
      */
     public function index()
     {
-        return view('divisi.index');
+        //
     }
 
     /**
@@ -24,7 +23,7 @@ class DivisiController extends Controller
      */
     public function create()
     {
-
+        return view('task.create');
     }
 
     /**
@@ -41,21 +40,21 @@ class DivisiController extends Controller
     /**
      * Display the specified resource.
      *
-//     * @param  \App\Models\Divisi  $divisi
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        return view('divisi.crud.listAnggota');
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Divisi  $divisi
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Divisi $divisi)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +63,10 @@ class DivisiController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Divisi  $divisi
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Divisi $divisi)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +74,10 @@ class DivisiController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Divisi  $divisi
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Divisi $divisi)
+    public function destroy($id)
     {
         //
     }

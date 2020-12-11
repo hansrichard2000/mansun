@@ -92,7 +92,6 @@
                 </nav>
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Program kerja</h3>
                         <div class="card">
                             <div class="card-body">
                                 <svg class="float-left" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -109,9 +108,8 @@
                                 <p class="float-left">Belum dimulai &emsp;</p>
                             </div>
                         </div>
-                        <form method="POST"">
+                        <form method="POST">
                             <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="{{route('proker.create')}}">&nbsp;Tambah Proker</a>
-                            <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="{{route('proker.create')}}"> Delete Proker</a>
                         </form>
                     </div>
                     <hr class="garisKuning">
@@ -119,59 +117,13 @@
                         {{--                        @foreach()--}}
                         <div class="col">
                             <a href="#">
-                                <div class="card bg-dark daftar-proker" a href="#">
-                                    <img src="{{asset('image/group92.jpg')}}" class="card-img" alt="...">
-                                    <div class="card-img-overlay">
-                                        <div class="bg-light content-inside">
-                                            <h5 class="card-title text-dark text-center">NPLC</h5>
-                                        </div>
+                                <div class="card" style="width: 30em;height: 18em">
+                                    <img src="{{asset('image/group92.jpg')}}" class="card-img-top" alt="...">
+                                    <div class="card-body p-0 ml-3" >
+                                        <p class="card-text"><strong>Nama Proker</strong></p>
                                     </div>
                                 </div>
                             </a>
-
-                        </div>
-                        <div class="col">
-                            <a href="#">
-                                <div class="card bg-dark daftar-proker" a href="#">
-                                    <img src="{{asset('image/group92.jpg')}}" class="card-img" alt="...">
-                                    <div class="card-img-overlay">
-                                        <div class="bg-light content-inside">
-                                            <h5 class="card-title text-dark text-center">Red Carpet Night</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                        </div>
-                        {{--                        @endforeach--}}
-                    </div>
-                    <div class="row">
-                        {{--                        @foreach()--}}
-                        <div class="col">
-                            <a href="#">
-                                <div class="card bg-dark daftar-proker" a href="#">
-                                    <img src="{{asset('image/group92.jpg')}}" class="card-img" alt="...">
-                                    <div class="card-img-overlay">
-                                        <div class="bg-light content-inside">
-                                            <h5 class="card-title text-dark text-center">Yeet</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                        </div>
-                        <div class="col">
-                            <a href="#">
-                                <div class="card bg-dark daftar-proker" a href="#">
-                                    <img src="{{asset('image/group92.jpg')}}" class="card-img" alt="...">
-                                    <div class="card-img-overlay">
-                                        <div class="bg-light content-inside">
-                                            <h5 class="card-title text-dark text-center">Nani</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
                         </div>
                         {{--                        @endforeach--}}
                     </div>

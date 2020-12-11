@@ -92,31 +92,25 @@
                 </nav>
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="text-dark mb-0 ml-3">Nama Divisi</h3>
                         <button type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
                                 data-toggle="modal"
                                 data-target="#create">Tambah Anggota</button>
                     </div>
                     <hr class="garisKuning">
                     <div class="row m-1">
-                        <div class="card">
-                            <div class="card-header">
-                                List Anggota
-                            </div>
-                            <div class="card-body">
-                                <table class="table table-striped">
-                                    <thead class="bg-mansun-blue text-white">
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Nama Anggota</th>
-                                        <th scope="col">NIM</th>
-                                        <th scope="col">Angkatan</th>
-                                        <th scope="col">Role</th>
-                                        <th scope="col">Action</th>
-                                    </tr>
-                                    </thead>
-                                </table>
-                            </div>
-                        </div>
+                        <table class="table table-striped">
+                            <thead class="bg-mansun-blue text-white">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Nama Anggota</th>
+                                <th scope="col">NIM</th>
+                                <th scope="col">Angkatan</th>
+                                <th scope="col">Role</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                            </thead>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -125,5 +119,6 @@
                     <div class="text-center my-auto copyright"><span>Copyright © Mansun 2020</span></div>
                 </div>
             </footer>
-        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a></div>
+        </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
 @endsection

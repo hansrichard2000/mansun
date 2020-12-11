@@ -97,12 +97,10 @@
                     </div>
                     <hr class="garisKuning">
                     <div class="last-page row">
-                        <div class="card bg-dark w-50 h-50">
-                            <img src="{{asset('image/group92.jpg')}}" class="card-img" alt="...">
-                            <div class="card-img-overlay">
-                                <div class="bg-light content-inside">
-                                    <h5 class="card-title text-dark text-center">Card title</h5>
-                                </div>
+                        <div class="card" style="width: 30em;height: 18em">
+                            <img src="{{asset('image/group92.jpg')}}" class="card-img-top" alt="...">
+                            <div class="card-body p-0 ml-3" >
+                                <p class="card-text"><strong>Nama Periode</strong></p>
                             </div>
                         </div>
                     </div>
@@ -116,14 +114,12 @@
                     <hr class="garisKuning">
                     <div class="row">
 {{--                        @foreach()--}}
-                            <div class="col">
+                            <div class="col ml-3">
                                 <a href="#">
-                                    <div class="card bg-dark daftar-periode">
-                                        <img src="{{asset('image/group92.jpg')}}" class="card-img" alt="...">
-                                        <div class="card-img-overlay">
-                                            <div class="bg-light content-inside">
-                                                <h5 class="card-title text-dark text-center">Card title</h5>
-                                            </div>
+                                    <div class="card" style="width: 30em;height: 18em">
+                                        <img src="{{asset('image/group92.jpg')}}" class="card-img-top" alt="...">
+                                        <div class="card-body p-0 ml-3" >
+                                            <p class="card-text"><strong>Nama Periode</strong></p>
                                         </div>
                                     </div>
                                 </a>
@@ -131,7 +127,7 @@
                             </div>
 {{--                        @endforeach--}}
                     </div>
-
+                    <br><br>
                 </div>
             </div>
             <footer class="bg-white sticky-footer" style="opacity: 1;background: linear-gradient(#1789fc 100%, rgba(255,255,255,0) 100%);color: rgb(255,255,255);">
