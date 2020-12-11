@@ -28,7 +28,7 @@
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid">
                         <img class="logo mr-4" src="{{asset('image/logo.png')}}">
-                        <button class="btn btn-link d-md-none rounded-circle ml-3 mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button><strong>Beranda</strong>
+                        <button class="btn btn-link d-md-none rounded-circle ml-3 mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button><strong>Program Kerja</strong>
                         <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                             <div class="input-group">
                                 <div class="input-group-append"></div>
@@ -91,7 +91,87 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
-                    <h3 class="text-dark mb-1">Blank Page</h3>
+                    <div class="d-sm-flex justify-content-between align-items-center mb-4">
+                        <h3 class="text-dark mb-0">Program kerja</h3>
+                        <div class="card">
+                            <div class="card-body">
+                                <svg class="float-left" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="20" height="20" fill="#68CC2A"/>
+                                </svg>
+                                <p class="float-left">Berlangsung &emsp;</p>
+                                <svg class="float-left" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="20" height="20" fill="#FF2828"/>
+                                </svg>
+                                <p class="float-left">Selesai &emsp;</p>
+                                <svg class="float-left" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="20" height="20" fill="#2A65FC"/>
+                                </svg>
+                                <p class="float-left">Belum dimulai &emsp;</p>
+                            </div>
+                        </div>
+                        <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="#">&nbsp;Tambah Periode</a>
+                    </div>
+                    <hr class="garisKuning">
+                    <div class="row">
+                        {{--                        @foreach()--}}
+                        <div class="col">
+                            <a href="#">
+                                <div class="card bg-dark daftar-proker" a href="#">
+                                    <img src="{{asset('image/group92.jpg')}}" class="card-img" alt="...">
+                                    <div class="card-img-overlay">
+                                        <div class="bg-light content-inside">
+                                            <h5 class="card-title text-dark text-center">NPLC</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                        <div class="col">
+                            <a href="#">
+                                <div class="card bg-dark daftar-proker" a href="#">
+                                    <img src="{{asset('image/group92.jpg')}}" class="card-img" alt="...">
+                                    <div class="card-img-overlay">
+                                        <div class="bg-light content-inside">
+                                            <h5 class="card-title text-dark text-center">Red Carpet Night</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                        {{--                        @endforeach--}}
+                    </div>
+                    <div class="row">
+                        {{--                        @foreach()--}}
+                        <div class="col">
+                            <a href="#">
+                                <div class="card bg-dark daftar-proker" a href="#">
+                                    <img src="{{asset('image/group92.jpg')}}" class="card-img" alt="...">
+                                    <div class="card-img-overlay">
+                                        <div class="bg-light content-inside">
+                                            <h5 class="card-title text-dark text-center">Yeet</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                        <div class="col">
+                            <a href="#">
+                                <div class="card bg-dark daftar-proker" a href="#">
+                                    <img src="{{asset('image/group92.jpg')}}" class="card-img" alt="...">
+                                    <div class="card-img-overlay">
+                                        <div class="bg-light content-inside">
+                                            <h5 class="card-title text-dark text-center">Nani</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+
+                        </div>
+                        {{--                        @endforeach--}}
+                    </div>
                 </div>
             </div>
             <footer class="bg-white sticky-footer" style="opacity: 1;background: linear-gradient(#1789fc 100%, rgba(255,255,255,0) 100%);color: rgb(255,255,255);">
