@@ -1,7 +1,7 @@
 @extends('layouts.html')
 
 @section('judul')
-    Daftar Proker
+    List Anggota
 @endsection
 
 @section('content')
@@ -28,7 +28,7 @@
                 <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
                     <div class="container-fluid">
                         <img class="logo mr-4" src="{{asset('image/logo.png')}}">
-                        <button class="btn btn-link d-md-none rounded-circle ml-3 mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button><strong>Program Kerja</strong>
+                        <button class="btn btn-link d-md-none rounded-circle ml-3 mr-3" id="sidebarToggleTop" type="button"><i class="fas fa-bars"></i></button><strong>List Anggota Divisi</strong>
                         <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                             <div class="input-group">
                                 <div class="input-group-append"></div>
@@ -92,88 +92,31 @@
                 </nav>
                 <div class="container-fluid">
                     <div class="d-sm-flex justify-content-between align-items-center mb-4">
-                        <h3 class="text-dark mb-0">Program kerja</h3>
-                        <div class="card">
-                            <div class="card-body">
-                                <svg class="float-left" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="20" height="20" fill="#68CC2A"/>
-                                </svg>
-                                <p class="float-left">Berlangsung &emsp;</p>
-                                <svg class="float-left" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="20" height="20" fill="#FF2828"/>
-                                </svg>
-                                <p class="float-left">Selesai &emsp;</p>
-                                <svg class="float-left" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="20" height="20" fill="#2A65FC"/>
-                                </svg>
-                                <p class="float-left">Belum dimulai &emsp;</p>
-                            </div>
-                        </div>
-                        <form method="POST"">
-                            <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="{{route('proker.create')}}">&nbsp;Tambah Proker</a>
-                            <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="{{route('proker.create')}}"> Delete Proker</a>
-                        </form>
+                        <button type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
+                                data-toggle="modal"
+                                data-target="#create">Tambah Anggota</button>
                     </div>
                     <hr class="garisKuning">
-                    <div class="row">
-                        {{--                        @foreach()--}}
-                        <div class="col">
-                            <a href="#">
-                                <div class="card bg-dark daftar-proker" a href="#">
-                                    <img src="{{asset('image/group92.jpg')}}" class="card-img" alt="...">
-                                    <div class="card-img-overlay">
-                                        <div class="bg-light content-inside">
-                                            <h5 class="card-title text-dark text-center">NPLC</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
+                    <div class="row m-1">
+                        <div class="card">
+                            <div class="card-header">
+                                List Anggota
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-striped">
+                                    <thead class="bg-mansun-blue text-white">
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nama Anggota</th>
+                                        <th scope="col">NIM</th>
+                                        <th scope="col">Angkatan</th>
+                                        <th scope="col">Role</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
                         </div>
-                        <div class="col">
-                            <a href="#">
-                                <div class="card bg-dark daftar-proker" a href="#">
-                                    <img src="{{asset('image/group92.jpg')}}" class="card-img" alt="...">
-                                    <div class="card-img-overlay">
-                                        <div class="bg-light content-inside">
-                                            <h5 class="card-title text-dark text-center">Red Carpet Night</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                        </div>
-                        {{--                        @endforeach--}}
-                    </div>
-                    <div class="row">
-                        {{--                        @foreach()--}}
-                        <div class="col">
-                            <a href="#">
-                                <div class="card bg-dark daftar-proker" a href="#">
-                                    <img src="{{asset('image/group92.jpg')}}" class="card-img" alt="...">
-                                    <div class="card-img-overlay">
-                                        <div class="bg-light content-inside">
-                                            <h5 class="card-title text-dark text-center">Yeet</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                        </div>
-                        <div class="col">
-                            <a href="#">
-                                <div class="card bg-dark daftar-proker" a href="#">
-                                    <img src="{{asset('image/group92.jpg')}}" class="card-img" alt="...">
-                                    <div class="card-img-overlay">
-                                        <div class="bg-light content-inside">
-                                            <h5 class="card-title text-dark text-center">Nani</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-
-                        </div>
-                        {{--                        @endforeach--}}
                     </div>
                 </div>
             </div>

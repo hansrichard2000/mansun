@@ -45,6 +45,10 @@ Route::get('adduser', function (){
     return view('user.crud.create');
 });
 
+Route::get('listanggota', function (){
+    return view('divisi.crud.read');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

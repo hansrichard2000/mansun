@@ -14,7 +14,8 @@ class ProkerController extends Controller
      */
     public function index()
     {
-        return view('proker.index');
+        $prokers = Proker::all();
+        return view('proker.index', compact('prokers'));
     }
 
     /**
@@ -69,7 +70,8 @@ class ProkerController extends Controller
      */
     public function update(Request $request, Proker $proker)
     {
-        //
+        $proker->update($request->all());
+        return redirect()->route('proker.index');
     }
 
     /**
@@ -80,6 +82,7 @@ class ProkerController extends Controller
      */
     public function destroy(Proker $proker)
     {
-        //
+        $proker->delete();
+        return redirect()->route('proker.index');
     }
 }
