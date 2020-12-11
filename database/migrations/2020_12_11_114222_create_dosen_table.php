@@ -14,7 +14,7 @@ class CreateDosenTable extends Migration
     public function up()
     {
         Schema::create('dosen', function (Blueprint $table) {
-            $table->id();
+            $table->id('dosen_id');
             $table->string('nip', 255);
             $table->string('nidn', 255);
             $table->string('nama', 255);

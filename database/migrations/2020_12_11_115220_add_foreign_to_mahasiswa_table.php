@@ -15,7 +15,7 @@ class AddForeignToMahasiswaTable extends Migration
     {
         Schema::table('mahasiswa', function (Blueprint $table) {
             $table->unsignedBigInteger('prodi_id')->index()->after('passfoto');
-            $table->foreign('prodi_id')->references('id')->on('program_studi');
+            $table->foreign('prodi_id')->references('prodi_id')->on('program_studi');
         });
     }
 

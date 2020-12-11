@@ -15,11 +15,11 @@ class AddForeignToDosenTable extends Migration
     {
         Schema::table('dosen', function (Blueprint $table) {
             $table->unsignedBigInteger('prodi_id')->index()->after('passfoto');
-            $table->foreign('prodi_id')->references('id')->on('program_studi');
+            $table->foreign('prodi_id')->references('prodi_id')->on('program_studi');
             $table->unsignedBigInteger('jabatan_id')->index()->after('prodi_id');
-            $table->foreign('jabatan_id')->references('id')->on('jabatan');
+            $table->foreign('jabatan_id')->references('jabatan_id')->on('jabatan');
             $table->unsignedBigInteger('jaka_id')->index()->after('jabatan_id');
-            $table->foreign('jaka_id')->references('id')->on('jaka');
+            $table->foreign('jaka_id')->references('jaka_id')->on('jaka');
         });
     }
 

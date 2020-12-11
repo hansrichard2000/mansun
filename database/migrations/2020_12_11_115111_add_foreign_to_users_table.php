@@ -15,9 +15,9 @@ class AddForeignToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->unsignedBigInteger('mahasiswa_id')->index()->after('id');
-            $table->foreign('mahasiswa_id')->references('id')->on('mahasiswa');
-            $table->unsignedBigInteger('dosen_id')->index()->after('maahasiswa_id');
-            $table->foreign('dosen_id')->references('id')->on('dosen');
+            $table->foreign('mahasiswa_id')->references('mahasiswa_id')->on('mahasiswa');
+            $table->unsignedBigInteger('dosen_id')->index()->after('mahasiswa_id');
+            $table->foreign('dosen_id')->references('dosen_id')->on('dosen');
         });
     }
 
