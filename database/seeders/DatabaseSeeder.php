@@ -19,10 +19,15 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         $this->call([
-            UserSeeder::class,
-            RoleSeeder::class,
-            StatusProkerSeeder::class,
+            ProgramStudiSeeder::class,
+            JabatanSeeder::class,
+            JakaSeeder::class,
             StatusTaskSeeder::class,
+            StatusProkerSeeder::class,
+            RoleSeeder::class,
+            MahasiswaSeeder::class,
+            DosenSeeder::class,
+            UserSeeder::class,
         ]);
 
         Model::reguard();

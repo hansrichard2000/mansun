@@ -20,7 +20,7 @@ class CreateDosenTable extends Migration
             $table->string('nama', 255);
             $table->string('email', 255)->unique();
             $table->text('keterangan')->nullable();
-            $table->text('passfoto');
+            $table->text('passfoto')->nullable();
             $table->timestamps();
         });
     }
