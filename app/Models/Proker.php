@@ -26,4 +26,16 @@ class Proker extends Model
         'gambar_proker',
         'created_by',
     ];
+
+    public function creator(){
+        return $this->belongsto(User::class, 'created_by', 'id');
+    }
+
+    public function status_proker(){
+        return $this->belongsto(Status_Proker::class, 'status_proker_id', 'id');
+    }
+
+    public function periode(){
+        return $this->belongsto(Periode::class, 'periode_id', 'id');
+    }
 }

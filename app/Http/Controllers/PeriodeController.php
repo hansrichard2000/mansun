@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Periode;
+use App\Models\Proker;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -66,13 +67,14 @@ class PeriodeController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param  \App\Models\Periode  $periode
+     * @param  int  $id
+     * @param  \App\Models\Proker $prokers
      * @return \Illuminate\Http\Response
      */
-    public function show(Periode $periode)
+    public function show(Proker $prokers, $id)
     {
-        //
+        $prokers = Proker::all()->where('periode_id', $id);
+        return view('proker.index', compact('prokers'));
     }
 
     /**

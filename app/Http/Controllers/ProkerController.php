@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Periode;
 use App\Models\Proker;
+use App\Models\Status_Proker;
+use App\Models\User;
 use Illuminate\Http\Request;
 use function PHPUnit\Framework\isEmpty;
 
@@ -11,16 +13,12 @@ class ProkerController extends Controller
 {
     /**
      * Display a listing of the resource.
-     * @param  int  $periode
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function index(Periode $periode)
+    public function index(Periode $id)
     {
-//        $periode->id = 1;
-//        dd($periode);
-//        $prokers = Proker::all();
 
-        $prokers = Proker::all()->where('periode_id', '==',$periode->id);
+        $prokers = Proker::all()->where('periode_id', $id);
 
         return view('proker.index', compact('prokers'));
     }
@@ -32,7 +30,10 @@ class ProkerController extends Controller
      */
     public function create()
     {
-        return view('proker.crud.create');
+        $periodes = Periode::all();
+        $status_prokers = Status_Proker::all();
+        $users = User::all();
+        return view('proker.crud.create', compact('periodes', 'status_prokers', 'users'));
     }
 
     /**
@@ -43,7 +44,47 @@ class ProkerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'gambar_proker' => 'image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
+
+        if ($request->gambar_proker != null){
+            $imgProker = $request->gambar_proker->getClientOriginalName().'-'.time().'.'.$request->gambar_proker->extension();
+            $request->gambar_proker->move(public_path('image/prokerImg'), $imgProker);
+
+            Proker::create([
+                'nama_proker' => $request->nama_proker,
+                'periode_id' => $request->periode_id,
+                'status_proker_id' => $request->status_proker_id,
+                'deskripsi_proker' => $request->deskripsi_proker,
+                'tanggal_mulai' => $request->tanggal_mulai,
+                'tanggal_akhir' => $request->tanggal_akhir,
+                'pemasukkan' => $request->pemasukkan,
+                'pengeluaran' => $request->pengeluaran,
+                'medsos' => $request->medsos,
+                'proposal' => $request->proposal,
+                'lpj' => $request->lpj,
+                'gambar_proker' => $imgProker,
+                'created_by' => $request->created_by,
+            ]);
+        }
+        else{
+            Proker::create([
+                'nama_proker' => $request->nama_proker,
+                'periode_id' => $request->periode_id,
+                'status_proker_id' => $request->status_proker_id,
+                'deskripsi_proker' => $request->deskripsi_proker,
+                'tanggal_mulai' => $request->tanggal_mulai,
+                'tanggal_akhir' => $request->tanggal_akhir,
+                'pemasukkan' => $request->pemasukkan,
+                'pengeluaran' => $request->pengeluaran,
+                'medsos' => $request->medsos,
+                'proposal' => $request->proposal,
+                'lpj' => $request->lpj,
+                'created_by' => $request->created_by,
+            ]);
+        }
+        return redirect()->route('periode.show', $request->periode_id);
     }
 
     /**
@@ -72,7 +113,7 @@ class ProkerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Proker  $proker
+     * @param  \App\Models\Proker $proker
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Proker $proker)

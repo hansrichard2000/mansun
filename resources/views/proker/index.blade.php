@@ -32,12 +32,12 @@
             </form>
         </div>
         <hr class="garisKuning">
-        <div class="row">
+        <div class="row row-cols-3 mt-3">
 
             @foreach($prokers as $proker)
             <div class="col">
                 <a href="#">
-                    <div class="card" style="width: 30em;height: 18em">
+                    <div class="card">
                         <img src="{{asset('image/group92.jpg')}}" class="card-img-top" alt="...">
                         <div class="card-body p-0 ml-3" >
                             <p class="card-text"><strong>{{$proker->nama_proker}}</strong></p>
