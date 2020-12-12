@@ -48,9 +48,9 @@ Route::get('listanggota', function (){
     return view('divisi.crud.listAnggota');
 });
 
-Route::get('usermanagement', function (){
-    return view('user.index');
-});
+//Route::get('usermanagement', function (){
+//    return view('user.index');
+//});
 
 Auth::routes();
 

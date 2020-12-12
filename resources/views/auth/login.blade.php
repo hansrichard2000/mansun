@@ -20,22 +20,23 @@
                                 </div>
                                 <form class="user" action="{{route('login')}}" method="POST">
                                     <div class="form-group">
-                                        <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                                        <div class="col-md-6">
-                                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
+{{--                                            <input id="exampleInputEmail" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>--}}
+                                            <input class="form-control form-control-user @error('email') is-invalid @enderror" type="email" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address..." name="email" required>
                                             @error('email')
                                             <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
-                                    </span>
+                                        </span>
                                             @enderror
-                                        </div>
                                     </div>
-                                    <div class="form-group"><input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Password" name="password"></div>
+                                    <div class="form-group">
+                                        <input class="form-control form-control-user" type="password" id="exampleInputPassword" placeholder="Password" name="password">
+                                    </div>
                                     <div class="form-group">
                                         <div class="custom-control custom-checkbox small">
-                                            <div class="form-check"><input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1"><label class="form-check-label custom-control-label" for="formCheck-1">Remember Me</label></div>
+                                            <div class="form-check">
+                                                <input class="form-check-input custom-control-input" type="checkbox" id="formCheck-1">
+                                                <label class="form-check-label custom-control-label" for="formCheck-1">Remember Me</label>
+                                            </div>
                                         </div>
                                     </div><button class="btn btn-primary btn-block text-white btn-user" type="submit" style="background: #1789fc;">Login</button>
                                     <hr>
