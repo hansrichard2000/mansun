@@ -7,6 +7,7 @@ use App\Models\Dosen;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -17,10 +18,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        $mahasiswas = Mahasiswa::all();
-        $dosens = Dosen::all();
-        return view('user.index',compact('users','mahasiswas', 'dosens'));
+        $mahasiswas = DB::select('select * from mahasiswa m inner join users u on u.mahasiswa_id = m.mahasiswa_id');
+        $dosens = DB::select('SELECT * FROM dosen INNER JOIN users ON users.dosen_id = dosen.dosen_id');
+        return view('user.index',compact('mahasiswas', 'dosens'));
     }
 
     /**
