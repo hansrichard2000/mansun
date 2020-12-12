@@ -17,9 +17,14 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name',
-        'email',
+        'mahasiswa_id',
+        'dosen_id',
         'password',
+        'is_login',
+        'email_verified_at',
+        'is_active',
+        'is_admin',
+        'remember_token',
     ];
 
     /**
@@ -40,4 +45,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function periodes(){
+        return $this->hasMany(Periode::class, 'created_by', 'id');
+    }
+
+    public function isAdmin() {
+        if ($this->is_admin == '1' && $this->is_active =='1') {
+            return true;
+        }
+        return false;
+    }
 }

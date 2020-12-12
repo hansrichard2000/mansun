@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\DivisiController;
+use App\Http\Controllers\PeriodeController;
+use App\Http\Controllers\ProkerController;
+use App\Http\Controllers\TaskController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +19,39 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('periode.index');
 });
+
+Route::resource('periode', PeriodeController::class);
+
+Route::resource('proker', ProkerController::class);
+
+Route::resource('divisi', DivisiController::class);
+
+Route::resource('user', UserController::class);
+
+Route::resource('task', TaskController::class);
+
+Route::get('viewlogin', function (){
+   return view('login.index');
+});
+
+Route::get('profil', function (){
+    return view('profil.index');
+});
+
+Route::get('adduser', function (){
+    return view('user.crud.create');
+});
+
+Route::get('listanggota', function (){
+    return view('divisi.crud.listAnggota');
+});
+
+//Route::get('usermanagement', function (){
+//    return view('user.index');
+//});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
