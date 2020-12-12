@@ -38,7 +38,7 @@
             @if($periodes != null)
                 @foreach($periodes as $periode)
                     <div class="col ml-3">
-                        <a href="#">
+                        <a href="{{route('proker.index', $periode->id)}}">
                             <div class="card">
                                 @if($periode->gambar_periode == null)
                                     <img src="{{asset('image/group92.jpg')}}" class="card-img-top">

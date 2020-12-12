@@ -33,18 +33,20 @@
         </div>
         <hr class="garisKuning">
         <div class="row">
-            {{--                        @foreach()--}}
+
+            @foreach($prokers as $proker)
             <div class="col">
                 <a href="#">
                     <div class="card" style="width: 30em;height: 18em">
                         <img src="{{asset('image/group92.jpg')}}" class="card-img-top" alt="...">
                         <div class="card-body p-0 ml-3" >
-                            <p class="card-text"><strong>Nama Proker</strong></p>
+                            <p class="card-text"><strong>{{$proker->nama_proker}}</strong></p>
                         </div>
                     </div>
                 </a>
             </div>
-            {{--                        @endforeach--}}
+            @endforeach
+
         </div>
     </div>
 @endsection

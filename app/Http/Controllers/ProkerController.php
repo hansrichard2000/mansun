@@ -2,19 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Periode;
 use App\Models\Proker;
 use Illuminate\Http\Request;
+use function PHPUnit\Framework\isEmpty;
 
 class ProkerController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     * @param  int  $periode
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Periode $periode)
     {
-        $prokers = Proker::all();
+//        $periode->id = 1;
+//        dd($periode);
+//        $prokers = Proker::all();
+
+        $prokers = Proker::all()->where('periode_id', '==',$periode->id);
+
         return view('proker.index', compact('prokers'));
     }
 
