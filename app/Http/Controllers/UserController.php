@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mahasiswa;
+use App\Models\Dosen;
 use App\Models\Task;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -14,7 +17,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('user.index');
+        $users = User::all();
+        $mahasiswas = Mahasiswa::all();
+        $dosens = Dosen::all();
+        return view('user.index',compact('users','mahasiswas', 'dosens'));
     }
 
     /**
@@ -24,7 +30,9 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        $mahasiswas = Mahasiswa::all();
+        $dosens = Dosen::all();
+        return view('user.crud.create', compact('mahasiswas', 'dosens'));
     }
 
     /**

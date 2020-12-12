@@ -21,7 +21,7 @@
             </form>
 
 {{--            Add button--}}
-            <form method="GET" action="{{route('periode.create')}}">
+            <form method="GET" action="{{route('user.create')}}">
                 <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="{{route('user.create')}}">&nbsp;Tambah User</a>
             </form>
         </div>
@@ -45,42 +45,35 @@
             </tr>
             </thead>
             <tbody>
+            @foreach($users as $user)
+                @foreach($mahasiswas as $mahasiswa)
+                    @if($user->mahasiswa_id == $mahasiswa->mahasiswa_id)
             <tr>
-                <th scope="row">Mahasiswa 1</th>
-                <td>IMT</td>
-                <td>2019</td>
-                <td>0706011910099</td>
-                <td><div style="width:20px;height: 20px;background-color: #1789fc; margin-left: 42%"></div></td>
-                <td>Active</td>
+                <th scope="row">{{$mahasiswa->nama}}</th>
+                <td>{{$mahasiswa->prodi_id}}</td>
+                <td>{{$mahasiswa->angkatan}}</td>
+                <td>{{$mahasiswa->nim}}</td>
+
+                @if($user->is_login == 0)
+                    <td><div style="width:20px;height: 20px;background-color: grey; margin-left: 41%"></div></td>
+                @elseif($user->is_login == 1)
+                    <td><div style="width:20px;height: 20px;background-color: #1789fc; margin-left: 41%"></div></td>
+                @endif
+
+                @if($user->is_active == 0)
+                    <td style="color: red">Suspended</td>
+                @elseif($user->is_active == 1)
+                    <td>Active</td>
+                @endif
+
                 <td><button style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
                             data-toggle="modal"
                             data-target="#create"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
                     @include('user.detail')</td>
             </tr>
-            <tr>
-                <th scope="row">Mahasiswa 2</th>
-                <td>IMT</td>
-                <td>2018</td>
-                <td>0706011910046</td>
-                <td><div style="width:20px;height: 20px;background-color: grey; margin-left: 42%"></div></td>
-                <td style="color: red;">Suspended</td>
-                <td><button style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
-                            data-toggle="modal"
-                            data-target="#create"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
-                    @include('user.detail')</td>
-            </tr>
-            <tr>
-                <th scope="row">Mahasiswa 3</th>
-                <td>IMT</td>
-                <td>2019</td>
-                <td>0706011910083</td>
-                <td><div style="width:20px;height: 20px;background-color: #1789fc; margin-left: 42%"></div></td>
-                <td>Active</td>
-                <td><button style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
-                            data-toggle="modal"
-                            data-target="#create"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
-                    @include('user.detail')</td>
-            </tr>
+                    @endif
+                @endforeach
+            @endforeach
             </tbody>
         </table>
 
@@ -103,41 +96,35 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">Dosen 1</th>
-                <td>IMT</td>
-                <td>7892465276838</td>
-                <td>8728765484837</td>
-                <td><div style="width:20px;height: 20px;background-color: grey; margin-left: 41%"></div></td>
-                <td>Active</td>
-                <td><button style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
-                            data-toggle="modal"
-                            data-target="#create"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
-                    @include('user.detail')</td>
-            </tr>
-            <tr>
-                <th scope="row">Dosen 2</th>
-                <td>IMT</td>
-                <td>9827346327434</td>
-                <td>2465298327453</td>
-                <td><div style="width:20px;height: 20px;background-color: grey; margin-left: 41%"></div></td>
-                <td>Active</td>
-                <td><button style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
-                            data-toggle="modal"
-                            data-target="#create"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
-                    @include('user.detail')</td>            </tr>
-            <tr>
-                <th scope="row">Dosen 3</th>
-                <td>IMT</td>
-                <td>2834659823884</td>
-                <td>9823746783477</td>
-                <td><div style="width:20px;height: 20px;background-color: #1789fc; margin-left: 41%"></div></td>
-                <td>Active</td>
-                <td><button style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
-                            data-toggle="modal"
-                            data-target="#create"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
-                    @include('user.detail')</td>
-            </tr>
+            @foreach($users as $user)
+                @foreach($dosens as $dosen)
+                    @if($user->dosen_id == $dosen->dosen_id)
+                        <tr>
+                            <th scope="row">{{$dosen->nama}}</th>
+                            <td>{{$dosen->prodi_id}}</td>
+                            <td>{{$dosen->nip}}</td>
+                            <td>{{$dosen->nidn}}</td>
+
+                            @if($user->is_login == 0)
+                                <td><div style="width:20px;height: 20px;background-color: grey; margin-left: 41%"></div></td>
+                            @elseif($user->is_login == 1)
+                                <td><div style="width:20px;height: 20px;background-color: #1789fc; margin-left: 41%"></div></td>
+                            @endif
+
+                            @if($user->is_active == 0)
+                                <td style="color: red">Suspended</td>
+                            @elseif($user->is_active == 1)
+                                <td>Active</td>
+                            @endif
+
+                            <td><button style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
+                                        data-toggle="modal"
+                                        data-target="#create"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
+                                @include('user.detail')</td>
+                        </tr>
+                    @endif
+                @endforeach
+            @endforeach
             </tbody>
         </table>
         <br><br>
