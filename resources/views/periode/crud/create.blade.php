@@ -31,6 +31,13 @@
                     <option value="5">5</option>
                 </select>
             </div>
+            <div class="form-group">
+                <select name="created_by" class="custom-select">
+                    @foreach ($users as $user)
+                        <option value="{{$user->id}}">{{$user->mahasiswa_id}}</option>
+                    @endforeach
+                </select>
+            </div>
             <input class="btn bg-mansun-blue text-white" type="submit" id="submit" name="submit" value="Submit">
         </form>
     </div>

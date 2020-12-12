@@ -17,4 +17,8 @@ class Periode extends Model
         'nilai',
         'created_by',
     ];
+
+    public function creator(){
+        return $this->belongsto(User::class, 'created_by', 'id');
+    }
 }

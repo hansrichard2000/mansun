@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Periode;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PeriodeController extends Controller
@@ -14,7 +15,8 @@ class PeriodeController extends Controller
      */
     public function index()
     {
-        return view('periode.index');
+        $periodes = Periode::all();
+        return view('periode.index', compact('periodes'));
     }
 
     /**
@@ -24,6 +26,7 @@ class PeriodeController extends Controller
      */
     public function create()
     {
+        $users = User::all();
         return view('periode.crud.create');
     }
 
@@ -35,7 +38,30 @@ class PeriodeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'gambar_periode' => 'image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
+
+        if ($request->gambar_periode != null){
+            $imgPeriode = $request->gambar_periode->getClientOriginalName().'-'.time().'.'.$request->gambar_periode->extension();
+            $request->picture->move(public_path('images/periodeImg'), $imgPeriode);
+
+            Periode::create([
+                'tahun_periode' => $request->tahun_periode,
+                'gambar_periode' => $imgPeriode,
+                'nilai' => $request->nilai,
+                'created_by' => $request->created_by,
+            ]);
+        }
+        else{
+            Periode::create([
+                'tahun_periode' => $request->tahun_periode,
+                'nilai' => $request->nilai,
+                'created_by' => $request->created_by,
+            ]);
+        }
+
+
     }
 
     /**
