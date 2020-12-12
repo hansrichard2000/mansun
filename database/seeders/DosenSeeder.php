@@ -19,7 +19,10 @@ class DosenSeeder extends Seeder
         $dosen->nip = '66548959669';
         $dosen->nidn = '0284328234245';
         $dosen->nama = 'Dosen1';
-        $dosen->email = 'Dosen1@test.com';
+        $dosen->gender = 'P';
+        $dosen->email = 'dosen1@test.com';
+        $dosen->phone = '98672344';
+        $dosen->line_account = 'deieif';
         $dosen->keterangan = 'tidak ada keterangan';
         $dosen->passfoto = 'tes3.jpg';
         $dosen->prodi_id = '1';

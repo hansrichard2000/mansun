@@ -17,7 +17,10 @@ class CreateMahasiswaTable extends Migration
             $table->id('mahasiswa_id');
             $table->string('nim', 50)->unique();
             $table->string('nama', 50);
+            $table->string('gender', 1);
             $table->string('email', 50)->unique();
+            $table->string('phone')->nullable();
+            $table->string('line_account')->nullable();
             $table->integer('angkatan');
             $table->text('keterangan')->nullable();
             $table->text('passfoto')->nullable();

@@ -18,7 +18,10 @@ class CreateDosenTable extends Migration
             $table->string('nip', 50)->unique();
             $table->string('nidn', 50)->unique();
             $table->string('nama', 255);
+            $table->string('gender', 1);
             $table->string('email', 255)->unique();
+            $table->string('phone')->nullable();
+            $table->string('line_account')->nullable();
             $table->text('keterangan')->nullable();
             $table->text('passfoto')->nullable();
             $table->timestamps();
