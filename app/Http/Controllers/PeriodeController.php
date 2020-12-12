@@ -27,7 +27,7 @@ class PeriodeController extends Controller
     public function create()
     {
         $users = User::all();
-        return view('periode.crud.create');
+        return view('periode.crud.create', compact('users'));
     }
 
     /**
@@ -60,7 +60,7 @@ class PeriodeController extends Controller
                 'created_by' => $request->created_by,
             ]);
         }
-
+        return redirect()->route('periode.index');
 
     }
 
