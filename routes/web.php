@@ -48,6 +48,10 @@ Route::get('listanggota', function (){
     return view('divisi.crud.listAnggota');
 });
 
+Route::get('usermanagement', function (){
+    return view('user.index');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
