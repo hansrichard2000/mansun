@@ -37,12 +37,13 @@
             @include('divisi.crud.create')
         </div>
         <hr class="garisKuning">
+        @foreach($divisis as $divisi)
         <div class="row m-1">
             <div class="card">
                 <div class="card-header">
                     <div class="row">
                         <div class="col">
-                            Nama Divisi
+                            {{$divisi->nama_divisi}}
                         </div>
                         <div class="col">
                             <form action="" method="GET">
@@ -57,7 +58,6 @@
                             </form>
                         </div>
                     </div>
-
                 </div>
                 <div class="card-body">
                     <table class="table table-striped">
@@ -76,5 +76,6 @@
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
 @endsection

@@ -35,7 +35,8 @@ class DivisiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Divisi::create($request->all());
+        return redirect()->route('proker.show', $request->proker_id);
     }
 
     /**

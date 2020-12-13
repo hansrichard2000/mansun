@@ -38,4 +38,8 @@ class Proker extends Model
     public function periode(){
         return $this->belongsto(Periode::class, 'periode_id', 'id');
     }
+
+    public function divisi(){
+        return $this->hasMany(Divisi::class, 'proker_id', 'id');
+    }
 }

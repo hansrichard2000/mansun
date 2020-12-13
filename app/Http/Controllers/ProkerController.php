@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Divisi;
 use App\Models\Periode;
 use App\Models\Proker;
 use App\Models\Status_Proker;
@@ -89,13 +90,16 @@ class ProkerController extends Controller
 
     /**
      * Display the specified resource.
-     *
-     * @param  \App\Models\Proker  $proker
+     * @param  int  $id
+     * @param  \App\Models\Divisi  $divisis
      * @return \Illuminate\Http\Response
      */
-    public function show(Proker $proker)
+    public function show($id)
     {
-        //
+        $divisis = Divisi::all()->where('proker_id', $id);
+//        $prokers = Proker::all();
+        $users = User::all();
+        return view('divisi.index', compact('divisis', 'users', 'id'));
     }
 
     /**

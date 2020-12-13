@@ -54,6 +54,10 @@ class User extends Authenticatable
         return $this->hasMany(Proker::class, 'created_by', 'id');
     }
 
+    public function divisi(){
+        return $this->hasMany(Divisi::class, 'created_by', 'id');
+    }
+
     public function isAdmin() {
         if ($this->is_admin == '1' && $this->is_active =='1') {
             return true;
