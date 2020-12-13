@@ -36,7 +36,7 @@
 
             @foreach($prokers as $proker)
             <div class="col">
-                <a href="#">
+                <a href="{{route('proker.show', $proker->id)}}">
                     <div class="card">
                         <img src="{{asset('image/group92.jpg')}}" class="card-img-top" alt="...">
                         <div class="card-body p-0 ml-3" >

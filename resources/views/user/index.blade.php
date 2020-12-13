@@ -1,4 +1,4 @@
-@extends('layouts.beranda')
+@extends('layouts.userManagement')
 
 @section('judul')
     Admin Area
