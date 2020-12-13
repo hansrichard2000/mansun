@@ -25,4 +25,8 @@ class Dosen extends Model
         'jabatan_id',
         'jaka_id',
     ];
+
+    public function user_email_dosen(){
+        return $this->hasOne(User::class, 'id', 'dosen_id');
+    }
 }

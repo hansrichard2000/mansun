@@ -23,4 +23,8 @@ class Mahasiswa extends Model
         'passfoto',
         'prodi_id',
     ];
+
+    public function user_email_mahasiswa(){
+        return $this->hasOne(User::class, 'id', 'mahasiswa_id');
+    }
 }
