@@ -43,7 +43,7 @@
                                 @if($periode->gambar_periode == null)
                                     <img src="{{asset('image/group92.jpg')}}" class="card-img-top">
                                 @else
-                                    <img src="image/periodeImg/{{$periode->gambar_periode}}" class="card-img-top" style="height: 225.85px; width: 430px;">
+                                    <img src="image/periodeImg/{{$periode->gambar_periode}}" class="card-img-top img-fluid" style="height: 225.85px">
                                 @endif
                                 <div class="card-body p-0 ml-3" >
                                     <p class="card-text"><strong>{{$periode->tahun_periode}}</strong></p>

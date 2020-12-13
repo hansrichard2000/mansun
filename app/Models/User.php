@@ -54,8 +54,18 @@ class User extends Authenticatable
         return $this->hasMany(Proker::class, 'created_by', 'id');
     }
 
-    public function divisi(){
+    public function divisi()
+    {
         return $this->hasMany(Divisi::class, 'created_by', 'id');
+    }
+
+    public function emailMahasiswa(){
+        return $this->belongsTo(Mahasiswa::class);
+    }
+
+    public function emailDosen(){
+        return $this->belongsTo(Dosen::class);
+
     }
 
     public function isAdmin() {
