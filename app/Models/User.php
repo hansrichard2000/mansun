@@ -50,6 +50,32 @@ class User extends Authenticatable
         return $this->hasMany(Periode::class, 'created_by', 'id');
     }
 
+    public function prokers(){
+        return $this->hasMany(Proker::class, 'created_by', 'id');
+    }
+
+    public function divisi()
+    {
+        return $this->hasMany(Divisi::class, 'created_by', 'id');
+    }
+
+    public function taskCreator(){
+        return $this->hasMany(Task::class, 'created_by', 'id');
+    }
+
+    public function taskReceiver(){
+        return $this->hasMany(Task::class, 'penanggung_jawab', 'id');
+    }
+
+    public function emailMahasiswa(){
+        return $this->belongsTo(Mahasiswa::class, 'mahasiswa_id', 'id');
+    }
+
+    public function emailDosen(){
+        return $this->belongsTo(Dosen::class);
+
+    }
+
     public function isAdmin() {
         if ($this->is_admin == '1' && $this->is_active =='1') {
             return true;

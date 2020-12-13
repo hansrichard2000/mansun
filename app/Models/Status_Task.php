@@ -14,4 +14,8 @@ class Status_Task extends Model
     protected $fillable = [
         'statustask',
     ];
+
+    public function task(){
+        return $this->hasMany(Task::class, 'status_task_id', 'id');
+    }
 }

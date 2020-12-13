@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Periode;
+use App\Models\Proker;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,7 @@ class PeriodeController extends Controller
     public function create()
     {
         $users = User::all();
-        return view('periode.crud.create');
+        return view('periode.crud.create', compact('users'));
     }
 
     /**
@@ -44,7 +45,7 @@ class PeriodeController extends Controller
 
         if ($request->gambar_periode != null){
             $imgPeriode = $request->gambar_periode->getClientOriginalName().'-'.time().'.'.$request->gambar_periode->extension();
-            $request->picture->move(public_path('images/periodeImg'), $imgPeriode);
+            $request->gambar_periode->move(public_path('image/periodeImg'), $imgPeriode);
 
             Periode::create([
                 'tahun_periode' => $request->tahun_periode,
@@ -60,19 +61,20 @@ class PeriodeController extends Controller
                 'created_by' => $request->created_by,
             ]);
         }
-
+        return redirect()->route('periode.index');
 
     }
 
     /**
      * Display the specified resource.
-     *
-     * @param  \App\Models\Periode  $periode
+     * @param  int  $id
+     * @param  \App\Models\Proker $prokers
      * @return \Illuminate\Http\Response
      */
-    public function show(Periode $periode)
+    public function show(Proker $prokers, $id)
     {
-        //
+        $prokers = Proker::all()->where('periode_id', $id);
+        return view('proker.index', compact('prokers'));
     }
 
     /**

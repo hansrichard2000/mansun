@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Status_Task;
+use App\Models\Task;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -23,7 +26,9 @@ class TaskController extends Controller
      */
     public function create()
     {
-        return view('task.create');
+        $users = User::all();
+        $status_tasks = Status_Task::all();
+        return view('task.create', compact('users', 'status_tasks'));
     }
 
     /**
@@ -34,7 +39,8 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Task::create($request->all());
+        return redirect()->route('proker.show', $request->proker_id);
     }
 
     /**

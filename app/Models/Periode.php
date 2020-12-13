@@ -21,4 +21,8 @@ class Periode extends Model
     public function creator(){
         return $this->belongsto(User::class, 'created_by', 'id');
     }
+
+    public function proker(){
+        return $this->hasMany(User::class, 'periode_id', 'id');
+    }
 }

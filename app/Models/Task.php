@@ -20,4 +20,16 @@ class Task extends Model
         'status_task_id',
         'created_by',
     ];
+
+    public function creator(){
+        return $this->belongsto(User::class, 'created_by', 'id');
+    }
+
+    public function receiver(){
+        return $this->belongsto(User::class, 'penanggung_jawab', 'id');
+    }
+
+    public function status_task(){
+        return $this->belongsto(Status_Task::class, 'status_task_id', 'id');
+    }
 }

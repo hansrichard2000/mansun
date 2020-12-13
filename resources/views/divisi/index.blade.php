@@ -37,25 +37,24 @@
             @include('divisi.crud.create')
         </div>
         <hr class="garisKuning">
+        @foreach($divisis as $divisi)
         <div class="row m-1">
-            <div class="card">
+            <div class="card mt-3 w-100">
                 <div class="card-header">
-                    <div class="row">
-                        <div class="col">
-                            Nama Divisi
-                        </div>
-                        <div class="col">
-                            <form action="" method="GET">
-                                @csrf
-                                <input type="submit" class="btn bg-mansun-blue text-white" value="Lihat anggota">
-                            </form>
-                        </div>
-                        <div class="col">
-                            <form action="{{route('task.create')}}" method="GET">
-                                @csrf
-                                <input type="submit" class="btn bg-mansun-blue text-white" value="Tambah Tugas">
-                            </form>
-                        </div>
+                    <div class="float-md-left">
+                        {{$divisi->nama_divisi}}
+                    </div>
+                    <div class="float-md-right mr-3">
+                        <form action="" method="GET">
+                            @csrf
+                            <input type="submit" class="btn bg-mansun-blue text-white" value="Lihat anggota">
+                        </form>
+                    </div>
+                    <div class="float-md-right mr-3">
+                        <form action="{{route('task.create')}}" method="GET">
+                            @csrf
+                            <input type="submit" class="btn bg-mansun-blue text-white" value="Tambah Tugas">
+                        </form>
                     </div>
 
                 </div>
@@ -72,9 +71,33 @@
                             <th scope="col">action</th>
                         </tr>
                         </thead>
+                        <tbody>
+                            @foreach($tasks as $task)
+                                <tr>
+                                    <td scope="col">{{$task->id}}</td>
+                                    <td scope="col">{{$task->judul}}</td>
+                                    <td scope="col">{{$task->receiver->id}}</td>
+                                    <td scope="col">{{$task->deadline}}</td>
+                                    <td scope="col">{{$task->status_task->id}}</td>
+                                    <td scope="col">{{$task->link_hasil_kerja}}</td>
+                                    <td scope="col">
+                                        <button class="btn btn-success">
+                                            Approve
+                                        </button>
+                                        <button class="btn btn-danger">
+                                            Reject
+                                        </button>
+                                        <button class="btn btn-primary">
+                                            More
+                                        </button>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
 @endsection

@@ -37,13 +37,13 @@
         <div class="row row-cols-3">
             @if($periodes != null)
                 @foreach($periodes as $periode)
-                    <div class="col ml-3">
-                        <a href="#">
+                    <div class="col mt-3">
+                        <a href="{{route('periode.show', $periode->id)}}">
                             <div class="card">
                                 @if($periode->gambar_periode == null)
                                     <img src="{{asset('image/group92.jpg')}}" class="card-img-top">
                                 @else
-                                    <img src="image/periodeImg/{{$periode->gambar_periode}}" class="card-img-top">
+                                    <img src="image/periodeImg/{{$periode->gambar_periode}}" class="card-img-top img-fluid" style="height: 225.85px">
                                 @endif
                                 <div class="card-body p-0 ml-3" >
                                     <p class="card-text"><strong>{{$periode->tahun_periode}}</strong></p>

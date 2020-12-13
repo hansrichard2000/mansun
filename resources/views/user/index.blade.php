@@ -1,4 +1,4 @@
-@extends('layouts.beranda')
+@extends('layouts.userManagement')
 
 @section('judul')
     Admin Area
@@ -32,8 +32,6 @@
         </div>
         <table class="table table-hover" style="text-align: center">
             <thead class="thead-dark">
-
-{{--            HANYA CONTOH DATA--}}
             <tr>
                 <th scope="col">Nama</th>
                 <th scope="col">Prodi</th>
@@ -45,24 +43,22 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($users as $user)
                 @foreach($mahasiswas as $mahasiswa)
-                    @if($user->mahasiswa_id == $mahasiswa->mahasiswa_id)
             <tr>
                 <th scope="row">{{$mahasiswa->nama}}</th>
                 <td>{{$mahasiswa->prodi_id}}</td>
                 <td>{{$mahasiswa->angkatan}}</td>
                 <td>{{$mahasiswa->nim}}</td>
 
-                @if($user->is_login == 0)
+                @if($mahasiswa->is_login == 0)
                     <td><div style="width:20px;height: 20px;background-color: grey; margin-left: 41%"></div></td>
-                @elseif($user->is_login == 1)
+                @elseif($mahasiswa->is_login == 1)
                     <td><div style="width:20px;height: 20px;background-color: #1789fc; margin-left: 41%"></div></td>
                 @endif
 
-                @if($user->is_active == 0)
+                @if($mahasiswa->is_active == 0)
                     <td style="color: red">Suspended</td>
-                @elseif($user->is_active == 1)
+                @elseif($mahasiswa->is_active == 1)
                     <td>Active</td>
                 @endif
 
@@ -71,9 +67,7 @@
                             data-target="#create"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
                     @include('user.detail')</td>
             </tr>
-                    @endif
                 @endforeach
-            @endforeach
             </tbody>
         </table>
 
@@ -84,7 +78,6 @@
         <table class="table table-hover" style="text-align: center">
             <thead class="thead-dark">
 
-            {{--            HANYA CONTOH DATA--}}
             <tr>
                 <th scope="col">Nama</th>
                 <th scope="col">Prodi</th>
@@ -96,24 +89,22 @@
             </tr>
             </thead>
             <tbody>
-            @foreach($users as $user)
                 @foreach($dosens as $dosen)
-                    @if($user->dosen_id == $dosen->dosen_id)
                         <tr>
                             <th scope="row">{{$dosen->nama}}</th>
                             <td>{{$dosen->prodi_id}}</td>
                             <td>{{$dosen->nip}}</td>
                             <td>{{$dosen->nidn}}</td>
 
-                            @if($user->is_login == 0)
+                            @if($dosen->is_login == 0)
                                 <td><div style="width:20px;height: 20px;background-color: grey; margin-left: 41%"></div></td>
-                            @elseif($user->is_login == 1)
+                            @elseif($dosen->is_login == 1)
                                 <td><div style="width:20px;height: 20px;background-color: #1789fc; margin-left: 41%"></div></td>
                             @endif
 
-                            @if($user->is_active == 0)
+                            @if($dosen->is_active == 0)
                                 <td style="color: red">Suspended</td>
-                            @elseif($user->is_active == 1)
+                            @elseif($dosen->is_active == 1)
                                 <td>Active</td>
                             @endif
 
@@ -122,9 +113,7 @@
                                         data-target="#create"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
                                 @include('user.detail')</td>
                         </tr>
-                    @endif
                 @endforeach
-            @endforeach
             </tbody>
         </table>
         <br><br>

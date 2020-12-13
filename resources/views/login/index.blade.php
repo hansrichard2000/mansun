@@ -1,4 +1,4 @@
-@extends('layouts.login')
+@extends('layouts.userManagement')
 
 @section('judul')
     Welcome at ManSUn
