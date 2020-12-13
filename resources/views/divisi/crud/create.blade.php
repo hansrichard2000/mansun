@@ -18,7 +18,7 @@
                     <div class="form-group">
                         <select name="created_by" class="custom-select">
                             @foreach ($users as $user)
-                                <option value="{{$user->id}}">{{$user->mahasiswa_id}}</option>
+                                <option value="{{$user->id}}">{{$user->id}}</option>
                             @endforeach
                         </select>
                     </div>

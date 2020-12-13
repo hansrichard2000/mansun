@@ -6,6 +6,8 @@ use App\Models\Divisi;
 use App\Models\Periode;
 use App\Models\Proker;
 use App\Models\Status_Proker;
+use App\Models\Status_Task;
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
 use function PHPUnit\Framework\isEmpty;
@@ -97,9 +99,10 @@ class ProkerController extends Controller
     public function show($id)
     {
         $divisis = Divisi::all()->where('proker_id', $id);
-//        $prokers = Proker::all();
+        $tasks = Task::all();
         $users = User::all();
-        return view('divisi.index', compact('divisis', 'users', 'id'));
+        $status_tasks = Status_Task::all();
+        return view('divisi.index', compact('divisis', 'users', 'id', 'tasks', 'status_tasks'));
     }
 
     /**

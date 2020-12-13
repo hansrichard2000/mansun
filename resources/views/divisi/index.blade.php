@@ -39,25 +39,24 @@
         <hr class="garisKuning">
         @foreach($divisis as $divisi)
         <div class="row m-1">
-            <div class="card">
+            <div class="card mt-3 w-100">
                 <div class="card-header">
-                    <div class="row">
-                        <div class="col">
-                            {{$divisi->nama_divisi}}
-                        </div>
-                        <div class="col">
-                            <form action="" method="GET">
-                                @csrf
-                                <input type="submit" class="btn bg-mansun-blue text-white" value="Lihat anggota">
-                            </form>
-                        </div>
-                        <div class="col">
-                            <form action="{{route('task.create')}}" method="GET">
-                                @csrf
-                                <input type="submit" class="btn bg-mansun-blue text-white" value="Tambah Tugas">
-                            </form>
-                        </div>
+                    <div class="float-md-left">
+                        {{$divisi->nama_divisi}}
                     </div>
+                    <div class="float-md-right mr-3">
+                        <form action="" method="GET">
+                            @csrf
+                            <input type="submit" class="btn bg-mansun-blue text-white" value="Lihat anggota">
+                        </form>
+                    </div>
+                    <div class="float-md-right mr-3">
+                        <form action="{{route('task.create')}}" method="GET">
+                            @csrf
+                            <input type="submit" class="btn bg-mansun-blue text-white" value="Tambah Tugas">
+                        </form>
+                    </div>
+
                 </div>
                 <div class="card-body">
                     <table class="table table-striped">
@@ -72,6 +71,15 @@
                             <th scope="col">action</th>
                         </tr>
                         </thead>
+                        <tbody>
+                            @foreach($tasks as $task)
+                                <tr>
+                                    <td scope="col">{{$task->id}}</td>
+                                    <td scope="col">{{$task->judul}}</td>
+                                    <td scope="col">{{$task->pe}}</td>
+                                </tr>
+                            @endforeach
+                        </tbody>
                     </table>
                 </div>
             </div>

@@ -59,6 +59,14 @@ class User extends Authenticatable
         return $this->hasMany(Divisi::class, 'created_by', 'id');
     }
 
+    public function taskCreator(){
+        return $this->hasMany(Task::class, 'created_by', 'id');
+    }
+
+    public function taskReceiver(){
+        return $this->hasMany(Task::class, 'penanggung_jawab', 'id');
+    }
+
     public function emailMahasiswa(){
         return $this->belongsTo(Mahasiswa::class);
     }
