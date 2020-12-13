@@ -76,7 +76,21 @@
                                 <tr>
                                     <td scope="col">{{$task->id}}</td>
                                     <td scope="col">{{$task->judul}}</td>
-                                    <td scope="col">{{$task->pe}}</td>
+                                    <td scope="col">{{$task->receiver->id}}</td>
+                                    <td scope="col">{{$task->deadline}}</td>
+                                    <td scope="col">{{$task->status_task->id}}</td>
+                                    <td scope="col">{{$task->link_hasil_kerja}}</td>
+                                    <td scope="col">
+                                        <button class="btn btn-success">
+                                            Approve
+                                        </button>
+                                        <button class="btn btn-danger">
+                                            Reject
+                                        </button>
+                                        <button class="btn btn-primary">
+                                            More
+                                        </button>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
