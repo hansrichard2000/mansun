@@ -48,7 +48,6 @@ class LoginController extends Controller
     {
 
         $mahasiswa = Mahasiswa::all()->where('email', $request->email)->first();
-//        dd($mahasiswa);
         $dosen = Dosen::all()->where('email', $request->email)->first();
 
         if(!empty($mahasiswa)){
