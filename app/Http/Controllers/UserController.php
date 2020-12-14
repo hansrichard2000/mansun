@@ -7,6 +7,7 @@ use App\Models\Dosen;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
@@ -21,6 +22,18 @@ class UserController extends Controller
         $mahasiswas = DB::select('select * from mahasiswa m inner join users u on u.mahasiswa_id = m.mahasiswa_id');
         $dosens = DB::select('SELECT * FROM dosen INNER JOIN users ON users.dosen_id = dosen.dosen_id');
         return view('user.index',compact('mahasiswas', 'dosens'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getMyUser()
+    {
+
+        $current_user = Mahasiswa::all()->where('mahasiswa_id', Auth::user()->mahasiswa_id);
+        return view('user.index',compact('mahasiswas', 'dosens', 'current_user'));
     }
 
     /**

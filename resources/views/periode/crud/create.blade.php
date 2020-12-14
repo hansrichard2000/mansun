@@ -32,11 +32,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <select name="created_by" class="custom-select">
-                    @foreach ($users as $user)
-                        <option value="{{$user->id}}">{{$user->mahasiswa_id}}</option>
-                    @endforeach
-                </select>
+                <input type="hidden" name="created_by" value="{{\Illuminate\Support\Facades\Auth::user()->id}}">
             </div>
             <input class="btn bg-mansun-blue text-white" type="submit" id="submit" name="submit" value="Submit">
         </form>

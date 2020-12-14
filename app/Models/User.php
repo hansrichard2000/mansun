@@ -68,7 +68,7 @@ class User extends Authenticatable
     }
 
     public function emailMahasiswa(){
-        return $this->belongsTo(Mahasiswa::class, 'mahasiswa_id', 'id');
+        return $this->belongsTo(Mahasiswa::class);
     }
 
     public function emailDosen(){

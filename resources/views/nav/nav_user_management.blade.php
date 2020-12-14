@@ -10,7 +10,7 @@
             <li class="nav-item"><a class="nav-link" href="jadwwal.html"><i class="far fa-calendar-alt"></i><span>Jadwal</span></a></li>
             <li class="nav-item"><a class="nav-link active" href="{{route('user.index')}}"><i class="fas fa-user"></i><span>User Management</span></a></li>
             <li class="nav-item"><a class="nav-link" href="table.html"><i class="fas fa-table"></i><span>Table</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="login.html"><i class="far fa-user-circle"></i><span>Login</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="{{route('login')}}"><i class="far fa-user-circle"></i><span>Login</span></a></li>
         </ul>
         <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
     </div>
