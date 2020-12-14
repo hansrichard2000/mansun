@@ -47,13 +47,10 @@ class LoginController extends Controller
     public function login(Request $request)
     {
 
-        $mahasiswa = Mahasiswa::all()->where('email', $request->email);
-        $dosen = Dosen::all()->where('email', $request->email);
+        $mahasiswa = Mahasiswa::all()->where('email', $request->email)->first();
+        $dosen = Dosen::all()->where('email', $request->email)->first();
 
-        $nmahasiswa = $mahasiswa->count();
-        $ndosen = $dosen->count();
-
-        if($nmahasiswa> 0){
+        if(!empty($mahasiswa)){
             $mahasiswa_admin = [
                 'mahasiswa_id' => $mahasiswa->mahasiswa_id,
                 'password' => $request->password,
@@ -75,13 +72,14 @@ class LoginController extends Controller
             if (Auth::attempt($mahasiswa_admin)) {
                 $this->isLogin(Auth::id());
                 return redirect()->route('periode.index');
-            }else if (Auth::attempt($mahasiswa_not_admin)) {
+            }
+            else if (Auth::attempt($mahasiswa_not_admin)) {
                 $this->isLogin(Auth::id());
                 return redirect()->route('periode.index');
             }
 
         }
-        if ($ndosen>0){
+        else if (!empty($dosen)){
 
             $dosen_admin = [
                 'dosen_id' => $dosen->dosen_id,
