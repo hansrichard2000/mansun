@@ -19,6 +19,8 @@
                         <option value="{{$periode->id}}">{{$periode->tahun_periode}}</option>
                     @endforeach
                 </select>
+
+                <input type hidden name="periode_id" value="{{$periodes}}">
             </div>
             <div class="form-group">
                 <label for="nama_proker">Nama Program Kerja : </label>

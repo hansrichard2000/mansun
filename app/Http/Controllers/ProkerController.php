@@ -22,8 +22,8 @@ class ProkerController extends Controller
     {
 
         $prokers = Proker::all()->where('periode_id', $id);
-
-        return view('proker.index', compact('prokers'));
+        $periodes = Periode::all()->where('id', $id);
+        return view('proker.index', compact('prokers', 'periodes'));
     }
 
     /**
@@ -31,9 +31,14 @@ class ProkerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Periode $id)
     {
+//        $periodes = Periode::all()->where('id', $id);
+        
+        //sementara
         $periodes = Periode::all();
+//
+//        dd($periodes);
         $status_prokers = Status_Proker::all();
         $users = User::all();
         return view('proker.crud.create', compact('periodes', 'status_prokers', 'users'));

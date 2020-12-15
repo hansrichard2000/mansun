@@ -76,7 +76,8 @@ class PeriodeController extends Controller
     public function show(Proker $prokers, $id)
     {
         $prokers = Proker::all()->where('periode_id', $id);
-        return view('proker.index', compact('prokers'));
+        $periodes = Periode::all()->where('id', $id);
+        return view('proker.index', compact('prokers','periodes'));
     }
 
     /**

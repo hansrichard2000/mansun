@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<?php
+//use App\Models\Periode;
+//use Illuminate\Support\Facades\Auth;
+//
+//$current_user = Periode::all()->where('id', Auth::user()->mahasiswa_id);
+//
+?>
+
 @extends('layouts.beranda')
 
 @section('judul')
@@ -27,8 +36,13 @@
                     <p class="float-left">Belum dimulai &emsp;</p>
                 </div>
             </div>
+            @foreach($periodes as $periode)
+{{--                {{$current_periode = $periode}}--}}
+            @endforeach
+{{--            {{dd($periode->id)}}--}}
             <form method="POST">
-                <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="{{route('proker.create')}}">&nbsp;Tambah Proker</a>
+{{--                Kalau pake $periodes[0], dia cuma bisa buka proker ke 0--}}
+                <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="{{route('proker.create', $periode->id)}}">&nbsp;Tambah Proker</a>
             </form>
         </div>
         <hr class="garisKuning">

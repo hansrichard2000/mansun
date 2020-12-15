@@ -2,7 +2,6 @@
 <?php
     use App\Models\Mahasiswa;
     use Illuminate\Support\Facades\Auth;
-
     $current_user = Mahasiswa::all()->where('mahasiswa_id', Auth::user()->mahasiswa_id);
 ?>
 
