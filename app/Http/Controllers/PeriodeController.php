@@ -18,6 +18,7 @@ class PeriodeController extends Controller
      */
     public function index()
     {
+//        dd(Auth::user());
         $periodes = Periode::all();
         return view('periode.index', compact('periodes'));
     }

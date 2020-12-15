@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect()->route('periode.index');
+    return redirect()->route('login');
 });
 
 Route::resource('periode', PeriodeController::class);
