@@ -12,7 +12,6 @@ class Jabatan extends Model
     protected $table = 'departments';
 
     protected $fillable = [
-        'initial',
         'name',
     ];
 }
