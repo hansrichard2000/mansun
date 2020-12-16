@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Jabatan;
+use App\Models\Title;
 use Illuminate\Database\Seeder;
 
 class JabatanSeeder extends Seeder
@@ -14,8 +14,8 @@ class JabatanSeeder extends Seeder
      */
     public function run()
     {
-        //Seeder Jabatan
-        $jabatan = new Jabatan();
+        //Seeder Title
+        $jabatan = new Title();
         $jabatan->name = 'Ketua Program Studi';
         $jabatan->save();
     }

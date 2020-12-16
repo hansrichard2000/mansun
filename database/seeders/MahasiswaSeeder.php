@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Mahasiswa;
+use App\Models\Student;
 use Illuminate\Database\Seeder;
 
 class MahasiswaSeeder extends Seeder
@@ -14,8 +14,8 @@ class MahasiswaSeeder extends Seeder
      */
     public function run()
     {
-        //Seeder Mahasiswa 1
-        $mahasiswa = new Mahasiswa();
+        //Seeder Student 1
+        $mahasiswa = new Student();
         $mahasiswa->nim = '0706011910020';
         $mahasiswa->name = 'Reiner Anggriawan Jasin';
         $mahasiswa->gender = 'L';
@@ -28,8 +28,8 @@ class MahasiswaSeeder extends Seeder
         $mahasiswa->department_id = '1';
         $mahasiswa->save();
 
-        //Seeder Mahasiswa 2
-        $mahasiswa = new Mahasiswa();
+        //Seeder Student 2
+        $mahasiswa = new Student();
         $mahasiswa->nim = '0706011910007';
         $mahasiswa->name = 'Hans Richard Alim Natadjaja';
         $mahasiswa->gender = 'L';
@@ -42,8 +42,8 @@ class MahasiswaSeeder extends Seeder
         $mahasiswa->department_id = '1';
         $mahasiswa->save();
 
-        //Seeder Mahasiswa 3
-        $mahasiswa = new Mahasiswa();
+        //Seeder Student 3
+        $mahasiswa = new Student();
         $mahasiswa->nim = '0706011910022';
         $mahasiswa->name = 'Antonnio Benedict Bryan';
         $mahasiswa->gender = 'L';

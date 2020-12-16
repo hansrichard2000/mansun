@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mahasiswa;
+use App\Models\Student;
 use App\Models\Periode;
 use App\Models\Proker;
 use App\Models\User;
