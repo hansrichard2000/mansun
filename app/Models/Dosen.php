@@ -9,24 +9,24 @@ class Dosen extends Model
 {
     use HasFactory;
 
-    protected $table = 'dosen';
+    protected $table = 'lecturers';
 
     protected $fillable = [
         'nip',
         'nidn',
-        'nama',
+        'name',
         'gender',
         'email',
         'phone',
         'line_account',
-        'keterangan',
-        'passfoto',
-        'prodi_id',
-        'jabatan_id',
+        'description',
+        'photo',
+        'department_id',
+        'title_id',
         'jaka_id',
     ];
 
     public function user_email_dosen(){
-        return $this->hasOne(User::class, 'id', 'dosen_id');
+        return $this->hasOne(User::class, 'id', 'lecturer_id');
     }
 }

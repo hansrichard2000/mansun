@@ -9,10 +9,10 @@ class Program_Studi extends Model
 {
     use HasFactory;
 
-    protected $table = 'program_studi';
+    protected $table = 'departments';
 
     protected $fillable = [
-        'inisial',
-        'prodi',
+        'initial',
+        'name',
     ];
 }

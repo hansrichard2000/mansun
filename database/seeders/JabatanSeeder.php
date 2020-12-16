@@ -16,7 +16,7 @@ class JabatanSeeder extends Seeder
     {
         //Seeder Jabatan
         $jabatan = new Jabatan();
-        $jabatan->jabatan = 'Ketua Program Studi';
+        $jabatan->name = 'Ketua Program Studi';
         $jabatan->save();
     }
 }

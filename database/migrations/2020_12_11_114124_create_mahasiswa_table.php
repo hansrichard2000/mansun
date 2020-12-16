@@ -13,17 +13,17 @@ class CreateMahasiswaTable extends Migration
      */
     public function up()
     {
-        Schema::create('mahasiswa', function (Blueprint $table) {
-            $table->id('mahasiswa_id');
+        Schema::create('students', function (Blueprint $table) {
+            $table->id('student_id');
             $table->string('nim', 50)->unique();
-            $table->string('nama', 50);
+            $table->string('name', 50);
             $table->string('gender', 1);
             $table->string('email', 50)->unique();
             $table->string('phone')->nullable();
             $table->string('line_account')->nullable();
-            $table->integer('angkatan');
-            $table->text('keterangan')->nullable();
-            $table->text('passfoto')->nullable();
+            $table->integer('batch');
+            $table->text('description')->nullable();
+            $table->text('photo')->nullable();
             $table->timestamps();
         });
     }

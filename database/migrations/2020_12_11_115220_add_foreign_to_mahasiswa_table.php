@@ -13,9 +13,9 @@ class AddForeignToMahasiswaTable extends Migration
      */
     public function up()
     {
-        Schema::table('mahasiswa', function (Blueprint $table) {
-            $table->unsignedBigInteger('prodi_id')->index()->after('passfoto');
-            $table->foreign('prodi_id')->references('prodi_id')->on('program_studi');
+        Schema::table('students', function (Blueprint $table) {
+            $table->unsignedBigInteger('department_id')->index()->after('photo');
+            $table->foreign('department_id')->references('department_id')->on('departments');
         });
     }
 
@@ -26,8 +26,8 @@ class AddForeignToMahasiswaTable extends Migration
      */
     public function down()
     {
-        Schema::table('mahasiswa', function (Blueprint $table) {
-            $table->dropColumn('prodi_id');
+        Schema::table('students', function (Blueprint $table) {
+            $table->dropColumn('department_id');
         });
     }
 }

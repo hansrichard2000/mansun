@@ -9,22 +9,22 @@ class Mahasiswa extends Model
 {
     use HasFactory;
 
-    protected $table = 'mahasiswa';
+    protected $table = 'students';
 
     protected $fillable = [
         'nim',
-        'nama',
+        'name',
         'gender',
         'email',
         'phone',
         'line_account',
-        'angkatan',
-        'keterangan',
-        'passfoto',
-        'prodi_id',
+        'batch',
+        'description',
+        'photo',
+        'department_id',
     ];
 
     public function user_email_mahasiswa(){
-        return $this->hasOne(User::class, 'id', 'mahasiswa_id');
+        return $this->hasOne(User::class, 'id', 'student_id');
     }
 }

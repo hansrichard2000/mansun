@@ -17,8 +17,8 @@ class ProgramStudiSeeder extends Seeder
 
         //Seeder Program Studi Informatika
         $program_studi = new Program_Studi();
-        $program_studi->inisial = 'IMT';
-        $program_studi->prodi = 'Informatika';
+        $program_studi->initial = 'IMT';
+        $program_studi->name = 'Informatika';
         $program_studi->save();
 
     }

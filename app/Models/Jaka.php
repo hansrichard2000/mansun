@@ -9,9 +9,9 @@ class Jaka extends Model
 {
     use HasFactory;
 
-    protected $table = 'jaka';
+    protected $table = 'jakas';
 
     protected $fillable = [
-        'jaka',
+        'name',
     ];
 }

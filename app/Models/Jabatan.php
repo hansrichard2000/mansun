@@ -9,10 +9,10 @@ class Jabatan extends Model
 {
     use HasFactory;
 
-    protected $table = 'jabatan';
+    protected $table = 'departments';
 
     protected $fillable = [
-        'inisial',
-        'prodi',
+        'initial',
+        'name',
     ];
 }

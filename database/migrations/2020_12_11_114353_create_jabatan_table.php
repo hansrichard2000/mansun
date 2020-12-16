@@ -13,9 +13,9 @@ class CreateJabatanTable extends Migration
      */
     public function up()
     {
-        Schema::create('jabatan', function (Blueprint $table) {
-            $table->id('jabatan_id');
-            $table->string('jabatan');
+        Schema::create('titles', function (Blueprint $table) {
+            $table->id('title_id');
+            $table->string('name');
             $table->timestamps();
         });
     }
