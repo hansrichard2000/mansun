@@ -41,7 +41,7 @@
                         <a href="{{route('periode.show', $periode->id)}}">
                             <div class="card">
                                 @if($periode->gambar_periode == null)
-                                    <img src="{{asset('image/group92.jpg')}}" class="card-img-top">
+                                    <img src="{{asset('image/group92.jpg')}}" class="card-img-top img-fluid" style="height: 225.85px">
                                 @else
                                     <img src="image/periodeImg/{{$periode->gambar_periode}}" class="card-img-top img-fluid" style="height: 225.85px">
                                 @endif
