@@ -62,9 +62,59 @@
                     <td>Active</td>
                 @endif
 
-                <td><button style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
+                <td><button id="button_show_mahasiswa{{$mahasiswa->id}}" style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
                             data-toggle="modal"
                             data-target="#create"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
+
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+                    <script>
+
+                        $(document).ready(function(){
+
+                            $("#button_show_mahasiswa{{$mahasiswa->id}}").click(function(){
+
+                                document.getElementById("label_1").innerHTML = "Nama Mahasiswa";
+                                document.getElementById("info_1").innerHTML = "{{$mahasiswa->name}}";
+
+                                document.getElementById("label_2").innerHTML = "NIM";
+                                document.getElementById("info_2").innerHTML = "{{$mahasiswa->nim}}";
+
+                                document.getElementById("label_3").innerHTML = "Gender";
+                                document.getElementById("info_3").innerHTML = "{{$mahasiswa->gender}}";
+
+                                document.getElementById("label_4").innerHTML = "Email";
+                                document.getElementById("info_4").innerHTML = "{{$mahasiswa->email}}";
+
+                                document.getElementById("label_5").innerHTML = "Phone";
+                                document.getElementById("info_5").innerHTML = "{{$mahasiswa->phone}}";
+
+                                document.getElementById("label_6").innerHTML = "Line Account";
+                                document.getElementById("info_6").innerHTML = "{{$mahasiswa->line_account}}";
+
+                                document.getElementById("label_7").innerHTML = "Batch";
+                                document.getElementById("info_7").innerHTML = "{{$mahasiswa->batch}}";
+
+                                document.getElementById("label_8").innerHTML = "Department ID";
+                                document.getElementById("info_8").innerHTML = "{{$mahasiswa->department_id}}";
+
+                                document.getElementById("label_9").innerHTML = "Description";
+                                document.getElementById("info_9").innerHTML = "{{$mahasiswa->description}}";
+
+                                document.getElementById("label_10").innerHTML = "Pass photo";
+                                document.getElementById("info_10").innerHTML = "{{$mahasiswa->photo}}";
+
+                                $("#info_11").hide();
+                                $("#label_11").hide();
+
+                                $("#info_12").hide();
+                                $("#label_12").hide();
+
+                            });
+                        });
+
+                    </script>
+
                     @include('user.detail')</td>
             </tr>
                 @endforeach
@@ -108,9 +158,61 @@
                                 <td>Active</td>
                             @endif
 
-                            <td><button style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
+                            <td><button id="button_show_dosen{{$dosen->id}}" style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
                                         data-toggle="modal"
                                         data-target="#create"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
+
+                                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+                                <script>
+
+                                    $(document).ready(function(){
+
+                                        $("#button_show_dosen{{$dosen->id}}").click(function(){
+
+                                            document.getElementById("label_1").innerHTML = "Nama Dosen";
+                                            document.getElementById("info_1").innerHTML = "{{$dosen->name}}";
+
+                                            document.getElementById("label_2").innerHTML = "NIP";
+                                            document.getElementById("info_2").innerHTML = "{{$dosen->nip}}";
+
+                                            document.getElementById("label_3").innerHTML = "NIDN";
+                                            document.getElementById("info_3").innerHTML = "{{$dosen->nidn}}";
+
+                                            document.getElementById("label_4").innerHTML = "Gender";
+                                            document.getElementById("info_4").innerHTML = "{{$dosen->gender}}";
+
+                                            document.getElementById("label_5").innerHTML = "Email";
+                                            document.getElementById("info_5").innerHTML = "{{$dosen->email}}";
+
+                                            document.getElementById("label_6").innerHTML = "Phone";
+                                            document.getElementById("info_6").innerHTML = "{{$dosen->phone}}";
+
+                                            document.getElementById("label_7").innerHTML = "Line Account";
+                                            document.getElementById("info_7").innerHTML = "{{$dosen->line_account}}";
+
+                                            document.getElementById("label_8").innerHTML = "Department ID";
+                                            document.getElementById("info_8").innerHTML = "{{$dosen->department_id}}";
+
+                                            document.getElementById("label_9").innerHTML = "Title ID";
+                                            document.getElementById("info_9").innerHTML = "{{$dosen->title_id}}";
+
+                                            document.getElementById("label_10").innerHTML = "Jaka ID";
+                                            document.getElementById("info_10").innerHTML = "{{$dosen->jaka_id}}";
+
+                                            $("#label_11").show();
+                                            document.getElementById("label_11").innerHTML = "Description";
+                                            document.getElementById("info_11").innerHTML = "{{$dosen->description}}";
+
+                                            $("#label_12").show();
+                                            document.getElementById("label_12").innerHTML = "Pass Photo";
+                                            document.getElementById("info_12").innerHTML = "{{$dosen->photo}}";
+
+                                        });
+                                    });
+
+                                </script>
+
                                 @include('user.detail')</td>
                         </tr>
                 @endforeach

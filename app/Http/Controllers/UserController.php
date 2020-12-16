@@ -49,7 +49,6 @@ class UserController extends Controller
 //        $dosens = Lecturer::all();
         return view('user.crud.create', compact('mahasiswas', 'dosens'));
     }
-
     /**
      * Store a newly created resource in storage.
      *
