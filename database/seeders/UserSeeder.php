@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
     {
         //Seeder Account Student 1
         $user = new User();
-        $user->mahasiswa_id = '1';
+        $user->student_id = '1';
         $user->email = 'ranggriawan@student.ciptra.ac.id';
         $user->password = Hash::make('12345678');
         $user->is_active = '1';
@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
 
         //Seeder Account Student 2
         $user = new User();
-        $user->mahasiswa_id = '2';
+        $user->student_id = '2';
         $user->email = 'hrichard@student.ciptra.ac.id';
         $user->password = Hash::make('12345678');
         $user->is_active = '1';
@@ -35,7 +35,7 @@ class UserSeeder extends Seeder
 
         //Seeder Account Lecturer 1
         $user = new User();
-        $user->dosen_id = '1';
+        $user->lecturer_id = '1';
         $user->email = 'dosen1@student.ciptra.ac.id';
         $user->password = Hash::make('12345678');
         $user->is_active = '1';
