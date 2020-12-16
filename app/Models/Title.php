@@ -5,14 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Program_Studi extends Model
+class Title extends Model
 {
     use HasFactory;
 
-    protected $table = 'departments';
+    protected $table = 'titles';
 
     protected $fillable = [
-        'initial',
         'name',
     ];
 }

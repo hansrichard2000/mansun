@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Mahasiswa;
-use App\Models\Dosen;
+use App\Models\Student;
+use App\Models\Lecturer;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -32,7 +32,7 @@ class UserController extends Controller
     public function getMyUser()
     {
 
-        $current_user = Mahasiswa::all()->where('mahasiswa_id', Auth::user()->mahasiswa_id);
+        $current_user = Student::all()->where('mahasiswa_id', Auth::user()->mahasiswa_id);
         return view('user.index',compact('mahasiswas', 'dosens', 'current_user'));
     }
 
@@ -43,8 +43,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        $mahasiswas = Mahasiswa::all();
-        $dosens = Dosen::all();
+        $mahasiswas = Student::all();
+        $dosens = Lecturer::all();
         return view('user.crud.create', compact('mahasiswas', 'dosens'));
     }
 

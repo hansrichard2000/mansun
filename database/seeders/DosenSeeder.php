@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Dosen;
+use App\Models\Lecturer;
 use Illuminate\Database\Seeder;
 
 class DosenSeeder extends Seeder
@@ -14,8 +14,8 @@ class DosenSeeder extends Seeder
      */
     public function run()
     {
-        //Seeder Dosen 1
-        $dosen = new Dosen();
+        //Seeder Lecturer 1
+        $dosen = new Lecturer();
         $dosen->nip = '66548959669';
         $dosen->nidn = '0284328234245';
         $dosen->name = 'Dosen1';

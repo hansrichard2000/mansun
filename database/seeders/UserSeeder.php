@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        //Seeder Account Mahasiswa 1
+        //Seeder Account Student 1
         $user = new User();
         $user->mahasiswa_id = '1';
         $user->email = 'ranggriawan@student.ciptra.ac.id';
@@ -24,7 +24,7 @@ class UserSeeder extends Seeder
         $user->is_admin = '1';
         $user->save();
 
-        //Seeder Account Mahasiswa 2
+        //Seeder Account Student 2
         $user = new User();
         $user->mahasiswa_id = '2';
         $user->email = 'hrichard@student.ciptra.ac.id';
@@ -33,7 +33,7 @@ class UserSeeder extends Seeder
         $user->is_admin = '1';
         $user->save();
 
-        //Seeder Account Dosen 1
+        //Seeder Account Lecturer 1
         $user = new User();
         $user->dosen_id = '1';
         $user->email = 'dosen1@student.ciptra.ac.id';

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <?php
-    use App\Models\Mahasiswa;
+    use App\Models\Student;
     use Illuminate\Support\Facades\Auth;
-    $current_user = Mahasiswa::all()->where('mahasiswa_id', Auth::user()->mahasiswa_id);
+    $current_user = Student::all()->where('mahasiswa_id', Auth::user()->mahasiswa_id);
 ?>
 
 <html>

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Dosen;
-use App\Models\Mahasiswa;
+use App\Models\Lecturer;
+use App\Models\Student;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,8 +23,8 @@ class LoginController extends Controller
     public function login(Request $request){
         $http = new \GuzzleHttp\Client;
 
-        $mahasiswa = Mahasiswa::all()->where('email', $request->email)->first();
-        $dosen = Dosen::all()->where('email', $request->email)->first();
+        $mahasiswa = Student::all()->where('email', $request->email)->first();
+        $dosen = Lecturer::all()->where('email', $request->email)->first();
 
         if(!empty($mahasiswa)){
             $mahasiswa_admin = [
