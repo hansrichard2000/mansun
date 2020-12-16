@@ -52,18 +52,18 @@ class LoginController extends Controller
 
         if(!empty($mahasiswa)){
             $mahasiswa_admin = [
-                'mahasiswa_id' => $mahasiswa->mahasiswa_id,
+                'student_id' => $mahasiswa->mahasiswa_id,
                 'password' => $request->password,
-                'dosen_id' => null,
+                'lecturer_id' => null,
                 'is_login' => '0',
                 'is_active' => '1',
                 'is_admin' => '1',
             ];
 
             $mahasiswa_not_admin = [
-                'mahasiswa_id' => $mahasiswa->mahasiswa_id,
+                'student_id' => $mahasiswa->mahasiswa_id,
                 'password' => $request->password,
-                'dosen_id' => null,
+                'lecturer_id' => null,
                 'is_login' => '0',
                 'is_active' => '1',
                 'is_admin' => '0',
@@ -82,18 +82,18 @@ class LoginController extends Controller
         else if (!empty($dosen)){
 
             $dosen_admin = [
-                'dosen_id' => $dosen->dosen_id,
+                'lecturer_id' => $dosen->dosen_id,
                 'password' => $request->password,
-                'mahasiswa_id' => null,
+                'student_id' => null,
                 'is_login' => '0',
                 'is_active' => '1',
                 'is_admin' => '1',
             ];
 
             $dosen_not_admin = [
-                'dosen_id' => $dosen->dosen_id,
+                'lecturer_id' => $dosen->dosen_id,
                 'password' => $request->password,
-                'mahasiswa_id' => null,
+                'student_id' => null,
                 'is_login' => '0',
                 'is_active' => '1',
                 'is_admin' => '0',
