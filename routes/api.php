@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\Auth\LoginController;
+use App\Http\Controllers\Api\PeriodeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('api-login', [LoginController::class, 'login']);
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['middleware'=>'auth:api'], function (){
+    Route::apiResource('periode', PeriodeController::class);
 });
