@@ -23,18 +23,18 @@ class LoginController extends Controller
     public function login(Request $request){
         $http = new \GuzzleHttp\Client;
 
-        $mahasiswa = Student::all()->where('email', $request->email)->first();
-        $dosen = Lecturer::all()->where('email', $request->email)->first();
-
-        if(!empty($mahasiswa)){
-            $mahasiswa_admin = [
-                'mahasiswa_id' => $mahasiswa->mahasiswa_id,
-                'password' => $request->password,
-                'dosen_id' => null,
-                'is_login' => '0',
-                'is_active' => '1',
-                'is_admin' => '1',
-            ];
+//        $mahasiswa = Student::all()->where('email', $request->email)->first();
+//        $dosen = Lecturer::all()->where('email', $request->email)->first();
+//
+//        if(!empty($mahasiswa)){
+//            $mahasiswa_admin = [
+//                'mahasiswa_id' => $mahasiswa->mahasiswa_id,
+//                'password' => $request->password,
+//                'dosen_id' => null,
+//                'is_login' => '0',
+//                'is_active' => '1',
+//                'is_admin' => '1',
+//            ];
 
 //            $mahasiswa_not_admin = [
 //                'mahasiswa_id' => $mahasiswa->mahasiswa_id,
@@ -45,20 +45,33 @@ class LoginController extends Controller
 //                'is_admin' => '0',
 //            ];
 
-            $check = DB::table('users')->where('mahasiswa_id', $mahasiswa->mahasiswa_id)->first();
+            $user = [
+                'email' => $request->email,
+                'password' => $request->password,
+//                'student_id' => 2,
+//                'dosen_id' => null,
+                'is_login' => '0',
+                'is_active' => '1',
+                'is_admin' => '1',
+            ];
+
+            $check = DB::table('users')->where('email', $request->email)->first();
 
             if ($check->is_active == '1'){
                 if ($check->is_admin == '1'){
                     if($check->is_login == '0'){
-                        if (Auth::attempt($mahasiswa_admin)) {
+                        if (Auth::attempt($user)) {
+//                            dd($user);
                             $this->isLogin(Auth::id());
                             $response = $http->post('http://mansun.test/oauth/token', [
-                                'grant_type' => 'password',
-                                'client_id' => $this->client->id,
-                                'client_secret' => $this->client->secret,
-                                'username' => $request->email,
-                                'password' => $request->password,
-                                'scope' => '*',
+                                'form_params' => [
+                                    'grant_type' => 'password',
+                                    'client_id' => $this->client->id,
+                                    'client_secret' => $this->client->secret,
+                                    'username' => $request->email,
+                                    'password' => $request->password,
+                                    'scope' => '*',
+                                ],
                             ]);
 
                             return json_decode((string) $response->getBody(), true);
@@ -83,7 +96,7 @@ class LoginController extends Controller
                     'message' => 'Account is suspended',
                 ]);
             }
-        }
+//        }
 
 //        else if (!empty($dosen)){
 //
