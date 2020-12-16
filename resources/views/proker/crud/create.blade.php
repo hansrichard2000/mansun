@@ -20,7 +20,7 @@
                     @endforeach
                 </select>
 
-                <input type hidden name="periode_id" value="{{$periodes}}">
+{{--                <input type hidden name="periode_id" value="{{$periodes[]}}">--}}
             </div>
             <div class="form-group">
                 <label for="nama_proker">Nama Program Kerja : </label>
@@ -71,9 +71,10 @@
                 <input type="text" class="form-control" id="lpj" name="lpj" placeholder="Input nama program kerja yang akan diisi...">
             </div>
             <div class="form-group">
+{{--                <label for="temp">created_by: (temporary)</label>--}}
                 <select name="created_by" class="custom-select">
                     @foreach ($users as $user)
-                        <option value="{{$user->id}}">{{$user->mahasiswa_id}}</option>
+                        <option value="{{$user->id}}">{{$user->student_id}}</option>
                     @endforeach
                 </select>
             </div>

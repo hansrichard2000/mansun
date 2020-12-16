@@ -34,7 +34,7 @@ class ProkerController extends Controller
     public function create(Periode $id)
     {
 //        $periodes = Periode::all()->where('id', $id);
-        
+
         //sementara
         $periodes = Periode::all();
 //
@@ -52,6 +52,7 @@ class ProkerController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request);
         $request->validate([
             'gambar_proker' => 'image|mimes:jpeg,png,jpg,gif,svg',
         ]);
