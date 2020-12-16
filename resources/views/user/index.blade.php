@@ -28,14 +28,14 @@
 
 {{--        TABEL MAHASISWA--}}
         <div class="d-sm-flex justify-content-between align-items-center mb-4">
-            <h3 class="text-dark mb-0">Tabel Mahasiswa</h3>
+            <h3 class="text-dark mb-0">Tabel Students</h3>
         </div>
         <table class="table table-hover" style="text-align: center">
             <thead class="thead-dark">
             <tr>
-                <th scope="col">Nama</th>
-                <th scope="col">Prodi</th>
-                <th scope="col">Angkatan</th>
+                <th scope="col">Name</th>
+                <th scope="col">Department</th>
+                <th scope="col">Batch</th>
                 <th scope="col">NIM</th>
                 <th scope="col">Login Status</th>
                 <th scope="col">Active Status</th>
@@ -45,9 +45,9 @@
             <tbody>
                 @foreach($mahasiswas as $mahasiswa)
             <tr>
-                <th scope="row">{{$mahasiswa->nama}}</th>
-                <td>{{$mahasiswa->prodi_id}}</td>
-                <td>{{$mahasiswa->angkatan}}</td>
+                <th scope="row">{{$mahasiswa->name}}</th>
+                <td>{{$mahasiswa->department_id}}</td>
+                <td>{{$mahasiswa->batch}}</td>
                 <td>{{$mahasiswa->nim}}</td>
 
                 @if($mahasiswa->is_login == 0)
@@ -73,14 +73,14 @@
 
 {{--        TABEL DOSEN--}}
         <div class="d-sm-flex justify-content-between align-items-center mb-4">
-            <h3 class="text-dark mb-0">Tabel Dosen</h3>
+            <h3 class="text-dark mb-0">Tabel Lecturers</h3>
         </div>
         <table class="table table-hover" style="text-align: center">
             <thead class="thead-dark">
 
             <tr>
-                <th scope="col">Nama</th>
-                <th scope="col">Prodi</th>
+                <th scope="col">Name</th>
+                <th scope="col">Department</th>
                 <th scope="col">NIP</th>
                 <th scope="col">NIDN</th>
                 <th scope="col">Login Status</th>
@@ -91,8 +91,8 @@
             <tbody>
                 @foreach($dosens as $dosen)
                         <tr>
-                            <th scope="row">{{$dosen->nama}}</th>
-                            <td>{{$dosen->prodi_id}}</td>
+                            <th scope="row">{{$dosen->name}}</th>
+                            <td>{{$dosen->department_id}}</td>
                             <td>{{$dosen->nip}}</td>
                             <td>{{$dosen->nidn}}</td>
 

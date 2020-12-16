@@ -19,8 +19,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $mahasiswas = DB::select('select * from mahasiswa m inner join users u on u.mahasiswa_id = m.mahasiswa_id');
-        $dosens = DB::select('SELECT * FROM dosen INNER JOIN users ON users.dosen_id = dosen.dosen_id');
+        $mahasiswas = DB::select('select * from students s inner join users u on u.student_id = s.student_id');
+        $dosens = DB::select('SELECT * FROM lecturers l INNER JOIN users u ON u.lecturer_id = l.lecturer_id');
         return view('user.index',compact('mahasiswas', 'dosens'));
     }
 
@@ -32,7 +32,7 @@ class UserController extends Controller
     public function getMyUser()
     {
 
-        $current_user = Student::all()->where('mahasiswa_id', Auth::user()->mahasiswa_id);
+        $current_user = Student::all()->where('student_id', Auth::user()->student_id);
         return view('user.index',compact('mahasiswas', 'dosens', 'current_user'));
     }
 
@@ -43,8 +43,10 @@ class UserController extends Controller
      */
     public function create()
     {
-        $mahasiswas = Student::all();
-        $dosens = Lecturer::all();
+        $mahasiswas = DB::select('SELECT * FROM students where student_id NOT IN(SELECT student_id FROM users WHERE student_id IS NOT NULL)');
+//        $mahasiswas = Student::all();
+        $dosens = DB::select('SELECT * FROM lecturers where lecturer_id NOT IN(SELECT lecturer_id FROM users WHERE lecturer_id IS NOT NULL)');
+//        $dosens = Lecturer::all();
         return view('user.crud.create', compact('mahasiswas', 'dosens'));
     }
 

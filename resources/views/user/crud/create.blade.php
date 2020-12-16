@@ -36,10 +36,10 @@
         <form action="{{route('user.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group" id="dropdown_mahasiswa">
-                <label for="mahasiswa_id">Mahasiswa_id :</label>
+                <label for="mahasiswa_id">Student_id :</label>
                 <select name="mahasiswa_id" class="custom-select">
                     @foreach($mahasiswas as $mahasiswa)
-                    <option value="{{$mahasiswa->mahasiswa_id}}">{{$mahasiswa->nama}}</option>
+                    <option value="{{$mahasiswa->student_id}}">{{$mahasiswa->name}}</option>
                     @endforeach
                 </select>
             </div>
@@ -48,7 +48,7 @@
                 <label for="dosen_id">Dosen_id :</label>
                 <select name="dosen_id" class="custom-select">
                     @foreach($dosens as $dosen)
-                        <option value="{{$dosen->dosen_id}}">{{$dosen->nama}}</option>
+                        <option value="{{$dosen->lecturer_id}}">{{$dosen->name}}</option>
                     @endforeach
                 </select>
             </div>
