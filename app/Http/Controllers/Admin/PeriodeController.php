@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Student;
 use App\Models\Periode;
 use App\Models\Proker;
@@ -64,7 +65,7 @@ class PeriodeController extends Controller
                 'created_by' => $request->created_by,
             ]);
         }
-        return redirect()->route('periode.index');
+        return redirect()->route('admin.periode.index');
 
     }
 

@@ -6,9 +6,9 @@
         </a>
         <hr class="sidebar-divider my-0">
         <ul class="nav navbar-nav text-light" id="accordionSidebar">
-            <li class="nav-item"><a class="nav-link active" href="{{route('periode.index')}}"><i class="fas fa-home"></i><span>Beranda</span></a></li>
+            <li class="nav-item"><a class="nav-link active" href="{{route('admin.periode.index')}}"><i class="fas fa-home"></i><span>Beranda</span></a></li>
             <li class="nav-item"><a class="nav-link" href="jadwal.html"><i class="far fa-calendar-alt"></i><span>Jadwal</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="{{route('user.index')}}"><i class="fas fa-user"></i><span>User Management</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="{{route('admin.user.index')}}"><i class="fas fa-user"></i><span>User Management</span></a></li>
             <li class="nav-item"><a class="nav-link" href="table.html"><i class="fas fa-table"></i><span>Table</span></a></li>
             <li class="nav-item"><a class="nav-link" href="{{route('login')}}"><i class="far fa-user-circle"></i><span>Login</span></a></li>
         </ul>

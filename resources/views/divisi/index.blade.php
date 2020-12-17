@@ -51,7 +51,7 @@
                         </form>
                     </div>
                     <div class="float-md-right mr-3">
-                        <form action="{{route('task.create')}}" method="GET">
+                        <form action="{{route('admin.task.create')}}" method="GET">
                             @csrf
                             <input type="submit" class="btn bg-mansun-blue text-white" value="Tambah Tugas">
                         </form>

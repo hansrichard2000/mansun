@@ -11,7 +11,7 @@
 
         </div>
         <hr class="garisKuning">
-        <form method="POST" action="{{route('proker.store')}}" enctype="multipart/form-data">
+        <form method="POST" action="{{route('admin.proker.store')}}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <select name="periode_id" class="custom-select">

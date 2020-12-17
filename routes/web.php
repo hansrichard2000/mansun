@@ -1,10 +1,10 @@
 <?php
 
-use App\Http\Controllers\DivisiController;
-use App\Http\Controllers\PeriodeController;
-use App\Http\Controllers\ProkerController;
-use App\Http\Controllers\TaskController;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\DivisiController;
+use App\Http\Controllers\Admin\PeriodeController;
+use App\Http\Controllers\Admin\ProkerController;
+use App\Http\Controllers\Admin\TaskController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,15 +22,22 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 
-Route::resource('periode', PeriodeController::class);
+Route::group([
+    'middleware' => 'admin',
+    'prefix' =>'admin',
+    'as' => 'admin.',
+], function(){
+    Route::resource('periode', PeriodeController::class);
 
-Route::resource('proker', ProkerController::class);
+    Route::resource('proker', ProkerController::class);
 
-Route::resource('divisi', DivisiController::class);
+    Route::resource('divisi', DivisiController::class);
 
-Route::resource('user', UserController::class);
+    Route::resource('user', UserController::class);
 
-Route::resource('task', TaskController::class);
+    Route::resource('task', TaskController::class);
+});
+
 
 Route::get('viewlogin', function (){
    return view('login.index');

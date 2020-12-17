@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Divisi;
 use App\Models\Periode;
 use App\Models\Proker;
@@ -93,7 +94,7 @@ class ProkerController extends Controller
                 'created_by' => $request->created_by,
             ]);
         }
-        return redirect()->route('periode.show', $request->periode_id);
+        return redirect()->route('admin.periode.show', $request->periode_id);
     }
 
     /**
@@ -132,7 +133,7 @@ class ProkerController extends Controller
     public function update(Request $request, Proker $proker)
     {
         $proker->update($request->all());
-        return redirect()->route('proker.index');
+        return redirect()->route('admin.proker.index');
     }
 
     /**
@@ -144,6 +145,6 @@ class ProkerController extends Controller
     public function destroy(Proker $proker)
     {
         $proker->delete();
-        return redirect()->route('proker.index');
+        return redirect()->route('admin.proker.index');
     }
 }

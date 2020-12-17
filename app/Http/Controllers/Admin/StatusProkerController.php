@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Divisi;
+use App\Http\Controllers\Controller;
+use App\Models\Status_Proker;
 use Illuminate\Http\Request;
 
-class DivisiController extends Controller
+class StatusProkerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,7 @@ class DivisiController extends Controller
      */
     public function index()
     {
-        return view('divisi.index');
+        //
     }
 
     /**
@@ -24,7 +25,7 @@ class DivisiController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -35,28 +36,27 @@ class DivisiController extends Controller
      */
     public function store(Request $request)
     {
-        Divisi::create($request->all());
-        return redirect()->route('proker.show', $request->proker_id);
+        //
     }
 
     /**
      * Display the specified resource.
      *
-//     * @param  \App\Models\Divisi  $divisi
+     * @param  \App\Models\Status_Proker  $status_Proker
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Status_Proker $status_Proker)
     {
-        return view('divisi.crud.listAnggota');
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Divisi  $divisi
+     * @param  \App\Models\Status_Proker  $status_Proker
      * @return \Illuminate\Http\Response
      */
-    public function edit(Divisi $divisi)
+    public function edit(Status_Proker $status_Proker)
     {
         //
     }
@@ -65,10 +65,10 @@ class DivisiController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Divisi  $divisi
+     * @param  \App\Models\Status_Proker  $status_Proker
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Divisi $divisi)
+    public function update(Request $request, Status_Proker $status_Proker)
     {
         //
     }
@@ -76,10 +76,10 @@ class DivisiController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Divisi  $divisi
+     * @param  \App\Models\Status_Proker  $status_Proker
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Divisi $divisi)
+    public function destroy(Status_Proker $status_Proker)
     {
         //
     }

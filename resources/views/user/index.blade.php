@@ -21,7 +21,7 @@
             </form>
 
 {{--            Add button--}}
-            <form method="GET" action="{{route('user.create')}}">
+            <form method="GET" action="{{route('admin.user.create')}}">
                 <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="{{route('user.create')}}">&nbsp;Tambah User</a>
             </form>
         </div>

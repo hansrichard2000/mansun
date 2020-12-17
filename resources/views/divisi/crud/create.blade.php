@@ -9,7 +9,7 @@
             </div>
             <!-- Modal body -->
             <div class="modal-body" style="text-align: left;">
-                <form action="{{route('divisi.store')}}" method="post">
+                <form action="{{route('admin.divisi.store')}}" method="post">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="nama_divisi">Nama Divisi :</label>

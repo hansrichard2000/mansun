@@ -71,7 +71,7 @@ class LoginController extends Controller
 
             if (Auth::attempt($mahasiswa_admin)) {
                 $this->isLogin(Auth::id());
-                return redirect()->route('periode.index');
+                return redirect()->route('admin.periode.index');
             }
             else if (Auth::attempt($mahasiswa_not_admin)) {
                 $this->isLogin(Auth::id());
@@ -101,7 +101,7 @@ class LoginController extends Controller
 
             if (Auth::attempt($dosen_admin)) {
                     $this->isLogin(Auth::id());
-                    return redirect()->route('periode.index');
+                    return redirect()->route('admin.periode.index');
             } else if (Auth::attempt($dosen_not_admin)) {
                 $this->isLogin(Auth::id());
                 return redirect()->route('periode.index');
