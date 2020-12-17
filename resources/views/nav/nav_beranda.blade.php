@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: linear-gradient(rgba(255,196,45,0.62) 97%, rgba(255,255,255,0) 100%), url(&quot;../assets/img/SLBaru.jpeg&quot;) top / auto no-repeat, #ffc42d;">
+<nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: linear-gradient(rgba(255,196,45,0.62) 97%, rgba(255,255,255,0) 100%), url(&quot;../../assets/img/SLBaru.jpeg&quot;) top / auto no-repeat, #ffc42d;">
     <div class="container-fluid d-flex flex-column p-0">
         <a class="navbar-brand d-flex justify-content-center align-items-center mt-3 m-0" href="#">
             <div class="sidebar-brand-icon rotate-n-15"></div>
