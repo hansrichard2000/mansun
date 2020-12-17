@@ -79,12 +79,12 @@ class LoginController extends Controller
                         else {
                             return response([
                                 'message' => 'Login is Failed',
-                            ]);
+                            ], 401);
                         }
                     }else{
                         return response([
                             'message' => 'Account in use',
-                        ]);
+                        ], 403);
                     }
                 }else{
                     return response([
@@ -127,6 +127,46 @@ class LoginController extends Controller
         $user = User::findOrFail($id);
         return $user->update([
             'is_login' => '1',
+        ]);
+    }
+
+    public function refresh(Request $request){
+        $this->validate($request, [
+            'refresh_token' => 'required',
+        ], [
+            'refresh_token' => 'refresh token is required',
+        ]);
+
+        $http = new \GuzzleHttp\Client;
+
+        $response = $http->post('http://mansun.test/oauth/token', [
+            'form_params' => [
+                'grant_type' => 'refresh_token',
+                'client_id' => $this->client->id,
+                'client_secret' => $this->client->secret,
+                'refresh_token' => $request->refresh_token,
+                'scope' => '*',
+            ],
+        ]);
+
+        return json_decode((string) $response->getBody(), true);
+    }
+
+    public function logout(){
+        $user = Auth::user();
+        $accessToken = Auth::user()->token();
+        DB::table('oauth_refresh_tokens')
+            ->where('access_token_id', $accessToken->id)
+            ->update(['revoked' => true]);
+
+        $user->update([
+            'is_login' => '0',
+        ]);
+
+        $accessToken->revoke();
+
+        return response([
+            'message' => 'Logged Out',
         ]);
     }
 

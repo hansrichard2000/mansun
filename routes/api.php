@@ -17,7 +17,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('api-login', [LoginController::class, 'login']);
+Route::post('api-refresh', [LoginController::class, 'refresh']);
 
 Route::group(['middleware'=>'auth:api'], function (){
     Route::apiResource('periode', PeriodeController::class);
+    Route::post('api-logout', [LoginController::class, 'logout']);
 });
