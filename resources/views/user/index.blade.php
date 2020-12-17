@@ -22,7 +22,7 @@
 
 {{--            Add button--}}
             <form method="GET" action="{{route('admin.user.create')}}">
-                <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="{{route('user.create')}}">&nbsp;Tambah User</a>
+                <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="{{route('admin.user.create')}}">&nbsp;Tambah User</a>
             </form>
         </div>
 
@@ -201,10 +201,12 @@
                                             document.getElementById("info_10").innerHTML = "{{$dosen->jaka_id}}";
 
                                             $("#label_11").show();
+                                            $("#info_11").show();
                                             document.getElementById("label_11").innerHTML = "Description";
                                             document.getElementById("info_11").innerHTML = "{{$dosen->description}}";
 
                                             $("#label_12").show();
+                                            $("#info_12").show();
                                             document.getElementById("label_12").innerHTML = "Pass Photo";
                                             document.getElementById("info_12").innerHTML = "{{$dosen->photo}}";
 

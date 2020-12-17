@@ -47,10 +47,6 @@ Route::get('profil', function (){
     return view('profil.index');
 });
 
-Route::get('adduser', function (){
-    return view('user.crud.create');
-});
-
 Route::get('listanggota', function (){
     return view('divisi.crud.listAnggota');
 });

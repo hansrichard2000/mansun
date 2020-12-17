@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
+namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use App\Models\Student;
 use App\Models\Lecturer;
@@ -10,6 +12,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -58,7 +61,38 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        if ($request->mahasiswa_id != null){
+
+            //pluck email from database
+            $email = Student::all()->where('student_id',$request->mahasiswa_id)->pluck('email')->toArray();
+
+            User::create([
+                'student_id' => $request->mahasiswa_id,
+                'lecturer_id' => null,
+                'email' => $email[0],
+                'password' => Hash::make($request->password),
+                'is_login' => '0',
+                'is_active' => $request->is_active,
+                'is_admin' => $request->is_admin,
+            ]);
+        }
+        else{
+
+            //pluck email from database
+            $email = Lecturer::all()->where('lecturer_id',$request->dosen_id)->pluck('email')->toArray();
+
+            User::create([
+                'student_id' => null,
+                'lecturer_id' => $request->dosen_id,
+                'email' => $email[0],
+                'password' => Hash::make($request->password),
+                'is_login' => '0',
+                'is_active' => $request->is_active,
+                'is_admin' => $request->is_admin,
+            ]);
+        }
+        return redirect()->route('admin.user.index');
     }
 
     /**

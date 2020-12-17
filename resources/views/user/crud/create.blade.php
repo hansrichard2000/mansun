@@ -16,10 +16,16 @@
         $("#dropdown_dosen").hide();
 
         $("#tipe_mahasiswa").click(function(){
+            document.getElementById("dd_mahasiswa").disabled = false;
+            document.getElementById("dd_dosen").disabled = true;
+
             $("#dropdown_mahasiswa").show();
             $("#dropdown_dosen").hide();
         });
         $("#tipe_dosen").click(function(){
+            document.getElementById("dd_dosen").disabled = false;
+            document.getElementById("dd_mahasiswa").disabled = true;
+
             $("#dropdown_dosen").show();
             $("#dropdown_mahasiswa").hide();
         });
@@ -33,11 +39,11 @@
         <button id="tipe_mahasiswa" class="btn bg-mansun-blue text-white">Mahasiswa</button>
         <button id="tipe_dosen" class="btn bg-mansun-blue text-white">Dosen</button><br><br>
 
-        <form action="{{route('user.store')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('admin.user.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group" id="dropdown_mahasiswa">
                 <label for="mahasiswa_id">Student_id :</label>
-                <select name="mahasiswa_id" class="custom-select">
+                <select name="mahasiswa_id" class="custom-select" id="dd_mahasiswa">
                     @foreach($mahasiswas as $mahasiswa)
                     <option value="{{$mahasiswa->student_id}}">{{$mahasiswa->name}}</option>
                     @endforeach
@@ -46,7 +52,7 @@
 
             <div class="form-group" id="dropdown_dosen">
                 <label for="dosen_id">Dosen_id :</label>
-                <select name="dosen_id" class="custom-select">
+                <select name="dosen_id" class="custom-select" id="dd_dosen">
                     @foreach($dosens as $dosen)
                         <option value="{{$dosen->lecturer_id}}">{{$dosen->name}}</option>
                     @endforeach
