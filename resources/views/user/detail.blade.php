@@ -51,8 +51,10 @@
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="button" class="btn bg-mansun-blue text-white">Edit</button>
-                <button type="button" class="btn btn-danger">Delete</button>
+                <form method="GET" action="{{route('admin.user.create', )}}">
+                    <input class="btn bg-mansun-blue text-white" type="submit" name="submit" value="Edit">
+                </form>
+{{--                <a href="{{route('admin.user.destroy')}}" class="btn btn-danger">Delete</a>--}}
             </div>
         </div>
     </div>

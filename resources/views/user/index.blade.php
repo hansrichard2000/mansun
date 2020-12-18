@@ -8,6 +8,7 @@
     User Management
 @endsection
 
+
 @section('content')
     <div class="container-fluid">
 
@@ -114,6 +115,14 @@
                         });
 
                     </script>
+                    <form action="{{ route('admin.user.destroy' , $mahasiswa->student_id)}}" method="POST">
+                        {{ csrf_field() }}
+                        <input name="_method" type="hidden" value="DELETE">
+                        <button type="submit" class="btn btn-danger">Delete Student</button>
+                    </form>
+
+{{--                    <a href="{{route('admin.user.create')}}" class="btn btn-danger">Delete</a>--}}
+{{--                    <a href="{{route('admin.user.create')}}" class="btn btn-danger">Delete2</a>--}}
 
                     @include('user.detail')</td>
             </tr>

@@ -7,7 +7,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Student;
 use App\Models\Lecturer;
-use App\Models\Task;
+//use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -132,11 +132,14 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Task  $task
+     * @param  int  $request
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Task $task)
+    public function destroy($request)
     {
-        //
+        $user = User::where('student_id', $request)->first();
+//        dd($user);
+        $user->delete();
+        return redirect()->route('admin.user.index');
     }
 }
