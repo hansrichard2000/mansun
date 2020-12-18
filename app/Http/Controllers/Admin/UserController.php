@@ -23,8 +23,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        $mahasiswas = DB::select('select * from students s inner join users u on u.student_id = s.student_id');
-        $dosens = DB::select('SELECT * FROM lecturers l INNER JOIN users u ON u.lecturer_id = l.lecturer_id');
+//        $mahasiswas = DB::select('select * from students s inner join users u on u.student_id = s.student_id');
+//        $dosens = DB::select('SELECT * FROM lecturers l INNER JOIN users u ON u.lecturer_id = l.lecturer_id');
+        $mahasiswas = Student::all();
+        $dosens = Lecturer::all();
+        $users = User::all();
+
         return view('user.index',compact('mahasiswas', 'dosens'));
     }
 
@@ -137,8 +141,8 @@ class UserController extends Controller
      */
     public function destroy($request)
     {
+        dd($request->type);
         $user = User::where('student_id', $request)->first();
-//        dd($user);
         $user->delete();
         return redirect()->route('admin.user.index');
     }

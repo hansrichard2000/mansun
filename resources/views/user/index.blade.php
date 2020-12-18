@@ -63,9 +63,16 @@
                     <td>Active</td>
                 @endif
 
-                <td><button id="button_show_mahasiswa{{$mahasiswa->id}}" style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
+                <td><button id="button_show_mahasiswa{{$mahasiswa->id}}" style="border-radius: 50%" type="button" class="btn bg-mansun-blue text-white" title="Add guest to this event"
                             data-toggle="modal"
                             data-target="#create"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
+
+                    <form action="{{ route('admin.user.destroy' , $mahasiswa->student_id)}}" method="POST">
+                        {{ csrf_field() }}
+                        <input name="_method" type="hidden" value="DELETE">
+                        <input name="type" type="hidden" value="mahasiswa">
+                        <button type="submit" class="btn btn-danger text-white" title="Delete this user" style="border-radius: 50%"><i class="fas fa-trash" aria-hidden="true" style="color: #ffffff"></i></button>
+                    </form>
 
                     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -115,11 +122,6 @@
                         });
 
                     </script>
-                    <form action="{{ route('admin.user.destroy' , $mahasiswa->student_id)}}" method="POST">
-                        {{ csrf_field() }}
-                        <input name="_method" type="hidden" value="DELETE">
-                        <button type="submit" class="btn btn-danger">Delete Student</button>
-                    </form>
 
 {{--                    <a href="{{route('admin.user.create')}}" class="btn btn-danger">Delete</a>--}}
 {{--                    <a href="{{route('admin.user.create')}}" class="btn btn-danger">Delete2</a>--}}
@@ -170,6 +172,13 @@
                             <td><button id="button_show_dosen{{$dosen->id}}" style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
                                         data-toggle="modal"
                                         data-target="#create"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
+
+                                <form action="{{ route('admin.user.destroy', $dosen->lecturer_id)}}" method="POST">
+                                    {{ csrf_field() }}
+                                    <input name="_method" type="hidden" value="DELETE">
+                                    <input name="type" type="hidden" value="dosen">
+                                    <button type="submit" class="btn btn-danger text-white" title="Delete this user" style="border-radius: 50%"><i class="fas fa-trash" aria-hidden="true" style="color: #ffffff"></i></button>
+                                </form>
 
                                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
