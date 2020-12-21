@@ -25,11 +25,12 @@ class UserController extends Controller
     {
 //        $mahasiswas = DB::select('select * from students s inner join users u on u.student_id = s.student_id');
 //        $dosens = DB::select('SELECT * FROM lecturers l INNER JOIN users u ON u.lecturer_id = l.lecturer_id');
-        $mahasiswas = Student::all();
-        $dosens = Lecturer::all();
-        $users = User::all();
+        $students = Student::all();
+        $lecturers = Lecturer::all();
+        $user = User::find(1);
 
-        return view('user.index',compact('mahasiswas', 'dosens'));
+        return view('user.index',compact('user', 'students', 'lecturers'));
+//        return $users->student->name;
     }
 
     /**
@@ -136,13 +137,13 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $request
+     * @param  \App\Models\User $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy($request)
+    public function destroy(User $user)
     {
-        dd($request->type);
-        $user = User::where('student_id', $request)->first();
+//        dd($request->type);
+//        $user = User::where('student_id', $user->student_id)->first();
         $user->delete();
         return redirect()->route('admin.user.index');
     }

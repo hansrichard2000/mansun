@@ -110,7 +110,7 @@ class LoginController extends Controller
         }
 
 
-        return redirect()->route('login');
+        return redirect()->route('login')->with('Login Failed', 'Account in use or suspended');
     }
 
     public function logout(Request $request)
