@@ -47,12 +47,12 @@
             </tr>
             </thead>
             <tbody>
-{{--                @foreach($users as $user)--}}
+                @foreach($users as $user)
 {{--                    @if($user->lecture_id == null)--}}
             <tr>
-                <td>{{$user->student->name}}</td>
-                <td>{{$user->student->email}}</td>
-                <td>{{$user->student->batch}}</td>
+                <td>{{$user->student_id}}</td>
+                <td>{{$user->student_id}}</td>
+                <td>{{$user->student_id}}</td>
 
                 @if($user->is_login == 0)
                     <td><div style="width:20px;height: 20px;background-color: grey; margin-left: 41%"></div></td>
@@ -132,7 +132,7 @@
 {{--                    @include('user.detail')</td>--}}
             </tr>
 {{--                @endif--}}
-{{--                @endforeach--}}
+                @endforeach
             </tbody>
         </table>
 

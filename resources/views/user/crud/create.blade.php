@@ -42,18 +42,18 @@
         <form action="{{route('admin.user.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group" id="dropdown_mahasiswa">
-                <label for="mahasiswa_id">Student_id :</label>
-                <select name="mahasiswa_id" class="custom-select" id="dd_mahasiswa">
-                    @foreach($mahasiswas as $mahasiswa)
-                    <option value="{{$mahasiswa->student_id}}">{{$mahasiswa->name}}</option>
+                <label for="student_id">Student_id :</label>
+                <select name="student_id" class="custom-select" id="dd_mahasiswa">
+                    @foreach($students as $student)
+                    <option value="{{$student->student_id}}">{{$student->name}}</option>
                     @endforeach
                 </select>
             </div>
 
             <div class="form-group" id="dropdown_dosen">
-                <label for="dosen_id">Dosen_id :</label>
-                <select name="dosen_id" class="custom-select" id="dd_dosen">
-                    @foreach($dosens as $dosen)
+                <label for="lecturer_id">Dosen_id :</label>
+                <select name="lecturer_id" class="custom-select" id="dd_dosen">
+                    @foreach($lecturers as $lecturer)
                         <option value="{{$dosen->lecturer_id}}">{{$dosen->name}}</option>
                     @endforeach
                 </select>

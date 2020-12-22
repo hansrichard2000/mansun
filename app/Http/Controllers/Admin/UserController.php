@@ -27,9 +27,9 @@ class UserController extends Controller
 //        $dosens = DB::select('SELECT * FROM lecturers l INNER JOIN users u ON u.lecturer_id = l.lecturer_id');
         $students = Student::all();
         $lecturers = Lecturer::all();
-        $user = User::find(1);
+        $users = User::all();
 
-        return view('user.index',compact('user', 'students', 'lecturers'));
+        return view('user.index',compact('users', 'students', 'lecturers'));
 //        return $users->student->name;
     }
 
@@ -52,11 +52,22 @@ class UserController extends Controller
      */
     public function create()
     {
-        $mahasiswas = DB::select('SELECT * FROM students where student_id NOT IN(SELECT student_id FROM users WHERE student_id IS NOT NULL)');
-//        $mahasiswas = Student::all();
-        $dosens = DB::select('SELECT * FROM lecturers where lecturer_id NOT IN(SELECT lecturer_id FROM users WHERE lecturer_id IS NOT NULL)');
+//        $students = Student::whereNotIn('student_id', function ($query){
+//            $query->select('student_id')->from('mansun_users');
+//        })->get();
+//
+//        dd($students);
+//        $lecturers = Lecturer::whereNotIn('lecturer_id', function ($query){
+//            $query->select('lecturer_id')->from('mansun_users')->where('lecturer_id', !null);
+//        })->get();
+        $students = DB::select('SELECT * FROM students where student_id NOT IN(SELECT student_id FROM mansun_users WHERE student_id IS NOT NULL)');
+        $students = Student::all();
+
+        dd($students);
+//        $dosens = DB::select('SELECT * FROM lecturers where lecturer_id NOT IN(SELECT lecturer_id FROM mansun_users WHERE lecturer_id IS NOT NULL)');
 //        $dosens = Lecturer::all();
-        return view('user.crud.create', compact('mahasiswas', 'dosens'));
+
+        return view('user.crud.create', compact('students', 'lecturers'));
     }
     /**
      * Store a newly created resource in storage.
@@ -67,13 +78,13 @@ class UserController extends Controller
     public function store(Request $request)
     {
 
-        if ($request->mahasiswa_id != null){
+        if ($request->student_id != null){
 
             //pluck email from database
-            $email = Student::all()->where('student_id',$request->mahasiswa_id)->pluck('email')->toArray();
+            $email = Student::all()->where('student_id',$request->student_id)->pluck('email')->toArray();
 
             User::create([
-                'student_id' => $request->mahasiswa_id,
+                'student_id' => $request->student_id,
                 'lecturer_id' => null,
                 'email' => $email[0],
                 'password' => Hash::make($request->password),
@@ -85,11 +96,11 @@ class UserController extends Controller
         else{
 
             //pluck email from database
-            $email = Lecturer::all()->where('lecturer_id',$request->dosen_id)->pluck('email')->toArray();
+            $email = Lecturer::all()->where('lecturer_id',$request->lecturer_id)->pluck('email')->toArray();
 
             User::create([
                 'student_id' => null,
-                'lecturer_id' => $request->dosen_id,
+                'lecturer_id' => $request->lecturer_id,
                 'email' => $email[0],
                 'password' => Hash::make($request->password),
                 'is_login' => '0',
