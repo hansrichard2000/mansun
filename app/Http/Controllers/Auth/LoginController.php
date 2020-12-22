@@ -41,7 +41,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('admin')->except('logout');
     }
 
     public function login(Request $request)
@@ -74,6 +74,7 @@ class LoginController extends Controller
                 return redirect()->route('admin.periode.index');
             }
             else if (Auth::attempt($mahasiswa_not_admin)) {
+
                 $this->isLogin(Auth::id());
                 return redirect()->route('periode.index');
             }

@@ -21,7 +21,7 @@
                 <label for="penanggung_jawab">Penanggung Jawab</label>
                 <select class="form-select" id=penanggung_jawab"" name="penanggung_jawab" aria-label="Floating label select example">
                     @foreach ($users as $user)
-                        <option value="{{$user->id}}">{{$user->id}}</option>
+                        <option value="{{$user->id}}">{{$user->email}}</option>
                     @endforeach
                 </select>
             </div>
@@ -64,5 +64,6 @@
             </div>
             <input class="btn bg-mansun-blue text-white" type="submit" id="submit" name="submit" value="Submit">
         </form>
+        <br><br>
     </div>
 @endsection
