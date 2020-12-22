@@ -19,7 +19,7 @@ class CreateDivisisTable extends Migration
             $table->unsignedBigInteger('proker_id');
             $table->foreign('proker_id')->references('id')->on('mansun_prokers');
             $table->unsignedBigInteger('created_by');
-            $table->foreign('created_by')->references('id')->on('users');
+            $table->foreign('created_by')->references('id')->on('mansun_users');
             $table->timestamps();
         });
     }

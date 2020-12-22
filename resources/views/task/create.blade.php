@@ -15,7 +15,7 @@
 
         </div>
         <hr class="garisKuning">
-        <form method="POST" action="{{route('admin.task.store')}}">
+        <form method="POST" action="{{route('task.store')}}">
             @csrf
             <div class="form-group">
                 <label for="penanggung_jawab">Penanggung Jawab</label>

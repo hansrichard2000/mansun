@@ -12,6 +12,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $table = 'mansun_users';
     /**
      * The attributes that are mass assignable.
      *
@@ -69,12 +70,12 @@ class User extends Authenticatable
         return $this->hasMany(Task::class, 'penanggung_jawab', 'id');
     }
 
-    public function emailMahasiswa(){
-        return $this->belongsTo(Student::class);
+    public function student(){
+        return $this->belongsTo(Student::class, 'student_id', 'student_id');
     }
 
-    public function emailDosen(){
-        return $this->belongsTo(Lecturer::class);
+    public function lecturer(){
+        return $this->belongsTo(Lecturer::class, 'lecturer_id', 'lecturer_id');
 
     }
 

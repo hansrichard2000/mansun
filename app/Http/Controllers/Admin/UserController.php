@@ -23,19 +23,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        $students = DB::select('select * from students s inner join mansun_users u on u.student_id = s.student_id');
-        $lecturers = DB::select('SELECT * FROM lecturers l INNER JOIN mansun_users u ON u.lecturer_id = l.lecturer_id');
+//        $mahasiswas = DB::select('select * from students s inner join users u on u.student_id = s.student_id');
+//        $dosens = DB::select('SELECT * FROM lecturers l INNER JOIN users u ON u.lecturer_id = l.lecturer_id');
+        $students = Student::all();
+        $lecturers = Lecturer::all();
+        $user = User::find(1);
 
-//        $users1 = User::all()->where('lecturer_id', null);
-////        dd($users1);
-//
-//        $students = Student::whereIn('lecturer_id', $users1);
-////        dd($students);
-//
-//        $lecturers = Lecturer::all();
-        $users = User::all();
-
-        return view('user.index',compact('users', 'students', 'lecturers'));
+        return view('user.index',compact('user', 'students', 'lecturers'));
 //        return $users->student->name;
     }
 
@@ -58,22 +52,11 @@ class UserController extends Controller
      */
     public function create()
     {
-//        $students = Student::whereNotIn('student_id', function ($query){
-//            $query->select('student_id')->from('mansun_users');
-//        })->get();
-//
-//        dd($students);
-//        $lecturers = Lecturer::whereNotIn('lecturer_id', function ($query){
-//            $query->select('lecturer_id')->from('mansun_users')->where('lecturer_id', !null);
-//        })->get();
-//        $students = DB::select('SELECT * FROM students where student_id NOT IN(SELECT student_id FROM mansun_users WHERE student_id IS NOT NULL)');
-        $students = Student::all();
-
-        dd($students);
-//        $dosens = DB::select('SELECT * FROM lecturers where lecturer_id NOT IN(SELECT lecturer_id FROM mansun_users WHERE lecturer_id IS NOT NULL)');
+        $mahasiswas = DB::select('SELECT * FROM students where student_id NOT IN(SELECT student_id FROM users WHERE student_id IS NOT NULL)');
+//        $mahasiswas = Student::all();
+        $dosens = DB::select('SELECT * FROM lecturers where lecturer_id NOT IN(SELECT lecturer_id FROM users WHERE lecturer_id IS NOT NULL)');
 //        $dosens = Lecturer::all();
-
-        return view('user.crud.create', compact('students', 'lecturers'));
+        return view('user.crud.create', compact('mahasiswas', 'dosens'));
     }
     /**
      * Store a newly created resource in storage.
@@ -84,13 +67,13 @@ class UserController extends Controller
     public function store(Request $request)
     {
 
-        if ($request->student_id != null){
+        if ($request->mahasiswa_id != null){
 
             //pluck email from database
-            $email = Student::all()->where('student_id',$request->student_id)->pluck('email')->toArray();
+            $email = Student::all()->where('student_id',$request->mahasiswa_id)->pluck('email')->toArray();
 
             User::create([
-                'student_id' => $request->student_id,
+                'student_id' => $request->mahasiswa_id,
                 'lecturer_id' => null,
                 'email' => $email[0],
                 'password' => Hash::make($request->password),
@@ -102,11 +85,11 @@ class UserController extends Controller
         else{
 
             //pluck email from database
-            $email = Lecturer::all()->where('lecturer_id',$request->lecturer_id)->pluck('email')->toArray();
+            $email = Lecturer::all()->where('lecturer_id',$request->dosen_id)->pluck('email')->toArray();
 
             User::create([
                 'student_id' => null,
-                'lecturer_id' => $request->lecturer_id,
+                'lecturer_id' => $request->dosen_id,
                 'email' => $email[0],
                 'password' => Hash::make($request->password),
                 'is_login' => '0',

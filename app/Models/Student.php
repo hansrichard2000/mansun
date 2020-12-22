@@ -24,7 +24,7 @@ class Student extends Model
         'department_id',
     ];
 
-    public function user_email_mahasiswa(){
-        return $this->hasOne(User::class, 'id', 'student_id');
+    public function user(){
+        return $this->hasOne(User::class, 'student_id', 'student_id');
     }
 }
