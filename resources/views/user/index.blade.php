@@ -48,11 +48,13 @@
             </thead>
             <tbody>
                 @foreach($users as $user)
-{{--                    @if($user->lecture_id == null)--}}
+{{--                    @if($user->lecturer_id == null)--}}
+{{--<h1>{{$user->dosen_id}}</h1>--}}
+{{--{{dd($users)}}--}}
             <tr>
                 <td>{{$user->student_id}}</td>
-                <td>{{$user->student_id}}</td>
-                <td>{{$user->student_id}}</td>
+                <td>{{$user->name}}</td>
+                <td>{{$user->prodi_id}}</td>
 
                 @if($user->is_login == 0)
                     <td><div style="width:20px;height: 20px;background-color: grey; margin-left: 41%"></div></td>
@@ -77,61 +79,57 @@
                         <button type="submit" class="btn btn-danger text-white" title="Delete this user" style="border-radius: 50%"><i class="fas fa-trash" aria-hidden="true" style="color: #ffffff"></i></button>
                     </form>
 
-{{--                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>--}}
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-{{--                    <script>--}}
+                    <script>
 
-{{--                        $(document).ready(function(){--}}
+                        $(document).ready(function(){
 
-{{--                            $("#button_show_mahasiswa{{$user->student->id}}").click(function(){--}}
+                            $("#button_show_mahasiswa{{$user->student_id}}").click(function(){
 
-{{--                                document.getElementById("label_1").innerHTML = "Nama Mahasiswa";--}}
-{{--                                document.getElementById("info_1").innerHTML = "{{$user->student->name}}";--}}
+                                document.getElementById("label_1").innerHTML = "Nama Mahasiswa";
+                                document.getElementById("info_1").innerHTML = "{{$user->name}}";
 
-{{--                                document.getElementById("label_2").innerHTML = "NIM";--}}
-{{--                                document.getElementById("info_2").innerHTML = "{{$user->student->nim}}";--}}
+                                document.getElementById("label_2").innerHTML = "NIM";
+                                document.getElementById("info_2").innerHTML = "{{$user->nim}}";
 
-{{--                                document.getElementById("label_3").innerHTML = "Gender";--}}
-{{--                                document.getElementById("info_3").innerHTML = "{{$user->student->gender}}";--}}
+                                document.getElementById("label_3").innerHTML = "Gender";
+                                document.getElementById("info_3").innerHTML = "{{$user->gender}}";
 
-{{--                                document.getElementById("label_4").innerHTML = "Email";--}}
-{{--                                document.getElementById("info_4").innerHTML = "{{$user->student->email}}";--}}
+                                document.getElementById("label_4").innerHTML = "Email";
+                                document.getElementById("info_4").innerHTML = "{{$user->email}}";
 
-{{--                                document.getElementById("label_5").innerHTML = "Phone";--}}
-{{--                                document.getElementById("info_5").innerHTML = "{{$user->student->phone}}";--}}
+                                document.getElementById("label_5").innerHTML = "Phone";
+                                document.getElementById("info_5").innerHTML = "{{$user->phone}}";
 
-{{--                                document.getElementById("label_6").innerHTML = "Line Account";--}}
-{{--                                document.getElementById("info_6").innerHTML = "{{$user->student->line_account}}";--}}
+                                document.getElementById("label_6").innerHTML = "Line Account";
+                                document.getElementById("info_6").innerHTML = "{{$user->line_account}}";
 
-{{--                                document.getElementById("label_7").innerHTML = "Batch";--}}
-{{--                                document.getElementById("info_7").innerHTML = "{{$user->student->batch}}";--}}
+                                document.getElementById("label_7").innerHTML = "Batch";
+                                document.getElementById("info_7").innerHTML = "{{$user->batch}}";
 
-{{--                                document.getElementById("label_8").innerHTML = "Department ID";--}}
-{{--                                document.getElementById("info_8").innerHTML = "{{$user->student->department_id}}";--}}
+                                document.getElementById("label_8").innerHTML = "Department ID";
+                                document.getElementById("info_8").innerHTML = "{{$user->department_id}}";
 
-{{--                                document.getElementById("label_9").innerHTML = "Description";--}}
-{{--                                document.getElementById("info_9").innerHTML = "{{$user->student->description}}";--}}
+                                document.getElementById("label_9").innerHTML = "Description";
+                                document.getElementById("info_9").innerHTML = "{{$user->description}}";
 
-{{--                                document.getElementById("label_10").innerHTML = "Pass photo";--}}
-{{--                                document.getElementById("info_10").innerHTML = "{{$user->student->photo}}";--}}
+                                document.getElementById("label_10").innerHTML = "Pass photo";
+                                document.getElementById("info_10").innerHTML = "{{$user->photo}}";
 
-{{--                                $("#info_11").hide();--}}
-{{--                                $("#label_11").hide();--}}
+                                $("#info_11").hide();
+                                $("#label_11").hide();
 
-{{--                                $("#info_12").hide();--}}
-{{--                                $("#label_12").hide();--}}
+                                $("#info_12").hide();
+                                $("#label_12").hide();
 
-{{--                            });--}}
-{{--                        });--}}
+                            });
+                        });
 
-{{--                    </script>--}}
+                    </script>
 
-{{--                    <a href="{{route('admin.user.create')}}" class="btn btn-danger">Delete</a>--}}
-{{--                    <a href="{{route('admin.user.create')}}" class="btn btn-danger">Delete2</a>--}}
-
-{{--                    @include('user.detail')</td>--}}
+                    @include('user.detail')</td>
             </tr>
-{{--                @endif--}}
                 @endforeach
             </tbody>
         </table>
@@ -156,10 +154,10 @@
 {{--            <tbody>--}}
 {{--                @foreach($users as $user)--}}
 {{--                        <tr>--}}
-{{--                            <th scope="row">{{$user->emailDosen->name}}</th>--}}
-{{--                            <td>{{$user->emailDosen->department_id}}</td>--}}
-{{--                            <td>{{$user->emailDosen->nip}}</td>--}}
-{{--                            <td>{{$user->emailDosen->nidn}}</td>--}}
+{{--                            <th scope="row">{{$user->name}}</th>--}}
+{{--                            <td>{{$user->department_id}}</td>--}}
+{{--                            <td>{{$user->nip}}</td>--}}
+{{--                            <td>{{$user->nidn}}</td>--}}
 
 {{--                            @if($user->is_login == 0)--}}
 {{--                                <td><div style="width:20px;height: 20px;background-color: grey; margin-left: 41%"></div></td>--}}
@@ -169,7 +167,7 @@
 
 {{--                            @if($user->is_active == 0)--}}
 {{--                                <td style="color: red">Suspended</td>--}}
-{{--                            @elseif($dosen->is_active == 1)--}}
+{{--                            @elseif($user->is_active == 1)--}}
 {{--                                <td>Active</td>--}}
 {{--                            @endif--}}
 
@@ -190,47 +188,47 @@
 
 {{--                                    $(document).ready(function(){--}}
 
-{{--                                        $("#button_show_dosen{{$user->emailDosen->id}}").click(function(){--}}
+{{--                                        $("#button_show_dosen{{$user->id}}").click(function(){--}}
 
 {{--                                            document.getElementById("label_1").innerHTML = "Nama Dosen";--}}
-{{--                                            document.getElementById("info_1").innerHTML = "{{$user->emailDosen->name}}";--}}
+{{--                                            document.getElementById("info_1").innerHTML = "{{$user->name}}";--}}
 
 {{--                                            document.getElementById("label_2").innerHTML = "NIP";--}}
-{{--                                            document.getElementById("info_2").innerHTML = "{{$user->emailDosen->nip}}";--}}
+{{--                                            document.getElementById("info_2").innerHTML = "{{$user->nip}}";--}}
 
 {{--                                            document.getElementById("label_3").innerHTML = "NIDN";--}}
-{{--                                            document.getElementById("info_3").innerHTML = "{{$user->emailDosen->nidn}}";--}}
+{{--                                            document.getElementById("info_3").innerHTML = "{{$user->nidn}}";--}}
 
 {{--                                            document.getElementById("label_4").innerHTML = "Gender";--}}
-{{--                                            document.getElementById("info_4").innerHTML = "{{$user->emailDosen->gender}}";--}}
+{{--                                            document.getElementById("info_4").innerHTML = "{{$user->gender}}";--}}
 
 {{--                                            document.getElementById("label_5").innerHTML = "Email";--}}
-{{--                                            document.getElementById("info_5").innerHTML = "{{$user->emailDosen->email}}";--}}
+{{--                                            document.getElementById("info_5").innerHTML = "{{$user->email}}";--}}
 
 {{--                                            document.getElementById("label_6").innerHTML = "Phone";--}}
-{{--                                            document.getElementById("info_6").innerHTML = "{{$user->emailDosen->phone}}";--}}
+{{--                                            document.getElementById("info_6").innerHTML = "{{$user->phone}}";--}}
 
 {{--                                            document.getElementById("label_7").innerHTML = "Line Account";--}}
-{{--                                            document.getElementById("info_7").innerHTML = "{{$user->emailDosen->line_account}}";--}}
+{{--                                            document.getElementById("info_7").innerHTML = "{{$user->line_account}}";--}}
 
 {{--                                            document.getElementById("label_8").innerHTML = "Department ID";--}}
-{{--                                            document.getElementById("info_8").innerHTML = "{{$user->emailDosen->department_id}}";--}}
+{{--                                            document.getElementById("info_8").innerHTML = "{{$user->department_id}}";--}}
 
 {{--                                            document.getElementById("label_9").innerHTML = "Title ID";--}}
-{{--                                            document.getElementById("info_9").innerHTML = "{{$user->emailDosen->title_id}}";--}}
+{{--                                            document.getElementById("info_9").innerHTML = "{{$user->title_id}}";--}}
 
 {{--                                            document.getElementById("label_10").innerHTML = "Jaka ID";--}}
-{{--                                            document.getElementById("info_10").innerHTML = "{{$user->emailDosen->jaka_id}}";--}}
+{{--                                            document.getElementById("info_10").innerHTML = "{{$user->jaka_id}}";--}}
 
 {{--                                            $("#label_11").show();--}}
 {{--                                            $("#info_11").show();--}}
 {{--                                            document.getElementById("label_11").innerHTML = "Description";--}}
-{{--                                            document.getElementById("info_11").innerHTML = "{{$user->emailDosen->description}}";--}}
+{{--                                            document.getElementById("info_11").innerHTML = "{{$user->description}}";--}}
 
 {{--                                            $("#label_12").show();--}}
 {{--                                            $("#info_12").show();--}}
 {{--                                            document.getElementById("label_12").innerHTML = "Pass Photo";--}}
-{{--                                            document.getElementById("info_12").innerHTML = "{{$user->emailDosen->photo}}";--}}
+{{--                                            document.getElementById("info_12").innerHTML = "{{$user->photo}}";--}}
 
 {{--                                        });--}}
 {{--                                    });--}}

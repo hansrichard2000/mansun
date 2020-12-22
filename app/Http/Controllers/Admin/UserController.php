@@ -23,10 +23,16 @@ class UserController extends Controller
      */
     public function index()
     {
-//        $mahasiswas = DB::select('select * from students s inner join users u on u.student_id = s.student_id');
-//        $dosens = DB::select('SELECT * FROM lecturers l INNER JOIN users u ON u.lecturer_id = l.lecturer_id');
-        $students = Student::all();
-        $lecturers = Lecturer::all();
+        $students = DB::select('select * from students s inner join mansun_users u on u.student_id = s.student_id');
+        $lecturers = DB::select('SELECT * FROM lecturers l INNER JOIN mansun_users u ON u.lecturer_id = l.lecturer_id');
+
+//        $users1 = User::all()->where('lecturer_id', null);
+////        dd($users1);
+//
+//        $students = Student::whereIn('lecturer_id', $users1);
+////        dd($students);
+//
+//        $lecturers = Lecturer::all();
         $users = User::all();
 
         return view('user.index',compact('users', 'students', 'lecturers'));
@@ -60,7 +66,7 @@ class UserController extends Controller
 //        $lecturers = Lecturer::whereNotIn('lecturer_id', function ($query){
 //            $query->select('lecturer_id')->from('mansun_users')->where('lecturer_id', !null);
 //        })->get();
-        $students = DB::select('SELECT * FROM students where student_id NOT IN(SELECT student_id FROM mansun_users WHERE student_id IS NOT NULL)');
+//        $students = DB::select('SELECT * FROM students where student_id NOT IN(SELECT student_id FROM mansun_users WHERE student_id IS NOT NULL)');
         $students = Student::all();
 
         dd($students);
