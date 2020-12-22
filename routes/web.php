@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DivisiController;
 use App\Http\Controllers\Admin\PeriodeController;
 use App\Http\Controllers\Admin\ProkerController;
+use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\TaskController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
@@ -36,6 +37,8 @@ Route::group([
     Route::resource('user', UserController::class);
 
     Route::resource('task', TaskController::class);
+
+    Route::resource('role', RoleController::class);
 });
 
 

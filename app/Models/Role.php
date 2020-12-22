@@ -14,4 +14,12 @@ class Role extends Model
     protected $fillable = [
         'role',
     ];
+
+    public function users(){
+        return $this->belongsToMany(User::class, 'divisi_role_user', 'id', 'mansun_user_id');
+    }
+
+    public function divisis(){
+        return $this->belongsToMany(Divisi::class, 'divisi_role_user', 'id', 'mansun_divisi_id');
+    }
 }

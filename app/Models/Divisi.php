@@ -24,4 +24,12 @@ class Divisi extends Model
     public function creator(){
         return $this->belongsto(User::class, 'created_by', 'id');
     }
+
+    public function roles(){
+        return $this->belongsToMany(Role::class, 'divisi_role_user', 'id', 'mansun_role_id');
+    }
+
+    public function users(){
+        return $this->belongsToMany(User::class, 'divisi_role_user', 'id', 'mansun_divisi_id');
+    }
 }

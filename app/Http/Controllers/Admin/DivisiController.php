@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Divisi;
+use App\Models\DivisiRoleUser;
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DivisiController extends Controller
@@ -42,13 +45,20 @@ class DivisiController extends Controller
 
     /**
      * Display the specified resource.
-     *
-//     * @param  \App\Models\Divisi  $divisi
+     * @param  int  $id
+     * @param  \App\Models\User $users
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        return view('divisi.crud.listAnggota');
+        $members = Divisi::findOrFail($id);
+        $roles = Role::all();
+        $divisis = Divisi::all()->except($id)->pluck('id');
+        $userList = User::whereNotIn('id', function ($query) use($divisis){
+            $query->select('mansun_user_id')->from('divisi_role_user')
+                ->whereNotIn('mansun_divisi_id', $divisis);
+        })->where('is_admin', 0)->get();
+        return view('divisi.crud.listAnggota', compact('members','userList', 'roles'));
     }
 
     /**

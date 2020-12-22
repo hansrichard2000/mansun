@@ -57,9 +57,9 @@ class User extends Authenticatable
         return $this->hasMany(Proker::class, 'created_by', 'id');
     }
 
-    public function divisi()
+    public function divisis()
     {
-        return $this->hasMany(Divisi::class, 'created_by', 'id');
+        return $this->belongsToMany(Divisi::class, 'divisi_role_user', 'id', 'mansun_divisi_id');
     }
 
     public function taskCreator(){
@@ -68,6 +68,10 @@ class User extends Authenticatable
 
     public function taskReceiver(){
         return $this->hasMany(Task::class, 'penanggung_jawab', 'id');
+    }
+
+    public function roles(){
+        return $this->belongsToMany(Role::class, 'divisi_role_user', 'id', 'mansun_role_id');
     }
 
     public function student(){
@@ -85,4 +89,8 @@ class User extends Authenticatable
         }
         return false;
     }
+
+//    public function isHod(){
+//        if ($this->is_)
+//    }
 }

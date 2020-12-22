@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Role;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
@@ -36,7 +37,10 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::findOrFail($request->mansun_user_id);
+        $attend = $user->divisis()->syncWithoutDetaching($request->mansun_divisi_id, ['is_approved' => '0']);
+        return empty($attend) ? redirect()->back()->with('Fail', 'Failed to add new guest')
+            : redirect()->back()->with('Success', 'Guest Added');
     }
 
     /**

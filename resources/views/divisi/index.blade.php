@@ -45,7 +45,7 @@
                         {{$divisi->nama_divisi}}
                     </div>
                     <div class="float-md-right mr-3">
-                        <form action="" method="GET">
+                        <form action="{{route('admin.divisi.show', $divisi->id)}}" method="GET">
                             @csrf
                             <input type="submit" class="btn bg-mansun-blue text-white" value="Lihat anggota">
                         </form>
