@@ -21,14 +21,14 @@ class CreateProkersTable extends Migration
             $table->text('deskripsi_proker');
             $table->date('tanggal_mulai');
             $table->date('tanggal_akhir');
-            $table->integer('pemasukan')->nullable();
+            $table->integer('pemasukkan')->nullable();
             $table->integer('pengeluaran')->nullable();
             $table->string('medsos')->nullable();
             $table->text('proposal')->nullable();
             $table->text('lpj')->nullable();
             $table->text('gambar_proker')->nullable();
             $table->unsignedBigInteger('created_by');
-            $table->foreign('created_by')->references('id')->on('mansun_users');
+            $table->foreign('created_by')->references('id')->on('users');
             $table->timestamps();
         });
     }

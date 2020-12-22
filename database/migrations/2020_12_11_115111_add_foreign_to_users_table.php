@@ -13,7 +13,7 @@ class AddForeignToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('mansun_users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->unsignedBigInteger('student_id')->index()->after('id')->nullable();
             $table->foreign('student_id')->references('student_id')->on('students');
             $table->unsignedBigInteger('lecturer_id')->index()->after('student_id')->nullable();
@@ -28,7 +28,7 @@ class AddForeignToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('mansun_users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('student_id');
             $table->dropColumn('lecturer_id');
         });

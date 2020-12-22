@@ -43,7 +43,6 @@
                 <div class="card-header">
                     <div class="float-md-left">
                         {{$divisi->nama_divisi}}
-                        {{$divisi->creator->email}}
                     </div>
                     <div class="float-md-right mr-3">
                         <form action="" method="GET">

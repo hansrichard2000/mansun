@@ -26,7 +26,7 @@ class Lecturer extends Model
         'jaka_id',
     ];
 
-    public function user(){
-        return $this->hasOne(Lecturer::class, 'lecturer_id', 'lecturer_id');
+    public function user_email_dosen(){
+        return $this->hasOne(User::class, 'id', 'lecturer_id');
     }
 }

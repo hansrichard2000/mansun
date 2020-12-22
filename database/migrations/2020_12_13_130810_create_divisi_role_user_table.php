@@ -17,7 +17,7 @@ class CreateDivisiRoleUserTable extends Migration
             $table->id();
             $table->foreignId('mansun_divisi_id')->constrained();
             $table->foreignId('mansun_role_id')->constrained();
-            $table->foreignId('mansun_user_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
