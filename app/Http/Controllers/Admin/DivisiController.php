@@ -53,7 +53,8 @@ class DivisiController extends Controller
     public function show($id)
     {
         $members = Divisi::findOrFail($id);
-//        dd($members);
+//        $userList1 = DivisiRoleUser::all()->where('mansun_divisi_id', $divisi->id);
+//        dd($userList1);
         $roles = Role::all();
         $prokers = Proker::all()->except($id)->pluck('id');
         $divisis = Divisi::all()->except($id)->pluck('id');

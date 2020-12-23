@@ -30,6 +30,6 @@ class Divisi extends Model
     }
 
     public function users(){
-        return $this->belongsToMany(User::class, 'divisi_role_user', 'id', 'mansun_divisi_id');
+        return $this->belongsToMany(User::class, 'divisi_role_user', 'id', 'mansun_user_id');
     }
 }

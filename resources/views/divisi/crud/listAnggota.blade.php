@@ -31,11 +31,12 @@
                 </thead>
                 <tbody>
                     @foreach($members->users as $member)
+{{--                        {{dd($members->users)}}--}}
                         <tr class="text-center">
                             <td>{{$member->id}}</td>
+                            <td>{{$member->student['name']}}</td>
                             <td>{{$member->email}}</td>
-                            <td>{{$member->email}}</td>
-                            <td>{{$member->is_login}}</td>
+                            <td>{{$member->roles}}</td>
                             <td>
                                 <form action="" method="POST">
                                     {{ csrf_field() }}
