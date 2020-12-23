@@ -24,31 +24,31 @@
             </div>
             <div class="form-group">
                 <label for="nama_proker">Nama Program Kerja : </label>
-                <input type="text" class="form-control" id="nama_proker" name="nama_proker" placeholder="Input nama program kerja yang akan diisi...">
+                <input type="text" class="form-control" id="nama_proker" name="nama_proker" placeholder="Input nama program kerja yang akan diisi..." required>
             </div>
             <div class="form-group">
                 <label for="deskripsi_proker">Deskripsi : </label>
-                <textarea rows="4" class="form-control" id="deskripsi_proker" name="deskripsi_proker"></textarea>
+                <textarea rows="4" class="form-control" id="deskripsi_proker" name="deskripsi_proker" required></textarea>
             </div>
             <div class="row g-2">
                 <div class="col-md">
                     <div class="form-group">
                         <label for="tanggal_mulai">Tanggal Mulai : </label>
-                        <input type="date" class="form-control" id="tanggal_mulai" name="tanggal_mulai" placeholder="name@example.com" value="tanggalmulai">
+                        <input type="date" class="form-control" id="tanggal_mulai" name="tanggal_mulai" placeholder="name@example.com" value="tanggalmulai" required>
                     </div>
                 </div>
                 <div class="col-md">
                     <div class="form-group">
                         <label for="tanggal_akhir">Tanggal Berakhir : </label>
-                        <input type="date" class="form-control" id="tanggal_akhir" name="tanggal_akhir" placeholder="name@example.com" value="tanggalakhir">
+                        <input type="date" class="form-control" id="tanggal_akhir" name="tanggal_akhir" placeholder="name@example.com" value="tanggalakhir" required>
                     </div>
                 </div>
             </div>
             <div class="row g-2">
                 <div class="col-md">
                     <div class="form-group">
-                        <label for="pemasukkan">Pemasukkan : </label>
-                        <input type="number" class="form-control" id="pemasukkan" name="pemasukkan" placeholder="Total pemasukkan..." value="pemasukan">
+                        <label for="pemasukan">Pemasukkan : </label>
+                        <input type="number" class="form-control" id="pemasukan" name="pemasukan" placeholder="Total pemasukan..." value="pemasukan">
                     </div>
                 </div>
                 <div class="col-md">
