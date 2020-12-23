@@ -196,7 +196,7 @@
                                         data-toggle="modal"
                                         data-target="#create"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
 
-                                <form action="{{ route('admin.user.destroy', $user->lecturer_id)}}" method="POST">
+                                <form action="{{ route('admin.user.destroy', $user)}}" method="POST">
                                     {{ csrf_field() }}
                                     <input name="_method" type="hidden" value="DELETE">
                                     <input name="type" type="hidden" value="dosen">

@@ -25,12 +25,11 @@ class UserController extends Controller
     {
 //        $mahasiswas = DB::select('select * from students s inner join users u on u.student_id = s.student_id');
 //        $dosens = DB::select('SELECT * FROM lecturers l INNER JOIN users u ON u.lecturer_id = l.lecturer_id');
-        $students = Student::all();
-        $lecturers = Lecturer::all();
+//        $students = Student::all();
+//        $lecturers = Lecturer::all();
         $users = User::all();
 
-        return view('user.index',compact('users', 'students', 'lecturers'));
-//        return $users->student->name;
+        return view('user.index',compact('users'));
     }
 
     /**
@@ -52,11 +51,16 @@ class UserController extends Controller
      */
     public function create()
     {
-        $mahasiswas = DB::select('SELECT * FROM students where student_id NOT IN(SELECT student_id FROM users WHERE student_id IS NOT NULL)');
+//        $mahasiswas = DB::select('SELECT * FROM students where student_id NOT IN(SELECT student_id FROM users WHERE student_id IS NOT NULL)');
 //        $mahasiswas = Student::all();
-        $dosens = DB::select('SELECT * FROM lecturers where lecturer_id NOT IN(SELECT lecturer_id FROM users WHERE lecturer_id IS NOT NULL)');
+//        $dosens = DB::select('SELECT * FROM lecturers where lecturer_id NOT IN(SELECT lecturer_id FROM users WHERE lecturer_id IS NOT NULL)');
 //        $dosens = Lecturer::all();
-        return view('user.crud.create', compact('mahasiswas', 'dosens'));
+        $user_student = User::all()->whereNotNull('student_id')->pluck('student_id')->toArray();
+        $user_lecturer = User::all()->whereNotNull('lecturer_id')->pluck('lecturer_id')->toArray();
+
+        $students = Student::all()->whereNotIn('student_id', $user_student);
+        $lecturers = Lecturer::all()->whereNotIn('lecturer_id', $user_lecturer);
+        return view('user.crud.create', compact('students', 'lecturers'));
     }
     /**
      * Store a newly created resource in storage.
@@ -69,13 +73,10 @@ class UserController extends Controller
 
         if ($request->mahasiswa_id != null){
 
-            //pluck email from database
-            $email = Student::all()->where('student_id',$request->mahasiswa_id)->pluck('email')->toArray();
-
             User::create([
                 'student_id' => $request->mahasiswa_id,
                 'lecturer_id' => null,
-                'email' => $email[0],
+                'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'is_login' => '0',
                 'is_active' => $request->is_active,
@@ -84,17 +85,14 @@ class UserController extends Controller
         }
         else{
 
-            //pluck email from database
-            $email = Lecturer::all()->where('lecturer_id',$request->dosen_id)->pluck('email')->toArray();
-
             User::create([
                 'student_id' => null,
                 'lecturer_id' => $request->dosen_id,
-                'email' => $email[0],
+                'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'is_login' => '0',
                 'is_active' => $request->is_active,
-                'is_admin' => $request->is_admin,
+                'is_admin' => '1',
             ]);
         }
         return redirect()->route('admin.user.index');
@@ -142,7 +140,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-//        dd($request->type);
+//        dd($user);
 //        $user = User::where('student_id', $user->student_id)->first();
         $user->delete();
         return redirect()->route('admin.user.index');

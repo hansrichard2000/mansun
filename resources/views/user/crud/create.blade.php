@@ -18,16 +18,20 @@
         $("#tipe_mahasiswa").click(function(){
             document.getElementById("dd_mahasiswa").disabled = false;
             document.getElementById("dd_dosen").disabled = true;
+            document.getElementById("dd_admin").disabled = false;
 
             $("#dropdown_mahasiswa").show();
             $("#dropdown_dosen").hide();
+            $("#dropdown_admin").show();
         });
         $("#tipe_dosen").click(function(){
             document.getElementById("dd_dosen").disabled = false;
             document.getElementById("dd_mahasiswa").disabled = true;
+            document.getElementById("dd_admin").disabled = true;
 
             $("#dropdown_dosen").show();
             $("#dropdown_mahasiswa").hide();
+            $("#dropdown_admin").hide();
         });
     });
 </script>
@@ -42,39 +46,44 @@
         <form action="{{route('admin.user.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group" id="dropdown_mahasiswa">
-                <label for="mahasiswa_id">Student_id :</label>
+                <label for="mahasiswa_id">Nama Student :</label>
                 <select name="mahasiswa_id" class="custom-select" id="dd_mahasiswa">
-                    @foreach($mahasiswas as $mahasiswa)
-                    <option value="{{$mahasiswa->student_id}}">{{$mahasiswa->name}}</option>
+                    @foreach($students as $student)
+                    <option value="{{$student->student_id}}">{{$student->name}}</option>
                     @endforeach
                 </select>
             </div>
 
             <div class="form-group" id="dropdown_dosen">
-                <label for="dosen_id">Dosen_id :</label>
+                <label for="dosen_id">Nama Dosen :</label>
                 <select name="dosen_id" class="custom-select" id="dd_dosen">
-                    @foreach($dosens as $dosen)
-                        <option value="{{$dosen->lecturer_id}}">{{$dosen->name}}</option>
+                    @foreach($lecturers as $lecturer)
+                        <option value="{{$lecturer->lecturer_id}}">{{$lecturer->name}}</option>
                     @endforeach
                 </select>
             </div>
 
             <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
                 <label for="password">Password :</label>
-                <input type="password" class="form-control" id="password" name="password">
+                <input type="password" class="form-control" id="password" name="password" required>
             </div>
 
             <div class="form-group">
                 <label for="is_active">is_active :</label>
                 <select name="is_active" class="custom-select">
-                    <option value="0">Suspended</option>
                     <option value="1">Active</option>
+                    <option value="0">Suspended</option>
                 </select>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" id="dropdown_admin">
                 <label for="is_admin">is_admin :</label>
-                <select name="is_admin" class="custom-select">
+                <select name="is_admin" class="custom-select" id="dd_admin">
                     <option value="0">Not Admin</option>
                     <option value="1">Admin</option>
                 </select>
