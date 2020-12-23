@@ -3,11 +3,11 @@
 use App\Models\Student;
 use App\Models\Lecturer;
 use Illuminate\Support\Facades\Auth;
-$current_user = Student::all()->where('student_id', Auth::user()->student_id);
-if(isset($current_user)){
+if(Auth::user()->lecturer_id == null){
+    $current_user = Student::all()->where('student_id', Auth::user()->student_id);
+} else{
     $current_user = Lecturer::all()->where('lecturer_id', Auth::user()->lecturer_id);
 }
-//dd(Auth::user());
 ?>
 
 <html>
