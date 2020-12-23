@@ -175,7 +175,7 @@
                     @if(isset($user->lecturer))
 
                         <tr>
-                            <th scope="row">{{$user->lecturer['name']}}</th>
+                            <td>{{$user->lecturer['name']}}</td>
                             <td>{{$user->lecturer['department_id']}}</td>
                             <td>{{$user->lecturer['nip']}}</td>
                             <td>{{$user->lecturer['nidn']}}</td>
