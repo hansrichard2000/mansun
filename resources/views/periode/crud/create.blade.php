@@ -14,7 +14,7 @@
             @csrf
             <div class="form-group">
                 <label for="tahun_periode">Tahun Periode :</label>
-                <input type="text" class="form-control" id="tahun_periode" name="tahun_periode">
+                <input type="text" class="form-control" id="tahun_periode" name="tahun_periode" required>
             </div>
             <div class="form-group">
                 <label for="gambar_periode">Gambar Periode :</label>

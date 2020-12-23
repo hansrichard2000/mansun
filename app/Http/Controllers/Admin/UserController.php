@@ -41,6 +41,9 @@ class UserController extends Controller
     {
 
         $current_user = Student::all()->where('student_id', Auth::user()->student_id);
+        if(!isset($current_user)){
+            $current_user = Lecturer::all()->where('lecturer_id', Auth::user()->lecturer_id);
+        }
         return view('user.index',compact('mahasiswas', 'dosens', 'current_user'));
     }
 
