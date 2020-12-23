@@ -27,9 +27,9 @@ class UserController extends Controller
 //        $dosens = DB::select('SELECT * FROM lecturers l INNER JOIN users u ON u.lecturer_id = l.lecturer_id');
         $students = Student::all();
         $lecturers = Lecturer::all();
-        $user = User::find(1);
+        $users = User::all();
 
-        return view('user.index',compact('user', 'students', 'lecturers'));
+        return view('user.index',compact('users', 'students', 'lecturers'));
 //        return $users->student->name;
     }
 
