@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\DivisiController;
 use App\Http\Controllers\Admin\PeriodeController;
+use App\Http\Controllers\Admin\ProfilController;
 use App\Http\Controllers\Admin\ProkerController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\TaskController;
@@ -39,6 +40,8 @@ Route::group([
     Route::resource('task', TaskController::class);
 
     Route::resource('role', RoleController::class);
+
+    Route::resource('profil', ProfilController::class);
 });
 
 
@@ -46,9 +49,9 @@ Route::get('viewlogin', function (){
    return view('login.index');
 });
 
-Route::get('profil', function (){
-    return view('profil.index');
-});
+//Route::get('profil', function (){
+//    return view('profil.index');
+//});
 
 Route::get('listanggota', function (){
     return view('divisi.crud.listAnggota');
