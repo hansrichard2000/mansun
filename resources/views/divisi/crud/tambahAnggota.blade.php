@@ -15,7 +15,7 @@
                         <label for="mansun_user_id">Select User</label>
                         <select name="mansun_user_id" class="custom-select" required>
                             @foreach($userList as $user)
-                                <option value="{{$user->id}}" title="{{$user->id}}">{{$user->id}}</option>
+                                <option value="{{$user->id}}" title="{{$user->student['name']}}">{{$user->student['name']}}</option>
                             @endforeach
                         </select>
                     </div>

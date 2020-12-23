@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Divisi;
 use App\Models\DivisiRoleUser;
+use App\Models\Proker;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -52,7 +53,9 @@ class DivisiController extends Controller
     public function show($id)
     {
         $members = Divisi::findOrFail($id);
+//        dd($members);
         $roles = Role::all();
+        $prokers = Proker::all()->except($id)->pluck('id');
         $divisis = Divisi::all()->except($id)->pluck('id');
         $userList = User::whereNotIn('id', function ($query) use($divisis){
             $query->select('mansun_user_id')->from('divisi_role_user')
