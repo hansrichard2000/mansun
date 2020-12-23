@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <?php
-//    use App\Models\Student;
-//    use Illuminate\Support\Facades\Auth;
-//$current_user = Student::all()->where('student_id', Auth::user()->student_id);
-////dd($current_user);
-//?>
+use App\Models\Student;
+use App\Models\Lecturer;
+use Illuminate\Support\Facades\Auth;
+$current_user = Student::all()->where('student_id', Auth::user()->student_id);
+if(isset($current_user)){
+    $current_user = Lecturer::all()->where('lecturer_id', Auth::user()->lecturer_id);
+}
+//dd(Auth::user());
+?>
 
 <html>
     <head>
