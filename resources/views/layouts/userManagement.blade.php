@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <?php
-use App\Models\Student;
-use Illuminate\Support\Facades\Auth;
-$current_user = Student::all()->where('student_id', Auth::user()->student_id);
-//dd($current_user);
-?>
+//use App\Models\Student;
+//use Illuminate\Support\Facades\Auth;
+//$current_user = Student::all()->where('student_id', Auth::user()->student_id);
+////dd($current_user);
+//?>
 
 <html>
 <head>

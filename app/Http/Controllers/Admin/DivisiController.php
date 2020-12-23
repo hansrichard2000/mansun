@@ -57,7 +57,7 @@ class DivisiController extends Controller
         $userList = User::whereNotIn('id', function ($query) use($divisis){
             $query->select('mansun_user_id')->from('divisi_role_user')
                 ->whereNotIn('mansun_divisi_id', $divisis);
-        })->where('is_admin', 0)->get();
+        })->where('is_admin', 1)->get();
         return view('divisi.crud.listAnggota', compact('members','userList', 'roles'));
     }
 
