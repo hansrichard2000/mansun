@@ -34,9 +34,9 @@
 {{--                        {{dd($member->user)}}--}}
                         <tr class="text-center">
                             <td>{{$member->user->id}}</td>
-                            <td>{{$member->user->name}}</td>
+                            <td>{{$member->user->student['name']}}</td>
                             <td>{{$member->user->email}}</td>
-                            <td>{{$member->role->roles}}</td>
+                            <td>{{$member->role->role}}</td>
                             <td>
                                 <form action="" method="POST">
                                     {{ csrf_field() }}
