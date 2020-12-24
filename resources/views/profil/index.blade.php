@@ -88,7 +88,7 @@
                                 <form>
                                     <div class="form-row">
                                         <div class="col">
-                                            <div class="form-group"><label for="username"><strong>Email</strong></label><div>{{$user->name}}</div></div>
+                                            <div class="form-group"><label for="username"><strong>Email</strong></label><div>{{$user->email}}</div></div>
                                         </div>
                                         <div class="col">
                                             <div class="form-group"><label for="email"><strong>Program Studi</strong></label><div>{{$user->department['name']}}</div></div>
