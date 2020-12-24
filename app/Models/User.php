@@ -80,7 +80,6 @@ class User extends Authenticatable
 
     public function lecturer(){
         return $this->belongsTo(Lecturer::class, 'lecturer_id', 'lecturer_id');
-
     }
 
     public function isAdmin() {

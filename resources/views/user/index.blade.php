@@ -123,8 +123,8 @@
                                 document.getElementById("label_7").innerHTML = "Batch";
                                 document.getElementById("info_7").innerHTML = "{{$user->student['batch']}}";
 
-                                document.getElementById("label_8").innerHTML = "Department ID";
-                                document.getElementById("info_8").innerHTML = "{{$user->student['department_id']}}";
+                                document.getElementById("label_8").innerHTML = "Department";
+                                document.getElementById("info_8").innerHTML = "{{$user->student->department['name']}}";
 
                                 document.getElementById("label_9").innerHTML = "Description";
                                 document.getElementById("info_9").innerHTML = "{{$user->student['description']}}";
@@ -176,7 +176,7 @@
 
                         <tr>
                             <td>{{$user->lecturer['name']}}</td>
-                            <td>{{$user->lecturer['department_id']}}</td>
+                            <td>{{$user->lecturer->department['name']}}</td>
                             <td>{{$user->lecturer['nip']}}</td>
                             <td>{{$user->lecturer['nidn']}}</td>
 
@@ -232,14 +232,14 @@
                                             document.getElementById("label_7").innerHTML = "Line Account";
                                             document.getElementById("info_7").innerHTML = "{{$user->lecturer['line_account']}}";
 
-                                            document.getElementById("label_8").innerHTML = "Department ID";
-                                            document.getElementById("info_8").innerHTML = "{{$user->lecturer['department_id']}}";
+                                            document.getElementById("label_8").innerHTML = "Department";
+                                            document.getElementById("info_8").innerHTML = "{{$user->lecturer->department['name']}}";
 
-                                            document.getElementById("label_9").innerHTML = "Title ID";
-                                            document.getElementById("info_9").innerHTML = "{{$user->lecturer['title_id']}}";
+                                            document.getElementById("label_9").innerHTML = "Title";
+                                            document.getElementById("info_9").innerHTML = "{{$user->lecturer->title['name']}}";
 
-                                            document.getElementById("label_10").innerHTML = "Jaka ID";
-                                            document.getElementById("info_10").innerHTML = "{{$user->lecturer['jaka_id']}}";
+                                            document.getElementById("label_10").innerHTML = "Jaka";
+                                            document.getElementById("info_10").innerHTML = "{{$user->lecturer->jaka['name']}}";
 
                                             $("#label_11").show();
                                             $("#info_11").show();

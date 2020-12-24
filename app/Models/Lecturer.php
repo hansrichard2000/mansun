@@ -29,4 +29,16 @@ class Lecturer extends Model
     public function user(){
         return $this->hasOne(User::class, 'lecturer_id', 'lecturer_id');
     }
+
+    public function department(){
+        return $this->belongsTo(Department::class, 'department_id', 'department_id');
+    }
+
+    public function jaka(){
+        return $this->belongsTo(Jaka::class, 'jaka_id', 'jaka_id');
+    }
+
+    public function title(){
+        return $this->belongsTo(Title::class, 'title_id', 'title_id');
+    }
 }
