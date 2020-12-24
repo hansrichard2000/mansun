@@ -73,6 +73,8 @@
                         </thead>
                         <tbody>
                             @foreach($tasks as $task)
+                                @if($task->divisi_id == $divisi->id)
+{{--                                {{dd($task)}}--}}
                                 <tr>
                                     <td scope="col">{{$task->id}}</td>
                                     <td scope="col">{{$task->judul}}</td>
@@ -92,6 +94,7 @@
                                         </button>
                                     </td>
                                 </tr>
+                                @endif
                             @endforeach
                         </tbody>
                     </table>

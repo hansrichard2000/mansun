@@ -30,13 +30,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                    @foreach($members->users as $member)
-{{--                        {{dd($members->users)}}--}}
+                    @foreach($members as $member)
+{{--                        {{dd($member->user)}}--}}
                         <tr class="text-center">
-                            <td>{{$member->id}}</td>
-                            <td>{{$member->name}}</td>
-                            <td>{{$member->email}}</td>
-                            <td>{{$member->roles}}</td>
+                            <td>{{$member->user->id}}</td>
+                            <td>{{$member->user->student['name']}}</td>
+                            <td>{{$member->user->email}}</td>
+                            <td>{{$member->role->role}}</td>
                             <td>
                                 <form action="" method="POST">
                                     {{ csrf_field() }}

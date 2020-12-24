@@ -17,19 +17,24 @@ class Task extends Model
         'deadline',
         'link_hasil_kerja',
         'penanggung_jawab',
+        'divisi_id',
         'status_task_id',
         'created_by',
     ];
 
     public function creator(){
-        return $this->belongsto(User::class, 'created_by', 'id');
+        return $this->belongsTo(User::class, 'created_by', 'id');
     }
 
     public function receiver(){
-        return $this->belongsto(User::class, 'penanggung_jawab', 'id');
+        return $this->belongsTo(User::class, 'penanggung_jawab', 'id');
     }
 
     public function status_task(){
-        return $this->belongsto(Status_Task::class, 'status_task_id', 'id');
+        return $this->belongsTo(Status_Task::class, 'status_task_id', 'id');
+    }
+
+    public function divisi(){
+        return $this->belongsTo(Divisi::class, 'divisi_id', 'id');
     }
 }
