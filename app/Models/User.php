@@ -59,7 +59,7 @@ class User extends Authenticatable
 
     public function divisis()
     {
-        return $this->belongsToMany(Divisi::class, 'divisi_role_user', 'id', 'mansun_divisi_id');
+        return $this->belongsToMany(Divisi::class, 'divisi_role_user', 'mansun_divisi_id', 'id');
     }
 
     public function taskCreator(){
@@ -71,7 +71,7 @@ class User extends Authenticatable
     }
 
     public function roles(){
-        return $this->belongsToMany(Role::class, 'divisi_role_user', 'id', 'mansun_role_id');
+        return $this->belongsToMany(Role::class, 'divisi_role_user', 'mansun_role_id', 'id');
     }
 
     public function student(){

@@ -34,7 +34,7 @@
 {{--                        {{dd($members->users)}}--}}
                         <tr class="text-center">
                             <td>{{$member->id}}</td>
-                            <td>{{$member->student['name']}}</td>
+                            <td>{{$member->name}}</td>
                             <td>{{$member->email}}</td>
                             <td>{{$member->roles}}</td>
                             <td>
