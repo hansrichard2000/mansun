@@ -124,7 +124,10 @@ class ProkerController extends Controller
      */
     public function edit(Proker $proker)
     {
-        //
+        $periodes = Periode::all();
+        $status_prokers = Status_Proker::all();
+        $users = User::all();
+        return view('proker.crud.edit', compact('proker', 'periodes', 'users', 'status_prokers'));
     }
 
     /**
@@ -136,8 +139,47 @@ class ProkerController extends Controller
      */
     public function update(Request $request, Proker $proker)
     {
-        $proker->update($request->all());
-        return redirect()->route('admin.proker.index');
+        $request->validate([
+            'gambar_proker' => 'image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
+
+        if ($request->gambar_proker != null){
+            $imgProker = $request->gambar_proker->getClientOriginalName().'-'.time().'.'.$request->gambar_proker->extension();
+            $request->gambar_proker->move(public_path('image/prokerImg'), $imgProker);
+
+            $proker->update([
+                'nama_proker' => $request->nama_proker,
+                'periode_id' => $request->periode_id,
+                'status_proker_id' => $request->status_proker_id,
+                'deskripsi_proker' => $request->deskripsi_proker,
+                'tanggal_mulai' => $request->tanggal_mulai,
+                'tanggal_akhir' => $request->tanggal_akhir,
+                'pemasukan' => $request->pemasukan,
+                'pengeluaran' => $request->pengeluaran,
+                'medsos' => $request->medsos,
+                'proposal' => $request->proposal,
+                'lpj' => $request->lpj,
+                'gambar_proker' => $imgProker,
+                'created_by' => $request->created_by,
+            ]);
+        }
+        else{
+            $proker->update([
+                'nama_proker' => $request->nama_proker,
+                'periode_id' => $request->periode_id,
+                'status_proker_id' => $request->status_proker_id,
+                'deskripsi_proker' => $request->deskripsi_proker,
+                'tanggal_mulai' => $request->tanggal_mulai,
+                'tanggal_akhir' => $request->tanggal_akhir,
+                'pemasukan' => $request->pemasukan,
+                'pengeluaran' => $request->pengeluaran,
+                'medsos' => $request->medsos,
+                'proposal' => $request->proposal,
+                'lpj' => $request->lpj,
+                'created_by' => $request->created_by,
+            ]);
+        }
+        return redirect()->route('admin.periode.show', $request->periode_id);
     }
 
     /**
@@ -149,6 +191,6 @@ class ProkerController extends Controller
     public function destroy(Proker $proker)
     {
         $proker->delete();
-        return redirect()->route('admin.proker.index');
+        return redirect()->route('admin.periode.show', $proker->periode_id);
     }
 }

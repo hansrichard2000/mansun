@@ -41,9 +41,9 @@
                         <a href="{{route('admin.periode.show', $periode->id)}}">
                             <div class="card">
                                 @if($periode->gambar_periode == null)
-                                    <img src="{{asset('image/group92.jpg')}}" class="card-img-top img-fluid" style="height: 225.85px">
+                                    <img src="{{asset('image/group92.jpg')}}" class="card-img-top img-fluid" style="height: 180px">
                                 @else
-                                    <img src="../image/periodeImg/{{$periode->gambar_periode}}" class="card-img-top img-fluid" style="height: 225.85px">
+                                    <img src="../image/periodeImg/{{$periode->gambar_periode}}" class="card-img-top img-fluid" style="height: 180px">
                                 @endif
                                 <div class="card-body p-0 ml-3" >
                                     <p class="card-text"><strong>{{$periode->tahun_periode}}</strong></p>

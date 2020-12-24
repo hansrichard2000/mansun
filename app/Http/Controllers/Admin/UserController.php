@@ -150,4 +150,16 @@ class UserController extends Controller
         $user->delete();
         return redirect()->route('admin.user.index');
     }
+
+    public function suspend(Request $request){
+        $user = User::findOrFail($request->id);
+        $user->update(['is_active' => '0']);
+        return redirect()->back();
+    }
+
+    public function active(Request $request){
+        $user = User::findOrFail($request->id);
+        $user->update(['is_active' => '1']);
+        return redirect()->back();
+    }
 }

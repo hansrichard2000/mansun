@@ -19,6 +19,7 @@
 
 @section('content')
     <div class="container-fluid">
+
         <div class="d-sm-flex justify-content-between align-items-center mb-4">
             <div class="card">
                 <div class="card-body">
@@ -52,7 +53,11 @@
             <div class="col">
                 <a href="{{route('admin.proker.show', $proker->id)}}">
                     <div class="card">
-                        <img src="{{asset('image/group92.jpg')}}" class="card-img-top" alt="...">
+                        @if($proker->gambar_proker == null)
+                            <img src="{{asset('image/group92.jpg')}}" class="card-img-top img-fluid" style="height: 180px">
+                        @else
+                            <img src="../image/periodeImg/{{$proker->gambar_proker}}" class="card-img-top img-fluid" style="height: 180px">
+                        @endif
                         <div class="card-body p-0 ml-3" >
                             <p class="card-text"><strong>{{$proker->nama_proker}}</strong></p>
                         </div>

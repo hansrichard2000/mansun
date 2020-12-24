@@ -29,18 +29,15 @@ Route::group([
     'prefix' =>'admin',
     'as' => 'admin.',
 ], function(){
+    Route::post('user/suspend', [UserController::class, 'suspend'])->name('user.suspend');
+    Route::post('user/active', [UserController::class, 'active'])->name('user.active');
+
     Route::resource('periode', PeriodeController::class);
-
     Route::resource('proker', ProkerController::class);
-
     Route::resource('divisi', DivisiController::class);
-
     Route::resource('user', UserController::class);
-
     Route::resource('task', TaskController::class);
-
     Route::resource('role', RoleController::class);
-
     Route::resource('profil', ProfilController::class);
 });
 

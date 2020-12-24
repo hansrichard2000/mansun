@@ -5,12 +5,45 @@
 @endsection
 
 @section('judul-top')
-    Daftar Divisi
+    {{$prokers->nama_proker}}
 @endsection
 
 @section('content')
     <div class="container-fluid">
+        <div class="d-sm-flex justify-content-between align-items-center">
+            <h4 class="text-dark mb-0">Deskripsi</h4>
+            <form action="{{route('admin.proker.edit', $prokers)}}" method="GET">
+                @csrf
+                <input type="submit" id="submit" name="submit" value="Edit Proker" class="btn bg-mansun-blue text-white float-left mr-5">
+            </form>
+        </div>
+        <hr class="garisKuning">
+        <div class="d-sm-flex justify-content-between mb-4 card">
+            <div class="card-body">
+                <p>{{$prokers->deskripsi_proker}}</p>
+                <ol>
+                    <li>Pelaksanaan : {{$prokers->tanggal_mulai}} - {{$prokers->tanggal_akhir}}</li>
+                    <li>Penganggaran :
+                        <ul type="square">
+                            <li>Pemasukkan : {{$prokers->pemasukan}}</li>
+                            <li>Pengeluaran : {{$prokers->pengeluaran}}</li>
+                            <li>Rekapitulasi : {{$prokers->pemasukan - $prokers->pengeluaran}}</li>
+                        </ul>
+                    </li>
+                    <li>
+                        Media Sosial : <a href="{{$prokers->medsos}}">{{$prokers->medsos}}</a>
+                    </li>
+                    <li>
+                        Link Proposal : <a href="{{$prokers->proposal}}">{{$prokers->proposal}}</a>
+                    </li>
+                    <li>
+                        Link LPJ : <a href="{{$prokers->lpj}}">{{$prokers->lpj}}</a> 
+                    </li>
+                </ol>
+            </div>
+        </div>
         <div class="d-sm-flex justify-content-between align-items-center mb-4">
+            <h4 class="text-dark mb-0">Daftar Divisi</h4>
             <div class="card">
                 <div class="card-body">
                     <svg class="float-left" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -102,5 +135,6 @@
             </div>
         </div>
         @endforeach
+        <br><br>
     </div>
 @endsection

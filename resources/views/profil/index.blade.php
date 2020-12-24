@@ -1,4 +1,4 @@
-@extends('layouts.beranda')
+@extends('layouts.profil')
 
 @section('judul')
     Admin Area
@@ -16,33 +16,6 @@
                 <div class="card mb-3">
                     <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4" src="../assets/img/dogs/image2.jpeg" width="160" height="160">
 {{--                        <div class="mb-3"><button class="btn btn-primary btn-sm" type="button">Change Photo</button></div>--}}
-                    </div>
-                </div>
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="text-primary font-weight-bold m-0">Projects</h6>
-                    </div>
-                    <div class="card-body">
-                        <h4 class="small font-weight-bold">Server migration<span class="float-right">20%</span></h4>
-                        <div class="progress progress-sm mb-3">
-                            <div class="progress-bar bg-danger" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%;"><span class="sr-only">20%</span></div>
-                        </div>
-                        <h4 class="small font-weight-bold">Sales tracking<span class="float-right">40%</span></h4>
-                        <div class="progress progress-sm mb-3">
-                            <div class="progress-bar bg-warning" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"><span class="sr-only">40%</span></div>
-                        </div>
-                        <h4 class="small font-weight-bold">Customer Database<span class="float-right">60%</span></h4>
-                        <div class="progress progress-sm mb-3">
-                            <div class="progress-bar bg-primary" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"><span class="sr-only">60%</span></div>
-                        </div>
-                        <h4 class="small font-weight-bold">Payout Details<span class="float-right">80%</span></h4>
-                        <div class="progress progress-sm mb-3">
-                            <div class="progress-bar bg-info" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"><span class="sr-only">80%</span></div>
-                        </div>
-                        <h4 class="small font-weight-bold">Account setup<span class="float-right">Complete!</span></h4>
-                        <div class="progress progress-sm mb-3">
-                            <div class="progress-bar bg-success" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"><span class="sr-only">100%</span></div>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -107,32 +80,13 @@
                             </div>
                         </div>
                         @endforeach
-                        <div class="card shadow">
-                            <div class="card-header py-3">
-                                <p class="text-primary m-0 font-weight-bold">Contact Settings</p>
-                            </div>
-                            <div class="card-body">
-                                <form>
-                                    <div class="form-group"><label for="address"><strong>Address</strong></label><input class="form-control" type="text" placeholder="Sunset Blvd, 38" name="address"></div>
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <div class="form-group"><label for="city"><strong>City</strong></label><input class="form-control" type="text" placeholder="Los Angeles" name="city"></div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="form-group"><label for="country"><strong>Country</strong></label><input class="form-control" type="text" placeholder="USA" name="country"></div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group"><button class="btn btn-primary btn-sm" type="submit">Save&nbsp;Settings</button></div>
-                                </form>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="card shadow mb-5">
             <div class="card-header py-3">
-                <p class="text-primary m-0 font-weight-bold">Forum Settings</p>
+                <p class="text-primary m-0 font-weight-bold">Riwayat Jabatan</p>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -149,54 +103,4 @@
             </div>
         </div>
     </div>
-{{--    <div class="container-fluid">--}}
-{{--        <div class="d-sm-flex justify-content-between align-items-center mb-4">--}}
-
-{{--        </div>--}}
-
-{{--        --}}{{--                    Foto Profil--}}
-{{--        <div style="width: 35%; height: 300px; border: #1789fc solid 3px; border-radius: 30px">--}}
-{{--            <img src="{{asset('image/group92.jpg')}}" style="width: 150px;height: 150px; border-radius: 50%; margin: 15% 28.5% 5% 28.5%">--}}
-{{--            <a href="{{route('login')}}" style="background-color: #1789FC; padding: 4px 8px 4px 8px; color: white; margin: 0 36.5% 0 36.5%; border-radius: 10px">Ganti Foto</a>--}}
-{{--        </div>--}}
-
-{{--        --}}{{--                    Biodata--}}
-{{--        <div style="width: 60%; height: 300px; border: dodgerblue solid 3px; border-radius: 30px">--}}
-{{--            <div style="background-color: #1789FC; border-radius: 26px 26px 0px 0px; color: white; padding: 8px 0 8px 20px">Nama Student</div>--}}
-{{--            <div style="margin-left: 20px; margin-top: 10px">Email :</div>--}}
-{{--            <div style="margin-left: 20px; margin-top: 10px">mahasiswa@student.ciputra.ac.id</div>--}}
-{{--            <div style="margin-left: 20px; margin-top: 10px">Program Studi :</div>--}}
-{{--            <div style="margin-left: 20px; margin-top: 10px">Informatika</div>--}}
-{{--            <div style="margin-left: 20px; margin-top: 10px">No Telp :</div>--}}
-{{--            <div style="margin-left: 20px; margin-top: 10px">082112345678</div>--}}
-{{--            <div style="margin-left: 20px; margin-top: 10px">NIM :</div>--}}
-{{--            <div style="margin-left: 20px; margin-top: 10px">0706011910099</div>--}}
-{{--        </div>--}}
-
-{{--        <br>--}}
-{{--        <div class="d-sm-flex justify-content-between align-items-center mb-4">--}}
-{{--            <h3 class="text-dark mb-0">Riwayat Title</h3>--}}
-{{--        </div>--}}
-{{--        <hr class="garisKuning">--}}
-{{--        <div class="row">--}}
-{{--            --}}{{--                        @foreach()--}}
-{{--            <div class="col">--}}
-{{--                <div class="card bg-light daftar-periode" style="border: dodgerblue solid 3px; border-radius: 30px">--}}
-{{--                    <img src="{{asset('image/group92.jpg')}}" class="card-img" alt="..." style="border-radius: 26px 26px 0px 0px">--}}
-{{--                    <div>--}}
-{{--                        <h5 style="margin-left: 10px">Nama Acara</h5>--}}
-{{--                        <h5 style="margin-left: 10px; font-weight: bold">Title</h5>--}}
-{{--                        <h5 style="margin-left: 10px">5.0</h5>--}}
-{{--                        <h5 style="margin-left: 10px">1 Januari 2020 - 31 Desember 2020</h5>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-{{--            </div>--}}
-{{--            --}}{{--                        @endforeach--}}
-{{--        </div>--}}
-{{--        <div class="row">--}}
-
-{{--        </div>--}}
-
-{{--    </div>--}}
 @endsection
