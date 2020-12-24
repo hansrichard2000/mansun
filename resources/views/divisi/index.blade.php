@@ -37,7 +37,7 @@
                         Link Proposal : <a href="{{$prokers->proposal}}">{{$prokers->proposal}}</a>
                     </li>
                     <li>
-                        Link LPJ : <a href="{{$prokers->lpj}}">{{$prokers->lpj}}</a> 
+                        Link LPJ : <a href="{{$prokers->lpj}}">{{$prokers->lpj}}</a>
                     </li>
                 </ol>
             </div>

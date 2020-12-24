@@ -66,9 +66,9 @@
 
                         {{--check is_admin--}}
                         @if($user->is_admin == 1)
-                            <td>true</td>
+                            <td class="text-success">true</td>
                         @else
-                            <td>false</td>
+                            <td class="text-danger">false</td>
                         @endif
 
                         {{--check is_active--}}
@@ -208,9 +208,9 @@
                             @endif
 
                             @if($user->is_active == 1)
-                                <td>Active</td>
+                                <td class="text-primary">Active</td>
                             @else
-                                <td style="color: red">Suspended</td>
+                                <td class="text-danger">Suspended</td>
                             @endif
 
                             <td>
