@@ -1,15 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Mahasiswa;
-use App\Models\Dosen;
-use App\Models\Task;
-use App\Models\User;
+use App\Http\Controllers\Controller;
+use App\Models\Status_Task;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class UserController extends Controller
+class StatusTaskController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $mahasiswas = DB::select('select * from mahasiswa m inner join users u on u.mahasiswa_id = m.mahasiswa_id');
-        $dosens = DB::select('SELECT * FROM dosen INNER JOIN users ON users.dosen_id = dosen.dosen_id');
-        return view('user.index',compact('mahasiswas', 'dosens'));
+        //
     }
 
     /**
@@ -30,9 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        $mahasiswas = Mahasiswa::all();
-        $dosens = Dosen::all();
-        return view('user.crud.create', compact('mahasiswas', 'dosens'));
+        //
     }
 
     /**
@@ -49,10 +42,10 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Task  $task
+     * @param  \App\Models\Status_Task  $status_task
      * @return \Illuminate\Http\Response
      */
-    public function show(Task $task)
+    public function show(Status_Task  $status_task)
     {
         //
     }
@@ -60,10 +53,10 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Task  $task
+     * @param  \App\Models\Status_Task  $status_task
      * @return \Illuminate\Http\Response
      */
-    public function edit(Task $task)
+    public function edit(Status_Task $status_task)
     {
         //
     }
@@ -72,10 +65,10 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Task  $task
+     * @param  \App\Models\Status_Task  $status_task
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Task $task)
+    public function update(Request $request, Status_Task $status_task)
     {
         //
     }
@@ -83,10 +76,10 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Task  $task
+     * @param  \App\Models\Status_Task  $status_task
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Task $task)
+    public function destroy(Status_Task $status_task)
     {
         //
     }

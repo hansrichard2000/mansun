@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Dosen;
-use App\Models\Mahasiswa;
+use App\Models\Lecturer;
+use App\Models\Student;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -47,23 +47,23 @@ class LoginController extends Controller
     public function login(Request $request)
     {
 
-        $mahasiswa = Mahasiswa::all()->where('email', $request->email)->first();
-        $dosen = Dosen::all()->where('email', $request->email)->first();
+        $mahasiswa = Student::all()->where('email', $request->email)->first();
+        $dosen = Lecturer::all()->where('email', $request->email)->first();
 
         if(!empty($mahasiswa)){
             $mahasiswa_admin = [
-                'mahasiswa_id' => $mahasiswa->mahasiswa_id,
+                'student_id' => $mahasiswa->student_id,
                 'password' => $request->password,
-                'dosen_id' => null,
+                'lecturer_id' => null,
                 'is_login' => '0',
                 'is_active' => '1',
                 'is_admin' => '1',
             ];
 
             $mahasiswa_not_admin = [
-                'mahasiswa_id' => $mahasiswa->mahasiswa_id,
+                'student_id' => $mahasiswa->student_id,
                 'password' => $request->password,
-                'dosen_id' => null,
+                'lecturer_id' => null,
                 'is_login' => '0',
                 'is_active' => '1',
                 'is_admin' => '0',
@@ -71,9 +71,10 @@ class LoginController extends Controller
 
             if (Auth::attempt($mahasiswa_admin)) {
                 $this->isLogin(Auth::id());
-                return redirect()->route('periode.index');
+                return redirect()->route('admin.periode.index');
             }
             else if (Auth::attempt($mahasiswa_not_admin)) {
+
                 $this->isLogin(Auth::id());
                 return redirect()->route('periode.index');
             }
@@ -82,18 +83,18 @@ class LoginController extends Controller
         else if (!empty($dosen)){
 
             $dosen_admin = [
-                'dosen_id' => $dosen->dosen_id,
+                'lecturer_id' => $dosen->lecturer_id,
                 'password' => $request->password,
-                'mahasiswa_id' => null,
+                'student_id' => null,
                 'is_login' => '0',
                 'is_active' => '1',
                 'is_admin' => '1',
             ];
 
             $dosen_not_admin = [
-                'dosen_id' => $dosen->dosen_id,
+                'lecturer_id' => $dosen->lecturer_id,
                 'password' => $request->password,
-                'mahasiswa_id' => null,
+                'student_id' => null,
                 'is_login' => '0',
                 'is_active' => '1',
                 'is_admin' => '0',
@@ -101,7 +102,7 @@ class LoginController extends Controller
 
             if (Auth::attempt($dosen_admin)) {
                     $this->isLogin(Auth::id());
-                    return redirect()->route('periode.index');
+                    return redirect()->route('admin.periode.index');
             } else if (Auth::attempt($dosen_not_admin)) {
                 $this->isLogin(Auth::id());
                 return redirect()->route('periode.index');

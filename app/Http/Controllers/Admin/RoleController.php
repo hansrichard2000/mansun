@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Models\Status_Proker;
+use App\Http\Controllers\Controller;
+use App\Models\DivisiRoleUser;
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class StatusProkerController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,16 +38,19 @@ class StatusProkerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::findOrFail($request->mansun_user_id);
+
+        DivisiRoleUser::create($request->all());
+        return redirect()->route('admin.divisi.show', $request->mansun_divisi_id);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Status_Proker  $status_Proker
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function show(Status_Proker $status_Proker)
+    public function show(Role $role)
     {
         //
     }
@@ -52,10 +58,10 @@ class StatusProkerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Status_Proker  $status_Proker
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function edit(Status_Proker $status_Proker)
+    public function edit(Role $role)
     {
         //
     }
@@ -64,10 +70,10 @@ class StatusProkerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Status_Proker  $status_Proker
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Status_Proker $status_Proker)
+    public function update(Request $request, Role $role)
     {
         //
     }
@@ -75,10 +81,10 @@ class StatusProkerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Status_Proker  $status_Proker
+     * @param  \App\Models\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Status_Proker $status_Proker)
+    public function destroy(Role $role)
     {
         //
     }

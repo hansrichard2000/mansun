@@ -1,11 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
+use App\Models\Student;
 use App\Models\Periode;
 use App\Models\Proker;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PeriodeController extends Controller
 {
@@ -16,6 +19,7 @@ class PeriodeController extends Controller
      */
     public function index()
     {
+//        dd(Auth::user());
         $periodes = Periode::all();
         return view('periode.index', compact('periodes'));
     }
@@ -61,7 +65,7 @@ class PeriodeController extends Controller
                 'created_by' => $request->created_by,
             ]);
         }
-        return redirect()->route('periode.index');
+        return redirect()->route('admin.periode.index');
 
     }
 
@@ -74,7 +78,8 @@ class PeriodeController extends Controller
     public function show(Proker $prokers, $id)
     {
         $prokers = Proker::all()->where('periode_id', $id);
-        return view('proker.index', compact('prokers'));
+        $periodes = Periode::all()->where('id', $id);
+        return view('proker.index', compact('prokers','periodes'));
     }
 
     /**

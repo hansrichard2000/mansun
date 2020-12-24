@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Program_Studi;
+use App\Models\Department;
 use Illuminate\Database\Seeder;
 
 class ProgramStudiSeeder extends Seeder
@@ -16,9 +16,9 @@ class ProgramStudiSeeder extends Seeder
     {
 
         //Seeder Program Studi Informatika
-        $program_studi = new Program_Studi();
-        $program_studi->inisial = 'IMT';
-        $program_studi->prodi = 'Informatika';
+        $program_studi = new Department();
+        $program_studi->initial = 'IMT';
+        $program_studi->name = 'Informatika';
         $program_studi->save();
 
     }

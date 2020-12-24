@@ -13,10 +13,10 @@ class CreateProgramStudiTable extends Migration
      */
     public function up()
     {
-        Schema::create('program_studi', function (Blueprint $table) {
-            $table->id('prodi_id');
-            $table->string('inisial', 10);
-            $table->string('prodi', 50);
+        Schema::create('departments', function (Blueprint $table) {
+            $table->id('department_id');
+            $table->string('initial', 10);
+            $table->string('name', 50);
             $table->timestamps();
         });
     }

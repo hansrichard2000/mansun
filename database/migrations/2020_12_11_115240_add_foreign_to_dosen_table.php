@@ -13,13 +13,13 @@ class AddForeignToDosenTable extends Migration
      */
     public function up()
     {
-        Schema::table('dosen', function (Blueprint $table) {
-            $table->unsignedBigInteger('prodi_id')->index()->after('passfoto');
-            $table->foreign('prodi_id')->references('prodi_id')->on('program_studi');
-            $table->unsignedBigInteger('jabatan_id')->index()->after('prodi_id');
-            $table->foreign('jabatan_id')->references('jabatan_id')->on('jabatan');
-            $table->unsignedBigInteger('jaka_id')->index()->after('jabatan_id');
-            $table->foreign('jaka_id')->references('jaka_id')->on('jaka');
+        Schema::table('lecturers', function (Blueprint $table) {
+            $table->unsignedBigInteger('department_id')->index()->after('photo');
+            $table->foreign('department_id')->references('department_id')->on('departments');
+            $table->unsignedBigInteger('title_id')->index()->after('department_id');
+            $table->foreign('title_id')->references('title_id')->on('titles');
+            $table->unsignedBigInteger('jaka_id')->index()->after('title_id');
+            $table->foreign('jaka_id')->references('jaka_id')->on('jakas');
         });
     }
 
@@ -30,9 +30,9 @@ class AddForeignToDosenTable extends Migration
      */
     public function down()
     {
-        Schema::table('dosen', function (Blueprint $table) {
-            $table->dropColumn('prodi_id');
-            $table->dropColumn('jabatan_id');
+        Schema::table('lecturers', function (Blueprint $table) {
+            $table->dropColumn('department_id');
+            $table->dropColumn('title_id');
             $table->dropColumn('jaka_id');
         });
     }

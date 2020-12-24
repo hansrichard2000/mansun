@@ -29,8 +29,8 @@
         <br>
         <div class="d-sm-flex justify-content-between align-items-center mb-4">
             <h3 class="text-dark mb-0">Daftar Periode</h3>
-            <form method="GET" action="{{route('periode.create')}}">
-                <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="{{route('periode.create')}}">&nbsp;Tambah Periode</a>
+            <form method="GET" action="{{route('admin.periode.create')}}">
+                <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="{{route('admin.periode.create')}}">&nbsp;Tambah Periode</a>
             </form>
         </div>
         <hr class="garisKuning">
@@ -38,12 +38,12 @@
             @if($periodes != null)
                 @foreach($periodes as $periode)
                     <div class="col mt-3">
-                        <a href="{{route('periode.show', $periode->id)}}">
+                        <a href="{{route('admin.periode.show', $periode->id)}}">
                             <div class="card">
                                 @if($periode->gambar_periode == null)
-                                    <img src="{{asset('image/group92.jpg')}}" class="card-img-top">
+                                    <img src="{{asset('image/group92.jpg')}}" class="card-img-top img-fluid" style="height: 225.85px">
                                 @else
-                                    <img src="image/periodeImg/{{$periode->gambar_periode}}" class="card-img-top img-fluid" style="height: 225.85px">
+                                    <img src="../image/periodeImg/{{$periode->gambar_periode}}" class="card-img-top img-fluid" style="height: 225.85px">
                                 @endif
                                 <div class="card-body p-0 ml-3" >
                                     <p class="card-text"><strong>{{$periode->tahun_periode}}</strong></p>

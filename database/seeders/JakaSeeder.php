@@ -16,7 +16,7 @@ class JakaSeeder extends Seeder
     {
         //Seeder Jaka
         $jaka = new Jaka();
-        $jaka->jaka = 'Pagi-Malam';
+        $jaka->name = 'Pagi-Malam';
         $jaka->save();
     }
 }

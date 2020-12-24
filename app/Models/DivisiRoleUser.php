@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Program_Studi extends Model
+class DivisiRoleUser extends Model
 {
     use HasFactory;
 
-    protected $table = 'program_studi';
+    protected $table = 'divisi_role_user';
 
     protected $fillable = [
-        'inisial',
-        'prodi',
+       'mansun_divisi_id',
+       'mansun_role_id',
+       'mansun_user_id',
     ];
 }

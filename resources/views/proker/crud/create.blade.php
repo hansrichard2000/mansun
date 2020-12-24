@@ -11,7 +11,7 @@
 
         </div>
         <hr class="garisKuning">
-        <form method="POST" action="{{route('proker.store')}}" enctype="multipart/form-data">
+        <form method="POST" action="{{route('admin.proker.store')}}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <select name="periode_id" class="custom-select">
@@ -19,34 +19,36 @@
                         <option value="{{$periode->id}}">{{$periode->tahun_periode}}</option>
                     @endforeach
                 </select>
+
+{{--                <input type hidden name="periode_id" value="{{$periodes[]}}">--}}
             </div>
             <div class="form-group">
                 <label for="nama_proker">Nama Program Kerja : </label>
-                <input type="text" class="form-control" id="nama_proker" name="nama_proker" placeholder="Input nama program kerja yang akan diisi...">
+                <input type="text" class="form-control" id="nama_proker" name="nama_proker" placeholder="Input nama program kerja yang akan diisi..." required>
             </div>
             <div class="form-group">
                 <label for="deskripsi_proker">Deskripsi : </label>
-                <textarea rows="4" class="form-control" id="deskripsi_proker" name="deskripsi_proker"></textarea>
+                <textarea rows="4" class="form-control" id="deskripsi_proker" name="deskripsi_proker" required></textarea>
             </div>
             <div class="row g-2">
                 <div class="col-md">
                     <div class="form-group">
                         <label for="tanggal_mulai">Tanggal Mulai : </label>
-                        <input type="date" class="form-control" id="tanggal_mulai" name="tanggal_mulai" placeholder="name@example.com" value="tanggalmulai">
+                        <input type="date" class="form-control" id="tanggal_mulai" name="tanggal_mulai" placeholder="name@example.com" value="tanggalmulai" required>
                     </div>
                 </div>
                 <div class="col-md">
                     <div class="form-group">
                         <label for="tanggal_akhir">Tanggal Berakhir : </label>
-                        <input type="date" class="form-control" id="tanggal_akhir" name="tanggal_akhir" placeholder="name@example.com" value="tanggalakhir">
+                        <input type="date" class="form-control" id="tanggal_akhir" name="tanggal_akhir" placeholder="name@example.com" value="tanggalakhir" required>
                     </div>
                 </div>
             </div>
             <div class="row g-2">
                 <div class="col-md">
                     <div class="form-group">
-                        <label for="pemasukkan">Pemasukkan : </label>
-                        <input type="number" class="form-control" id="pemasukkan" name="pemasukkan" placeholder="Total pemasukkan..." value="pemasukan">
+                        <label for="pemasukan">Pemasukkan : </label>
+                        <input type="number" class="form-control" id="pemasukan" name="pemasukan" placeholder="Total pemasukan..." value="pemasukan">
                     </div>
                 </div>
                 <div class="col-md">
@@ -69,9 +71,10 @@
                 <input type="text" class="form-control" id="lpj" name="lpj" placeholder="Input nama program kerja yang akan diisi...">
             </div>
             <div class="form-group">
+{{--                <label for="temp">created_by: (temporary)</label>--}}
                 <select name="created_by" class="custom-select">
                     @foreach ($users as $user)
-                        <option value="{{$user->id}}">{{$user->mahasiswa_id}}</option>
+                        <option value="{{$user->id}}">{{$user->student_id}}</option>
                     @endforeach
                 </select>
             </div>

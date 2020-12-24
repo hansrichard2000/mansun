@@ -15,25 +15,28 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        //Seeder Account Mahasiswa 1
+        //Seeder Account Student 1
         $user = new User();
-        $user->mahasiswa_id = '1';
+        $user->student_id = '1';
+        $user->email = 'ranggriawan@student.ciputra.ac.id';
         $user->password = Hash::make('12345678');
         $user->is_active = '1';
         $user->is_admin = '1';
         $user->save();
 
-        //Seeder Account Mahasiswa 2
+        //Seeder Account Student 2
         $user = new User();
-        $user->mahasiswa_id = '2';
+        $user->student_id = '2';
+        $user->email = 'hrichard@student.ciputra.ac.id';
         $user->password = Hash::make('12345678');
         $user->is_active = '1';
         $user->is_admin = '1';
         $user->save();
 
-        //Seeder Account Dosen 1
+        //Seeder Account Lecturer 1
         $user = new User();
-        $user->dosen_id = '1';
+        $user->lecturer_id = '1';
+        $user->email = 'dosen1@student.ciputra.ac.id';
         $user->password = Hash::make('12345678');
         $user->is_active = '1';
         $user->is_admin = '1';

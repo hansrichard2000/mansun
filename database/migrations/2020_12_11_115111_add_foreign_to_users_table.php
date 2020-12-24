@@ -13,11 +13,11 @@ class AddForeignToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->unsignedBigInteger('mahasiswa_id')->index()->after('id')->nullable();
-            $table->foreign('mahasiswa_id')->references('mahasiswa_id')->on('mahasiswa');
-            $table->unsignedBigInteger('dosen_id')->index()->after('mahasiswa_id')->nullable();
-            $table->foreign('dosen_id')->references('dosen_id')->on('dosen');
+        Schema::table('mansun_users', function (Blueprint $table) {
+            $table->unsignedBigInteger('student_id')->index()->after('id')->nullable();
+            $table->foreign('student_id')->references('student_id')->on('students');
+            $table->unsignedBigInteger('lecturer_id')->index()->after('student_id')->nullable();
+            $table->foreign('lecturer_id')->references('lecturer_id')->on('lecturers');
         });
     }
 
@@ -28,9 +28,9 @@ class AddForeignToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('mahasiswa_id');
-            $table->dropColumn('dosen_id');
+        Schema::table('mansun_users', function (Blueprint $table) {
+            $table->dropColumn('student_id');
+            $table->dropColumn('lecturer_id');
         });
     }
 }

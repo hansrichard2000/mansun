@@ -10,11 +10,11 @@
 
 @section('content')
     <div class="container">
-        <form action="{{route('periode.store')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('admin.periode.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="tahun_periode">Tahun Periode :</label>
-                <input type="text" class="form-control" id="tahun_periode" name="tahun_periode">
+                <input type="text" class="form-control" id="tahun_periode" name="tahun_periode" required>
             </div>
             <div class="form-group">
                 <label for="gambar_periode">Gambar Periode :</label>
@@ -32,11 +32,7 @@
                 </select>
             </div>
             <div class="form-group">
-                <select name="created_by" class="custom-select">
-                    @foreach ($users as $user)
-                        <option value="{{$user->id}}">{{$user->mahasiswa_id}}</option>
-                    @endforeach
-                </select>
+                <input type="hidden" name="created_by" value="{{\Illuminate\Support\Facades\Auth::user()->id}}">
             </div>
             <input class="btn bg-mansun-blue text-white" type="submit" id="submit" name="submit" value="Submit">
         </form>

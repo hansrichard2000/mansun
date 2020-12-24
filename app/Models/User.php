@@ -6,19 +6,22 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable;
 
+    protected $table = 'mansun_users';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'mahasiswa_id',
-        'dosen_id',
+        'student_id',
+        'lecturer_id',
+        'email',
         'password',
         'is_login',
         'email_verified_at',
@@ -54,9 +57,9 @@ class User extends Authenticatable
         return $this->hasMany(Proker::class, 'created_by', 'id');
     }
 
-    public function divisi()
+    public function divisis()
     {
-        return $this->hasMany(Divisi::class, 'created_by', 'id');
+        return $this->belongsToMany(Divisi::class, 'divisi_role_user', 'mansun_divisi_id', 'id');
     }
 
     public function taskCreator(){
@@ -67,12 +70,16 @@ class User extends Authenticatable
         return $this->hasMany(Task::class, 'penanggung_jawab', 'id');
     }
 
-    public function emailMahasiswa(){
-        return $this->belongsTo(Mahasiswa::class, 'mahasiswa_id', 'id');
+    public function roles(){
+        return $this->belongsToMany(Role::class, 'divisi_role_user', 'mansun_role_id', 'id');
     }
 
-    public function emailDosen(){
-        return $this->belongsTo(Dosen::class);
+    public function student(){
+        return $this->belongsTo(Student::class, 'student_id', 'student_id');
+    }
+
+    public function lecturer(){
+        return $this->belongsTo(Lecturer::class, 'lecturer_id', 'lecturer_id');
 
     }
 
@@ -82,4 +89,8 @@ class User extends Authenticatable
         }
         return false;
     }
+
+//    public function isHod(){
+//        if ($this->is_)
+//    }
 }

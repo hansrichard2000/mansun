@@ -5,28 +5,28 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Dosen extends Model
+class Lecturer extends Model
 {
     use HasFactory;
 
-    protected $table = 'dosen';
+    protected $table = 'lecturers';
 
     protected $fillable = [
         'nip',
         'nidn',
-        'nama',
+        'name',
         'gender',
         'email',
         'phone',
         'line_account',
-        'keterangan',
-        'passfoto',
-        'prodi_id',
-        'jabatan_id',
+        'description',
+        'photo',
+        'department_id',
+        'title_id',
         'jaka_id',
     ];
 
-    public function user_email_dosen(){
-        return $this->hasOne(User::class, 'id', 'dosen_id');
+    public function user(){
+        return $this->hasOne(User::class, 'lecturer_id', 'lecturer_id');
     }
 }
