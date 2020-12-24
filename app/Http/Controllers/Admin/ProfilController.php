@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Lecturer;
+use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfilController extends Controller
 {
@@ -14,7 +17,14 @@ class ProfilController extends Controller
      */
     public function index()
     {
-        return view('profil.index');
+        if(Auth::user()->lecturer_id == null){
+            $current_user = Student::all()->where('student_id', Auth::user()->student_id);
+        } else{
+            $current_user = Lecturer::all()->where('lecturer_id', Auth::user()->lecturer_id);
+        }
+//        dd($current_user);
+
+        return view('profil.index', compact('current_user'));
     }
 
     /**

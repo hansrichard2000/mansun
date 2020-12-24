@@ -14,8 +14,8 @@
         <div class="row mb-3">
             <div class="col-lg-4">
                 <div class="card mb-3">
-                    <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4" src="assets/img/dogs/image2.jpeg" width="160" height="160">
-                        <div class="mb-3"><button class="btn btn-primary btn-sm" type="button">Change Photo</button></div>
+                    <div class="card-body text-center shadow"><img class="rounded-circle mb-3 mt-4" src="../assets/img/dogs/image2.jpeg" width="160" height="160">
+{{--                        <div class="mb-3"><button class="btn btn-primary btn-sm" type="button">Change Photo</button></div>--}}
                     </div>
                 </div>
                 <div class="card shadow mb-4">
@@ -80,31 +80,33 @@
                 <div class="row">
                     <div class="col">
                         <div class="card shadow mb-3">
+                            @foreach($current_user as $user)
                             <div class="card-header py-3">
-                                <p class="text-primary m-0 font-weight-bold">User Settings</p>
+                                <p class="text-primary m-0 font-weight-bold"><strong>{{$user->name}}</strong></p>
                             </div>
                             <div class="card-body">
                                 <form>
                                     <div class="form-row">
                                         <div class="col">
-                                            <div class="form-group"><label for="username"><strong>Username</strong></label><input class="form-control" type="text" placeholder="user.name" name="username"></div>
+                                            <div class="form-group"><label for="username"><strong>Email</strong></label><div>{{$user->name}}</div></div>
                                         </div>
                                         <div class="col">
-                                            <div class="form-group"><label for="email"><strong>Email Address</strong></label><input class="form-control" type="email" placeholder="user@example.com" name="email"></div>
+                                            <div class="form-group"><label for="email"><strong>Program Studi</strong></label><div>{{$user->department['name']}}</div></div>
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="col">
-                                            <div class="form-group"><label for="first_name"><strong>First Name</strong></label><input class="form-control" type="text" placeholder="John" name="first_name"></div>
+                                            <div class="form-group"><label for="first_name"><strong>No telp</strong></label><div>{{$user->phone}}</div></div>
                                         </div>
                                         <div class="col">
-                                            <div class="form-group"><label for="last_name"><strong>Last Name</strong></label><input class="form-control" type="text" placeholder="Doe" name="last_name"></div>
+                                            <div class="form-group"><label for="last_name"><strong>NIM</strong></label><div>{{$user->nim}}</div></div>
                                         </div>
                                     </div>
-                                    <div class="form-group"><button class="btn btn-primary btn-sm" type="submit">Save Settings</button></div>
+{{--                                    <div class="form-group"><button class="btn btn-primary btn-sm" type="submit">Save Settings</button></div>--}}
                                 </form>
                             </div>
                         </div>
+                        @endforeach
                         <div class="card shadow">
                             <div class="card-header py-3">
                                 <p class="text-primary m-0 font-weight-bold">Contact Settings</p>
@@ -146,7 +148,7 @@
                 </div>
             </div>
         </div>
-    </div
+    </div>
 {{--    <div class="container-fluid">--}}
 {{--        <div class="d-sm-flex justify-content-between align-items-center mb-4">--}}
 
