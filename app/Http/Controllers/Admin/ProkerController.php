@@ -106,10 +106,12 @@ class ProkerController extends Controller
     public function show($id)
     {
         $divisis = Divisi::all()->where('proker_id', $id);
+        $prokers = Proker::find($id);
+//        dd($prokers);
         $tasks = Task::all();
         $users = User::all();
         $status_tasks = Status_Task::all();
-        return view('divisi.index', compact('divisis', 'users', 'id', 'tasks', 'status_tasks'));
+        return view('divisi.index', compact('divisis', 'users', 'id', 'tasks', 'status_tasks', 'prokers'));
     }
 
     /**

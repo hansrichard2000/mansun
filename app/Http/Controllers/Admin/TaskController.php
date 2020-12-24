@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Divisi;
 use App\Models\Status_Task;
 use App\Models\Task;
 use App\Models\User;
@@ -28,8 +29,9 @@ class TaskController extends Controller
     public function create()
     {
         $users = User::all();
+        $divisis = Divisi::all();
         $status_tasks = Status_Task::all();
-        return view('task.create', compact('users', 'status_tasks'));
+        return view('task.create', compact('users', 'status_tasks', 'divisis'));
     }
 
     /**
@@ -52,7 +54,11 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        //
+//        $users = User::all();
+//        $divisis = Divisi::where('proker_id', $id);
+////        dd($divisis);
+//        $status_tasks = Status_Task::all();
+//        return view('task.create', compact('users', 'status_tasks', 'divisis'));
     }
 
     /**

@@ -18,6 +18,13 @@
         <form method="POST" action="{{route('admin.task.store')}}">
             @csrf
             <div class="form-group">
+                <select class="form-select" id='divisi_id' name="divisi_id" aria-label="Floating label select example">
+                    @foreach ($divisis as $divisi)
+                        <option value="{{$divisi->id}}">{{$divisi->proker->nama_proker}} - {{$divisi->nama_divisi}}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="form-group">
                 <label for="penanggung_jawab">Penanggung Jawab</label>
                 <select class="form-select" id=penanggung_jawab"" name="penanggung_jawab" aria-label="Floating label select example">
                     @foreach ($users as $user)

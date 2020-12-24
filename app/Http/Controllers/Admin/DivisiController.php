@@ -52,9 +52,9 @@ class DivisiController extends Controller
      */
     public function show($id)
     {
-        $members = Divisi::findOrFail($id);
-//        $userList1 = DivisiRoleUser::all()->where('mansun_divisi_id', $divisi->id);
-//        dd($userList1);
+        $member = Divisi::findOrFail($id);
+        $members = DivisiRoleUser::all()->where('mansun_divisi_id', $id);
+//        dd($members);
         $roles = Role::all();
         $prokers = Proker::all()->except($id)->pluck('id');
         $divisis = Divisi::all()->except($id)->pluck('id');
@@ -62,7 +62,8 @@ class DivisiController extends Controller
             $query->select('mansun_user_id')->from('divisi_role_user')
                 ->whereNotIn('mansun_divisi_id', $divisis);
         })->where('is_admin', 1)->get();
-        return view('divisi.crud.listAnggota', compact('members','userList', 'roles'));
+
+        return view('divisi.crud.listAnggota', compact('members','userList', 'roles', 'member'));
     }
 
     /**

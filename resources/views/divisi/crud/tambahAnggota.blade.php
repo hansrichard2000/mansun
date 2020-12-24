@@ -4,7 +4,7 @@
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Tambah anggota divisi {{$members->nama_divisi}} </h4>
+                <h4 class="modal-title">Tambah anggota divisi {{$member->nama_divisi}} </h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <!-- Modal body -->
@@ -27,7 +27,7 @@
                             @endforeach
                         </select>
                     </div>
-                    <input name="mansun_divisi_id" type="hidden" value="{{$members->id}}">
+                    <input name="mansun_divisi_id" type="hidden" value="{{$member->id}}">
                     <div class="form-group">
                         <button class="btn btn-primary" type="submit">Tambah Anggota</button>
                     </div>
