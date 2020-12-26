@@ -62,14 +62,7 @@
                 <label for="lpj">Link Laporan Pertanggung Jawaban: </label>
                 <input type="text" class="form-control" value="{{$proker->lpj}}" id="lpj" name="lpj" placeholder="Input nama program kerja yang akan diisi...">
             </div>
-            <div class="form-group">
-                {{--                <label for="temp">created_by: (temporary)</label>--}}
-                <select name="created_by" class="custom-select">
-                    @foreach ($users as $user)
-                        <option value="{{$user->id}}">{{$user->student_id}}</option>
-                    @endforeach
-                </select>
-            </div>
+            <input type="hidden" name="created_by" value="{{\Illuminate\Support\Facades\Auth::user()->id}}">
             <div class="form-group">
                 <label for="gambar_proker">Thumbnail : </label>
                 <input type="file" class="form-control-file" id="gambar_proker" name="gambar_proker">

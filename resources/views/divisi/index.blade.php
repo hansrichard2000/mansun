@@ -89,7 +89,22 @@
                             <input type="submit" class="btn bg-mansun-blue text-white" value="Tambah Tugas">
                         </form>
                     </div>
+                    <div class="float-md-right mr-3">
+                        <button id="button_edit_divisi{{$divisi->id}}" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
+                                data-toggle="modal"
+                                data-target="#editDivisi">Edit Divisi</button>
+                        @include('divisi.crud.edit')
 
+{{--                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>--}}
+{{--                        <script>--}}
+{{--                            $(document).ready(function (){--}}
+{{--                               $("#button_edit_divisi{{$divisi->id}}").click(function (){--}}
+{{--                                   document.getElementById("nama_divisi").val("{{$divisi->nama_divisi}}");--}}
+{{--                                   document.getElementById("testJudul").innerHTML = "Coba";--}}
+{{--                               });--}}
+{{--                            });--}}
+{{--                        </script>--}}
+                    </div>
                 </div>
                 <div class="card-body">
                     <table class="table table-striped text-center">

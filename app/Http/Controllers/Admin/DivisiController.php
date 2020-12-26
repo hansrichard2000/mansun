@@ -86,7 +86,8 @@ class DivisiController extends Controller
      */
     public function update(Request $request, Divisi $divisi)
     {
-        //
+        $divisi->update($request->all());
+        return redirect()->route('admin.proker.show', $request->proker_id);
     }
 
     /**
