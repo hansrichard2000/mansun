@@ -90,7 +90,7 @@ class PeriodeController extends Controller
      */
     public function edit(Periode $periode)
     {
-        //
+        return view('periode.crud.edit', compact('periode'));
     }
 
     /**
@@ -102,7 +102,29 @@ class PeriodeController extends Controller
      */
     public function update(Request $request, Periode $periode)
     {
-        //
+        $request->validate([
+            'gambar_periode' => 'image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
+
+        if ($request->gambar_periode != null){
+            $imgPeriode = $request->gambar_periode->getClientOriginalName().'-'.time().'.'.$request->gambar_periode->extension();
+            $request->gambar_periode->move(public_path('image/periodeImg'), $imgPeriode);
+
+            $periode->update([
+                'tahun_periode' => $request->tahun_periode,
+                'gambar_periode' => $imgPeriode,
+                'nilai' => $request->nilai,
+                'created_by' => $request->created_by,
+            ]);
+        }
+        else{
+            $periode->update([
+                'tahun_periode' => $request->tahun_periode,
+                'nilai' => $request->nilai,
+                'created_by' => $request->created_by,
+            ]);
+        }
+        return redirect()->route('admin.periode.index');
     }
 
     /**
@@ -113,6 +135,7 @@ class PeriodeController extends Controller
      */
     public function destroy(Periode $periode)
     {
-        //
+        $periode->delete();
+        return redirect()->route('admin.periode.index');
     }
 }

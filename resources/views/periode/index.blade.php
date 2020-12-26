@@ -54,11 +54,18 @@
                                         <div class="col">
                                                 <div class="nav-item dropdown no-arrow float-right"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
                                                     <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in">
-                                                        <form action="{{route('admin.periode.edit', $periode)}}" method="GET">
-                                                            @csrf
-                                                            <input type="submit" id="submit" name="submit" value="Edit" class="btn bg-mansun-blue text-white float-left mr-5">
-                                                        </form>
+                                                        <a class="d-flex align-items-center dropdown-item" href="#">
+                                                            <form action="{{route('admin.periode.edit', $periode)}}" method="GET">
+                                                                @csrf
+                                                                <input type="submit" id="submit" name="submit" value="Edit" class="btn bg-mansun-blue text-white mr-5">
+                                                            </form>
+                                                            <form action="{{route('admin.periode.destroy', $periode)}}" method="POST">
+                                                                @csrf
+                                                                <input name="_method" type="hidden" value="DELETE">
+                                                                <input type="submit" id="submit" name="submit" value="Delete" class="btn btn-danger text-white mr-5">
 
+                                                            </form>
+                                                        </a>
                                                     </div>
                                                 </div>
                                         </div>
