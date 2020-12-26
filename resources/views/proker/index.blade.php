@@ -50,20 +50,58 @@
         <div class="row row-cols-3">
 
             @foreach($prokers as $proker)
+
+            {{--Proker Belum dimulai--}}
+            @if($proker->status_proker_id == 1)
             <div class="col mt-3 mb-3">
                 <a href="{{route('admin.proker.show', $proker->id)}}">
                     <div class="card">
                         @if($proker->gambar_proker == null)
-                            <img src="{{asset('image/group92.jpg')}}" class="card-img-top img-fluid" style="height: 180px">
+                            <img src="{{asset('image/group92.jpg')}}" class="card-img-top img-fluid" style="height: 180px; padding-right: 15px; background-color: #2A65FC">
                         @else
-                            <img src="../image/periodeImg/{{$proker->gambar_proker}}" class="card-img-top img-fluid" style="height: 180px">
+                            <img src="../../image/prokerImg/{{$proker->gambar_proker}}" class="card-img-top img-fluid" style="height: 180px; padding-right: 5%; background-color: #2A65FC">
                         @endif
                         <div class="card-body p-0 ml-3" >
-                            <p class="card-text"><strong>{{$proker->nama_proker}}</strong></p>
+                            <p class="card-text p-2"><strong>{{$proker->nama_proker}}</strong></p>
                         </div>
                     </div>
                 </a>
             </div>
+
+                    {{--Proker Sedang Berlangsung--}}
+                @elseif($proker->status_proker_id == 2)
+                    <div class="col mt-3 mb-3">
+                        <a href="{{route('admin.proker.show', $proker->id)}}">
+                            <div class="card">
+                                @if($proker->gambar_proker == null)
+                                    <img src="{{asset('image/group92.jpg')}}" class="card-img-top img-fluid" style="height: 180px;padding-right: 15px; background-color: #47FC2A">
+                                @else
+                                    <img src="../../image/prokerImg/{{$proker->gambar_proker}}" class="card-img-top img-fluid" style="height: 180px; padding-right: 5%; background-color: #47FC2A">
+                                @endif
+                                <div class="card-body p-0 ml-3" >
+                                    <p class="card-text p-2"><strong>{{$proker->nama_proker}}</strong></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    {{--Proker Selesai--}}
+                @else
+                    <div class="col mt-3 mb-3">
+                        <a href="{{route('admin.proker.show', $proker->id)}}">
+                            <div class="card">
+                                @if($proker->gambar_proker == null)
+                                    <img src="{{asset('image/group92.jpg')}}" class="card-img-top img-fluid" style="height: 180px; padding-right: 15px; background-color: #FC2A2A">
+                                @else
+                                    <img src="../../image/prokerImg/{{$proker->gambar_proker}}" class="card-img-top img-fluid" style="height: 180px; padding-right: 5%; background-color: #FC2A2A">
+                                @endif
+                                <div class="card-body p-0 ml-3" >
+                                    <p class="card-text p-2"><strong>{{$proker->nama_proker}}</strong></p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endif
             @endforeach
 
         </div>
