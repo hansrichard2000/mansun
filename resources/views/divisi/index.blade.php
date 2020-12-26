@@ -92,15 +92,15 @@
 
                 </div>
                 <div class="card-body">
-                    <table class="table table-striped">
+                    <table class="table table-striped text-center">
                         <thead class="bg-mansun-blue text-white">
                         <tr>
                             <th scope="col">#</th>
                             <th scope="col">Nama Tugas</th>
                             <th scope="col">PIC</th>
                             <th scope="col">Deadline</th>
-                            <th scope="col">Status</th>
                             <th scope="col">Link</th>
+                            <th scope="col">Status</th>
                             <th scope="col">action</th>
                         </tr>
                         </thead>
@@ -113,18 +113,32 @@
                                     <td scope="col">{{$task->judul}}</td>
                                     <td scope="col">{{$task->receiver->id}}</td>
                                     <td scope="col">{{$task->deadline}}</td>
-                                    <td scope="col">{{$task->status_task->id}}</td>
-                                    <td scope="col">{{$task->link_hasil_kerja}}</td>
+                                    @if($task->link_hasil_kerja == null)
+                                        <td scope="col">-</td>
+                                    @else
+                                        <td scope="col">{{$task->link_hasil_kerja}}</td>
+                                    @endif
+                                    @if($task->status_task_id == 1)
+                                        <td scope="col" class="text-dark">{{$task->status_task->statustask}}</td>
+                                    @elseif($task->status_task_id == 2)
+                                        <td scope="col" class="text-primary">{{$task->status_task->statustask}}</td>
+                                    @elseif($task->status_task_id == 3)
+                                        <td scope="col" class="text-success">{{$task->status_task->statustask}}</td>
+                                    @elseif($task->status_task_id == 4)
+                                        <td scope="col" class="text-danger">{{$task->status_task->statustask}}</td>
+                                    @endif
+
                                     <td scope="col">
-                                        <button class="btn btn-success">
-                                            Approve
-                                        </button>
-                                        <button class="btn btn-danger">
-                                            Reject
-                                        </button>
-                                        <button class="btn btn-primary">
-                                            More
-                                        </button>
+                                        <div class="row no-gutters">
+{{--                                            <div class="col-md-4">--}}
+{{--                                                <button id="button_show_task{{$task->id}}" style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"--}}
+{{--                                                        data-toggle="modal"--}}
+{{--                                                        data-target="#create"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="col-md-4">--}}
+{{--                                                @if()--}}
+{{--                                            </div>--}}
+                                        </div>
                                     </td>
                                 </tr>
                                 @endif
