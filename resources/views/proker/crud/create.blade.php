@@ -13,15 +13,7 @@
         <hr class="garisKuning">
         <form method="POST" action="{{route('admin.proker.store')}}" enctype="multipart/form-data">
             @csrf
-            <div class="form-group">
-                <select name="periode_id" class="custom-select">
-                    @foreach ($periodes as $periode)
-                        <option value="{{$periode->id}}">{{$periode->tahun_periode}}</option>
-                    @endforeach
-                </select>
-
-{{--                <input type hidden name="periode_id" value="{{$periodes[]}}">--}}
-            </div>
+            <input type="hidden" name="periode_id" value="{{$periodes->id}}">
             <div class="form-group">
                 <label for="nama_proker">Nama Program Kerja : </label>
                 <input type="text" class="form-control" id="nama_proker" name="nama_proker" placeholder="Input nama program kerja yang akan diisi..." required>
@@ -47,7 +39,7 @@
             <div class="row g-2">
                 <div class="col-md">
                     <div class="form-group">
-                        <label for="pemasukan">Pemasukkan : </label>
+                        <label for="pemasukan">Pemasukan : </label>
                         <input type="number" class="form-control" id="pemasukan" name="pemasukan" placeholder="Total pemasukan..." value="pemasukan">
                     </div>
                 </div>

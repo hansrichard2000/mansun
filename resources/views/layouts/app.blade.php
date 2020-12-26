@@ -22,6 +22,7 @@
 </head>
 <body style="background: linear-gradient(rgba(255,196,45,0.55) 100%, rgba(255,255,255,0) 100%), url(&quot;assets/img/SLBaru.jpeg&quot;) center;">
     <div id="app">
+        @auth
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 @auth
@@ -83,7 +84,7 @@
                 </div>
             </div>
         </nav>
-
+        @endauth
         <main class="py-4">
             @yield('content')
         </main>

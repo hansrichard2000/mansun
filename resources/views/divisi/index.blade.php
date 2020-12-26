@@ -25,7 +25,7 @@
                     <li>Pelaksanaan : {{$prokers->tanggal_mulai}} - {{$prokers->tanggal_akhir}}</li>
                     <li>Penganggaran :
                         <ul type="square">
-                            <li>Pemasukkan : {{$prokers->pemasukan}}</li>
+                            <li>Pemasukan : {{$prokers->pemasukan}}</li>
                             <li>Pengeluaran : {{$prokers->pengeluaran}}</li>
                             <li>Rekapitulasi : {{$prokers->pemasukan - $prokers->pengeluaran}}</li>
                         </ul>

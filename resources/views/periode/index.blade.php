@@ -46,13 +46,26 @@
                                     <img src="../image/periodeImg/{{$periode->gambar_periode}}" class="card-img-top img-fluid" style="height: 180px">
                                 @endif
                                 <div class="card-body p-0 ml-3" >
-                                    <p class="card-text"><strong>{{$periode->tahun_periode}}</strong></p>
-                                    <p class="card-text"><strong>Nilai : {{$periode->nilai}}</strong></p>
-                                </div>
+                                    <div class="row row-cols-2">
+                                        <div class="col">
+                                            <p class="card-text"><strong>{{$periode->tahun_periode}}</strong></p>
+                                            <p class="card-text"><strong>Nilai : {{$periode->nilai}}</strong></p>
+                                        </div>
+                                        <div class="col">
+                                                <div class="nav-item dropdown no-arrow float-right"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></a>
+                                                    <div class="dropdown-menu dropdown-menu-right dropdown-list dropdown-menu-right animated--grow-in">
+                                                        <form action="{{route('admin.periode.edit', $periode)}}" method="GET">
+                                                            @csrf
+                                                            <input type="submit" id="submit" name="submit" value="Edit" class="btn bg-mansun-blue text-white float-left mr-5">
+                                                        </form>
 
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </a>
-
                     </div>
                 @endforeach
             @else

@@ -43,14 +43,14 @@
 {{--            {{dd($periode->id)}}--}}
             <form method="POST">
 {{--                Kalau pake $periodes[0], dia cuma bisa buka proker ke 0--}}
-                <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="{{route('admin.proker.create', $periode->id)}}">&nbsp;Tambah Proker</a>
+                <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="{{route('admin.proker.createProker', $periode->id)}}">&nbsp;Tambah Proker</a>
             </form>
         </div>
         <hr class="garisKuning">
-        <div class="row row-cols-3 mt-3">
+        <div class="row row-cols-3">
 
             @foreach($prokers as $proker)
-            <div class="col">
+            <div class="col mt-3 mb-3">
                 <a href="{{route('admin.proker.show', $proker->id)}}">
                     <div class="card">
                         @if($proker->gambar_proker == null)

@@ -18,7 +18,7 @@ class Proker extends Model
         'deskripsi_proker',
         'tanggal_mulai',
         'tanggal_akhir',
-        'pemasukkan',
+        'pemasukan',
         'pengeluaran',
         'medsos',
         'proposal',

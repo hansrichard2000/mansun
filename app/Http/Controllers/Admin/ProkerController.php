@@ -32,13 +32,27 @@ class ProkerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Periode $id)
+    public function create()
     {
-//        $periodes = Periode::all()->where('id', $id);
-
-        //sementara
-        $periodes = Periode::all();
+////        $periodes = Periode::all()->where('id', $id);
 //
+//        //sementara
+//        $periodes = Periode::find($id);
+//        dd($periodes);
+////        dd($periodes);
+//        $status_prokers = Status_Proker::all();
+//        $users = User::all();
+//        return view('proker.crud.create', compact('periodes', 'status_prokers', 'users'));
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     * @param  int $id
+     * @return \Illuminate\Http\Response
+     */
+
+    public function createProker($id){
+        $periodes = Periode::find($id);
 //        dd($periodes);
         $status_prokers = Status_Proker::all();
         $users = User::all();

@@ -35,6 +35,7 @@ Route::group([
     'as' => 'admin.',
 ], function(){
     Route::get('user/search', [UserController::class, 'search'])->name('user.search');
+    Route::get('proker/create/{proker}', [ProkerController::class, 'createProker'])->name('proker.createProker');
 
     Route::post('user/suspend', [UserController::class, 'suspend'])->name('user.suspend');
     Route::post('user/active', [UserController::class, 'active'])->name('user.active');

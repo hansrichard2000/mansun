@@ -13,15 +13,7 @@
         <form method="POST" action="{{route('admin.proker.update', $proker)}}" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="_method" value="PATCH">
-            <div class="form-group">
-                <select name="periode_id" class="custom-select">
-                    @foreach ($periodes as $periode)
-                        <option value="{{$periode->id}}">{{$periode->tahun_periode}}</option>
-                    @endforeach
-                </select>
-
-                {{--                <input type hidden name="periode_id" value="{{$periodes[]}}">--}}
-            </div>
+            <input type="hidden" name="periode_id" value="{{$proker->periode_id}}">
             <div class="form-group">
                 <label for="nama_proker">Nama Program Kerja : </label>
                 <input type="text" class="form-control" value="{{$proker->nama_proker}}" id="nama_proker" name="nama_proker" placeholder="Input nama program kerja yang akan diisi..." required>
