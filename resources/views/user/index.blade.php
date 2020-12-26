@@ -84,7 +84,7 @@
                                     {{--detail button--}}
                                     <button id="button_show_mahasiswa{{$user->student_id}}" style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
                                             data-toggle="modal"
-                                            data-target="#create"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
+                                            data-target="#detail_user"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
                                 </div>
                                 <div class="col-md-4">
                                     {{--Active/Suspend Button--}}
@@ -215,13 +215,16 @@
 
                             <td>
                                 <div class="row no-gutters">
+
+                                    {{--Detail Button--}}
                                     <div class="col-md-4">
                                         <button id="button_show_dosen{{$user->lecturer_id}}" style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
                                                 data-toggle="modal"
-                                                data-target="#create"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
+                                                data-target="#detail_user"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
                                     </div>
+
+                                    {{--Active/Suspend Button--}}
                                     <div class="col-md-4">
-                                        {{--Active/Suspend Button--}}
                                         @if($user->is_active == 1)
                                             <form action="{{route('admin.user.suspend')}}" method="POST">
                                                 {{ csrf_field() }}
@@ -236,6 +239,8 @@
                                             </form>
                                         @endif
                                     </div>
+
+                                    {{--Delete User Button--}}
                                     <div class="col-md-4">
                                         <form action="{{ route('admin.user.destroy', $user)}}" method="POST">
                                             {{ csrf_field() }}

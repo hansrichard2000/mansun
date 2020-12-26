@@ -1,5 +1,5 @@
 <!-- The Modal -->
-<div class="modal fade" id="create">
+<div class="modal fade" id="detail_user">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- Modal Header -->

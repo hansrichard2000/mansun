@@ -129,7 +129,12 @@
                                     @endif
 
                                     <td scope="col">
-                                        <div class="row no-gutters">
+
+                                        <div class="col-md-4">
+                                            <button id="button_show_task{{$task->id}}" style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="See Task Detail"
+                                                    data-toggle="modal"
+                                                    data-target="#detail_task"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
+
 {{--                                            <div class="col-md-4">--}}
 {{--                                                <button id="button_show_task{{$task->id}}" style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"--}}
 {{--                                                        data-toggle="modal"--}}
@@ -138,6 +143,43 @@
 {{--                                            <div class="col-md-4">--}}
 {{--                                                @if()--}}
 {{--                                            </div>--}}
+
+                                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+                                            <script>
+
+                                                $(document).ready(function(){
+
+                                                    $("#button_show_task{{$task->id}}").click(function(){
+
+                                                        document.getElementById("label_1").innerHTML = "Judul";
+                                                        document.getElementById("info_1").innerHTML = "{{$task->judul}}";
+
+                                                        document.getElementById("label_2").innerHTML = "Deskripsi";
+                                                        document.getElementById("info_2").innerHTML = "{{$task->deskripsi}}";
+
+                                                        document.getElementById("label_3").innerHTML = "Deadline";
+                                                        document.getElementById("info_3").innerHTML = "{{$task->deadline}}";
+
+                                                        document.getElementById("label_4").innerHTML = "Link Hasil Kerja";
+                                                        document.getElementById("info_4").innerHTML = "{{$task->link_hasil_kerja}}";
+
+                                                        document.getElementById("label_5").innerHTML = "Penanggung Jawab";
+                                                        document.getElementById("info_5").innerHTML = "{{$task->receiver->student['name']}}";
+
+                                                        document.getElementById("label_6").innerHTML = "Divisi";
+                                                        document.getElementById("info_6").innerHTML = "{{$task->divisi['nama_divisi']}}";
+
+                                                        document.getElementById("label_7").innerHTML = "Status Task";
+                                                        document.getElementById("info_7").innerHTML = "{{$task->status_task['statustask']}}";
+
+                                                    });
+                                                });
+
+                                            </script>
+
+                                            @include('task.detail')
+
                                         </div>
                                     </td>
                                 </tr>
