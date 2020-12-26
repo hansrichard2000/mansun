@@ -7,6 +7,11 @@ use App\Http\Controllers\Admin\ProkerController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\TaskController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\User\DivisiController as UserDivisiController;
+use App\Http\Controllers\User\PeriodeController as UserPeriodeController;
+use App\Http\Controllers\User\ProfilController as UserProfilController;
+use App\Http\Controllers\User\ProkerController as UserProkerController;
+use App\Http\Controllers\User\TaskController as UserTaskController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +44,18 @@ Route::group([
     Route::resource('task', TaskController::class);
     Route::resource('role', RoleController::class);
     Route::resource('profil', ProfilController::class);
+});
+
+Route::group([
+    'middleware' => 'user',
+    'prefix' => 'user',
+    'as' => 'user.',
+], function (){
+    Route::resource('periode', UserPeriodeController::class);
+    Route::resource('proker', UserProkerController::class);
+    Route::resource('divisi', UserDivisiController::class);
+    Route::resource('task', UserTaskController::class);
+    Route::resource('profil', UserProfilController::class);
 });
 
 

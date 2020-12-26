@@ -89,6 +89,13 @@ class User extends Authenticatable
         return false;
     }
 
+    public function isUser() {
+        if ($this->is_admin == '0' && $this->is_active =='1') {
+            return true;
+        }
+        return false;
+    }
+
 //    public function isHod(){
 //        if ($this->is_)
 //    }

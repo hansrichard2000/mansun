@@ -4,8 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class Anggota
+class User
 {
     /**
      * Handle an incoming request.
@@ -16,6 +17,12 @@ class Anggota
      */
     public function handle(Request $request, Closure $next)
     {
-        return $next($request);
+        if (Auth::check()){
+            if (Auth::user()->isUser()){
+                return $next($request);
+            }
+        }
+
+        return redirect('/login')->with('error', 'Can\'t access');
     }
 }
