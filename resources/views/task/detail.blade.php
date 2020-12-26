@@ -36,10 +36,9 @@
             </div>
             <!-- Modal footer -->
             <div class="modal-footer">
-                <form method="GET" action="{{route('admin.user.create', )}}">
+                <form method="GET" action="{{route('admin.task.edit', $task->id)}}">
                     <input class="btn bg-mansun-blue text-white" type="submit" name="submit" value="Edit">
                 </form>
-                {{--                <a href="{{route('admin.user.destroy')}}" class="btn btn-danger">Delete</a>--}}
             </div>
         </div>
     </div>

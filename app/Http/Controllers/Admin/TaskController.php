@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Divisi;
+use App\Models\Proker;
 use App\Models\Status_Task;
 use App\Models\Task;
 use App\Models\User;
@@ -23,13 +24,14 @@ class TaskController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
         $users = User::all();
-        $divisis = Divisi::all();
+        $divisis = Divisi::find($id);
+        dd($divisis);
         $status_tasks = Status_Task::all();
         return view('task.create', compact('users', 'status_tasks', 'divisis'));
     }
@@ -42,8 +44,31 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        Task::create($request->all());
-        return redirect()->route('admin.proker.show', $request->proker_id);
+        if ($request->link_hasil_kerja == null){
+            Task::create([
+                'judul' => $request->judul,
+                'deskripsi' => $request->deskripsi,
+                'deadline' => $request->deadline,
+                'link_hasil_kerja' => $request->link_hasil_kerja,
+                'penanggung_jawab' => $request->penanggung_jawab,
+                'divisi_id' => $request->divisi_id,
+                'status_task_id' => '1',
+                'created_by' => $request->created_by,
+            ]);
+        }else{
+            Task::create([
+                'judul' => $request->judul,
+                'deskripsi' => $request->deskripsi,
+                'deadline' => $request->deadline,
+                'link_hasil_kerja' => $request->link_hasil_kerja,
+                'penanggung_jawab' => $request->penanggung_jawab,
+                'divisi_id' => $request->divisi_id,
+                'status_task_id' => '2',
+                'created_by' => $request->created_by,
+            ]);
+        }
+
+        return redirect()->route('admin.proker.show', Divisi::find($request->divisi_id)->proker_id);
     }
 
     /**
@@ -54,11 +79,11 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-//        $users = User::all();
-//        $divisis = Divisi::where('proker_id', $id);
-////        dd($divisis);
-//        $status_tasks = Status_Task::all();
-//        return view('task.create', compact('users', 'status_tasks', 'divisis'));
+        $users = User::all();
+        $divisis = Divisi::find($id);
+//        dd($divisis);
+        $status_tasks = Status_Task::all();
+        return view('task.create', compact('users', 'status_tasks', 'divisis'));
     }
 
     /**
@@ -69,19 +94,46 @@ class TaskController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users = User::all();
+//        $divisis = Divisi::find($id);
+        $task = Task::find($id);
+        $status_tasks = Status_Task::all();
+        return view('task.edit', compact('users', 'status_tasks', 'task'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Task $task
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Task $task)
     {
-        //
+        if ($request->link_hasil_kerja == null){
+            $task->update([
+                'judul' => $request->judul,
+                'deskripsi' => $request->deskripsi,
+                'deadline' => $request->deadline,
+                'link_hasil_kerja' => $request->link_hasil_kerja,
+                'penanggung_jawab' => $request->penanggung_jawab,
+                'divisi_id' => $request->divisi_id,
+                'status_task_id' => '1',
+                'created_by' => $request->created_by,
+            ]);
+        }else{
+            $task->update([
+                'judul' => $request->judul,
+                'deskripsi' => $request->deskripsi,
+                'deadline' => $request->deadline,
+                'link_hasil_kerja' => $request->link_hasil_kerja,
+                'penanggung_jawab' => $request->penanggung_jawab,
+                'divisi_id' => $request->divisi_id,
+                'status_task_id' => '2',
+                'created_by' => $request->created_by,
+            ]);
+        }
+        return redirect()->route('admin.proker.show', Divisi::find($request->divisi_id)->proker_id);
     }
 
     /**
@@ -93,5 +145,17 @@ class TaskController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function reject(Request $request){
+        $task = Task::findOrFail($request->id);
+        $task->update(['status_task_id' => '4']);
+        return redirect()->back();
+    }
+
+    public function approve(Request $request){
+        $user = Task::findOrFail($request->id);
+        $user->update(['status_task_id' => '3']);
+        return redirect()->back();
     }
 }

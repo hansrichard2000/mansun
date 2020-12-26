@@ -37,6 +37,9 @@ Route::group([
     Route::post('user/suspend', [UserController::class, 'suspend'])->name('user.suspend');
     Route::post('user/active', [UserController::class, 'active'])->name('user.active');
 
+    Route::post('task/reject', [TaskController::class, 'reject'])->name('task.reject');
+    Route::post('task/approve', [TaskController::class, 'approve'])->name('task.approve');
+
     Route::resource('periode', PeriodeController::class);
     Route::resource('proker', ProkerController::class);
     Route::resource('divisi', DivisiController::class);
