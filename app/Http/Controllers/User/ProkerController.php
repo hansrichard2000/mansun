@@ -3,6 +3,11 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Divisi;
+use App\Models\Proker;
+use App\Models\Status_Task;
+use App\Models\Task;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ProkerController extends Controller
@@ -46,7 +51,15 @@ class ProkerController extends Controller
      */
     public function show($id)
     {
-        //
+        $divisis = Divisi::all()->where('proker_id', $id);
+//        dd($divisis);
+        $prokers = Proker::find($id);
+//        dd($prokers);
+        $tasks = Task::all();
+//        dd($tasks);
+        $users = User::all();
+        $status_tasks = Status_Task::all();
+        return view('divisi.index', compact('divisis', 'users', 'id', 'tasks', 'status_tasks', 'prokers'));
     }
 
     /**

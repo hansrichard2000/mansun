@@ -39,12 +39,15 @@
             </div>
             @foreach($periodes as $periode)
 {{--                {{$current_periode = $periode}}--}}
-            @endforeach
 {{--            {{dd($periode->id)}}--}}
-            <form method="POST">
-{{--                Kalau pake $periodes[0], dia cuma bisa buka proker ke 0--}}
-                <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="{{route('admin.proker.createProker', $periode->id)}}">&nbsp;Tambah Proker</a>
-            </form>
+                @auth
+                    @if(\illuminate\Support\Facades\Auth::user()->isAdmin())
+                        <form method="POST">
+                            <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="{{route('admin.proker.createProker', $periode->id)}}">&nbsp;Tambah Proker</a>
+                        </form>
+                    @endif
+                @endauth
+            @endforeach
         </div>
         <hr class="garisKuning">
         <div class="row row-cols-3">
@@ -54,7 +57,13 @@
             {{--Proker Belum dimulai--}}
             @if($proker->status_proker_id == 1)
             <div class="col mt-3 mb-3">
-                <a href="{{route('admin.proker.show', $proker->id)}}">
+                <a href="@auth
+                    @if(\illuminate\Support\Facades\Auth::user()->isAdmin())
+                        {{route('admin.proker.show', $proker->id)}}
+                    @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
+                        {{route('user.proker.show', $proker->id)}}
+                    @endif
+                @endauth">
                     <div class="card">
                         @if($proker->gambar_proker == null)
                             <img src="{{asset('image/group92.jpg')}}" class="card-img-top img-fluid" style="height: 180px; padding-right: 15px; background-color: #2A65FC">
@@ -71,7 +80,13 @@
                     {{--Proker Sedang Berlangsung--}}
                 @elseif($proker->status_proker_id == 2)
                     <div class="col mt-3 mb-3">
-                        <a href="{{route('admin.proker.show', $proker->id)}}">
+                        <a href="@auth
+                            @if(\illuminate\Support\Facades\Auth::user()->isAdmin())
+                                {{route('admin.proker.show', $proker->id)}}
+                            @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
+                                {{route('user.proker.show', $proker->id)}}
+                            @endif
+                        @endauth">
                             <div class="card">
                                 @if($proker->gambar_proker == null)
                                     <img src="{{asset('image/group92.jpg')}}" class="card-img-top img-fluid" style="height: 180px;padding-right: 15px; background-color: #47FC2A">
@@ -88,7 +103,13 @@
                     {{--Proker Selesai--}}
                 @else
                     <div class="col mt-3 mb-3">
-                        <a href="{{route('admin.proker.show', $proker->id)}}">
+                        <a href="@auth
+                            @if(\illuminate\Support\Facades\Auth::user()->isAdmin())
+                                {{route('admin.proker.show', $proker->id)}}
+                            @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
+                                {{route('user.proker.show', $proker->id)}}
+                            @endif
+                        @endauth">
                             <div class="card">
                                 @if($proker->gambar_proker == null)
                                     <img src="{{asset('image/group92.jpg')}}" class="card-img-top img-fluid" style="height: 180px; padding-right: 15px; background-color: #FC2A2A">

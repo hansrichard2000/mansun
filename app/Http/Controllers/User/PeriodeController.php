@@ -17,6 +17,7 @@ class PeriodeController extends Controller
     public function index()
     {
         $periodes = Periode::all();
+//        periode where user_divisi = proker divisi
         return view('periode.index', compact('periodes'));
     }
 

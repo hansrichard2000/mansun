@@ -55,7 +55,7 @@ class LoginController extends Controller
                 'is_admin' => '1',
             ];
 
-            $check = DB::table('users')->where('email', $request->email)->first();
+            $check = DB::table('mansun_users')->where('email', $request->email)->first();
 
             if ($check->is_active == '1'){
                 if ($check->is_admin == '1'){

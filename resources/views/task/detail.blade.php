@@ -34,12 +34,16 @@
 
                 </div>
             </div>
-            <!-- Modal footer -->
-            <div class="modal-footer">
-                <form method="GET" action="{{route('admin.task.edit', $task->id)}}">
-                    <input class="btn bg-mansun-blue text-white" type="submit" name="submit" value="Edit">
-                </form>
-            </div>
+            @auth
+                @if(\illuminate\Support\Facades\Auth::user()->isAdmin())
+                    <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <form method="GET" action="{{route('admin.task.edit', $task->id)}}">
+                                <input class="btn bg-mansun-blue text-white" type="submit" name="submit" value="Edit">
+                            </form>
+                        </div>
+                @endif
+            @endauth
         </div>
     </div>
 </div>
