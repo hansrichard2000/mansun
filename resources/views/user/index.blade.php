@@ -50,7 +50,6 @@
                 @foreach($users as $user)
 
                     @if(isset($user->student))
-
                     <tr>
 
                         <td>{{$user->student['name']}}</td>
@@ -86,22 +85,33 @@
                                             data-toggle="modal"
                                             data-target="#detail_user"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
                                 </div>
+
                                 <div class="col-md-4">
+
+                                    @if($user->student_id == $current_user)
+                                        <form action="{{route('admin.user.suspend')}}" method="POST">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" name="id" value="{{$user->id}}">
+                                            <button class="btn btn-danger" style="border-radius: 50%; margin-left: 35%; opacity: 25%" title="Suspend User" type="submit" disabled><i class="fas fa-door-closed" aria-hidden="true" style="color: #ffffff"></i></button>
+                                        </form>
+                                    @else
                                     {{--Active/Suspend Button--}}
                                     @if($user->is_active == 1)
                                         <form action="{{route('admin.user.suspend')}}" method="POST">
                                             {{ csrf_field() }}
                                             <input type="hidden" name="id" value="{{$user->id}}">
-                                            <button class="btn btn-danger" style="border-radius: 50%; margin-left: 37%" title="Suspend User" type="submit"><i class="fas fa-door-closed" aria-hidden="true" style="color: #ffffff"></i></button>
+                                            <button class="btn btn-danger" style="border-radius: 50%; margin-left: 35%" title="Suspend User" type="submit"><i class="fas fa-door-closed" aria-hidden="true" style="color: #ffffff"></i></button>
                                         </form>
                                     @else
                                         <form action="{{route('admin.user.active')}}" method="POST">
                                             {{ csrf_field() }}
                                             <input type="hidden" name="id" value="{{$user->id}}">
-                                            <button class="btn btn-success" style="border-radius: 50%; margin-left: 37%" title="Activate User" type="submit"><i class="fas fa-door-open" aria-hidden="true" style="color: #ffffff"></i></button>
+                                            <button class="btn btn-success" style="border-radius: 50%; margin-left: 35%" title="Activate User" type="submit"><i class="fas fa-door-open" aria-hidden="true" style="color: #ffffff"></i></button>
                                         </form>
                                     @endif
+                                    @endif
                                 </div>
+
                                 <div class="col-md-4">
                                     {{--delete button--}}
                                     <form action="{{ route('admin.user.destroy', $user)}}" method="POST">
@@ -217,31 +227,31 @@
                                 <div class="row no-gutters">
 
                                     {{--Detail Button--}}
-                                    <div class="col-md-4">
-                                        <button id="button_show_dosen{{$user->lecturer_id}}" style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
+                                    <div class="col-md-4 ml-3">
+                                        <button id="button_show_dosen{{$user->lecturer_id}}" style="border-radius: 50%; margin-left: 58%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
                                                 data-toggle="modal"
                                                 data-target="#detail_user"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
                                     </div>
 
                                     {{--Active/Suspend Button--}}
-                                    <div class="col-md-4">
-                                        @if($user->is_active == 1)
-                                            <form action="{{route('admin.user.suspend')}}" method="POST">
-                                                {{ csrf_field() }}
-                                                <input type="hidden" name="id" value="{{$user->id}}">
-                                                <button class="btn btn-danger" style="border-radius: 50%; margin-left: 37%" title="Suspend User" type="submit"><i class="fas fa-door-closed" aria-hidden="true" style="color: #ffffff"></i></button>
-                                            </form>
-                                        @else
-                                            <form action="{{route('admin.user.active')}}" method="POST">
-                                                {{ csrf_field() }}
-                                                <input type="hidden" name="id" value="{{$user->id}}">
-                                                <button class="btn btn-success" style="border-radius: 50%; margin-left: 37%" title="Activate User" type="submit"><i class="fas fa-door-open" aria-hidden="true" style="color: #ffffff"></i></button>
-                                            </form>
-                                        @endif
-                                    </div>
+{{--                                    <div class="col-md-4">--}}
+{{--                                        @if($user->is_active == 1)--}}
+{{--                                            <form action="{{route('admin.user.suspend')}}" method="POST">--}}
+{{--                                                {{ csrf_field() }}--}}
+{{--                                                <input type="hidden" name="id" value="{{$user->id}}">--}}
+{{--                                                <button class="btn btn-danger" style="border-radius: 50%; margin-left: 37%" title="Suspend User" type="submit"><i class="fas fa-door-closed" aria-hidden="true" style="color: #ffffff"></i></button>--}}
+{{--                                            </form>--}}
+{{--                                        @else--}}
+{{--                                            <form action="{{route('admin.user.active')}}" method="POST">--}}
+{{--                                                {{ csrf_field() }}--}}
+{{--                                                <input type="hidden" name="id" value="{{$user->id}}">--}}
+{{--                                                <button class="btn btn-success" style="border-radius: 50%; margin-left: 37%" title="Activate User" type="submit"><i class="fas fa-door-open" aria-hidden="true" style="color: #ffffff"></i></button>--}}
+{{--                                            </form>--}}
+{{--                                        @endif--}}
+{{--                                    </div>--}}
 
                                     {{--Delete User Button--}}
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 pl-4">
                                         <form action="{{ route('admin.user.destroy', $user)}}" method="POST">
                                             {{ csrf_field() }}
                                             <input name="_method" type="hidden" value="DELETE">

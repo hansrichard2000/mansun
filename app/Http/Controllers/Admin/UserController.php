@@ -28,7 +28,8 @@ class UserController extends Controller
 //        $students = Student::all();
 //        $lecturers = Lecturer::all();
         $users = User::all();
-        return view('user.index',compact('users'));
+        $current_user = Auth::user()->student_id;
+        return view('user.index',compact('users', 'current_user'));
     }
 
     /**
@@ -42,7 +43,9 @@ class UserController extends Controller
         $users_temp = DB::select("SELECT m.id, m.student_id, m.email, m.lecturer_id, m.password, m.is_login, m.email_verified_at, m.is_active, m.is_admin, m.remember_token, m.created_at, m.updated_at FROM mansun_users m, students s WHERE m.student_id = s.student_id AND UPPER(s.`name`) LIKE UPPER('%".$request->keyword."%') UNION SELECT m.id, m.student_id, m.email, m.lecturer_id, m.password, m.is_login, m.email_verified_at, m.is_active, m.is_admin, m.remember_token, m.created_at, m.updated_at FROM mansun_users m, lecturers l WHERE m.lecturer_id = l.lecturer_id AND UPPER(l.`name`) LIKE UPPER('%".$request->keyword."%');");
         $users = User::hydrate($users_temp);
         //hydrate buat casting hasil query ke dalam bentuk model
-        return view('user.index',compact('users'));
+
+        $current_user = Auth::user()->student_id;
+        return view('user.index',compact('users','current_user'));
     }
 
     /**
