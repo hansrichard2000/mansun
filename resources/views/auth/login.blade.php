@@ -2,6 +2,12 @@
 
 @section('content')
     <div class="container">
+        @if ($error = $errors->first('password'))
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                {{ $error }}
+            </div>
+        @endif
         <div class="row justify-content-center">
             <div class="col-md-9 col-lg-12 col-xl-10">
                 <div class="card shadow-lg o-hidden border-0 my-5">
@@ -13,7 +19,7 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h4 class="text-dark mb-4">Welcome Back!</h4>
+                                        <h4 class="text-dark mb-4">Selamat Datang di ManSUn</h4>
                                     </div>
                                     <form method="POST" action="{{ route('login') }}">
                                         @csrf

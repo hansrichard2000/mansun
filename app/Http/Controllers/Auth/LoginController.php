@@ -10,6 +10,8 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\MessageBag;
+use Symfony\Component\Console\Input\Input;
 use function PHPUnit\Framework\isEmpty;
 
 class LoginController extends Controller
@@ -76,7 +78,12 @@ class LoginController extends Controller
             else if (Auth::attempt($user)) {
 
                 $this->isLogin(Auth::id());
-                return redirect()->route('periode.index');
+                return redirect()->route('user.periode.index');
+            }else{
+                $errors = new MessageBag([
+                    'password' => ['password Anda salah atau akun diblokir'],
+                ]);
+                return redirect()->route('login')->withErrors($errors);
             }
 
         }

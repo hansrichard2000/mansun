@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Periode;
+use App\Models\Proker;
 use Illuminate\Http\Request;
 
 class PeriodeController extends Controller
@@ -48,7 +49,9 @@ class PeriodeController extends Controller
      */
     public function show($id)
     {
-        //
+        $prokers = Proker::all()->where('periode_id', $id);
+        $periodes = Periode::all()->where('id', $id);
+        return view('proker.index', compact('prokers','periodes'));
     }
 
     /**

@@ -1,5 +1,5 @@
 <!-- The Modal -->
-<div class="modal fade" id="editDivisi">
+<div class="modal fade" id="editDivisi{{$divisi->id}}">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- Modal Header -->

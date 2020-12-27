@@ -6,10 +6,18 @@
         </a>
         <hr class="sidebar-divider my-0">
         <ul class="nav navbar-nav text-light" id="accordionSidebar">
-            <li class="nav-item"><a class="nav-link" href="{{route('admin.periode.index')}}"><i class="fas fa-home"></i><span>Beranda</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="jadwwal.html"><i class="far fa-calendar-alt"></i><span>Jadwal</span></a></li>
-            <li class="nav-item"><a class="nav-link" href="{{route('admin.user.index')}}"><i class="fas fa-user"></i><span>User Management</span></a></li>
-            <li class="nav-item"><a class="nav-link active" href="{{route('admin.profil.index')}}"><i class="far fa-user-circle"></i><span>Profil</span></a></li>
+            @auth
+                @if(\illuminate\Support\Facades\Auth::user()->isAdmin())
+                    <li class="nav-item"><a class="nav-link" href="{{route('admin.periode.index')}}"><i class="fas fa-home"></i><span>Beranda</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="jadwal.html"><i class="far fa-calendar-alt"></i><span>Jadwal</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('admin.user.index')}}"><i class="fas fa-user"></i><span>User Management</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{{route('admin.profil.index')}}"><i class="far fa-user-circle"></i><span>Profil</span></a></li>
+                @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
+                    <li class="nav-item"><a class="nav-link" href="{{route('user.periode.index')}}"><i class="fas fa-home"></i><span>Beranda</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="jadwal.html"><i class="far fa-calendar-alt"></i><span>Jadwal</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{{route('user.profil.index')}}"><i class="far fa-user-circle"></i><span>Profil</span></a></li>
+                @endif
+            @endauth
         </ul>
         <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
     </div>
