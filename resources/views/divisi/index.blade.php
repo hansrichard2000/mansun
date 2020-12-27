@@ -119,6 +119,7 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <tbody>
                             @foreach($tasks as $task)
                                 @if($task->divisi_id == $divisi->id)
 {{--                                {{dd($task)}}--}}

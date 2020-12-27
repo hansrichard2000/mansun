@@ -52,16 +52,31 @@ class DivisiController extends Controller
      */
     public function show($id)
     {
+        //$id berisi id divisi yang di pencet dalam tabel mansun_divisis
+
+        //return object model Divisi yang dipencet user
         $member = Divisi::findOrFail($id);
+
+        //return object model many to many dari user yang terdaftar pada divisi yang dipencet user
         $members = DivisiRoleUser::all()->where('mansun_divisi_id', $id);
-//        dd($members);
+
+        //return semua jenis role
         $roles = Role::all();
-        $prokers = Proker::all()->except($id)->pluck('id');
-        $divisis = Divisi::all()->except($id)->pluck('id');
-        $userList = User::whereNotIn('id', function ($query) use($divisis){
-            $query->select('mansun_user_id')->from('divisi_role_user')
-                ->whereNotIn('mansun_divisi_id', $divisis);
-        })->where('is_admin', 1)->get();
+
+
+        //1. cara ngambil id proker yang dipencet user
+//        $member->proker_id
+
+        //2. ngambil semua divisi dengan proker id sekian
+        $divisis = Divisi::all()->where('proker_id', $member->proker_id)->pluck('id')->toArray();
+
+        //3. ngambil semua user di many to many yang divisi_idnya ada dalam step ke 2
+        $dvs = DivisiRoleUser::all()->whereIn('mansun_divisi_id', $divisis)->pluck('mansun_user_id')->toArray();
+
+        //4. ngambil semua user di table user yang tidak ada dalam query step ke tiga
+        $userList = User::all()->whereNotIn('id', $dvs)->where('is_admin', '0');
+
+        //OMAIGADDD!!!!
 
         return view('divisi.crud.listAnggota', compact('members','userList', 'roles', 'member'));
     }
