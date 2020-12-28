@@ -54,8 +54,12 @@
             <li class="nav-item dropdown no-arrow">
                 @foreach($current_user as $user)
                     <div class="nav-item dropdown no-arrow"><a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#"><span class="d-none d-lg-inline mr-2 text-gray-600 small"/>
-                            {{$user->name}}&nbsp;
-                            <img class="border rounded-circle img-profile" src="../../assets/img/avatars/{{$user->photo}}"></a>
+                            {{$user->name}}
+                            @if($user->photo == null)
+                                <img class="border rounded-circle img-profile" src="{{asset('../image/profile/profil.png')}}"></a>
+                            @else
+                                <img class="border rounded-circle img-profile" src="../../assets/img/avatars/{{$user->photo}}"></a>
+                            @endif&nbsp;
                         @endforeach
                         <div
                             class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="{{route('admin.profil.index')}}"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
@@ -74,6 +78,7 @@
                                 @csrf
                             </form>
                         </div>
+                    </div>
             </li>
         </ul>
     </div>

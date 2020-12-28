@@ -17,7 +17,7 @@
                     <div class="card-body text-center shadow">
                         @foreach($current_user as $user)
                             @if($user->photo == null)
-                                <img class="rounded-circle mb-3 mt-4" src="../assets/img/dogs/image2.jpeg" width="160" height="160">
+                                <img class="rounded-circle mb-3 mt-4" src="{{asset('../image/profile/profil.png')}}" width="160" height="160">
                             @else
                                 <img class="rounded-circle mb-3 mt-4" src="../assets/img/avatars/{{$user->photo}}" width="160" height="160">
                             @endif
