@@ -56,7 +56,17 @@ class ProkerController extends Controller
         //1. ngambil di divisi mana saja user terdaftar sebagai panitia
         $dvs = DivisiRoleUser::all()->where('mansun_user_id',Auth::user()->id)->pluck('mansun_divisi_id')->toArray();
 
+        //ngambil model divisi yang user terdaftar dar step 1i
         $divisis = Divisi::all()->where('proker_id', $id)->whereIn('id', $dvs);
+
+        //ngecek nama divisinya
+        $name = $divisis->pluck('nama_divisi')->first();
+
+        //kalau divisi HOD, bisa liat divisi lainn juga
+        //strtolower untuk memastikan gak ada typo jadi di lowercase
+        if (strtolower($name) == "hod"){
+            $divisis = Divisi::all()->where('proker_id', $id);
+        }
 
         $prokers = Proker::find($id);
 
