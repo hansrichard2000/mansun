@@ -86,24 +86,34 @@
                         {{$divisi->nama_divisi}}
                     </div>
                     <div class="float-md-right mr-3">
-                        <form action="{{route('admin.divisi.show', $divisi->id)}}" method="GET">
+                        <form action="
+                            @auth
+                                @if(\illuminate\Support\Facades\Auth::user()->isAdmin())
+                                    {{route('admin.divisi.show', $divisi->id)}}
+                                @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
+                                    {{route('user.divisi.show', $divisi->id)}}
+                                @endif
+                            @endauth" method="GET">
                             @csrf
                             <input type="submit" class="btn bg-mansun-blue text-white" value="Lihat anggota">
                         </form>
                     </div>
-                    <div class="float-md-right mr-3">
-                        <form action="{{route('admin.task.show', $divisi->id)}}" method="GET">
-                            @csrf
-                            <input type="submit" class="btn bg-mansun-blue text-white" value="Tambah Tugas">
-                        </form>
-                    </div>
-                    <div class="float-md-right mr-3">
-                        <button type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
-                                data-toggle="modal"
-                                data-target="#editDivisi{{$divisi->id}}">Edit Divisi</button>
-                        @include('divisi.crud.edit')
-
-                    </div>
+                    @auth
+                        @if(\illuminate\Support\Facades\Auth::user()->isAdmin())
+                            <div class="float-md-right mr-3">
+                                <form action="{{route('admin.task.show', $divisi->id)}}" method="GET">
+                                    @csrf
+                                    <input type="submit" class="btn bg-mansun-blue text-white" value="Tambah Tugas">
+                                </form>
+                            </div>
+                            <div class="float-md-right mr-3">
+                                <button type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
+                                        data-toggle="modal"
+                                        data-target="#editDivisi{{$divisi->id}}">Edit Divisi</button>
+                                @include('divisi.crud.edit')
+                            </div>
+                        @endif
+                    @endauth
                 </div>
                 <div class="card-body">
                     <table class="table table-striped text-center">
