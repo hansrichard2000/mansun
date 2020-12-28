@@ -61,8 +61,14 @@
                                 <img class="border rounded-circle img-profile" src="../../assets/img/avatars/{{$user->photo}}"></a>
                             @endif&nbsp;
                         @endforeach
-                        <div
-                            class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="{{route('admin.profil.index')}}"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
+                        <div class="dropdown-menu shadow dropdown-menu-right animated--grow-in"><a class="dropdown-item" href="
+                            @auth
+                                @if(\illuminate\Support\Facades\Auth::user()->isAdmin())
+                                    {{route('admin.profil.index')}}
+                                @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
+                                    {{route('user.profil.index')}}
+                                @endif
+                            @endauth"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a><a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Settings</a>
                             <a
                                 class="dropdown-item" href="#"><i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Activity log</a>
                             <div class="dropdown-divider"></div>
