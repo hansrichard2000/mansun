@@ -1,9 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Api\Admin\ProfilResource;
+use App\Models\Lecturer;
+use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfilController extends Controller
 {
@@ -14,7 +18,13 @@ class ProfilController extends Controller
      */
     public function index()
     {
-        //
+        if(Auth::user()->lecturer_id == null){
+            $current_user = Student::all()->where('student_id', Auth::user()->student_id);
+        } else{
+            $current_user = Lecturer::all()->where('lecturer_id', Auth::user()->lecturer_id);
+        }
+
+        return ProfilResource::collection($current_user);
     }
 
     /**

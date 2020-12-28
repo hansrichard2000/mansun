@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Api\Admin\ProfilController;
+use App\Http\Controllers\Api\Admin\ProkerController;
 use App\Http\Controllers\Api\Auth\LoginController;
-use App\Http\Controllers\Api\PeriodeController;
+use App\Http\Controllers\Api\Admin\PeriodeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,5 +23,7 @@ Route::post('api-refresh', [LoginController::class, 'refresh']);
 
 Route::group(['middleware'=>'auth:api'], function (){
     Route::apiResource('periode', PeriodeController::class);
+    Route::apiResource('proker', ProkerController::class);
+    Route::apiResource('profil', ProfilController::class);
     Route::post('api-logout', [LoginController::class, 'logout']);
 });

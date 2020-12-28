@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Api;
+namespace App\Http\Resources\Api\Admin;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProfilResource extends JsonResource
+class DivisiResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,10 +14,6 @@ class ProfilResource extends JsonResource
      */
     public function toArray($request)
     {
-        return [
-            'tahun_periode' => $this->tahun_periode,
-            'nilai' => $this->nilai,
-            'created_by' => $this->creator->id,
-        ];
+        return parent::toArray($request);
     }
 }

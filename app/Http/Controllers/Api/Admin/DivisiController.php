@@ -1,23 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Api\PeriodeResource;
-use App\Models\Periode;
 use Illuminate\Http\Request;
 
-class PeriodeController extends Controller
+class DivisiController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $periodes = Periode::all();
-        return PeriodeResource::collection($periodes);
+        //
     }
 
     /**
