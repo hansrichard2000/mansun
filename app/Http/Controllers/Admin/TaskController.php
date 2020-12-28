@@ -84,7 +84,7 @@ class TaskController extends Controller
 
         //ngambil semua user yang merupakan anggota divisi tersebut
         $anggota = DivisiRoleUser::all()->where('mansun_divisi_id', $id)->pluck('mansun_user_id')->toArray();
-        
+
         $users = User::all()->whereIn('id', $anggota);
 
         $divisis = Divisi::find($id);
