@@ -70,7 +70,7 @@ class PeriodeController extends Controller
         $divisis = Divisi::all()->whereIn('id', $dvs)->pluck('proker_id')->toArray();
 
         //2. ambil semua proker yg user itu terdaftar
-        $prokers = Proker::all()->whereIn('id', $divisis);
+        $prokers = Proker::all()->where('periode_id', $id)->whereIn('id', $divisis);
 
         $periodes = Periode::all()->where('id', $id);
         return view('proker.index', compact('prokers','periodes'));
