@@ -11,6 +11,7 @@ use App\Http\Controllers\User\DivisiController as UserDivisiController;
 use App\Http\Controllers\User\PeriodeController as UserPeriodeController;
 use App\Http\Controllers\User\ProfilController as UserProfilController;
 use App\Http\Controllers\User\ProkerController as UserProkerController;
+use App\Http\Controllers\User\RoleController as UserRoleController;
 use App\Http\Controllers\User\TaskController as UserTaskController;
 use Illuminate\Support\Facades\Route;
 
@@ -61,6 +62,7 @@ Route::group([
     Route::resource('proker', UserProkerController::class);
     Route::resource('divisi', UserDivisiController::class);
     Route::resource('task', UserTaskController::class);
+    Route::resource('role', UserRoleController::class);
     Route::resource('profil', UserProfilController::class);
 });
 

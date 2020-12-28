@@ -18,6 +18,15 @@
                             data-toggle="modal"
                             data-target="#createAnggota">Tambah Anggota</button>
                     @include('divisi.crud.tambahAnggota')
+                @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
+                    @foreach(\illuminate\Support\Facades\Auth::user()->roles as $userRoles)
+                        @if($userRoles->id == 1)
+                            <button type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
+                                    data-toggle="modal"
+                                    data-target="#createAnggota">Tambah Anggota</button>
+                            @include('divisi.crud.tambahAnggota')
+                        @endif
+                    @endforeach
                 @endif
             @endauth
         </div>
