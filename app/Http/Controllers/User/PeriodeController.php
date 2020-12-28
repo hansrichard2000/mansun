@@ -59,7 +59,12 @@ class PeriodeController extends Controller
      */
     public function show($id)
     {
-        $prokers = Proker::all()->where('periode_id', $id);
+        //1. ngambil di divisi mana saja user terdaftar sebagai panitia
+        $dvs = DivisiRoleUser::all()->where('mansun_user_id',Auth::user()->id)->pluck('mansun_divisi_id')->toArray();
+
+        //2. ambil semua proker yg user itu terdaftar
+        $prokers = Proker::all()->whereIn('id', $dvs);
+
         $periodes = Periode::all()->where('id', $id);
         return view('proker.index', compact('prokers','periodes'));
     }

@@ -37,9 +37,9 @@
                     <p class="float-left">Belum dimulai &emsp;</p>
                 </div>
             </div>
+
+            {{--Ini buat ngecek apakah user itu isadmin pada periode itu--}}
             @foreach($periodes as $periode)
-{{--                {{$current_periode = $periode}}--}}
-{{--            {{dd($periode->id)}}--}}
                 @auth
                     @if(\illuminate\Support\Facades\Auth::user()->isAdmin())
                         <form method="POST">
@@ -48,6 +48,7 @@
                     @endif
                 @endauth
             @endforeach
+
         </div>
         <hr class="garisKuning">
         <div class="row row-cols-3">
