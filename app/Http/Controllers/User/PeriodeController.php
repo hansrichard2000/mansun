@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Divisi;
 use App\Models\DivisiRoleUser;
 use App\Models\Periode;
 use App\Models\Proker;
@@ -21,8 +22,11 @@ class PeriodeController extends Controller
         //1. ngambil di divisi mana saja user terdaftar sebagai panitia
         $dvs = DivisiRoleUser::all()->where('mansun_user_id',Auth::user()->id)->pluck('mansun_divisi_id')->toArray();
 
+        //1.5 ngambil semua proker id di tabel divisi berdasarakn step 1
+        $divisis = Divisi::all()->whereIn('id', $dvs)->pluck('proker_id')->toArray();
+
         //2. ambil secara distinct semua id proker yg user itu terdaftar
-        $prokers = Proker::distinct()->whereIn('id', $dvs)->pluck('periode_id')->toArray();
+        $prokers = Proker::distinct()->whereIn('id', $divisis)->pluck('periode_id')->toArray();
 
         //3. select distinct periode id berdasarkan array dari step 2
         $periodes = Periode::all()->whereIn('id', $prokers);
@@ -62,8 +66,11 @@ class PeriodeController extends Controller
         //1. ngambil di divisi mana saja user terdaftar sebagai panitia
         $dvs = DivisiRoleUser::all()->where('mansun_user_id',Auth::user()->id)->pluck('mansun_divisi_id')->toArray();
 
+        //1.5 ngambil semua proker id di tabel divisi berdasarakn step 1
+        $divisis = Divisi::all()->whereIn('id', $dvs)->pluck('proker_id')->toArray();
+
         //2. ambil semua proker yg user itu terdaftar
-        $prokers = Proker::all()->whereIn('id', $dvs);
+        $prokers = Proker::all()->whereIn('id', $divisis);
 
         $periodes = Periode::all()->where('id', $id);
         return view('proker.index', compact('prokers','periodes'));

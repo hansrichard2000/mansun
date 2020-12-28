@@ -4,11 +4,13 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Divisi;
+use App\Models\DivisiRoleUser;
 use App\Models\Proker;
 use App\Models\Status_Task;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProkerController extends Controller
 {
@@ -51,12 +53,15 @@ class ProkerController extends Controller
      */
     public function show($id)
     {
-        $divisis = Divisi::all()->where('proker_id', $id);
-//        dd($divisis);
+        //1. ngambil di divisi mana saja user terdaftar sebagai panitia
+        $dvs = DivisiRoleUser::all()->where('mansun_user_id',Auth::user()->id)->pluck('mansun_divisi_id')->toArray();
+
+        $divisis = Divisi::all()->where('proker_id', $id)->whereIn('id', $dvs);
+
         $prokers = Proker::find($id);
-//        dd($prokers);
+
         $tasks = Task::all();
-//        dd($tasks);
+
         $users = User::all();
         $status_tasks = Status_Task::all();
         return view('divisi.index', compact('divisis', 'users', 'id', 'tasks', 'status_tasks', 'prokers'));
