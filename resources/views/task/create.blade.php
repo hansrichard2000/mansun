@@ -19,7 +19,7 @@
             @auth
                 @if(\illuminate\Support\Facades\Auth::user()->isAdmin())
                     {{route('admin.task.store')}}
-                @elseif(\illuminate\Support\Facades\Auth::user()->isAdmin())
+                @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
                     {{route('user.task.store')}}
                 @endif
             @endauth">
