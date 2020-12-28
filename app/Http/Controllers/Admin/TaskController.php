@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Divisi;
+use App\Models\DivisiRoleUser;
 use App\Models\Proker;
 use App\Models\Status_Task;
 use App\Models\Task;
@@ -79,7 +80,13 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        $users = User::all();
+        //$id berisi id divisi yg dipencet
+
+        //ngambil semua user yang merupakan anggota divisi tersebut
+        $anggota = DivisiRoleUser::all()->where('mansun_divisi_id', $id)->pluck('mansun_user_id')->toArray();
+        
+        $users = User::all()->whereIn('id', $anggota);
+
         $divisis = Divisi::find($id);
 //        dd($divisis);
         $status_tasks = Status_Task::all();
