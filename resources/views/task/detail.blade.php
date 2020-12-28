@@ -42,6 +42,17 @@
                                 <input class="btn bg-mansun-blue text-white" type="submit" name="submit" value="Edit">
                             </form>
                         </div>
+                    @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
+                        @foreach(\illuminate\Support\Facades\Auth::user()->roles as $userRoles)
+                            @if($userRoles->id == 1 || $userRoles->id == 2)
+                                <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <form method="GET" action="{{route('user.task.edit', $task->id)}}">
+                                            <input class="btn bg-mansun-blue text-white" type="submit" name="submit" value="Edit">
+                                        </form>
+                                    </div>
+                            @endif
+                        @endforeach
                 @endif
             @endauth
         </div>

@@ -15,7 +15,14 @@
 
         </div>
         <hr class="garisKuning">
-        <form method="POST" action="{{route('admin.task.store')}}">
+        <form method="POST" action="
+            @auth
+                @if(\illuminate\Support\Facades\Auth::user()->isAdmin())
+                    {{route('admin.task.store')}}
+                @elseif(\illuminate\Support\Facades\Auth::user()->isAdmin())
+                    {{route('user.task.store')}}
+                @endif
+            @endauth">
             @csrf
             <input type="hidden" value="{{$divisis->id}}" id="divisi_id" name="divisi_id">
             <div class="form-group">

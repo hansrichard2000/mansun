@@ -71,7 +71,7 @@ class User extends Authenticatable
     }
 
     public function roles(){
-        return $this->belongsToMany(Role::class, 'divisi_role_user', 'mansun_role_id', 'id');
+        return $this->belongsToMany(Role::class, 'divisi_role_user', 'mansun_user_id', 'mansun_role_id');
     }
 
     public function student(){

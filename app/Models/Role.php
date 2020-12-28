@@ -16,7 +16,7 @@ class Role extends Model
     ];
 
     public function users(){
-        return $this->belongsToMany(User::class, 'divisi_role_user', 'id', 'mansun_user_id');
+        return $this->belongsToMany(User::class, 'divisi_role_user', 'mansun_role_id', 'mansun_user_id');
     }
 
     public function divisis(){

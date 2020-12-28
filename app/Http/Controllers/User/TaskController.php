@@ -4,7 +4,9 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Divisi;
+use App\Models\Status_Task;
 use App\Models\Task;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -37,7 +39,31 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->link_hasil_kerja == null){
+            Task::create([
+                'judul' => $request->judul,
+                'deskripsi' => $request->deskripsi,
+                'deadline' => $request->deadline,
+                'link_hasil_kerja' => $request->link_hasil_kerja,
+                'penanggung_jawab' => $request->penanggung_jawab,
+                'divisi_id' => $request->divisi_id,
+                'status_task_id' => '1',
+                'created_by' => $request->created_by,
+            ]);
+        }else{
+            Task::create([
+                'judul' => $request->judul,
+                'deskripsi' => $request->deskripsi,
+                'deadline' => $request->deadline,
+                'link_hasil_kerja' => $request->link_hasil_kerja,
+                'penanggung_jawab' => $request->penanggung_jawab,
+                'divisi_id' => $request->divisi_id,
+                'status_task_id' => '2',
+                'created_by' => $request->created_by,
+            ]);
+        }
+
+        return redirect()->route('user.proker.show', Divisi::find($request->divisi_id)->proker_id);
     }
 
     /**
@@ -48,7 +74,11 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        //
+        $users = User::all();
+        $divisis = Divisi::find($id);
+//        dd($divisis);
+        $status_tasks = Status_Task::all();
+        return view('task.create', compact('users', 'status_tasks', 'divisis'));
     }
 
     /**
@@ -59,7 +89,11 @@ class TaskController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users = User::all();
+//        $divisis = Divisi::find($id);
+        $task = Task::find($id);
+        $status_tasks = Status_Task::all();
+        return view('task.edit', compact('users', 'status_tasks', 'task'));
     }
 
     /**

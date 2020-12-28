@@ -80,12 +80,13 @@ class DivisiController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Divisi  $divisi
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Divisi $divisi)
     {
-        //
+        $divisi->update($request->all());
+        return redirect()->route('user.proker.show', $request->proker_id);
     }
 
     /**
