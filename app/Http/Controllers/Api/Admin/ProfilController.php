@@ -23,7 +23,7 @@ class ProfilController extends Controller
         } else{
             $current_user = Lecturer::all()->where('lecturer_id', Auth::user()->lecturer_id);
         }
-
+//        dd($current_user);
         return ProfilResource::collection($current_user);
     }
 

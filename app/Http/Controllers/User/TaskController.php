@@ -139,6 +139,21 @@ class TaskController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $task = Task::where('id', $id);
+
+        $task->delete();
+        return redirect()->back();
+    }
+
+    public function reject(Request $request){
+        $task = Task::findOrFail($request->id);
+        $task->update(['status_task_id' => '4']);
+        return redirect()->back();
+    }
+
+    public function approve(Request $request){
+        $user = Task::findOrFail($request->id);
+        $user->update(['status_task_id' => '3']);
+        return redirect()->back();
     }
 }

@@ -240,14 +240,14 @@
                                                                 @include('task.detail')
                                                             </div>
                                                             <div class="col-md-4">
-                                                                <form action="{{route('admin.task.approve')}}" method="POST">
+                                                                <form action="{{route('user.task.approve')}}" method="POST">
                                                                     {{ csrf_field() }}
                                                                     <input type="hidden" name="id" value="{{$task->id}}">
                                                                     <button class="btn btn-success" style="border-radius: 50%; margin-left: 37%" title="Approve Task" type="submit"><i class="fas fa-check" aria-hidden="true" style="color: #ffffff"></i></button>
                                                                 </form>
                                                             </div>
                                                             <div class="col-md-4">
-                                                                <form action="{{route('admin.task.reject')}}" method="POST">
+                                                                <form action="{{route('user.task.reject')}}" method="POST">
                                                                     {{ csrf_field() }}
                                                                     <input type="hidden" name="id" value="{{$task->id}}">
                                                                     <button class="btn btn-danger" style="border-radius: 50%; margin-left: 37%" title="Reject Task" type="submit"><i class="fas fa-times" aria-hidden="true" style="color: #ffffff"></i></button>

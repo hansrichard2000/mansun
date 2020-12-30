@@ -45,6 +45,11 @@
                             <form method="GET" action="{{route('admin.task.edit', $task->id)}}">
                                 <input class="btn bg-mansun-blue text-white" type="submit" name="submit" value="Edit">
                             </form>
+                            <form method="POST" action="{{route('admin.task.destroy', $task->id)}}">
+                                @csrf
+                                <input name="_method" type="hidden" value="DELETE">
+                                <input class="btn btn-danger text-white" type="submit" name="submit" value="Delete">
+                            </form>
                         </div>
                     @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
                         @foreach(\illuminate\Support\Facades\Auth::user()->roles as $userRoles)
@@ -53,6 +58,11 @@
                                     <div class="modal-footer">
                                         <form method="GET" action="{{route('user.task.edit', $task->id)}}">
                                             <input class="btn bg-mansun-blue text-white" type="submit" name="submit" value="Edit">
+                                        </form>
+                                        <form method="POST" action="{{route('user.task.destroy', $task->id)}}">
+                                            @csrf
+                                            <input name="_method" type="hidden" value="DELETE">
+                                            <input class="btn btn-danger text-white" type="submit" name="submit" value="Delete">
                                         </form>
                                     </div>
                             @endif
