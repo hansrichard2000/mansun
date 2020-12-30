@@ -95,7 +95,11 @@ class TaskController extends Controller
      */
     public function edit($id)
     {
-        $users = User::all();
+        $current_task = Task::all()->where('id', $id)->pluck('divisi_id')->toArray();
+
+        $anggota = DivisiRoleUser::all()->whereIn('mansun_divisi_id', $current_task)->pluck('mansun_user_id')->toArray();
+
+        $users = User::all()->whereIn('id', $anggota);
 //        $divisis = Divisi::find($id);
         $task = Task::find($id);
         $status_tasks = Status_Task::all();
