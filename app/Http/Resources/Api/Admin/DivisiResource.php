@@ -15,6 +15,7 @@ class DivisiResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id' => $this->id,
             'nama_divisi' => $this->nama_divisi,
             'proker_id' => $this->proker_id,
             'created_by' => $this->creator->id,

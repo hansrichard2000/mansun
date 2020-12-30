@@ -15,6 +15,7 @@ class ProfilResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'student_id' => $this->student_id,
             'name' => $this->name,
             'email' => $this->email,
             'nim' => $this->nim,

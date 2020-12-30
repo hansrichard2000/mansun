@@ -15,6 +15,7 @@ class PeriodeResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id' => $this->id,
             'tahun_periode' => $this->tahun_periode,
             'nilai' => $this->nilai,
             'created_by' => $this->creator->id,

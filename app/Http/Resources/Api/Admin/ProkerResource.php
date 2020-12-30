@@ -15,6 +15,7 @@ class ProkerResource extends JsonResource
     public function toArray($request)
     {
         return [
+            'id' => $this->id,
             'nama_proker' => $this->nama_proker,
             'periode_id' => $this->periode_id,
             'status_proker_id' => $this->status_proker_id,
