@@ -14,7 +14,14 @@
             <h3 class="text-dark mb-0">{{$task->divisi->nama_divisi}}</h3>
         </div>
         <hr class="garisKuning">
-        <form method="POST" action="{{route('admin.task.update', $task)}}">
+        <form method="POST" action="
+            @auth
+                @if(\illuminate\Support\Facades\Auth::user()->isAdmin())
+                    {{route('admin.task.update', $task)}}
+                @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
+                    {{route('user.task.update', $task)}}
+                @endif
+            @endauth">
             @csrf
             <input type="hidden" name="_method" value="PATCH">
             <input type="hidden" name="divisi_id" value="{{$task->divisi_id}}">

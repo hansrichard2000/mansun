@@ -59,7 +59,7 @@
                     </svg>
                     <p class="float-left">Rejected &emsp;</p>
                     <svg class="float-left" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="20" height="20" fill="#FFB800"/>
+                        <rect width="20" height="20" fill="#1789FC"/>
                     </svg>
                     <p class="float-left">Submitted &emsp;</p>
                     <svg class="float-left" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
