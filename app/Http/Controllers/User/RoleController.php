@@ -85,6 +85,9 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dvs = DivisiRoleUser::where('id', $id);
+
+        $dvs->delete();
+        return redirect()->back();
     }
 }

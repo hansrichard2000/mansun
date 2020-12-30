@@ -42,6 +42,12 @@
                     @auth
                         @if(\illuminate\Support\Facades\Auth::user()->isAdmin())
                             <th scope="col">Action</th>
+                        @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
+                            @foreach(\illuminate\Support\Facades\Auth::user()->roles as $userRoles)
+                                @if($userRoles->id == 1)
+                                    <th scope="col">Action</th>
+                                @endif
+                            @endforeach
                         @endif
                     @endauth
                 </tr>
@@ -57,13 +63,24 @@
                             @auth
                                 @if(\illuminate\Support\Facades\Auth::user()->isAdmin())
                                     <td>
-                                        <form action="" method="POST">
+                                        <form action="{{route('admin.role.destroy', $member->id)}}" method="POST">
                                             {{ csrf_field() }}
                                             <input name="_method" type="hidden" value="DELETE">
-                                            <input name="type" type="hidden" value="mahasiswa">
                                             <button type="submit" class="btn btn-danger text-white" title="Delete this user" style="border-radius: 50%"><i class="fas fa-trash" aria-hidden="true" style="color: #ffffff"></i></button>
                                         </form>
                                     </td>
+                                @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
+                                    @foreach(\illuminate\Support\Facades\Auth::user()->roles as $userRoles)
+                                        @if($userRoles->id == 1)
+                                            <td>
+                                                <form action="{{route('user.role.destroy', $member->id)}}" method="POST">
+                                                    {{ csrf_field() }}
+                                                    <input name="_method" type="hidden" value="DELETE">
+                                                    <button type="submit" class="btn btn-danger text-white" title="Delete this user" style="border-radius: 50%"><i class="fas fa-trash" aria-hidden="true" style="color: #ffffff"></i></button>
+                                                </form>
+                                            </td>
+                                        @endif
+                                    @endforeach
                                 @endif
                             @endauth
                         </tr>
