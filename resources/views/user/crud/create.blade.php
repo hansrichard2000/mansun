@@ -64,7 +64,7 @@
             </div>
 
             <div class="form-group">
-                <label for="email">Email :</label>
+                <label for="email">Email (untuk mobile) :</label>
                 <input type="email" class="form-control" id="email" name="email" required>
             </div>
 

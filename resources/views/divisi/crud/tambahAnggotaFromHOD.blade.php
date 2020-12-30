@@ -1,5 +1,5 @@
 <!-- The Modal -->
-<div class="modal fade" id="createAnggota">
+<div class="modal fade" id="createAnggotaFromHOD">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- Modal Header -->

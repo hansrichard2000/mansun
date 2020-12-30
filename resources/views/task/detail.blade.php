@@ -1,5 +1,5 @@
 <!-- The Modal -->
-<div class="modal fade" id="detail_task">
+<div class="modal fade" id="detail_task{{$task->id}}">
     <div class="modal-dialog">
         <div class="modal-content">
             <!-- Modal Header -->
@@ -11,26 +11,30 @@
             <div class="modal-body" style="text-align: left;">
                 <div class="form-group">
 
-                    <b><label id="label_1" for="nama_task">Label 1</label></b>
-                    <p id="info_1">Info 1</p>
+                    <b><label id="label_1" for="judul">Judul</label></b>
+                    <p id="judul">{{$task->judul}}</p>
 
-                    <b><label id="label_2"  for="nama_task">Label 2</label></b>
-                    <p id="info_2">Info 2</p>
+                    <b><label id="label_1" for="deskripsi">Deskripsi</label></b>
+                    <p id="deskripsi">{{$task->deskripsi}}</p>
 
-                    <b><label id="label_3"  for="nama_task">Label 3</label></b>
-                    <p id="info_3">Info 3</p>
+                    <b><label id="label_1" for="deadline">Deadline</label></b>
+                    <p id="deadline">{{$task->deadline}}</p>
 
-                    <b><label id="label_4"  for="nama_task">Label 4</label></b>
-                    <p id="info_4">Info 4</p>
+                    <b><label id="label_1" for="link_hasil_kerja">Link Hasil Kerja</label></b>
+                    @if($task->link_hasil_kerja == null)
+                        <p id="link_hasil_kerja"> - </p>
+                    @else
+                        <p id="link_hasil_kerja">{{$task->link_hasil_kerja}}</p>
+                    @endif
 
-                    <b><label id="label_5"  for="nama_task">Label 5</label></b>
-                    <p id="info_5">Info 5</p>
+                    <b><label id="label_1" for="penangungjawab">Penangung Jawab</label></b>
+                    <p id="penangungjawab">{{$task->receiver->student['name']}}</p>
 
-                    <b><label id="label_6"  for="nama_task">Label 6</label></b>
-                    <p id="info_6">Info 6</p>
+                    <b><label id="label_1" for="divisi">Divisi</label></b>
+                    <p id="divisi">{{$task->divisi['nama_divisi']}}</p>
 
-                    <b><label id="label_7"  for="nama_task">Label 7</label></b>
-                    <p id="info_7">Info 7</p>
+                    <b><label id="label_1" for="status_task">Status Task</label></b>
+                    <p id="status_task">{{$task->status_task['statustask']}}</p>
 
                 </div>
             </div>

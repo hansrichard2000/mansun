@@ -23,8 +23,8 @@
                         @if($userRoles->id == 1)
                             <button type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
                                     data-toggle="modal"
-                                    data-target="#createAnggota">Tambah Anggota</button>
-                            @include('divisi.crud.tambahAnggota')
+                                    data-target="#createAnggotaFromHOD">Tambah Anggota</button>
+                            @include('divisi.crud.tambahAnggotaFromHOD')
                         @endif
                     @endforeach
                 @endif
