@@ -3,6 +3,12 @@
 namespace App\Http\Controllers\Api\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Api\Admin\DivisiResource;
+use App\Http\Resources\Api\Admin\TaskResource;
+use App\Models\Divisi;
+use App\Models\Status_Task;
+use App\Models\Task;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DivisiController extends Controller
@@ -36,7 +42,12 @@ class DivisiController extends Controller
      */
     public function show($id)
     {
-        //
+        $divisis = Divisi::find($id);
+        $tasks = Task::all()->where('divisi_id', $id);
+//        dd($tasks);
+        $users = User::all();
+        $status_tasks = Status_Task::all();
+        return TaskResource::collection($tasks, $divisis, $users, $status_tasks);
     }
 
     /**
