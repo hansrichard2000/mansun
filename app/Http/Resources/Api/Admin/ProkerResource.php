@@ -16,6 +16,7 @@ class ProkerResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'tahun_periode' => $this->periode['tahun_periode'],
             'nama_proker' => $this->nama_proker,
             'periode_id' => $this->periode_id,
             'status_proker_id' => $this->status_proker_id,
