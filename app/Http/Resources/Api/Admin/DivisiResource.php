@@ -16,6 +16,7 @@ class DivisiResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'nama_proker' => $this->proker['nama_proker'],
             'nama_divisi' => $this->nama_divisi,
             'proker_id' => $this->proker_id,
             'created_by' => $this->creator->id,
