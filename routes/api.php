@@ -26,7 +26,6 @@ Route::post('api-refresh', [LoginController::class, 'refresh']);
 
 Route::group(['middleware'=>'auth:api'], function (){
     Route::apiResource('periode', PeriodeController::class);
-    Route::apiResource('periode-member', UserPeriodeController::class);
     Route::apiResource('proker', ProkerController::class);
     Route::apiResource('divisi', DivisiController::class);
     Route::apiResource('task', TaskController::class);

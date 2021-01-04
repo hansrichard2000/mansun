@@ -10,6 +10,7 @@ use App\Models\Status_Task;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DivisiController extends Controller
 {
@@ -38,7 +39,7 @@ class DivisiController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function show($id)
     {
@@ -47,7 +48,7 @@ class DivisiController extends Controller
 //        dd($tasks);
         $users = User::all();
         $status_tasks = Status_Task::all();
-        return TaskResource::collection($tasks, $divisis, $users, $status_tasks);
+        return TaskResource::collection($tasks);
     }
 
     /**
