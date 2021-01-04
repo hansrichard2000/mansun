@@ -22,9 +22,12 @@
                     <div class="form-group">
                         <label for="mansun_role_id">Select Role</label>
                         <select name="mansun_role_id" class="custom-select" required>
-                            @foreach($roles as $role)
-                                <option value="{{$role->id}}" title="{{$role->role}}">{{$role->role}}</option>
-                            @endforeach
+                            @if(strtolower($member->nama_divisi) == "hod")
+                                <option value="1" title="HOD">HOD</option>
+                            @else
+                                <option value="2" title="Koor">Koor</option>
+                                <option value="3" title="User">User</option>
+                            @endif
                         </select>
                     </div>
                     <input name="mansun_divisi_id" type="hidden" value="{{$member->id}}">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\DivisiRoleUser;
 use App\Models\Lecturer;
 use App\Models\Student;
 use Illuminate\Http\Request;

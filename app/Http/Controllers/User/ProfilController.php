@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\DivisiRoleUser;
 use App\Models\Lecturer;
 use App\Models\Student;
 use Illuminate\Http\Request;
@@ -23,6 +24,14 @@ class ProfilController extends Controller
             $current_user = Lecturer::all()->where('lecturer_id', Auth::user()->lecturer_id);
         }
 //        dd($current_user);
+
+        //ngambil roles dari many to many (user_id, divisi_id, role_id)
+        $dvs = DivisiRoleUser::all()->where('mansun_user_id', Auth::user()->id);
+//        dd($dvs);
+
+        //ngambil role
+
+        //ngambil di divisi mana aja si user terdaftar
 
         return view('profil.index', compact('current_user'));
     }

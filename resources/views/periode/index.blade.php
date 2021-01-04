@@ -11,23 +11,6 @@
 @section('content')
     <div class="container-fluid">
         <div class="d-sm-flex justify-content-between align-items-center mb-4">
-            <h3 class="text-dark mb-0">Terakhir Dilihat</h3>
-        </div>
-        <hr class="garisKuning">
-        <div class="last-page row">
-            @if($periodes != null)
-                <div class="card" style="width: 30em;height: 18em">
-                    <img src="{{asset('image/group92.jpg')}}" class="card-img-top" alt="...">
-                    <div class="card-body p-0 ml-3" >
-                        <p class="card-text"><strong>Nama Periode</strong></p>
-                    </div>
-                </div>
-            @else
-                No Record
-            @endif
-        </div>
-        <br>
-        <div class="d-sm-flex justify-content-between align-items-center mb-4">
             <h3 class="text-dark mb-0">Daftar Periode</h3>
             @auth
                 @if(\illuminate\Support\Facades\Auth::user()->isAdmin())
