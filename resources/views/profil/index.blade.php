@@ -98,16 +98,19 @@
                         <p class="text-primary m-0 font-weight-bold">Riwayat Jabatan</p>
                     </div>
                     <div class="card-body">
-                        <div class="row">
+                        <div class="row row-cols-2">
+                            @foreach($dvs as $riwayat)
                             <div class="col-md-6">
-                                <form>
-                                    <div class="form-group"><label for="signature"><strong>Signature</strong><br></label><textarea class="form-control" rows="4" name="signature"></textarea></div>
-                                    <div class="form-group">
-                                        <div class="custom-control custom-switch"><input class="custom-control-input" type="checkbox" id="formCheck-1"><label class="custom-control-label" for="formCheck-1"><strong>Notify me about new replies</strong></label></div>
+                                <div class="card float-left" style="width: 30em;height: 18em">
+                                    <img src="{{asset('image/group92.jpg')}}" class="card-img-top" style="height: 180px">
+                                    <div class="card-body p-0 ml-3" >
+                                        <strong>{{$riwayat->divisi->proker->nama_proker}}</strong>
+                                        <h4 class="card-text"><strong>{{$riwayat->role->role}} {{$riwayat->divisi->nama_divisi}}</strong></h4>
+                                        <strong>{{date('j F Y', strtotime($riwayat->divisi->proker->tanggal_mulai))}} - {{date('j F Y', strtotime($riwayat->divisi->proker->tanggal_akhir))}}</strong>
                                     </div>
-                                    <div class="form-group"><button class="btn btn-primary btn-sm" type="submit">Save Settings</button></div>
-                                </form>
+                                </div>
                             </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

@@ -33,7 +33,7 @@ class ProfilController extends Controller
 
         //ngambil di divisi mana aja si user terdaftar
 
-        return view('profil.index', compact('current_user'));
+        return view('profil.index', compact('current_user', 'dvs'));
     }
 
     /**

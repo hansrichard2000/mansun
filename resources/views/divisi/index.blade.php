@@ -183,7 +183,77 @@
                                     @endif
                                     @auth
 {{--                                        {{dd(\illuminate\Support\Facades\Auth::user()->student)}}--}}
-                                        @if(\illuminate\Support\Facades\Auth::user()->isAdmin())
+                                        @if(\illuminate\Support\Facades\Auth::user()->isUser())
+{{--                                            {{dd(\illuminate\Support\Facades\Auth::user()->roles)}}--}}
+{{--                                            {{dd(\illuminate\Support\Facades\Auth::user()->divisis)}}--}}
+{{--                                            @foreach(\illuminate\Support\Facades\Auth::user()->divisis as $divisiRoles)--}}
+                                                @foreach(\illuminate\Support\Facades\Auth::user()->roles as $userRoles)
+                                                    @if($userRoles->id == 3 )
+                                                        <td>
+                                                            <div class="row no-gutters">
+                                                                <div class="col-md-4">
+                                                                    <button style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="See Task Detail"
+                                                                            data-toggle="modal"
+                                                                            data-target="#detail_task{{$task->id}}"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
+                                                                    @include('task.detail')
+                                                                </div>
+                                                                @if($task->link_hasil_kerja == null)
+                                                                    <div class="col-md-4">
+                                                                        <button type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="See Task Detail"
+                                                                                data-toggle="modal"
+                                                                                data-target="#submit_task{{$task->id}}">Input</button>
+                                                                    </div>
+                                                                    @include('task.user.submit')
+                                                                @else
+                                                                    <div class="col-md-4">
+                                                                        <button type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="See Task Detail"
+                                                                                data-toggle="modal"
+                                                                                data-target="#submit_task{{$task->id}}">Update</button>
+                                                                    </div>
+                                                                    @include('task.user.submit')
+                                                                @endif
+
+                                                            </div>
+                                                        </td>
+                                                    @elseif($userRoles->id == 1 || $userRoles->id == 2)
+{{--                                                        {{dd($userRoles)}}--}}
+                                                        @if($task->link_hasil_kerja == null)
+                                                            <td scope="col" width="200px">
+                                                                <button style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="See Task Detail"
+                                                                        data-toggle="modal"
+                                                                        data-target="#detail_task{{$task->id}}"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
+                                                                @include('task.detail')
+                                                            </td>
+                                                        @else
+                                                            <td>
+                                                                <div class="row no-gutters">
+                                                                    <div class="col-md-4">
+                                                                        <button style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="See Task Detail"
+                                                                                data-toggle="modal"
+                                                                                data-target="#detail_task{{$task->id}}"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
+                                                                        @include('task.detail')
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <form action="{{route('user.task.approve')}}" method="POST">
+                                                                            {{ csrf_field() }}
+                                                                            <input type="hidden" name="id" value="{{$task->id}}">
+                                                                            <button class="btn btn-success" style="border-radius: 50%; margin-left: 37%" title="Approve Task" type="submit"><i class="fas fa-check" aria-hidden="true" style="color: #ffffff"></i></button>
+                                                                        </form>
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        <form action="{{route('user.task.reject')}}" method="POST">
+                                                                            {{ csrf_field() }}
+                                                                            <input type="hidden" name="id" value="{{$task->id}}">
+                                                                            <button class="btn btn-danger" style="border-radius: 50%; margin-left: 37%" title="Reject Task" type="submit"><i class="fas fa-times" aria-hidden="true" style="color: #ffffff"></i></button>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        @endif
+                                                    @endif
+                                                @endforeach
+{{--                                            @endforeach--}}
+                                        @elseif(\illuminate\Support\Facades\Auth::user()->isAdmin())
 
                                             @if($task->link_hasil_kerja == null)
                                                 <td scope="col" width="200px">
@@ -218,73 +288,6 @@
                                                     </div>
                                                 </td>
                                             @endif
-
-                                        @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
-{{--                                            {{dd(\illuminate\Support\Facades\Auth::user()->roles[0]->id)}}--}}
-                                            @foreach(\illuminate\Support\Facades\Auth::user()->roles as $userRoles)
-                                            @if($userRoles->id == 1 || $userRoles->id == 2)
-                                                @if($task->link_hasil_kerja == null)
-                                                    <td scope="col" width="200px">
-                                                        <button style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="See Task Detail"
-                                                                data-toggle="modal"
-                                                                data-target="#detail_task{{$task->id}}"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
-                                                        @include('task.detail')
-                                                    </td>
-                                                @else
-                                                    <td>
-                                                        <div class="row no-gutters">
-                                                            <div class="col-md-4">
-                                                                <button style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="See Task Detail"
-                                                                        data-toggle="modal"
-                                                                        data-target="#detail_task{{$task->id}}"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
-                                                                @include('task.detail')
-                                                            </div>
-                                                            <div class="col-md-4">
-                                                                <form action="{{route('user.task.approve')}}" method="POST">
-                                                                    {{ csrf_field() }}
-                                                                    <input type="hidden" name="id" value="{{$task->id}}">
-                                                                    <button class="btn btn-success" style="border-radius: 50%; margin-left: 37%" title="Approve Task" type="submit"><i class="fas fa-check" aria-hidden="true" style="color: #ffffff"></i></button>
-                                                                </form>
-                                                            </div>
-                                                            <div class="col-md-4">
-                                                                <form action="{{route('user.task.reject')}}" method="POST">
-                                                                    {{ csrf_field() }}
-                                                                    <input type="hidden" name="id" value="{{$task->id}}">
-                                                                    <button class="btn btn-danger" style="border-radius: 50%; margin-left: 37%" title="Reject Task" type="submit"><i class="fas fa-times" aria-hidden="true" style="color: #ffffff"></i></button>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                @endif
-                                            @else
-                                                <td>
-                                                    <div class="row no-gutters">
-                                                        <div class="col-md-4">
-                                                            <button style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="See Task Detail"
-                                                                    data-toggle="modal"
-                                                                    data-target="#detail_task{{$task->id}}"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
-                                                            @include('task.detail')
-                                                        </div>
-                                                        @if($task->link_hasil_kerja == null)
-                                                            <div class="col-md-4">
-                                                                <button type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="See Task Detail"
-                                                                        data-toggle="modal"
-                                                                        data-target="#submit_task{{$task->id}}">Input</button>
-                                                            </div>
-                                                            @include('task.user.submit')
-                                                        @else
-                                                            <div class="col-md-4">
-                                                                <button type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="See Task Detail"
-                                                                        data-toggle="modal"
-                                                                        data-target="#submit_task{{$task->id}}">Update</button>
-                                                            </div>
-                                                            @include('task.user.submit')
-                                                        @endif
-
-                                                    </div>
-                                                </td>
-                                            @endif
-                                            @endforeach
                                         @endif
                                     @endauth
                                 </tr>

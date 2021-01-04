@@ -59,7 +59,7 @@ class User extends Authenticatable
 
     public function divisis()
     {
-        return $this->belongsToMany(Divisi::class, 'divisi_role_user', 'mansun_divisi_id', 'id');
+        return $this->belongsToMany(Divisi::class, 'divisi_role_user', 'mansun_user_id', 'mansun_divisi_id');
     }
 
     public function taskCreator(){

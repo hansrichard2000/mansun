@@ -55,6 +55,16 @@ class LoginController extends Controller
                 'is_admin' => '1',
             ];
 
+            $member = [
+                'email' => $request->email,
+                'password' => $request->password,
+//                'student_id' => 2,
+//                'dosen_id' => null,
+                'is_login' => '0',
+                'is_active' => '1',
+                'is_admin' => '0',
+            ];
+
             $check = DB::table('mansun_users')->where('email', $request->email)->first();
 
             if ($check->is_active == '1'){
@@ -87,9 +97,27 @@ class LoginController extends Controller
                         ], 403);
                     }
                 }else{
-                    return response([
-                        'message' => 'Not an Admin',
-                    ]);
+                    if($check->is_login == '0'){
+                        if (Auth::attempt($member)){
+                            $this->isLogin(Auth::id());
+                            $response = $http->post('http://mansun.test/oauth/token', [
+                                'form_params' => [
+                                    'grant_type' => 'password',
+                                    'client_id' => $this->client->id,
+                                    'client_secret' => $this->client->secret,
+                                    'username' => $request->email,
+                                    'password' => $request->password,
+                                    'scope' => '*',
+                                ],
+                            ]);
+
+                            return json_decode((string) $response->getBody(), true);
+                        }
+                    }else{
+                        return response([
+                            'message' => 'Account in use',
+                        ], 403);
+                    }
                 }
             }else{
                 return response([
