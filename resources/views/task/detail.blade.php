@@ -52,8 +52,8 @@
                             </form>
                         </div>
                     @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
-                        @foreach(\illuminate\Support\Facades\Auth::user()->roles as $userRoles)
-                            @if($userRoles->id == 1 || $userRoles->id == 2)
+                        @foreach($users as $user)
+                            @if(($user->mansun_role_id == 1 && $user->mansun_user_id == \Illuminate\Support\Facades\Auth::user()->id) || ($user->mansun_role_id == 2 && $user->mansun_user_id == \Illuminate\Support\Facades\Auth::user()->id))
                                 <!-- Modal footer -->
                                     <div class="modal-footer">
                                         <form method="GET" action="{{route('user.task.edit', $task->id)}}">
