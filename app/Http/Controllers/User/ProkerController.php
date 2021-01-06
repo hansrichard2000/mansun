@@ -53,6 +53,8 @@ class ProkerController extends Controller
      */
     public function show($id)
     {
+        //$id adalah id prokernya
+
         //1. ngambil di divisi mana saja user terdaftar sebagai panitia
         $dvs = DivisiRoleUser::all()->where('mansun_user_id',Auth::user()->id)->pluck('mansun_divisi_id')->toArray();
 
@@ -60,7 +62,7 @@ class ProkerController extends Controller
         $divisis = Divisi::all()->where('proker_id', $id)->whereIn('id', $dvs);
 
         //ngecek nama divisinya
-        $name = $divisis->pluck('nama_divisi')->first();
+        $name = $divisis->where('proker_id', $id)->pluck('nama_divisi')->first();
 
         //kalau divisi HOD, bisa liat divisi lainn juga
         //strtolower untuk memastikan gak ada typo jadi di lowercase
@@ -68,12 +70,19 @@ class ProkerController extends Controller
             $divisis = Divisi::all()->where('proker_id', $id);
         }
 
+        $dvs2 = $divisis->pluck('id')->toArray();
+
         $prokers = Proker::find($id);
 
         $tasks = Task::all();
 
-        $users = User::all();
+        $users = DivisiRoleUser::all()->whereIn('mansun_divisi_id', $dvs2);
+//        dd($divisis);
+//        dd($users);
         $status_tasks = Status_Task::all();
+
+
+
         return view('divisi.index', compact('divisis', 'users', 'id', 'tasks', 'status_tasks', 'prokers'));
     }
 

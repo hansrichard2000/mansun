@@ -114,8 +114,10 @@
                             </div>
                         @endif
                             @if(\illuminate\Support\Facades\Auth::user()->isUser())
-                                @foreach(\illuminate\Support\Facades\Auth::user()->roles as $userRoles)
-                                    @if($userRoles->id == 1)
+{{--                                @foreach(\illuminate\Support\Facades\Auth::user()->roles as $userRoles)--}}
+{{--                            {{dd($users)}}--}}
+                            @foreach($users as $user)
+                                    @if($user->mansun_role_id == 1 && $user->mansun_user_id == \Illuminate\Support\Facades\Auth::user()->id)
                                         <div class="float-md-right mr-3">
                                             <form action="{{route('user.task.show', $divisi->id)}}" method="GET">
                                                 @csrf
@@ -128,7 +130,7 @@
                                                     data-target="#editDivisi{{$divisi->id}}">Edit Divisi</button>
                                             @include('divisi.crud.editFromHOD')
                                         </div>
-                                    @elseif($userRoles->id == 2)
+                                    @elseif($user->mansun_role_id == 2 && $user->mansun_user_id == \Illuminate\Support\Facades\Auth::user()->id)
                                         <div class="float-md-right mr-3">
                                             <form action="{{route('user.task.show', $divisi->id)}}" method="GET">
                                                 @csrf
@@ -187,8 +189,9 @@
 {{--                                            {{dd(\illuminate\Support\Facades\Auth::user()->roles)}}--}}
 {{--                                            {{dd(\illuminate\Support\Facades\Auth::user()->divisis)}}--}}
 {{--                                            @foreach(\illuminate\Support\Facades\Auth::user()->divisis as $divisiRoles)--}}
-                                                @foreach(\illuminate\Support\Facades\Auth::user()->roles as $userRoles)
-                                                    @if($userRoles->id == 3 )
+{{--                                                @foreach(\illuminate\Support\Facades\Auth::user()->roles as $userRoles)--}}
+                                        @foreach($users as $user)
+                                                    @if($user->mansun_role_id == 3  && $user->mansun_user_id == \Illuminate\Support\Facades\Auth::user()->id)
                                                         <td>
                                                             <div class="row no-gutters">
                                                                 <div class="col-md-4">
@@ -215,7 +218,7 @@
 
                                                             </div>
                                                         </td>
-                                                    @elseif($userRoles->id == 1 || $userRoles->id == 2)
+                                                    @elseif(($user->mansun_role_id == 1 && $user->mansun_user_id == \Illuminate\Support\Facades\Auth::user()->id) || ($user->mansun_role_id == 2 && $user->mansun_user_id == \Illuminate\Support\Facades\Auth::user()->id))
 {{--                                                        {{dd($userRoles)}}--}}
                                                         @if($task->link_hasil_kerja == null)
                                                             <td scope="col" width="200px">
