@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\Admin\DivisiController;
+use App\Http\Controllers\Api\Admin\JadwalController;
 use App\Http\Controllers\Api\Admin\ProfilController;
 use App\Http\Controllers\Api\Admin\ProkerController;
 use App\Http\Controllers\Api\Admin\TaskController;
@@ -29,6 +30,7 @@ Route::group(['middleware'=>'auth:api'], function (){
     Route::apiResource('proker', ProkerController::class);
     Route::apiResource('divisi', DivisiController::class);
     Route::apiResource('task', TaskController::class);
+    Route::apiResource('jadwal', JadwalController::class);
     Route::apiResource('profil', ProfilController::class);
     Route::post('api-logout', [LoginController::class, 'logout']);
 });
