@@ -61,27 +61,13 @@ class DivisiController extends Controller
         //return object model many to many dari user yang terdaftar pada divisi yang dipencet user
         $members = DivisiRoleUser::all()->where('mansun_divisi_id', $id);
 
+        //daftar semua divisi dalam proker itu termasuk yang gak dipencet
         $listDivisis = Divisi::all()->where('proker_id', $member->proker_id)->pluck('id')->toArray();
+
+        //ngambil semua user dalam proker itu
         $anggotas = DivisiRoleUser::all()->whereIn('mansun_divisi_id', $listDivisis);
 
-        //return semua jenis role
-        $roles = Role::all();
-
-
-        //1. cara ngambil id proker yang dipencet user
-//        $member->proker_id
-
-        //2. ngambil semua divisi dengan proker id sekian
-        $divisis = Divisi::all()->where('proker_id', $member->proker_id)->pluck('id')->toArray();
-
-        //3. ngambil semua user di many to many yang divisi_idnya ada dalam step ke 2
-        $dvs = DivisiRoleUser::all()->whereIn('mansun_divisi_id', $divisis)->pluck('mansun_user_id')->toArray();
-
-        //4. ngambil semua user di table user yang tidak ada dalam query step ke tiga
-        $userList = User::all()->whereNotIn('id', $dvs)->where('is_admin', '0');
-        //OMAIGADDD!!!!
-
-        return view('divisi.crud.listAnggota', compact('anggotas', 'members','userList', 'roles', 'member', 'id'));
+        return view('divisi.crud.listAnggota', compact('anggotas', 'members', 'member'));
     }
 
     /**
