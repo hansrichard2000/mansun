@@ -71,7 +71,7 @@
                                     </td>
                                 @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
 {{--                                    @foreach(\illuminate\Support\Facades\Auth::user()->roles as $userRoles)--}}
-                                        @if($id == $member->divisi['id'] && $userRoles->id == 1)
+                                        @if($id == $member->divisi['id'] && $member->id == 1)
                                             <td>
                                                 <form action="{{route('user.role.destroy', $member->id)}}" method="POST">
                                                     {{ csrf_field() }}
