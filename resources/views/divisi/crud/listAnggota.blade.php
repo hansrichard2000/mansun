@@ -94,7 +94,7 @@
                                             <td>{{$member->role->role}}</td>
 
                                             <td>
-                                                <form action="{{route('admin.role.destroy', $member->id)}}" method="POST">
+                                                <form action="{{route('user.role.destroy', $member->id)}}" method="POST">
                                                     {{ csrf_field() }}
                                                     <input name="_method" type="hidden" value="DELETE">
                                                     <button type="submit" class="btn btn-danger text-white" title="Delete this user" style="border-radius: 50%"><i class="fas fa-trash" aria-hidden="true" style="color: #ffffff"></i></button>
