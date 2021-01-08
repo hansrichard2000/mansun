@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: linear-gradient(rgba(255,196,45,0.62) 97%, rgba(255,255,255,0) 100%), url(&quot;../../assets/img/SLBaru.jpeg&quot;) top / auto no-repeat, #ffc42d;">
+<nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background: linear-gradient(rgba(255,196,45,0.62) 97%, rgba(255,255,255,0) 100%), url(&quot;../assets/img/SLBaru.jpeg&quot;) top / auto no-repeat, #ffc42d;">
     <div class="container-fluid d-flex flex-column p-0">
         <a class="navbar-brand d-flex justify-content-center align-items-center mt-3 m-0" href="#">
             <div class="sidebar-brand-icon rotate-n-15"></div>
@@ -9,13 +9,13 @@
             @auth
                 @if(\illuminate\Support\Facades\Auth::user()->isAdmin())
                     <li class="nav-item"><a class="nav-link" href="{{route('admin.periode.index')}}"><i class="fas fa-home"></i><span>Beranda</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('admin.task.index')}}"><i class="far fa-calendar-alt"></i><span>Daftar Tugas</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{{route('admin.task.index')}}"><i class="far fa-calendar-alt"></i><span>Daftar Tugas</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('admin.user.index')}}"><i class="fas fa-user"></i><span>User Management</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" href="{{route('admin.profil.index')}}"><i class="far fa-user-circle"></i><span>Profil</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('admin.profil.index')}}"><i class="far fa-user-circle"></i><span>Profil</span></a></li>
                 @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
                     <li class="nav-item"><a class="nav-link" href="{{route('user.periode.index')}}"><i class="fas fa-home"></i><span>Beranda</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('user.task.index')}}"><i class="far fa-calendar-alt"></i><span>Daftar Tugas</span></a></li>
-                    <li class="nav-item"><a class="nav-link active" href="{{route('user.profil.index')}}"><i class="far fa-user-circle"></i><span>Profil</span></a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{{route('user.task.index')}}"><i class="far fa-calendar-alt"></i><span>Daftar Tugas</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('user.profil.index')}}"><i class="far fa-user-circle"></i><span>Profil</span></a></li>
                 @endif
             @endauth
         </ul>

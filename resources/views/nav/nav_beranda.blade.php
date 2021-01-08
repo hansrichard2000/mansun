@@ -9,12 +9,12 @@
             @auth
                 @if(\illuminate\Support\Facades\Auth::user()->isAdmin())
                     <li class="nav-item"><a class="nav-link active" href="{{route('admin.periode.index')}}"><i class="fas fa-home"></i><span>Beranda</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="jadwal.html"><i class="far fa-calendar-alt"></i><span>Jadwal</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('admin.task.index')}}"><i class="far fa-calendar-alt"></i><span>Daftar Tugas</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('admin.user.index')}}"><i class="fas fa-user"></i><span>User Management</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('admin.profil.index')}}"><i class="far fa-user-circle"></i><span>Profil</span></a></li>
                 @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
                     <li class="nav-item"><a class="nav-link active" href="{{route('user.periode.index')}}"><i class="fas fa-home"></i><span>Beranda</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="jadwal.html"><i class="far fa-calendar-alt"></i><span>Jadwal</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('user.task.index')}}"><i class="far fa-calendar-alt"></i><span>Daftar Tugas</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('user.profil.index')}}"><i class="far fa-user-circle"></i><span>Profil</span></a></li>
                 @endif
             @endauth
