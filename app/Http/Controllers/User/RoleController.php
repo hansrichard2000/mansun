@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Divisi;
 use App\Models\DivisiRoleUser;
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -69,12 +71,35 @@ class RoleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Task $task
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Task $task)
     {
-        //
+        if ($request->link_hasil_kerja == null){
+            $task->update([
+                'judul' => $request->judul,
+                'deskripsi' => $request->deskripsi,
+                'deadline' => $request->deadline,
+                'link_hasil_kerja' => $request->link_hasil_kerja,
+                'penanggung_jawab' => $request->penanggung_jawab,
+                'divisi_id' => $request->divisi_id,
+                'status_task_id' => '1',
+                'created_by' => $request->created_by,
+            ]);
+        }else{
+            $task->update([
+                'judul' => $request->judul,
+                'deskripsi' => $request->deskripsi,
+                'deadline' => $request->deadline,
+                'link_hasil_kerja' => $request->link_hasil_kerja,
+                'penanggung_jawab' => $request->penanggung_jawab,
+                'divisi_id' => $request->divisi_id,
+                'status_task_id' => '2',
+                'created_by' => $request->created_by,
+            ]);
+        }
+        return redirect()->route('user.proker.show', Divisi::find($request->divisi_id)->proker_id);
     }
 
     /**
