@@ -20,7 +20,7 @@
                     @include('divisi.crud.tambahAnggota')
                 @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
                     @foreach($members as $member)
-                        @if($id == $member->divisi['id'] && $member->id == 1)
+                        @if($id == $member->divisi['id'] && $member->user['id'] == 1)
                             <button type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
                                     data-toggle="modal"
                                     data-target="#createAnggotaFromHOD">Tambah Anggota</button>
@@ -44,7 +44,7 @@
                             <th scope="col">Action</th>
                         @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
                             @foreach($members as $member)
-                                @if($id == $member->divisi['id'] && $member->id == 1)
+                                @if($id == $member->divisi['id'] && $member->user['id']  == 1)
                                     <th scope="col">Action</th>
                                 @endif
                             @endforeach
@@ -71,7 +71,7 @@
                                     </td>
                                 @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
 {{--                                    @foreach(\illuminate\Support\Facades\Auth::user()->roles as $userRoles)--}}
-                                        @if($id == $member->divisi['id'] && $member->id == 1)
+                                        @if($id == $member->divisi['id'] && $member->user['id']  == 1)
                                             <td>
                                                 <form action="{{route('user.role.destroy', $member->id)}}" method="POST">
                                                     {{ csrf_field() }}
