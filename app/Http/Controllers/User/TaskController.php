@@ -120,15 +120,25 @@ class TaskController extends Controller
     {
         if ($request->link_hasil_kerja == null){
             $task->update([
+                'judul' => $request->judul,
+                'deskripsi' => $request->deskripsi,
+                'deadline' => $request->deadline,
                 'link_hasil_kerja' => $request->link_hasil_kerja,
+                'penanggung_jawab' => $request->penanggung_jawab,
                 'divisi_id' => $request->divisi_id,
                 'status_task_id' => '1',
+                'created_by' => $request->created_by,
             ]);
         }else{
             $task->update([
+                'judul' => $request->judul,
+                'deskripsi' => $request->deskripsi,
+                'deadline' => $request->deadline,
                 'link_hasil_kerja' => $request->link_hasil_kerja,
+                'penanggung_jawab' => $request->penanggung_jawab,
                 'divisi_id' => $request->divisi_id,
                 'status_task_id' => '2',
+                'created_by' => $request->created_by,
             ]);
         }
         return redirect()->route('user.proker.show', Divisi::find($request->divisi_id)->proker_id);

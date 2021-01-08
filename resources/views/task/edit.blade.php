@@ -19,7 +19,7 @@
                 @if(\illuminate\Support\Facades\Auth::user()->isAdmin())
                     {{route('admin.task.update', $task)}}
                 @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
-                    {{route('user.role.update', $task)}}
+                    {{route('user.task.update', $task)}}
                 @endif
             @endauth">
             @csrf
