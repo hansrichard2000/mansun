@@ -78,7 +78,7 @@ class DivisiController extends Controller
 
         //OMAIGADDD!!!!
 
-        return view('divisi.crud.listAnggota', compact('members','userList', 'roles', 'member'));
+        return view('divisi.crud.listAnggota', compact('members','userList', 'roles', 'member', 'id'));
     }
 
     /**
