@@ -9,6 +9,7 @@ use App\Models\Status_Task;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
@@ -19,7 +20,9 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return view('task.listTask');
+        $tasks = Task::all()->where('penanggung_jawab', Auth::user()->id);
+        $users = User::all();
+        return view('task.listTask', compact('tasks', 'users'));
     }
 
     /**
