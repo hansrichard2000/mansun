@@ -64,7 +64,6 @@
                                             <td>{{$member->user->student['name']}}</td>
                                             <td>{{$member->user->email}}</td>
                                             <td>{{$member->role->role}}</td>
-                                        </tr>
 
                                     <td>
                                         <form action="{{route('admin.role.destroy', $member->id)}}" method="POST">
@@ -73,6 +72,8 @@
                                             <button type="submit" class="btn btn-danger text-white" title="Delete this user" style="border-radius: 50%"><i class="fas fa-trash" aria-hidden="true" style="color: #ffffff"></i></button>
                                         </form>
                                     </td>
+
+                                        </tr>
                                     @endforeach
                                 @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
 {{--                                    @foreach(\illuminate\Support\Facades\Auth::user()->roles as $userRoles)--}}
@@ -84,7 +85,6 @@
                                                 <td>{{$member->user->student['name']}}</td>
                                                 <td>{{$member->user->email}}</td>
                                                 <td>{{$member->role->role}}</td>
-                                            </tr>
 
                                             <td>
                                                 <form action="{{route('user.role.destroy', $member->id)}}" method="POST">
@@ -93,7 +93,28 @@
                                                     <button type="submit" class="btn btn-danger text-white" title="Delete this user" style="border-radius: 50%"><i class="fas fa-trash" aria-hidden="true" style="color: #ffffff"></i></button>
                                                 </form>
                                             </td>
+
+                                            </tr>
                                         @endforeach
+                                        @elseif($id == $member->divisi['id'] && $member->role['id']  != 1 && $member->user['id'] == \Illuminate\Support\Facades\Auth::user()->id)
+                                            @foreach($members as $member)
+
+                                                <tr class="text-center">
+                                                    <td>{{$member->user->id}}</td>
+                                                    <td>{{$member->user->student['name']}}</td>
+                                                    <td>{{$member->user->email}}</td>
+                                                    <td>{{$member->role->role}}</td>
+
+{{--                                                    <td>--}}
+{{--                                                        <form action="{{route('user.role.destroy', $member->id)}}" method="POST">--}}
+{{--                                                            {{ csrf_field() }}--}}
+{{--                                                            <input name="_method" type="hidden" value="DELETE">--}}
+{{--                                                            <button type="submit" class="btn btn-danger text-white" title="Delete this user" style="border-radius: 50%"><i class="fas fa-trash" aria-hidden="true" style="color: #ffffff"></i></button>--}}
+{{--                                                        </form>--}}
+{{--                                                    </td>--}}
+
+                                                </tr>
+                                            @endforeach
                                         @endif
 {{--                                    @endforeach--}}
                                 @endif
