@@ -74,7 +74,7 @@
                         @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
                                 @foreach($users as $user)
 {{--                                    {{dd($user->mansun_user_id)}}--}}
-                                    @if(($user->mansun_role_id == 1 && $user->mansun_user_id == \Illuminate\Support\Facades\Auth::user()->id) || ($user->mansun_role_id == 2 && $user->mansun_user_id == \Illuminate\Support\Facades\Auth::user()->id))
+                                    @if($task->divisi['id'] == $user->divisi['id'] && ($user->role['id'] == 1 || $user->role['id'] == 2))
                                         <div class="row no-gutters">
                                             <div class="col-md-4">
                                                 <button style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="See Task Detail"
@@ -99,7 +99,7 @@
                                         </div>
 
 
-                                        @elseif(($user->mansun_role_id == 3 && $user->mansun_user_id == \Illuminate\Support\Facades\Auth::user()->id))
+                                        @elseif($task->divisi['id'] == $user->divisi['id'] && ($user->role['id'] == 3))
                                         <div class="row no-gutters">
                                             <div class="col-md-4">
                                                 <button style="border-radius: 50%; margin-left: 37%" type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="See Task Detail"
