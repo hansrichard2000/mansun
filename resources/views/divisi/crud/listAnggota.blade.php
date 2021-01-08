@@ -20,12 +20,11 @@
                     @include('divisi.crud.tambahAnggota')
                 @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
                     @foreach($members as $member)
-                        @if($id == $member->divisi['id'] && $member->role['id'] == 1 && $member->user['id'] == \Illuminate\Support\Facades\Auth::user()->id)
+                        @if($member->role['id'] == 1 && $member->user['id'] == \Illuminate\Support\Facades\Auth::user()->id)
                             <button type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
                                     data-toggle="modal"
                                     data-target="#createAnggotaFromHOD">Tambah Anggota</button>
                             @include('divisi.crud.tambahAnggotaFromHOD')
-                        @endif
                     @endforeach
                 @endif
             @endauth
@@ -44,7 +43,7 @@
                             <th scope="col">Action</th>
                         @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
                             @foreach($members as $member)
-                                @if($id == $member->divisi['id'] && $member->role['id']  == 1 && $member->user['id'] == \Illuminate\Support\Facades\Auth::user()->id)
+                                @if($member->role['id']  == 1 && $member->user['id'] == \Illuminate\Support\Facades\Auth::user()->id)
                                     <th scope="col">Action</th>
                                 @endif
                             @endforeach
@@ -74,10 +73,11 @@
                                     </td>
 
                                         </tr>
+                                        @break
                                     @endforeach
                                 @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
 {{--                                    @foreach(\illuminate\Support\Facades\Auth::user()->roles as $userRoles)--}}
-                                        @if($id == $member->divisi['id'] && $member->role['id']  == 1 && $member->user['id'] == \Illuminate\Support\Facades\Auth::user()->id)
+                                        @if($member->role['id']  == 1 && $member->user['id'] == \Illuminate\Support\Facades\Auth::user()->id)
                                         @foreach($members as $member)
 
                                             <tr class="text-center">

@@ -75,7 +75,6 @@ class DivisiController extends Controller
 
         //4. ngambil semua user di table user yang tidak ada dalam query step ke tiga
         $userList = User::all()->whereNotIn('id', $dvs)->where('is_admin', '0');
-
         //OMAIGADDD!!!!
 
         return view('divisi.crud.listAnggota', compact('members','userList', 'roles', 'member', 'id'));
