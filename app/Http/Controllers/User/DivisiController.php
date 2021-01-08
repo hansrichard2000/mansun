@@ -57,8 +57,12 @@ class DivisiController extends Controller
         //return object model Divisi yang dipencet user
         $member = Divisi::findOrFail($id);
 
+
         //return object model many to many dari user yang terdaftar pada divisi yang dipencet user
         $members = DivisiRoleUser::all()->where('mansun_divisi_id', $id);
+
+        $listDivisis = Divisi::all()->where('proker_id', $member->proker_id)->pluck('id')->toArray();
+        $anggotas = DivisiRoleUser::all()->whereIn('mansun_divisi_id', $listDivisis);
 
         //return semua jenis role
         $roles = Role::all();
@@ -77,7 +81,7 @@ class DivisiController extends Controller
         $userList = User::all()->whereNotIn('id', $dvs)->where('is_admin', '0');
         //OMAIGADDD!!!!
 
-        return view('divisi.crud.listAnggota', compact('members','userList', 'roles', 'member', 'id'));
+        return view('divisi.crud.listAnggota', compact('anggotas', 'members','userList', 'roles', 'member', 'id'));
     }
 
     /**
