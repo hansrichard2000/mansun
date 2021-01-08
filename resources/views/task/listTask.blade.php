@@ -73,6 +73,7 @@
                         </div>
                         @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
                                 @foreach($users as $user)
+{{--                                    {{dd($user->mansun_user_id)}}--}}
                                     @if(($user->mansun_role_id == 1 && $user->mansun_user_id == \Illuminate\Support\Facades\Auth::user()->id) || ($user->mansun_role_id == 2 && $user->mansun_user_id == \Illuminate\Support\Facades\Auth::user()->id))
                                         <div class="row no-gutters">
                                             <div class="col-md-4">

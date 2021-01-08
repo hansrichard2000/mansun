@@ -21,7 +21,7 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = Task::all()->where('penanggung_jawab', Auth::user()->id);
-        $users = User::all();
+        $users = DivisiRoleUser::all()->whereIn('mansun_user_id', Auth::user()->id);
         return view('task.listTask', compact('tasks', 'users'));
     }
 
