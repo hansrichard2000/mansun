@@ -18,6 +18,15 @@
                         @csrf
                         <input type="submit" id="submit" name="submit" value="Edit Proker" class="btn bg-mansun-blue text-white float-left mr-5">
                     </form>
+                @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
+                    @foreach($users as $user)
+                        @if($user->mansun_role_id == 1 && $user->mansun_user_id == \Illuminate\Support\Facades\Auth::user()->id)
+                            <form action="{{route('user.proker.edit', $prokers)}}" method="GET">
+                                @csrf
+                                <input type="submit" id="submit" name="submit" value="Edit Proker" class="btn bg-mansun-blue text-white float-left mr-5">
+                            </form>
+                        @endif
+                    @endforeach
                 @endif
             @endauth
         </div>
@@ -29,9 +38,9 @@
                     <li>Pelaksanaan : {{$prokers->tanggal_mulai}} - {{$prokers->tanggal_akhir}}</li>
                     <li>Penganggaran :
                         <ul type="square">
-                            <li>Pemasukan : {{$prokers->pemasukan}}</li>
-                            <li>Pengeluaran : {{$prokers->pengeluaran}}</li>
-                            <li>Rekapitulasi : {{$prokers->pemasukan - $prokers->pengeluaran}}</li>
+                            <li>Pemasukan : @currency($prokers->pemasukan)</li>
+                            <li>Pengeluaran : @currency($prokers->pengeluaran)</li>
+                            <li>Rekapitulasi : @currency($prokers->pemasukan - $prokers->pengeluaran)</li>
                         </ul>
                     </li>
                     <li>
@@ -74,6 +83,15 @@
                             data-toggle="modal"
                             data-target="#create">Tambah Divisi</button>
                     @include('divisi.crud.create')
+                @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
+                    @foreach($users as $user)
+                        @if($user->mansun_role_id == 1 && $user->mansun_user_id == \Illuminate\Support\Facades\Auth::user()->id)
+                            <button type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
+                                    data-toggle="modal"
+                                    data-target="#createFromHOD">Tambah Divisi</button>
+                            @include('divisi.crud.createFromHOD')
+                        @endif
+                    @endforeach
                 @endif
             @endauth
         </div>
@@ -141,8 +159,6 @@
 
                                     @endif
                                 @endforeach
-
-
                             @endif
                     @endauth
                 </div>

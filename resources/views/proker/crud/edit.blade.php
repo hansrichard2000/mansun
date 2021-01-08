@@ -10,7 +10,14 @@
             <h3 class="text-dark mb-0">Edit Program Kerja</h3>
         </div>
         <hr class="garisKuning">
-        <form method="POST" action="{{route('admin.proker.update', $proker)}}" enctype="multipart/form-data">
+        <form method="POST" action="
+            @auth()
+                @if(\illuminate\Support\Facades\Auth::user()->isAdmin())
+                    {{route('admin.proker.update', $proker)}}
+                @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
+                    {{route('user.proker.update', $proker)}}
+                @endif
+            @endauth" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="_method" value="PATCH">
             <input type="hidden" name="periode_id" value="{{$proker->periode_id}}">
