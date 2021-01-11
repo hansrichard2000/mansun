@@ -22,7 +22,7 @@
                 @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
                     @foreach($anggotas as $anggota)
                         @if($anggota->user['id'] == \Illuminate\Support\Facades\Auth::user()->id)
-                            @if($anggota->role['id'] == 1)
+                            @if($anggota->role['id'] == 1 || $anggota->role['id'] == 2)
                             <button type="button" class="btn bg-mansun-blue text-white float-left mr-5" title="Add guest to this event"
                                     data-toggle="modal"
                                     data-target="#createAnggotaFromHOD">Tambah Anggota</button>
