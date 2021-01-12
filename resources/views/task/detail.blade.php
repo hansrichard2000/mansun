@@ -53,7 +53,7 @@
                         </div>
                     @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
                         @foreach($users as $user)
-                            @if(($user->mansun_role_id == 1 && $user->mansun_user_id == \Illuminate\Support\Facades\Auth::user()->id) || ($user->mansun_role_id == 2 && $user->mansun_user_id == \Illuminate\Support\Facades\Auth::user()->id))
+                            @if(($user->mansun_role_id == 1 && $user->mansun_user_id == \Illuminate\Support\Facades\Auth::user()->id && $task->divisi_id == $user->mansun_divisi_id) || ($user->mansun_role_id == 2 && $user->mansun_user_id == \Illuminate\Support\Facades\Auth::user()->id && $task->divisi_id == $user->mansun_divisi_id))
                                 <!-- Modal footer -->
                                     <div class="modal-footer">
                                         <form method="GET" action="{{route('user.task.edit', $task->id)}}">

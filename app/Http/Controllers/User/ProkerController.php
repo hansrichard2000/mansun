@@ -69,7 +69,7 @@ class ProkerController extends Controller
         //kalau divisi HOD, bisa liat divisi lainn juga
         //strtolower untuk memastikan gak ada typo jadi di lowercase
         if (strtolower($name) == "hod"){
-            $divisis = Divisi::all()->where('proker_id', $id);
+            $divisis = Divisi::all()->where('proker_id', $id)->sortBy('nama_divisi', SORT_NATURAL | SORT_FLAG_CASE);
         }
 
         $dvs2 = $divisis->pluck('id')->toArray();

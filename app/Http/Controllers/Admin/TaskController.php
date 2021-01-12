@@ -20,7 +20,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $tasks = Task::all();
+        $tasks = Task::all()->sortBy('deadline');
         return view('task.listTask', compact('tasks'));
     }
 

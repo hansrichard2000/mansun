@@ -119,7 +119,7 @@ class ProkerController extends Controller
      */
     public function show($id)
     {
-        $divisis = Divisi::all()->where('proker_id', $id);
+        $divisis = Divisi::all()->where('proker_id', $id)->sortBy('nama_divisi', SORT_NATURAL | SORT_FLAG_CASE);
 //        dd($divisis);
         $prokers = Proker::find($id);
 //        dd($prokers);
