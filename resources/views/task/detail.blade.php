@@ -24,7 +24,7 @@
                     @if($task->link_hasil_kerja == null)
                         <p id="link_hasil_kerja"> - </p>
                     @else
-                        <p id="link_hasil_kerja">{{$task->link_hasil_kerja}}</p>
+                        <p id="link_hasil_kerja"> <a href="{{$task->link_hasil_kerja}}">{{$task->link_hasil_kerja}}</a></p>
                     @endif
 
                     <b><label id="label_1" for="penangungjawab">Penangung Jawab</label></b>

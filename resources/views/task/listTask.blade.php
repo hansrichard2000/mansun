@@ -120,6 +120,7 @@
                                                             data-toggle="modal"
                                                             data-target="#submit_task{{$task->id}}">Update</button>
                                                 </div>
+                                                @include('task.user.submit')
                                     @endif
                                     @endif
                                 @endforeach

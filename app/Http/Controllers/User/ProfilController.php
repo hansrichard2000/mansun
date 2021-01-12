@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Divisi;
 use App\Models\DivisiRoleUser;
 use App\Models\Lecturer;
 use App\Models\Student;
+use App\Models\Task;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -83,12 +85,23 @@ class ProfilController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Task $task
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Task $task)
     {
-        //
+//        if ($request->link_hasil_kerja == null){
+//            $task->update([
+//                'link_hasil_kerja' => $request->link_hasil_kerja,
+//                'status_task_id' => '1',
+//            ]);
+//        }else{
+//            $task->update([
+//                'link_hasil_kerja' => $request->link_hasil_kerja,
+//                'status_task_id' => '2',
+//            ]);
+//        }
+//        return redirect()->route('user.proker.show', Divisi::find($request->divisi_id)->proker_id);
     }
 
     /**

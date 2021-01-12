@@ -145,6 +145,29 @@ class TaskController extends Controller
     }
 
     /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Task $task
+     * @return \Illuminate\Http\Response
+     */
+    public function updatelink(Request $request, Task $task)
+    {
+        if ($request->link_hasil_kerja == null){
+            $task->update([
+                'link_hasil_kerja' => $request->link_hasil_kerja,
+                'status_task_id' => '1',
+            ]);
+        }else{
+            $task->update([
+                'link_hasil_kerja' => $request->link_hasil_kerja,
+                'status_task_id' => '2',
+            ]);
+        }
+        return redirect()->route('user.proker.show', Divisi::find($request->divisi_id)->proker_id);
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id

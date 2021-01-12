@@ -9,7 +9,7 @@
             </div>
             <!-- Modal body -->
             <div class="modal-body" style="text-align: left;">
-                <form action="{{route('user.task.update', $task)}}" method="post">
+                <form action="{{route('user.task.updatelink', $task)}}" method="post">
                     {{ csrf_field() }}
                     <input type="hidden" name="_method" value="PATCH">
                     <div class="form-group">
