@@ -60,7 +60,6 @@ Route::group([
 ], function (){
     Route::post('task/reject', [UserTaskController::class, 'reject'])->name('task.reject');
     Route::post('task/approve', [UserTaskController::class, 'approve'])->name('task.approve');
-    Route::patch('task/{tasklink}', [UserTaskController::class, 'updatelink'])->name('task.updatelink');
 
     Route::resource('periode', UserPeriodeController::class);
     Route::resource('proker', UserProkerController::class);

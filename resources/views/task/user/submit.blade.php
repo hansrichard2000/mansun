@@ -9,14 +9,19 @@
             </div>
             <!-- Modal body -->
             <div class="modal-body" style="text-align: left;">
-                <form action="{{route('user.task.updatelink', $task)}}" method="post">
+                <form action="{{route('user.task.update', $task)}}" method="post">
                     {{ csrf_field() }}
                     <input type="hidden" name="_method" value="PATCH">
                     <div class="form-group">
                         <label for="nama_divisi">Link : </label>
                         <input type="text" class="form-control" value="{{$task->link_hasil_kerja}}" id="link_hasil_kerja" name="link_hasil_kerja">
                     </div>
+                    <input type="hidden" name="judul" value="{{$task->judul}}">
+                    <input type="hidden" name="deskripsi" value="{{$task->deskripsi}}">
+                    <input type="hidden" name="deadline" value="{{$task->deadline}}">
+                    <input type="hidden" name="penanggung_jawab" value="{{$task->penanggung_jawab}}">
                     <input type="hidden" name="divisi_id" value="{{$task->divisi_id}}">
+                    <input type="hidden" name="created_by" value="{{$task->created_by}}">
                     <div class="form-group">
                         <button class="btn bg-mansun-blue text-white" type="submit">Submit</button>
                     </div>
