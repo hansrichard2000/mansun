@@ -18,5 +18,6 @@ class JabatanSeeder extends Seeder
         $jabatan = new Title();
         $jabatan->name = 'Ketua Program Studi';
         $jabatan->save();
+
     }
 }

@@ -21,5 +21,11 @@ class ProgramStudiSeeder extends Seeder
         $program_studi->name = 'Informatika';
         $program_studi->save();
 
+        //Seeder Program Studi ISB
+        $program_studi = new Department();
+        $program_studi->initial = 'ISB';
+        $program_studi->name = 'Information and System Business';
+        $program_studi->save();
+
     }
 }

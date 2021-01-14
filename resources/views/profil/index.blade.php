@@ -105,7 +105,13 @@
                                     <img src="{{asset('image/group92.jpg')}}" class="card-img-top" style="height: 180px">
                                     <div class="card-body p-0 ml-3" >
                                         <strong>{{$riwayat->divisi->proker->nama_proker}}</strong>
-                                        <h4 class="card-text"><strong>{{$riwayat->role->role}} {{$riwayat->divisi->nama_divisi}}</strong></h4>
+                                        @if($riwayat->role->role == "HOD")
+                                            <h4 class="card-text"><strong>Head of Department</strong></h4>
+                                        @elseif($riwayat->role == "Koor")
+                                            <h4 class="card-text"><strong>Koor {{$riwayat->divisi->nama_divisi}}</strong></h4>
+                                        @else
+                                            <h4 class="card-text"><strong>Anggota {{$riwayat->divisi->nama_divisi}}</strong></h4>
+                                        @endif
                                         <strong>{{date('j F Y', strtotime($riwayat->divisi->proker->tanggal_mulai))}} - {{date('j F Y', strtotime($riwayat->divisi->proker->tanggal_akhir))}}</strong>
                                     </div>
                                 </div>

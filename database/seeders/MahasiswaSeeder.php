@@ -55,5 +55,6 @@ class MahasiswaSeeder extends Seeder
         $mahasiswa->photo = 'tes2.jpg';
         $mahasiswa->department_id = '1';
         $mahasiswa->save();
+
     }
 }
