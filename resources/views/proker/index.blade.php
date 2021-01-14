@@ -24,17 +24,17 @@
             <div class="card">
                 <div class="card-body">
                     <svg class="float-left" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="20" height="20" fill="#68CC2A"/>
-                    </svg>
-                    <p class="float-left">Berlangsung &emsp;</p>
-                    <svg class="float-left" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="20" height="20" fill="#FF2828"/>
                     </svg>
-                    <p class="float-left">Selesai &emsp;</p>
+                    <p class="float-left">Belum dimulai &emsp;</p>
                     <svg class="float-left" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="20" height="20" fill="#2A65FC"/>
                     </svg>
-                    <p class="float-left">Belum dimulai &emsp;</p>
+                    <p class="float-left">Berlangsung &emsp;</p>
+                    <svg class="float-left" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="20" height="20" fill="#68CC2A"/>
+                    </svg>
+                    <p class="float-left">Selesai &emsp;</p>
                 </div>
             </div>
 
@@ -67,9 +67,9 @@
                 @endauth">
                     <div class="card">
                         @if($proker->gambar_proker == null)
-                            <img src="{{asset('image/group92.jpg')}}" class="card-img-top img-fluid" style="height: 180px; padding-right: 15px; background-color: #2A65FC">
+                            <img src="{{asset('image/group92.jpg')}}" class="card-img-top img-fluid" style="height: 180px; padding-right: 15px; background-color: #FF2828">
                         @else
-                            <img src="../../image/prokerImg/{{$proker->gambar_proker}}" class="card-img-top img-fluid" style="height: 180px; padding-right: 5%; background-color: #2A65FC">
+                            <img src="../../image/prokerImg/{{$proker->gambar_proker}}" class="card-img-top img-fluid" style="height: 180px; padding-right: 5%; background-color: #FF2828">
                         @endif
                         <div class="card-body p-0 ml-3" >
                             <p class="card-text p-2"><strong>{{$proker->nama_proker}}</strong></p>
@@ -90,9 +90,9 @@
                         @endauth">
                             <div class="card">
                                 @if($proker->gambar_proker == null)
-                                    <img src="{{asset('image/group92.jpg')}}" class="card-img-top img-fluid" style="height: 180px;padding-right: 15px; background-color: #47FC2A">
+                                    <img src="{{asset('image/group92.jpg')}}" class="card-img-top img-fluid" style="height: 180px;padding-right: 15px; background-color: #2A65FC">
                                 @else
-                                    <img src="../../image/prokerImg/{{$proker->gambar_proker}}" class="card-img-top img-fluid" style="height: 180px; padding-right: 5%; background-color: #47FC2A">
+                                    <img src="../../image/prokerImg/{{$proker->gambar_proker}}" class="card-img-top img-fluid" style="height: 180px; padding-right: 5%; background-color: #2A65FC">
                                 @endif
                                 <div class="card-body p-0 ml-3" >
                                     <p class="card-text p-2"><strong>{{$proker->nama_proker}}</strong></p>
@@ -113,9 +113,9 @@
                         @endauth">
                             <div class="card">
                                 @if($proker->gambar_proker == null)
-                                    <img src="{{asset('image/group92.jpg')}}" class="card-img-top img-fluid" style="height: 180px; padding-right: 15px; background-color: #FC2A2A">
+                                    <img src="{{asset('image/group92.jpg')}}" class="card-img-top img-fluid" style="height: 180px; padding-right: 15px; background-color: #68CC2A">
                                 @else
-                                    <img src="../../image/prokerImg/{{$proker->gambar_proker}}" class="card-img-top img-fluid" style="height: 180px; padding-right: 5%; background-color: #FC2A2A">
+                                    <img src="../../image/prokerImg/{{$proker->gambar_proker}}" class="card-img-top img-fluid" style="height: 180px; padding-right: 5%; background-color: #68CC2A">
                                 @endif
                                 <div class="card-body p-0 ml-3" >
                                     <p class="card-text p-2"><strong>{{$proker->nama_proker}}</strong></p>
