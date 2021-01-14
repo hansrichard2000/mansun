@@ -1,5 +1,6 @@
 .sidebar .nav-item .nav-link.active {
     color: rgba(0,0,0,1);
+    background-color: rgba(0,0,0,0.2);
 }
 
 .sidebar .nav-item .nav-link.active i {
@@ -7,19 +8,21 @@
  }
 
 .sidebar-dark .nav-item .nav-link {
-    color: rgba(0,0,0,0.3);
+    color: rgba(0,0,0,0.9);
 }
 
 .sidebar-dark .nav-item .nav-link i {
-    color: rgba(0,0,0,0.3);
+    color: rgba(0,0,0,0.9);
 }
 
 .sidebar-dark .nav-item .nav-link:hover {
     color: rgba(0,0,0,1);
+    background-color: rgba(0,0,0,0.1);
 }
 
 .sidebar-dark .nav-item .nav-link:hover i{
     color: rgba(0,0,0,1);
+    background-color: rgba(0,0,0,0.1);
 }
 
 .fontBeranda{
@@ -32,4 +35,12 @@
 
 .garisKuning{
     border-color: #FFC42D;
+}
+
+.sidebar-dark #sidebarToggle{
+    background-color: darkgoldenrod;
+}
+
+.sidebar-dark #sidebarToggle:hover{
+    background-color: rgba(50,50,50,0.6);
 }
