@@ -10,9 +10,9 @@
             <li class="nav-item"><a class="nav-link" href="{{route('admin.task.index')}}"><i class="far fa-calendar-alt"></i><span>Daftar Tugas</span></a></li>
             <li class="nav-item"><a class="nav-link active" href="{{route('admin.user.index')}}"><i class="fas fa-user"></i><span>User Management</span></a></li>
             <li class="nav-item"><a class="nav-link" href="{{route('admin.profil.index')}}"><i class="far fa-user-circle"></i><span>Profil</span></a></li>
-            <li class="nav-item"><a class="nav-link" href=""><i class="fas fa-user-graduate"></i><span>Student List</span></a></li>
-            <li class="nav-item"><a class="nav-link" href=""><i class="fas fa-user-tie"></i><span>Lecturer List</span></a></li>
-            <li class="nav-item"><a class="nav-link" href=""><i class="fas fa-question-circle"></i><span>Help</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="{{route('admin.student.index')}}"><i class="fas fa-user-graduate"></i><span>Student List</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="{{route('admin.lecturer.index')}}"><i class="fas fa-user-tie"></i><span>Lecturer List</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="/help"><i class="fas fa-question-circle"></i><span>Help</span></a></li>
         </ul>
         <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
     </div>

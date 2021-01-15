@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\PeriodeController;
 use App\Http\Controllers\Admin\ProfilController;
 use App\Http\Controllers\Admin\ProkerController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\StudentController;
+use App\Http\Controllers\Admin\LecturerController;
 use App\Http\Controllers\Admin\TaskController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\User\DivisiController as UserDivisiController;
@@ -51,6 +53,8 @@ Route::group([
     Route::resource('task', TaskController::class);
     Route::resource('role', RoleController::class);
     Route::resource('profil', ProfilController::class);
+    Route::resource('student', StudentController::class);
+    Route::resource('lecturer', LecturerController::class);
 });
 
 Route::group([
@@ -69,6 +73,9 @@ Route::group([
     Route::resource('profil', UserProfilController::class);
 });
 
+Route::get('help', function (){
+    return view('layouts.help');
+});
 
 Route::get('viewlogin', function (){
    return view('login.index');
