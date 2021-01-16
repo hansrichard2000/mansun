@@ -52,7 +52,7 @@
                     <td>{{$student->gender}}</td>
                     <td>{{$student->nim}}</td>
                     <td>{{$student->batch}}</td>
-                    <td>{{$student->department['name']}}</td>
+                    <td>{{$student->department['initial']}}</td>
 
                     <td>
                         <div class="row no-gutters">

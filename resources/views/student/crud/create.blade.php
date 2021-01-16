@@ -10,48 +10,55 @@
 
 @section('content')
     <div class="container-fluid">
-        <div class="d-sm-flex justify-content-between align-items-center mb-4">
-            <h3 class="text-dark mb-0">{{$divisis->nama_divisi}}</h3>
-
-        </div>
-        <hr class="garisKuning">
-        <form method="POST" action="
-            @auth
-        @if(\illuminate\Support\Facades\Auth::user()->isAdmin())
-        {{route('admin.task.store')}}
-        @elseif(\illuminate\Support\Facades\Auth::user()->isUser())
-        {{route('user.task.store')}}
-        @endif
-        @endauth">
+        <form method="POST" action="{{route('admin.student.store')}}">
             @csrf
-            <input type="hidden" value="{{$divisis->id}}" id="divisi_id" name="divisi_id">
             <div class="form-group">
-                <label for="penanggung_jawab">Penanggung Jawab</label>
-                <select class="form-select" id=penanggung_jawab"" name="penanggung_jawab" aria-label="Floating label select example">
-                    @foreach ($users as $user)
-                        @if(isset($user->student))
-                            <option value="{{$user->id}}">{{$user->student['name']}}</option>
-                        @endif
+                <label for="nama">Nama : </label>
+                <input type="text" class="form-control" id="nama" name="name" placeholder="Input nama mahasiswa">
+            </div>
+            <div class="form-group">
+                <label for="nim">NIM : </label>
+                <input type="text" class="form-control" id="nim" name="nim" placeholder="Input nomor induk mahasiswa">
+            </div>
+            <div class="form-group">
+                <label for="gender">Jenis Kelamin : </label><br>
+                <input type="radio" id="L" name="gender" value="L">
+                <label for="L">Laki-laki</label><br>
+                <input type="radio" id="P" name="gender" value="P">
+                <label for="P">Perempuan</label><br>
+            </div>
+            <div class="form-group">
+                <label for="email">Email : </label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Input email mahasiswa">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone : </label>
+                <input type="number" class="form-control" id="phone" name="phone" placeholder="Input nomor telepon mahasiswa">
+            </div>
+            <div class="form-group">
+                <label for="line_account">Line Account : </label>
+                <input type="text" class="form-control" id="line_account" name="line_account" placeholder="Input ID Line mahasiswa">
+            </div>
+            <div class="form-group">
+                <label for="batch">Batch : </label>
+                <input type="number" class="form-control" id="batch" name="batch" placeholder="Input tahun angkatan mahasiswa">
+            </div>
+            <div class="form-group">
+                <label for="description">Deskripsi : </label>
+                <textarea rows="3" class="form-control" id="description" name="description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="photo">Foto : </label>
+                <input type="file" class="form-control-file" id="photo" name="photo">
+            </div>
+            <div class="form-group">
+                <label for="department">Jurusan : </label><br>
+                <select class="form-select" id="department" name="department_id" aria-label="Floating label select example">
+                    @foreach($departments as $department)
+                    <option value="{{$department->department_id}}">{{$department->initial}} ({{$department->name}})</option>
                     @endforeach
                 </select>
             </div>
-            <div class="form-group">
-                <label for="judul">Judul Tugas : </label>
-                <input type="text" class="form-control" id="judul" name="judul" placeholder="Input nama program kerja yang akan diisi...">
-            </div>
-            <div class="form-group">
-                <label for="deskripsi">Deskripsi : </label>
-                <textarea rows="3" class="form-control" id="deskripsi" name="deskripsi"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="deadline">Tenggat Waktu : </label>
-                <input type="date" class="form-control" id="deadline" name="deadline">
-            </div>
-            <div class="form-group">
-                <label for="link_hasil_kerja">Link Hasil Kerja : </label>
-                <input type="text" class="form-control" id="link_hasil_kerja" name="link_hasil_kerja" placeholder="Input link proposal kalian...">
-            </div>
-            <input type="hidden" name="created_by" value="{{\Illuminate\Support\Facades\Auth::user()->id}}">
             <br>
             <input class="btn bg-mansun-blue text-white" type="submit" id="submit" name="submit" value="Submit">
         </form>
