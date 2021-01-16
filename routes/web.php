@@ -74,7 +74,7 @@ Route::group([
 });
 
 Route::get('help', function (){
-    return view('layouts.help');
+    return view('help.index');
 });
 
 Route::get('viewlogin', function (){

@@ -64,17 +64,8 @@
                                         data-target="#detail_student{{$student->student_id}}"><i class="fas fa-search" aria-hidden="true" style="color: #ffffff"></i></button>
                             </div>
 
-                        {{--                                --}}{{--Delete User Button--}}
-                        {{--                                <div class="col-md-4 pl-4">--}}
-                        {{--                                    <form action="{{ route('admin.lecturer.destroy', $user)}}" method="POST">--}}
-                        {{--                                        {{ csrf_field() }}--}}
-                        {{--                                        <input name="_method" type="hidden" value="DELETE">--}}
-                        {{--                                        <input name="type" type="hidden" value="dosen">--}}
-                        {{--                                        <button type="submit" class="btn btn-danger text-white" title="Delete this user" style="border-radius: 50%"><i class="fas fa-trash" aria-hidden="true" style="color: #ffffff"></i></button>--}}
-                        {{--                                    </form>--}}
-
                         @include('student.detail')
-                                                        </div>
+                        </div>
                     </td>
                 </tr>
 
