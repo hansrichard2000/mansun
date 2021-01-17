@@ -10,22 +10,15 @@
 
 @section('content')
     <div class="container">
-    <h1>ManSUn</h1>
 
-        <h2>Apa itu Mansun?</h2><br>
-    -	Mansun merupakan projek yang menggabungkan website dan aplikasi untuk membantu para SU dalam pengaturan Student Union
+    <h1>Panduan ManSUn Web</h1><br>
 
-    <br>
-    <br>
+        <h2>Apa itu ManSUn?</h2><br>
+        <p style="font-size: 20px">ManSUn Web merupakan sebuah website yang dapat membantu mahasiswa mengorganisir berbagai tugas di dalam program kerja Student Union.</p><br><br>
 
-    <h2>Beranda</h2><br><br>
+    <h2>Beranda</h2><br>
 
-
-
-    -	Di halaman ini, anda dapat melihat sejumlah periode yang hanya bisa dilihat Ketika anda meupakan salah satu pengurus dari proker di periode tersebut, dan beberapa tombol untuk menavigasikan ke halaman lain.
-
-    <br>
-    <br>
+        <p style="font-size: 20px">Pada halaman ini, anda dapat melihat segala periode dimana anda sedang terlibat. selain itu, terdapat beberapa tombol untuk berpindah halaman lain.</p><br><br>
 
         <h2>Halaman Periode</h2><br><br>
 
@@ -33,143 +26,99 @@
             <thead class="table-dark">
             <tr>
                 <th scope="col" colspan="5">
-                    Permission
+                    Hak akses halaman periode
                 </th>
             </tr>
 
             <tr>
                 <th></th>
                 <th scope="row">Admin</th>
-                <th>HOD</th>
-                <th>Koor</th>
-                <th>User</th>
+                <th scope="row">HOD</th>
+                <th scope="row">Koor</th>
+                <th scope="row">User</th>
             </tr>
             </thead>
 
             <tr>
-                <th scope="col">C</th>
-                <td scope="col" >
-                    &#10003
-                </td>
-
-                <td scope="col">
-
-                </td>
-
-                <td scope="col">
-
-                </td>
-
-                <td scope="col">
-
-                </td>
-            </tr>
-
-            <tr>
-                <th>R</th>
-                <td scope="col">
-                    &#10003
-                </td>
-                <td scope="col">
-                    &#10003
-                </td>
-                <td scope="col">
-                    &#10003
-                </td>
-                <td scope="col">
-                    &#10003
-                </td>
-            </tr>
-
-            <tr>
-                <th>U</th>
-                <td scope="col">
-
-                </td>
+                <th scope="col">Create</th>
+                <td scope="col" >&#10003</td>
                 <td scope="col"></td>
                 <td scope="col"></td>
                 <td scope="col"></td>
             </tr>
 
             <tr>
-                <th>D</th>
+                <th scope="col">Read</th>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+            </tr>
+
+            <tr>
+                <th scope="col">Update</th>
+                <td scope="col"></td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+            </tr>
+
+            <tr>
+                <th scope="col">Delete</th>
                 <td scope="col"></td>
                 <td scope="col"></td>
                 <td scope="col"></td>
                 <td scope="col"></td>
             </tr>
         </table>
-    -	Jika anda menekan gambar periode, maka secara langsung akan diarahkan ke halaman Periode, dan anda dapat melihat list proker apa saja yang ada di periode tersebut. Seperti Periode, anda hanya dapat melihat proker yang anda ikuti.
 
-    <br>
-    <br>
+        <p style="font-size: 20px">Jika anda menekan salah satu gambar periode, maka anda akan diarahkan ke halaman list program kerja di dalam periode tersebut. Pada halaman ini anda hanya dapat melihat proker yang anda ikuti.</p><br><br>
 
-        <h2>Halaman Proker</h2><br><br>
+        <h2>Halaman Program Kerja</h2><br><br>
 
         <table class="table table-striped">
             <thead class="table-dark">
             <tr>
                 <th scope="col" colspan="5">
-                    Permission
+                    Hak akses halaman program kerja
                 </th>
             </tr>
 
             <tr>
                 <th></th>
                 <th scope="row">Admin</th>
-                <th>HOD</th>
-                <th>Koor</th>
-                <th>User</th>
+                <th scope="row">HOD</th>
+                <th scope="row">Koor</th>
+                <th scope="row">User</th>
             </tr>
             </thead>
 
             <tr>
-                <th scope="col">C</th>
-                <td scope="col" >
-                    &#10003
-                </td>
-
-                <td scope="col">
-                    &#10003
-                </td>
-
-                <td scope="col">
-                    &#10003
-                </td>
-
-                <td scope="col">
-
-                </td>
+                <th scope="col">Create</th>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+                <td scope="col"></td>
             </tr>
 
             <tr>
-                <th>R</th>
-                <td scope="col">
-                    &#10003
-                </td>
-                <td scope="col">
-                    &#10003
-                </td>
-                <td scope="col">
-                    &#10003
-                </td>
-                <td scope="col">
-                    &#10003
-                </td>
+                <th scope="col">Read</th>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
             </tr>
 
             <tr>
-                <th>U</th>
-                <td scope="col">
-                    &#10003
-                </td>
+                <th scope="col">Update</th>
+                <td scope="col">&#10003</td>
                 <td scope="col">&#10003</td>
                 <td scope="col"></td>
                 <td scope="col"></td>
             </tr>
 
             <tr>
-                <th>D</th>
+                <th>Delete</th>
                 <td scope="col"></td>
                 <td scope="col"></td>
                 <td scope="col"></td>
@@ -177,13 +126,11 @@
             </tr>
         </table>
 
-    -	Jika anda menekan salah satu proker, maka anda akan diarahkan ke halaman Proker, dimana dapat melihat detail-detail Proker tersebut.<br>
-    -	Anda dapat melihat deksripsi Proker tersebut dan melihat list divisi yang anda ikuti.<br>
-    -	Khusus HOD dan Admin, mereka dapat melihat seluruh list divisi, setiap tugas-tugasnya, dan list anggota divisi tersebut.<br>
-    -	Anda dapat melihat anggota-anggota dengan menekan tombol “Lihat anggota”
-
-    <br>
-    <br>
+        <p style="font-size: 20px">
+        Jika anda menekan salah satu program kerja, maka anda akan diarahkan ke halaman detail beserta list Divisi di dalam program kerja tersebut.<br><br>
+            Anda dapat melihat daftar anggota dengan menekan tombol “Lihat anggota” yang berada di bagian kanan setiap tabel divisi.<br><br>
+            <b>(HOD)</b> Dapat melihat seluruh list divisi, beserta tugas dan anggota divisi tersebut.<br>
+        </p><br><br>
 
         <h2>Halaman Daftar Anggota</h2><br><br>
 
@@ -191,65 +138,45 @@
             <thead class="table-dark">
             <tr>
                 <th scope="col" colspan="5">
-                    Permission
+                    Hak akses halaman daftar anggota
                 </th>
             </tr>
 
             <tr>
                 <th></th>
                 <th scope="row">Admin</th>
-                <th>HOD</th>
-                <th>Koor</th>
-                <th>User</th>
+                <th scope="row">HOD</th>
+                <th scope="row">Koor</th>
+                <th scope="row">User</th>
             </tr>
             </thead>
 
             <tr>
-                <th scope="col">C</th>
-                <td scope="col" >
-                    &#10003
-                </td>
-
-                <td scope="col">
-                    &#10003
-                </td>
-
-                <td scope="col">
-                    &#10003
-                </td>
-
-                <td scope="col">
-
-                </td>
+                <th scope="col">Create</th>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+                <td scope="col"></td>
             </tr>
 
             <tr>
-                <th>R</th>
-                <td scope="col">
-                    &#10003
-                </td>
-                <td scope="col">
-                    &#10003
-                </td>
-                <td scope="col">
-                    &#10003
-                </td>
-                <td scope="col">
-                    &#10003
-                </td>
+                <th>Read</th>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
             </tr>
 
             <tr>
-                <th>U</th>
-                <td scope="col">
-                </td>
+                <th>Update</th>
+                <td scope="col"></td>
                 <td scope="col"></td>
                 <td scope="col"></td>
                 <td scope="col"></td>
             </tr>
 
             <tr>
-                <th>D</th>
+                <th>Delete</th>
                 <td scope="col">&#10003</td>
                 <td scope="col">&#10003</td>
                 <td scope="col">&#10003</td>
@@ -257,11 +184,11 @@
             </tr>
         </table>
 
-    -	Di halaman ini, anda dapat melihat list anggota.<br>
-    -	Khusus Admin, HOD, dan Koor, dapat menambahkan dan mengeluarkan Anggota dari divisi sendiri.
-
-    <br>
-    <br>
+        <p style="font-size: 20px">
+        Di halaman ini, anda dapat melihat list anggota beserta role dalam suatu divisi.<br><br>
+            <b>(HOD)</b> Dapat menambahkan dan menghapus anggota dari semua divisi selain divisi HOD.<br>
+            <b>(Koor)</b> Dapat menambahkan dan menghapus anggota dari divisinya.<br>
+        </p><br><br>
 
         <h2>Halaman Daftar Tugas</h2><br><br>
 
@@ -269,230 +196,172 @@
             <thead class="table-dark">
             <tr>
                 <th scope="col" colspan="5">
-                    Permission
+                    Hak akses halaman daftar tugas
                 </th>
             </tr>
 
             <tr>
                 <th></th>
                 <th scope="row">Admin</th>
-                <th>HOD</th>
-                <th>Koor</th>
-                <th>User</th>
+                <th scope="row">HOD</th>
+                <th scope="row">Koor</th>
+                <th scope="row">User</th>
             </tr>
             </thead>
 
             <tr>
-                <th scope="col">C</th>
-                <td scope="col" >
-                    &#10003
-                </td>
-
-                <td scope="col">
-                    &#10003
-                </td>
-
-                <td scope="col">
-                    &#10003
-                </td>
-
-                <td scope="col">
-
-                </td>
+                <th scope="col">Create</th>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+                <td scope="col"></td>
             </tr>
 
             <tr>
-                <th>R</th>
-                <td scope="col">
-                    &#10003
-                </td>
-                <td scope="col">
-                    &#10003
-                </td>
-                <td scope="col">
-                    &#10003
-                </td>
-                <td scope="col">
-                    &#10003
-                </td>
-            </tr>
-
-            <tr>
-                <th>U</th>
-                <td scope="col">
-                    &#10003
-                </td>
+                <th scope="col">Read</th>
+                <td scope="col">&#10003</td>
                 <td scope="col">&#10003</td>
                 <td scope="col">&#10003</td>
                 <td scope="col">&#10003</td>
             </tr>
 
             <tr>
-                <th>D</th>
+                <th scope="col">Update</th>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+            </tr>
+
+            <tr>
+                <th scope="col">Delete</th>
                 <td scope="col">&#10003</td>
                 <td scope="col">&#10003</td>
                 <td scope="col">&#10003</td>
                 <td scope="col"></td>
             </tr>
         </table>
-    -	Di halaman ini, anda dapat melihat list tugas-tugas yang tanggung jawabnya di anda. Teruntuk Koor, anda dapat secara cepat meng-approve dan me-reject tugas anggota.<br>
-    -	Khusus Admin, anda dapat melihat semua list tugas proker di halaman ini, dan memiliki permission yang sama dengan Koor.<br>
-    -	Khusus HOD, memiliki permission yang sama dengan Koor, tetapi bisa melihat semua tugas yang anda merupakan HOD di proker tersebut.
+
+        <p style="font-size: 20px">
+        Pada halaman ini, anda dapat melihat list tugas-tugas dimana anda terdaftar sebagai penanggung jawab.<br><br>
+            <b>(Admin)</b> Dapat melihat semua list tugas dari semua program kerja, dan dapat menerima/menolak tugas dengan cepat<br>
+            <b>(HOD)</b> Memiliki hak akses yang sama dengan admin, tetapi hanya berlaku pada proker tersebut.<br>
+            <b>(Koor)</b> Dapat menerima/menolak tugas anggota divisinya dengan cepat.<br>
+        </p>
 
     <br>
     <br>
 
-        <h2>Halaman User Management</h2><br><br>
+        <h2>Halaman User Management (Exclusive for Admin)</h2><br><br>
         <table class="table table-striped">
             <thead class="table-dark">
             <tr>
                 <th scope="col" colspan="5">
-                    Permission
+                    Hak akses user management
                 </th>
             </tr>
 
             <tr>
                 <th></th>
                 <th scope="row">Admin</th>
-                <th>HOD</th>
-                <th>Koor</th>
-                <th>User</th>
+                <th scope="row">HOD</th>
+                <th scope="row">Koor</th>
+                <th scope="row">User</th>
             </tr>
             </thead>
 
             <tr>
-                <th scope="col">C</th>
-                <td scope="col" >
-                    &#10003
-                </td>
-
-                <td scope="col">
-
-                </td>
-
-                <td scope="col">
-
-                </td>
-
-                <td scope="col">
-
-                </td>
-            </tr>
-
-            <tr>
-                <th>R</th>
-                <td scope="col">
-                    &#10003
-                </td>
-                <td scope="col">
-
-                </td>
-                <td scope="col">
-
-                </td>
-                <td scope="col">
-
-                </td>
-            </tr>
-
-            <tr>
-                <th>U</th>
-                <td scope="col">
-                    &#10003
-                </td>
+                <th scope="col">Create</th>
+                <td scope="col" >&#10003</td>
                 <td scope="col"></td>
                 <td scope="col"></td>
                 <td scope="col"></td>
             </tr>
 
             <tr>
-                <th>D</th>
+                <th scope="col">Read</th>
+                <td scope="col">&#10003</td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+            </tr>
+
+            <tr>
+                <th scope="col">Update</th>
+                <td scope="col">&#10003</td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+            </tr>
+
+            <tr>
+                <th scope="col">Delete</th>
                 <td scope="col">&#10003</td>
                 <td scope="col"></td>
                 <td scope="col"></td>
                 <td scope="col"></td>
             </tr>
         </table>
-    -	Halaman ini merupakan eksklusif untuk Admin, dimana para Admin dapat melihat semua User yang terdaftar di system.<br>
-    -	Admin dapat melihat status user yang sedang login atau tidak.<br>
-    -	Admin dapat menggunakan fitur Suspend dan Delete kepada user-user yang sudah terdaftar di User Management.
 
-    <br>
-    <br>
+        <p style="font-size: 20px">
+        Pada halaman ini, Admin dapat melihat semua user yang terdaftar di database.<br><br>
+            <b>(Admin)</b> Dapat melihat status user yang sedang online dan tidak, serta dapat mengsuspend dan menghapus user yang terdaftar di daftar user.<br>
+        </p><br><br>
 
-        <h2>Halaman List Lecturer dan List Student</h2><br><br>
+        <h2>Halaman Daftar Lecturer dan Student (Exclusive for Admin)</h2><br><br>
         <table class="table table-striped">
             <thead class="table-dark">
             <tr>
                 <th scope="col" colspan="5">
-                    Permission
+                    Hak akses halaman Daftar lecturer dan student
                 </th>
             </tr>
 
             <tr>
                 <th></th>
                 <th scope="row">Admin</th>
-                <th>HOD</th>
-                <th>Koor</th>
-                <th>User</th>
+                <th scope="row">HOD</th>
+                <th scope="row">Koor</th>
+                <th scope="row">User</th>
             </tr>
             </thead>
 
             <tr>
-                <th scope="col">C</th>
-                <td scope="col" >
-                    &#10003
-                </td>
-
-                <td scope="col">
-
-                </td>
-
-                <td scope="col">
-
-                </td>
-
-                <td scope="col">
-
-                </td>
-            </tr>
-
-            <tr>
-                <th>R</th>
-                <td scope="col">
-                    &#10003
-                </td>
-                <td scope="col">
-                </td>
-                <td scope="col">
-                </td>
-                <td scope="col">
-                </td>
-            </tr>
-
-            <tr>
-                <th>U</th>
-                <td scope="col">
-                    &#10003
-
-                </td>
+                <th scope="col">Create</th>
+                <td scope="col">&#10003</td>
                 <td scope="col"></td>
                 <td scope="col"></td>
                 <td scope="col"></td>
             </tr>
 
             <tr>
-                <th>D</th>
-                <td scope="col">                    &#10003
-                </td>
+                <th scope="col">Read</th>
+                <td scope="col">&#10003</td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+            </tr>
+
+            <tr>
+                <th scope="col">Update</th>
+                <td scope="col">&#10003</td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+            </tr>
+
+            <tr>
+                <th scope="col">Delete</th>
+                <td scope="col">&#10003</td>
                 <td scope="col"></td>
                 <td scope="col"></td>
                 <td scope="col"></td>
             </tr>
         </table>
-    -	Halaman ini hanya bisa diakses oleh Admin.<br>
-    -	Admin dapat melihat list dosen/mahasiswa, dan memasukkan ke sistem Mansun (User Management)
 
+        <p style="font-size: 20px">
+        Pada halaman ini, Admin dapat melihat daftar dosen dan mahasiswa yang nantinya bisa didaftarkan sebagai user.<br>
+        </p>
     <br>
     <br>
 
@@ -502,66 +371,45 @@
             <thead class="table-dark">
             <tr>
                 <th scope="col" colspan="5">
-                    Permission
+                    Hak akses halaman profil
                 </th>
             </tr>
 
             <tr>
                 <th></th>
                 <th scope="row">Admin</th>
-                <th>HOD</th>
-                <th>Koor</th>
-                <th>User</th>
+                <th scope="row">HOD</th>
+                <th scope="row">Koor</th>
+                <th scope="row">User</th>
             </tr>
             </thead>
 
             <tr>
-                <th scope="col">C</th>
-                <td scope="col" >
-
-                </td>
-
-                <td scope="col">
-
-                </td>
-
-                <td scope="col">
-
-                </td>
-
-                <td scope="col">
-
-                </td>
-            </tr>
-
-            <tr>
-                <th>R</th>
-                <td scope="col">
-                    &#10003
-                </td>
-                <td scope="col">
-                    &#10003
-                </td>
-                <td scope="col">
-                    &#10003
-                </td>
-                <td scope="col">
-                    &#10003
-                </td>
-            </tr>
-
-            <tr>
-                <th>U</th>
-                <td scope="col">
-
-                </td>
+                <th scope="col">Create</th>
+                <td scope="col"></td>
                 <td scope="col"></td>
                 <td scope="col"></td>
                 <td scope="col"></td>
             </tr>
 
             <tr>
-                <th>D</th>
+                <th scope="col">Read</th>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+            </tr>
+
+            <tr>
+                <th scope="col">Update</th>
+                <td scope="col"></td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+            </tr>
+
+            <tr>
+                <th scope="col">Delete</th>
                 <td scope="col"></td>
                 <td scope="col"></td>
                 <td scope="col"></td>
@@ -569,11 +417,10 @@
             </tr>
         </table>
 
-    -	Di halaman Profil, Admin dapat melihat detail diri sendiri.<br>
-    -	Untuk user / mahasiswa, di halaman profil dapat melihat Riwayat Jabatan apa saja yang sudah pernah diikuti.
-
-        <br>
-        <br>
+        <p style="font-size: 20px">
+        Pada halaman ini anda dapat melihat profil/biodata anda.<br><br>
+            <b>(HOD | Koor | User)</b> Dapat melihat riwayat jabatan apa saja yang pernah diikuti.
+        </p><br><br>
 
     </div>
 @endsection
