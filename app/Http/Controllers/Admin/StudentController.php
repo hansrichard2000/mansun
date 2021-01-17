@@ -46,7 +46,7 @@ class StudentController extends Controller
         ]);
         if ($request->photo != null) {
             $photo = $request->photo->getClientOriginalName() . '-' . time() . '.' . $request->photo->extension();
-            $request->photo->move(public_path('image/avatars'), $photo);
+            $request->photo->move(public_path('image/profile'), $photo);
 
             Student::create([
                 'nim' => $request->nim,
@@ -107,18 +107,20 @@ class StudentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Student $student
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request, $id)
     {
+        $student = Student::all()->where('student_id', $id)->first();
+//        dd($);
         $request->validate([
             'photo' => 'image|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         if ($request->photo != null) {
             $photo = $request->photo->getClientOriginalName() . '-' . time() . '.' . $request->photo->extension();
-            $request->photo->move(public_path('image/avatars'), $photo);
+            $request->photo->move(public_path('image/profile'), $photo);
 
             $student->update([
                 'nim' => $request->nim,
@@ -158,6 +160,8 @@ class StudentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $student = Student::all()->where('student_id', $id)->first();
+        $student->delete();
+        return redirect()->route('admin.student.index');
     }
 }

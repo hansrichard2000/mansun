@@ -41,4 +41,6 @@ class Lecturer extends Model
     public function title(){
         return $this->belongsTo(Title::class, 'title_id', 'title_id');
     }
+
+    public $primaryKey = 'lecturer_id';
 }

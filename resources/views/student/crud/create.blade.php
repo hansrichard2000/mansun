@@ -10,7 +10,7 @@
 
 @section('content')
     <div class="container-fluid">
-        <form method="POST" action="{{route('admin.student.store')}}">
+        <form method="POST" action="{{route('admin.student.store')}}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="nama">Nama : </label>
