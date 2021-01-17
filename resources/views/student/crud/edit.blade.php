@@ -10,7 +10,7 @@
 
 @section('content')
     <div class="container-fluid">
-        <form method="POST" action="{{route('admin.student.update', $student->student_id)}}">
+        <form method="POST" action="{{route('admin.student.update', $student->student_id)}}" enctype="multipart/form-data">
             <input type="hidden" name="_method" value="PATCH">
             @csrf
             <div class="form-group">
