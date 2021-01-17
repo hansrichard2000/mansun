@@ -38,6 +38,8 @@ Route::group([
     'as' => 'admin.',
 ], function(){
     Route::get('user/search', [UserController::class, 'search'])->name('user.search');
+    Route::get('lecturer/search', [LecturerController::class, 'search'])->name('lecturer.search');
+    Route::get('student/search', [StudentController::class, 'search'])->name('student.search');
     Route::get('proker/create/{proker}', [ProkerController::class, 'createProker'])->name('proker.createProker');
 
     Route::post('user/suspend', [UserController::class, 'suspend'])->name('user.suspend');

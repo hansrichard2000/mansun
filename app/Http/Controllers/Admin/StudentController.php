@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Department;
 use App\Models\Student;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -18,6 +21,20 @@ class StudentController extends Controller
     {
         $students = Student::all();
         return view('student.index', compact('students'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        $students_temp = DB::select("SELECT * FROM students s WHERE UPPER(s.`name`) LIKE UPPER('%".$request->keyword."%');");
+        $students = Student::hydrate($students_temp);
+        //hydrate buat casting hasil query ke dalam bentuk model
+        return view('student.index',compact('students'));
     }
 
     /**
