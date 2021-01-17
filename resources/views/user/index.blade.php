@@ -5,7 +5,7 @@
 @endsection
 
 @section('judul-top')
-    User Management
+    User Management <p style="color: red">(Admin Mode)</p>
 @endsection
 
 @section('content')

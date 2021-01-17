@@ -5,7 +5,7 @@
 @endsection
 
 @section('judul-top')
-    Tambah User
+    Tambah User <p style="color: red">(Admin Mode)</p>
 @endsection
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
