@@ -35,7 +35,7 @@
             </div>
             <div class="form-group">
                 <label for="judul">Judul Tugas : </label>
-                <input type="text" class="form-control" value="{{$task->judul}}" id="judul" name="judul" placeholder="Input nama program kerja yang akan diisi...">
+                <input type="text" class="form-control" value="{{$task->judul}}" id="judul" name="judul" placeholder="Input nama program kerja yang akan diisi..." required>
             </div>
             <div class="form-group">
                 <label for="deskripsi">Deskripsi : </label>
@@ -43,7 +43,7 @@
             </div>
             <div class="form-group">
                 <label for="deadline">Tenggat Waktu : </label>
-                <input type="date" class="form-control" value="{{$task->deadline}}" id="deadline" name="deadline">
+                <input type="date" class="form-control" value="{{$task->deadline}}" id="deadline" name="deadline" required>
             </div>
             <div class="form-group">
                 <label for="link_hasil_kerja">Link Hasil Kerja : </label>
