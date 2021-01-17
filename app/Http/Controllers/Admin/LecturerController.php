@@ -6,8 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Department;
 use App\Models\Jaka;
 use App\Models\Lecturer;
+use App\Models\Student;
 use App\Models\Title;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LecturerController extends Controller
 {
@@ -20,6 +22,20 @@ class LecturerController extends Controller
     {
         $lecturers = Lecturer::all();
         return view('lecturer.index', compact('lecturers'));
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+        $lecturers_temp = DB::select("SELECT * FROM lecturers l WHERE UPPER(l.`name`) LIKE UPPER('%".$request->keyword."%');");
+        $lecturers = Lecturer::hydrate($lecturers_temp);
+        //hydrate buat casting hasil query ke dalam bentuk model
+        return view('lecturer.index',compact('lecturers'));
     }
 
     /**
