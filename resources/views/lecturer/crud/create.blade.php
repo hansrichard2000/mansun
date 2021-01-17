@@ -14,19 +14,19 @@
             @csrf
             <div class="form-group">
                 <label for="nama">Nama : </label>
-                <input type="text" class="form-control" id="nama" name="name" placeholder="Input nama dosen">
+                <input type="text" class="form-control" id="nama" name="name" placeholder="Input nama dosen" required>
             </div>
             <div class="form-group">
                 <label for="nip">NIP : </label>
-                <input type="text" class="form-control" id="nip" name="nip" placeholder="Input nomor induk pengajar">
+                <input type="text" class="form-control" id="nip" name="nip" placeholder="Input nomor induk pengajar" required>
             </div>
             <div class="form-group">
                 <label for="nim">NIDN : </label>
-                <input type="text" class="form-control" id="nidn" name="nidn" placeholder="Input nomor induk dosen nasional">
+                <input type="text" class="form-control" id="nidn" name="nidn" placeholder="Input nomor induk dosen nasional" required>
             </div>
             <div class="form-group">
                 <label for="gender">Jenis Kelamin : </label><br>
-                <input type="radio" id="L" name="gender" value="L">
+                <input type="radio" id="L" name="gender" value="L" required>
                 <label for="L">Laki-laki</label><br>
                 <input type="radio" id="P" name="gender" value="P">
                 <label for="P">Perempuan</label><br>
@@ -49,7 +49,7 @@
             </div>
             <div class="form-group">
                 <label for="photo">Foto : </label>
-                <input type="file" class="form-control-file" id="photo" name="photo">
+                <input type="file" class="form-control-file" id="photo" name="photo" required>
             </div>
             <div class="form-group">
                 <label for="department">Jurusan : </label><br>
