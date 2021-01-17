@@ -42,22 +42,12 @@ class StudentController extends Controller
 
         //cek photo
         $request->validate([
-            'gambar_proker' => 'image|mimes:jpeg,png,jpg,gif,svg',
+            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg',
         ]);
-
-        if ($request->photo == null) {
-            $photo = $request->photo;
-        }else{
+        if ($request->photo != null) {
             $photo = $request->photo->getClientOriginalName() . '-' . time() . '.' . $request->photo->extension();
             $request->photo->move(public_path('image/avatars'), $photo);
-        }
 
-        //cek deskripsi
-        if($request->description == null){
-            $description = "Tidak ada keterangan";
-        }else{
-            $description = $request->description;
-        }
             Student::create([
                 'nim' => $request->nim,
                 'name' => $request->name,
@@ -70,6 +60,21 @@ class StudentController extends Controller
                 'photo' => $photo,
                 'department_id' => $request->department_id,
             ]);
+
+        }else{
+
+            Student::create([
+                'nim' => $request->nim,
+                'name' => $request->name,
+                'gender' => $request->gender,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'line_account' => $request->line_account,
+                'batch' => $request->batch,
+                'description' => $request->description,
+                'department_id' => $request->department_id,
+                ]);
+        }
 
             return redirect()->route('admin.student.index');
     }
@@ -93,21 +98,56 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        $student = Student::find($id);
+        $student = Student::Where('student_id', $id)->first();
         $departments = Department::all();
-        return view('student.crud.create', compact('departments'));
+        return view('student.crud.edit', compact('departments', 'student'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Student $student
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Student $student)
     {
-        //
+        $request->validate([
+            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
+
+        if ($request->photo != null) {
+            $photo = $request->photo->getClientOriginalName() . '-' . time() . '.' . $request->photo->extension();
+            $request->photo->move(public_path('image/avatars'), $photo);
+
+            $student->update([
+                'nim' => $request->nim,
+                'name' => $request->name,
+                'gender' => $request->gender,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'line_account' => $request->line_account,
+                'batch' => $request->batch,
+                'description' => $request->description,
+                'photo' => $photo,
+                'department_id' => $request->department_id,
+            ]);
+
+        }else{
+
+            $student->update([
+                'nim' => $request->nim,
+                'name' => $request->name,
+                'gender' => $request->gender,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'line_account' => $request->line_account,
+                'batch' => $request->batch,
+                'description' => $request->description,
+                'department_id' => $request->department_id,
+            ]);
+        }
+        return redirect()->route('admin.student.index');
     }
 
     /**
