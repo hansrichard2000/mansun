@@ -49,7 +49,9 @@
                             @foreach($anggotas as $anggota)
                                 @if($anggota->user['id'] == \Illuminate\Support\Facades\Auth::user()->id)
                                     @if($anggota->role['id'] == 1)
+                                        @if(strtolower($member->nama_divisi) != "hod")
                                         <th scope="col">Action</th>
+                                        @endif
                                     @endif
                                 @endif
                             @endforeach
@@ -85,21 +87,22 @@
                             @if($anggota->user['id'] == \Illuminate\Support\Facades\Auth::user()->id)
                                 @if($anggota->role['id'] == 1)
 
-                                    @foreach($members as $member)
+                                    @foreach($members as $member_temp)
 
                                         <tr class="text-center">
-                                            <td>{{$member->user->id}}</td>
-                                            <td>{{$member->user->student['name']}}</td>
-                                            <td>{{$member->user->email}}</td>
-                                            <td>{{$member->role->role}}</td>
-
+                                            <td>{{$member_temp->user->id}}</td>
+                                            <td>{{$member_temp->user->student['name']}}</td>
+                                            <td>{{$member_temp->user->email}}</td>
+                                            <td>{{$member_temp->role->role}}</td>
+                                            @if(strtolower($member->nama_divisi) != "hod")
                                             <td>
-                                                <form action="{{route('user.role.destroy', $member->id)}}" method="POST">
+                                                <form action="{{route('user.role.destroy', $member_temp->id)}}" method="POST">
                                                     {{ csrf_field() }}
                                                     <input name="_method" type="hidden" value="DELETE">
                                                     <button type="submit" class="btn btn-danger text-white" title="Delete this user" style="border-radius: 50%"><i class="fas fa-trash" aria-hidden="true" style="color: #ffffff"></i></button>
                                                 </form>
                                             </td>
+                                            @endif
 
                                         </tr>
                                     @endforeach
