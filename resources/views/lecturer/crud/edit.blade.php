@@ -72,25 +72,25 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="department">Gelar : </label><br>
-                <select class="form-select" id="department" name="title_id" aria-label="Floating label select example">
+                <label for="gelar">Gelar : </label><br>
+                <select class="form-select" id="gelar" name="title_id" aria-label="Floating label select example">
                     @foreach($titles as $title)
-                        @if($department->department_id == $lecturer->department_id)
-                            <option value="{{$department->department_id}}" selected>{{$department->initial}} ({{$department->name}})</option>
+                        @if($title->title_id == $lecturer->title_id)
+                            <option value="{{$title->title_id}}" selected>{{$title->name}}</option>
                         @else
-                            <option value="{{$department->department_id}}">{{$department->initial}} ({{$department->name}})</option>
+                            <option value="{{$title->title_id}}">{{$title->name}}</option>
                         @endif
                     @endforeach
                 </select>
             </div>
             <div class="form-group">
-                <label for="department">Jurusan : </label><br>
-                <select class="form-select" id="department" name="department_id" aria-label="Floating label select example">
-                    @foreach($departments as $department)
-                        @if($department->department_id == $lecturer->department_id)
-                            <option value="{{$department->department_id}}" selected>{{$department->initial}} ({{$department->name}})</option>
+                <label for="jaka">Jabatan Akademik : </label><br>
+                <select class="form-select" id="jaka" name="jaka_id" aria-label="Floating label select example">
+                    @foreach($jakas as $jaka)
+                        @if($jaka->jaka_id == $lecturer->jaka_id)
+                            <option value="{{$jaka->jaka_id}}" selected>{{$jaka->name}}</option>
                         @else
-                            <option value="{{$department->department_id}}">{{$department->initial}} ({{$department->name}})</option>
+                            <option value="{{$jaka->jaka_id}}">{{$jaka->name}}</option>
                         @endif
                     @endforeach
                 </select>

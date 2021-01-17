@@ -126,7 +126,48 @@ class LecturerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $lecturer = Lecturer::all()->where('lecturer_id', $id)->first();
+//        dd($);
+        $request->validate([
+            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
+
+        if ($request->photo != null) {
+            $photo = $request->photo->getClientOriginalName() . '-' . time() . '.' . $request->photo->extension();
+            $request->photo->move(public_path('image/profile'), $photo);
+
+            $lecturer->update([
+                'nip' => $request->nip,
+                'nidn' => $request->nidn,
+                'name' => $request->name,
+                'gender' => $request->gender,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'line_account' => $request->line_account,
+                'description' => $request->description,
+                'photo' => $photo,
+                'department_id' => $request->department_id,
+                'title_id' => $request->title_id,
+                'jaka_id' => $request->jaka_id,
+            ]);
+
+        }else{
+
+            $lecturer->update([
+                'nip' => $request->nip,
+                'nidn' => $request->nidn,
+                'name' => $request->name,
+                'gender' => $request->gender,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'line_account' => $request->line_account,
+                'description' => $request->description,
+                'department_id' => $request->department_id,
+                'title_id' => $request->title_id,
+                'jaka_id' => $request->jaka_id,
+            ]);
+        }
+        return redirect()->route('admin.lecturer.index');
     }
 
     /**
@@ -137,6 +178,8 @@ class LecturerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $lecturer = Lecturer::all()->where('lecturer_id', $id)->first();
+        $lecturer->delete();
+        return redirect()->route('admin.lecturer.index');
     }
 }
