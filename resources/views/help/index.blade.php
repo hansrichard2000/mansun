@@ -18,19 +18,165 @@
     <br>
     <br>
 
-    Beranda<br>
+    Beranda<br><br>
+
+
+
     -	Di halaman ini, anda dapat melihat sejumlah periode yang hanya bisa dilihat Ketika anda meupakan salah satu pengurus dari proker di periode tersebut, dan beberapa tombol untuk menavigasikan ke halaman lain.
 
     <br>
     <br>
 
-    Halaman Periode<br>
+    Halaman Periode<br><br>
+
+        <table class="table table-striped">
+            <thead class="table-dark">
+            <tr>
+                <th scope="col" colspan="5">
+                    Permission
+                </th>
+            </tr>
+
+            <tr>
+                <th></th>
+                <th scope="row">Admin</th>
+                <th>HOD</th>
+                <th>Koor</th>
+                <th>User</th>
+            </tr>
+            </thead>
+
+            <tr>
+                <th scope="col">C</th>
+                <td scope="col" >
+                    &#10003
+                </td>
+
+                <td scope="col">
+
+                </td>
+
+                <td scope="col">
+
+                </td>
+
+                <td scope="col">
+
+                </td>
+            </tr>
+
+            <tr>
+                <th>R</th>
+                <td scope="col">
+                    &#10003
+                </td>
+                <td scope="col">
+                    &#10003
+                </td>
+                <td scope="col">
+                    &#10003
+                </td>
+                <td scope="col">
+                    &#10003
+                </td>
+            </tr>
+
+            <tr>
+                <th>U</th>
+                <td scope="col">
+
+                </td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+            </tr>
+
+            <tr>
+                <th>D</th>
+                <td scope="col"></td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+            </tr>
+        </table>
     -	Jika anda menekan gambar periode, maka secara langsung akan diarahkan ke halaman Periode, dan anda dapat melihat list proker apa saja yang ada di periode tersebut. Seperti Periode, anda hanya dapat melihat proker yang anda ikuti.
 
     <br>
     <br>
 
-    Halaman Proker<br>
+    Halaman Proker<br><br>
+
+        <table class="table table-striped">
+            <thead class="table-dark">
+            <tr>
+                <th scope="col" colspan="5">
+                    Permission
+                </th>
+            </tr>
+
+            <tr>
+                <th></th>
+                <th scope="row">Admin</th>
+                <th>HOD</th>
+                <th>Koor</th>
+                <th>User</th>
+            </tr>
+            </thead>
+
+            <tr>
+                <th scope="col">C</th>
+                <td scope="col" >
+                    &#10003
+                </td>
+
+                <td scope="col">
+                    &#10003
+                </td>
+
+                <td scope="col">
+                    &#10003
+                </td>
+
+                <td scope="col">
+
+                </td>
+            </tr>
+
+            <tr>
+                <th>R</th>
+                <td scope="col">
+                    &#10003
+                </td>
+                <td scope="col">
+                    &#10003
+                </td>
+                <td scope="col">
+                    &#10003
+                </td>
+                <td scope="col">
+                    &#10003
+                </td>
+            </tr>
+
+            <tr>
+                <th>U</th>
+                <td scope="col">
+                    &#10003
+                </td>
+                <td scope="col">&#10003</td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+            </tr>
+
+            <tr>
+                <th>D</th>
+                <td scope="col"></td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+            </tr>
+        </table>
+
     -	Jika anda menekan salah satu proker, maka anda akan diarahkan ke halaman Proker, dimana dapat melihat detail-detail Proker tersebut.<br>
     -	Anda dapat melihat deksripsi Proker tersebut dan melihat list divisi yang anda ikuti.<br>
     -	Khusus HOD dan Admin, mereka dapat melihat seluruh list divisi, setiap tugas-tugasnya, dan list anggota divisi tersebut.<br>
@@ -40,6 +186,77 @@
     <br>
 
     Halaman Daftar Anggota<br>
+
+        <table class="table table-striped">
+            <thead class="table-dark">
+            <tr>
+                <th scope="col" colspan="5">
+                    Permission
+                </th>
+            </tr>
+
+            <tr>
+                <th></th>
+                <th scope="row">Admin</th>
+                <th>HOD</th>
+                <th>Koor</th>
+                <th>User</th>
+            </tr>
+            </thead>
+
+            <tr>
+                <th scope="col">C</th>
+                <td scope="col" >
+                    &#10003
+                </td>
+
+                <td scope="col">
+                    &#10003
+                </td>
+
+                <td scope="col">
+                    &#10003
+                </td>
+
+                <td scope="col">
+
+                </td>
+            </tr>
+
+            <tr>
+                <th>R</th>
+                <td scope="col">
+                    &#10003
+                </td>
+                <td scope="col">
+                    &#10003
+                </td>
+                <td scope="col">
+                    &#10003
+                </td>
+                <td scope="col">
+                    &#10003
+                </td>
+            </tr>
+
+            <tr>
+                <th>U</th>
+                <td scope="col">
+                </td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+            </tr>
+
+            <tr>
+                <th>D</th>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+                <td scope="col"></td>
+            </tr>
+        </table>
+
     -	Di halaman ini, anda dapat melihat list anggota.<br>
     -	Khusus Admin, HOD, dan Koor, dapat menambahkan dan mengeluarkan Anggota dari divisi sendiri.
 
@@ -47,6 +264,77 @@
     <br>
 
     Halaman Daftar Tugas<br>
+
+        <table class="table table-striped">
+            <thead class="table-dark">
+            <tr>
+                <th scope="col" colspan="5">
+                    Permission
+                </th>
+            </tr>
+
+            <tr>
+                <th></th>
+                <th scope="row">Admin</th>
+                <th>HOD</th>
+                <th>Koor</th>
+                <th>User</th>
+            </tr>
+            </thead>
+
+            <tr>
+                <th scope="col">C</th>
+                <td scope="col" >
+                    &#10003
+                </td>
+
+                <td scope="col">
+                    &#10003
+                </td>
+
+                <td scope="col">
+                    &#10003
+                </td>
+
+                <td scope="col">
+
+                </td>
+            </tr>
+
+            <tr>
+                <th>R</th>
+                <td scope="col">
+                    &#10003
+                </td>
+                <td scope="col">
+                    &#10003
+                </td>
+                <td scope="col">
+                    &#10003
+                </td>
+                <td scope="col">
+                    &#10003
+                </td>
+            </tr>
+
+            <tr>
+                <th>U</th>
+                <td scope="col">
+                    &#10003
+                </td>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+            </tr>
+
+            <tr>
+                <th>D</th>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+                <td scope="col">&#10003</td>
+                <td scope="col"></td>
+            </tr>
+        </table>
     -	Di halaman ini, anda dapat melihat list tugas-tugas yang tanggung jawabnya di anda. Teruntuk Koor, anda dapat secara cepat meng-approve dan me-reject tugas anggota.<br>
     -	Khusus Admin, anda dapat melihat semua list tugas proker di halaman ini, dan memiliki permission yang sama dengan Koor.<br>
     -	Khusus HOD, memiliki permission yang sama dengan Koor, tetapi bisa melihat semua tugas yang anda merupakan HOD di proker tersebut.
@@ -55,6 +343,76 @@
     <br>
 
     Halaman User Management<br>
+        <table class="table table-striped">
+            <thead class="table-dark">
+            <tr>
+                <th scope="col" colspan="5">
+                    Permission
+                </th>
+            </tr>
+
+            <tr>
+                <th></th>
+                <th scope="row">Admin</th>
+                <th>HOD</th>
+                <th>Koor</th>
+                <th>User</th>
+            </tr>
+            </thead>
+
+            <tr>
+                <th scope="col">C</th>
+                <td scope="col" >
+                    &#10003
+                </td>
+
+                <td scope="col">
+
+                </td>
+
+                <td scope="col">
+
+                </td>
+
+                <td scope="col">
+
+                </td>
+            </tr>
+
+            <tr>
+                <th>R</th>
+                <td scope="col">
+                    &#10003
+                </td>
+                <td scope="col">
+
+                </td>
+                <td scope="col">
+
+                </td>
+                <td scope="col">
+
+                </td>
+            </tr>
+
+            <tr>
+                <th>U</th>
+                <td scope="col">
+                    &#10003
+                </td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+            </tr>
+
+            <tr>
+                <th>D</th>
+                <td scope="col">&#10003</td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+            </tr>
+        </table>
     -	Halaman ini merupakan eksklusif untuk Admin, dimana para Admin dapat melihat semua User yang terdaftar di system.<br>
     -	Admin dapat melihat status user yang sedang login atau tidak.<br>
     -	Admin dapat menggunakan fitur Suspend dan Delete kepada user-user yang sudah terdaftar di User Management.
@@ -63,6 +421,75 @@
     <br>
 
     Halaman List Lecturer dan List Student<br>
+        <table class="table table-striped">
+            <thead class="table-dark">
+            <tr>
+                <th scope="col" colspan="5">
+                    Permission
+                </th>
+            </tr>
+
+            <tr>
+                <th></th>
+                <th scope="row">Admin</th>
+                <th>HOD</th>
+                <th>Koor</th>
+                <th>User</th>
+            </tr>
+            </thead>
+
+            <tr>
+                <th scope="col">C</th>
+                <td scope="col" >
+                    &#10003
+                </td>
+
+                <td scope="col">
+
+                </td>
+
+                <td scope="col">
+
+                </td>
+
+                <td scope="col">
+
+                </td>
+            </tr>
+
+            <tr>
+                <th>R</th>
+                <td scope="col">
+                    &#10003
+                </td>
+                <td scope="col">
+                </td>
+                <td scope="col">
+                </td>
+                <td scope="col">
+                </td>
+            </tr>
+
+            <tr>
+                <th>U</th>
+                <td scope="col">
+                    &#10003
+
+                </td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+            </tr>
+
+            <tr>
+                <th>D</th>
+                <td scope="col">                    &#10003
+                </td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+            </tr>
+        </table>
     -	Halaman ini hanya bisa diakses oleh Admin.<br>
     -	Admin dapat melihat list dosen/mahasiswa, dan memasukkan ke sistem Mansun (User Management)
 
@@ -70,6 +497,77 @@
     <br>
 
     Halaman Profil<br>
+
+        <table class="table table-striped">
+            <thead class="table-dark">
+            <tr>
+                <th scope="col" colspan="5">
+                    Permission
+                </th>
+            </tr>
+
+            <tr>
+                <th></th>
+                <th scope="row">Admin</th>
+                <th>HOD</th>
+                <th>Koor</th>
+                <th>User</th>
+            </tr>
+            </thead>
+
+            <tr>
+                <th scope="col">C</th>
+                <td scope="col" >
+
+                </td>
+
+                <td scope="col">
+
+                </td>
+
+                <td scope="col">
+
+                </td>
+
+                <td scope="col">
+
+                </td>
+            </tr>
+
+            <tr>
+                <th>R</th>
+                <td scope="col">
+                    &#10003
+                </td>
+                <td scope="col">
+                    &#10003
+                </td>
+                <td scope="col">
+                    &#10003
+                </td>
+                <td scope="col">
+                    &#10003
+                </td>
+            </tr>
+
+            <tr>
+                <th>U</th>
+                <td scope="col">
+
+                </td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+            </tr>
+
+            <tr>
+                <th>D</th>
+                <td scope="col"></td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+                <td scope="col"></td>
+            </tr>
+        </table>
 
     -	Di halaman Profil, Admin dapat melihat detail diri sendiri.<br>
     -	Untuk user / mahasiswa, di halaman profil dapat melihat Riwayat Jabatan apa saja yang sudah pernah diikuti.
