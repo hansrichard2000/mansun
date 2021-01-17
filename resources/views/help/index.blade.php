@@ -12,13 +12,13 @@
     <div class="container">
     <h1>ManSUn</h1>
 
-    Apa itu Mansun?<br>
+        <h2>Apa itu Mansun?</h2><br>
     -	Mansun merupakan projek yang menggabungkan website dan aplikasi untuk membantu para SU dalam pengaturan Student Union
 
     <br>
     <br>
 
-    Beranda<br><br>
+    <h2>Beranda</h2><br><br>
 
 
 
@@ -27,7 +27,7 @@
     <br>
     <br>
 
-    Halaman Periode<br><br>
+        <h2>Halaman Periode</h2><br><br>
 
         <table class="table table-striped">
             <thead class="table-dark">
@@ -104,7 +104,7 @@
     <br>
     <br>
 
-    Halaman Proker<br><br>
+        <h2>Halaman Proker</h2><br><br>
 
         <table class="table table-striped">
             <thead class="table-dark">
@@ -185,7 +185,7 @@
     <br>
     <br>
 
-    Halaman Daftar Anggota<br>
+        <h2>Halaman Daftar Anggota</h2><br><br>
 
         <table class="table table-striped">
             <thead class="table-dark">
@@ -263,7 +263,7 @@
     <br>
     <br>
 
-    Halaman Daftar Tugas<br>
+        <h2>Halaman Daftar Tugas</h2><br><br>
 
         <table class="table table-striped">
             <thead class="table-dark">
@@ -342,7 +342,7 @@
     <br>
     <br>
 
-    Halaman User Management<br>
+        <h2>Halaman User Management</h2><br><br>
         <table class="table table-striped">
             <thead class="table-dark">
             <tr>
@@ -420,7 +420,7 @@
     <br>
     <br>
 
-    Halaman List Lecturer dan List Student<br>
+        <h2>Halaman List Lecturer dan List Student</h2><br><br>
         <table class="table table-striped">
             <thead class="table-dark">
             <tr>
@@ -496,7 +496,7 @@
     <br>
     <br>
 
-    Halaman Profil<br>
+        <h2>Halaman Profil</h2><br><br>
 
         <table class="table table-striped">
             <thead class="table-dark">
