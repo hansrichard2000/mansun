@@ -20,6 +20,8 @@
                        aria-label="Search" name="keyword">
             </form>
 
+            <a href="#table_lect"><b><u>Go to Table Lecturers</u></b></a>
+
 {{--            Add button--}}
             <form method="GET" action="{{route('admin.user.create')}}">
                 <a class="btn bg-mansun-blue text-white btn-sm d-none d-sm-inline-block mr-5" role="button" href="{{route('admin.user.create')}}">&nbsp;Tambah User</a>
@@ -29,6 +31,7 @@
 {{--        TABEL MAHASISWA--}}
         <div class="d-sm-flex justify-content-between align-items-center mb-4">
             <h3 class="text-dark mb-0">Tabel Students</h3>
+            <b>Total students & lecturers : {{count($users)}}</b>
         </div>
 
         <table class="table table-hover" style="text-align: center">
@@ -182,7 +185,7 @@
         </table>
 
 {{--        TABEL DOSEN--}}
-        <div class="d-sm-flex justify-content-between align-items-center mb-4">
+        <div class="d-sm-flex justify-content-between align-items-center mb-4" id="table_lect">
             <h3 class="text-dark mb-0">Tabel Lecturers</h3>
         </div>
         <table class="table table-hover" style="text-align: center">

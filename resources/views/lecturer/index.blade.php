@@ -29,6 +29,7 @@
         {{--        TABEL DOSEN--}}
         <div class="d-sm-flex justify-content-between align-items-center mb-4">
             <h3 class="text-dark mb-0">Tabel Lecturers</h3>
+            <b>Total lecturers : {{count($lecturers)}}</b>
         </div>
         <table class="table table-hover" style="text-align: center">
             <thead class="thead-dark">

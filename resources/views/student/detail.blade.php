@@ -45,11 +45,19 @@
                             <form method="GET" action="{{route('admin.student.edit', $student->student_id)}}">
                                 <input class="btn bg-mansun-blue text-white" type="submit" name="submit" value="Edit">
                             </form>
+                            @if(\Illuminate\Support\Facades\Auth::user()->student_id == $student->student_id)
                             <form method="POST" action="{{route('admin.student.destroy', $student->student_id)}}">
                                 @csrf
                                 <input name="_method" type="hidden" value="DELETE">
-                                <input class="btn btn-danger text-white" type="submit" name="submit" value="Delete">
+                                <input class="btn btn-danger text-white" type="submit" name="submit" value="Delete" style="opacity: 25%;" disabled>
                             </form>
+                            @else
+                                <form method="POST" action="{{route('admin.student.destroy', $student->student_id)}}">
+                                    @csrf
+                                    <input name="_method" type="hidden" value="DELETE">
+                                    <input class="btn btn-danger text-white" type="submit" name="submit" value="Delete">
+                                </form>
+                            @endif
                         </div>
         </div>
     </div>
