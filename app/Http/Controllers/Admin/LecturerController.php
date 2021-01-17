@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Department;
+use App\Models\Jaka;
 use App\Models\Lecturer;
+use App\Models\Title;
 use Illuminate\Http\Request;
 
 class LecturerController extends Controller
@@ -26,7 +29,10 @@ class LecturerController extends Controller
      */
     public function create()
     {
-        //
+        $departments = Department::all();
+        $titles = Title::all();
+        $jakas = Jaka::all();
+        return view('lecturer.crud.create', compact('departments', 'titles', 'jakas'));
     }
 
     /**
@@ -37,7 +43,52 @@ class LecturerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        //cek photo
+        $request->validate([
+            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg',
+        ]);
+        if ($request->photo != null) {
+            $photo = $request->photo->getClientOriginalName() . '-' . time() . '.' . $request->photo->extension();
+            $request->photo->move(public_path('image/profile'), $photo);
+
+            Lecturer::create([
+                'nip' => $request->nip,
+                'nidn' => $request->nidn,
+                'name' => $request->name,
+                'gender' => $request->gender,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'line_account' => $request->line_account,
+                'batch' => $request->batch,
+                'description' => $request->description,
+                'photo' => $photo,
+                'department_id' => $request->department_id,
+                'title_id' => $request->title_id,
+                'jaka_id' => $request->jaka_id,
+            ]);
+
+        }else{
+
+            Lecturer::create([
+                'nip' => $request->nip,
+                'nidn' => $request->nidn,
+                'name' => $request->name,
+                'gender' => $request->gender,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'line_account' => $request->line_account,
+                'batch' => $request->batch,
+                'description' => $request->description,
+                'photo' => $photo,
+                'department_id' => $request->department_id,
+                'title_id' => $request->title_id,
+                'jaka_id' => $request->jaka_id,
+            ]);
+
+        }
+
+        return redirect()->route('admin.lecturer.index');
     }
 
     /**
@@ -59,7 +110,11 @@ class LecturerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $lecturer = Lecturer::Where('lecturer_id', $id)->first();
+        $departments = Department::all();
+        $titles = Title::all();
+        $jakas = Jaka::all();
+        return view('lecturer.crud.edit', compact('departments', 'titles', 'jakas', 'lecturer'));
     }
 
     /**
