@@ -13,13 +13,13 @@ class CreatePeriodesTable extends Migration
      */
     public function up()
     {
-        Schema::create('periodes', function (Blueprint $table) {
+        Schema::create('mansun_periodes', function (Blueprint $table) {
             $table->id();
-            $table->string('tahun_periode', 20);
+            $table->string('tahun_periode', 20)->unique();
             $table->text('gambar_periode')->nullable();
-            $table->string('nilai', 5);
+            $table->string('nilai', 5)->default(0);
             $table->unsignedBigInteger('created_by');
-            $table->foreign('created_by')->references('id')->on('users');
+            $table->foreign('created_by')->references('id')->on('mansun_users');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreatePeriodesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('periodes');
+        Schema::dropIfExists('mansun_periodes');
     }
 }

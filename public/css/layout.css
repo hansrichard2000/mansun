@@ -1,0 +1,33 @@
+.garisKuning{
+    border-color: #FFC42D;
+}
+
+.logo{
+    width: 3em;
+    height: 3em;
+}
+
+.last-page{
+    margin-left: 25%;
+}
+
+.content-inside{
+    margin-top: 10rem;
+    width: 100%;
+}
+
+.daftar-periode{
+    width: 25em;
+}
+
+.daftar-proker{
+    width: 25em;
+}
+
+.bg-mansun-blue{
+    background-color: #1789FC;
+}
+
+#testing{
+    position: fixed;
+}

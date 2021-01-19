@@ -13,21 +13,22 @@ class CreateProkersTable extends Migration
      */
     public function up()
     {
-        Schema::create('prokers', function (Blueprint $table) {
+        Schema::create('mansun_prokers', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 50);
+            $table->string('nama_proker', 50);
             $table->unsignedBigInteger('periode_id');
-            $table->foreign('periode_id')->references('id')->on('periodes');
+            $table->foreign('periode_id')->references('id')->on('mansun_periodes');
             $table->text('deskripsi_proker');
             $table->date('tanggal_mulai');
             $table->date('tanggal_akhir');
-            $table->integer('pemasukkan');
-            $table->integer('pengeluaran');
-            $table->string('medsos');
-            $table->text('proposal');
-            $table->text('lpj');
+            $table->integer('pemasukan')->nullable();
+            $table->integer('pengeluaran')->nullable();
+            $table->string('medsos')->nullable();
+            $table->text('proposal')->nullable();
+            $table->text('lpj')->nullable();
+            $table->text('gambar_proker')->nullable();
             $table->unsignedBigInteger('created_by');
-            $table->foreign('created_by')->references('id')->on('users');
+            $table->foreign('created_by')->references('id')->on('mansun_users');
             $table->timestamps();
         });
     }
@@ -39,6 +40,6 @@ class CreateProkersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('prokers');
+        Schema::dropIfExists('mansun_prokers');
     }
 }
