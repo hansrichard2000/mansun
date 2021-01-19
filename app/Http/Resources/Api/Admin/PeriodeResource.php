@@ -17,6 +17,7 @@ class PeriodeResource extends JsonResource
         return [
             'id' => $this->id,
             'tahun_periode' => $this->tahun_periode,
+            'gambar_periode' => $this->gambar_periode,
             'nilai' => $this->nilai,
             'created_by' => $this->creator->id,
         ];
