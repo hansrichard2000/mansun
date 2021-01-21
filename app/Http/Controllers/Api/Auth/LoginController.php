@@ -73,7 +73,7 @@ class LoginController extends Controller
                         if (Auth::attempt($user)) {
 //                            dd($user);
                             $this->isLogin(Auth::id());
-                            $response = $http->post('http://mansun.test/oauth/token', [
+                            $response = $http->post('http://hansrichard2000.c1.biz/mansun/public/oauth/token', [
                                 'form_params' => [
                                     'grant_type' => 'password',
                                     'client_id' => $this->client->id,
@@ -100,7 +100,7 @@ class LoginController extends Controller
                     if($check->is_login == '0'){
                         if (Auth::attempt($member)){
                             $this->isLogin(Auth::id());
-                            $response = $http->post('http://mansun.test/oauth/token', [
+                            $response = $http->post('http://hansrichard2000.c1.biz/mansun/public/oauth/token', [
                                 'form_params' => [
                                     'grant_type' => 'password',
                                     'client_id' => $this->client->id,
@@ -167,7 +167,7 @@ class LoginController extends Controller
 
         $http = new \GuzzleHttp\Client;
 
-        $response = $http->post('http://mansun.test/oauth/token', [
+        $response = $http->post('http://hansrichard2000.c1.biz/mansun/public/oauth/token', [
             'form_params' => [
                 'grant_type' => 'refresh_token',
                 'client_id' => $this->client->id,
