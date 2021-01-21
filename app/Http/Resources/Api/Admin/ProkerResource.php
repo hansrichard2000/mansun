@@ -28,6 +28,7 @@ class ProkerResource extends JsonResource
             'medsos' => $this->medsos,
             'proposal' => $this->proposal,
             'lpj' => $this->lpj,
+            'gambar_proker' => $this->gambar_proker,
             'created_by' => $this->created_by,
         ];
     }
