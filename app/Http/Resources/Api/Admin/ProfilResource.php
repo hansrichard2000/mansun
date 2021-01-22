@@ -19,6 +19,7 @@ class ProfilResource extends JsonResource
             'name' => $this->name,
             'email' => $this->email,
             'nim' => $this->nim,
+            'nip' => $this->nip,
             'photo' => $this->photo,
             'departement_name' => $this->department['name'],
         ];
